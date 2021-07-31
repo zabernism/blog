@@ -484,6 +484,54 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/05%20%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/">
+        输入输出
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        读取输入Scanner 类文件输入12// 如果是 win 系统，使用双反斜杠，&quot;c:\\mydirectory\\myfile.txt&quot; ，每个 \ 需要额外的一个 \。Scanner scan = new Scanner(Paths.get(&quot;myfile.txt&quot;)，&quot;UTF-8&quot;);
+
+标准输入1Scanner in = n...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/01%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/">01基本设计</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/05%20%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
       <a href="/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/04%20%E8%BF%90%E7%AE%97%E7%AC%A6/">
         运算符
       </a>
@@ -606,17 +654,39 @@ do while
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/05%20%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/">
-        输入输出
+      <a href="/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/01%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+        数据类型
       </a>
     </h2>
   
   <div class='md'>
     
       
-        读取输入Scanner 类文件输入12// 如果是 win 系统，使用双反斜杠，&quot;c:\\mydirectory\\myfile.txt&quot; ，每个 \ 需要额外的一个 \。Scanner scan = new Scanner(Paths.get(&quot;myfile.txt&quot;)，&quot;UTF-8&quot;);
+        
+数据类型分为基本类型和对象类型
 
-标准输入1Scanner in = n...
+基本类型java中的基本类型有8种，其中4种整型、2种浮点型、char和boolean。还有void和reference类型
+
+1、java的基本类型值存储在内存栈上
+2、基本类型所占空间大小固定
+3、所有数值类型都有正负号
+
+整型
+
+
+类型
+包装类
+存储需求
+取值范围
+零值
+备注
+
+
+
+long
+Long
+8 字节 64 bits
+-2^63 ~ +2^...
       
     
   </div>
@@ -632,7 +702,7 @@ do while
       </div>
       
         <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/05%20%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/'>
+          <a class='readmore' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/01%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/'>
             Read More
           </a>
         </div>
@@ -685,76 +755,6 @@ java 8 -char数组
       
         <div>
           <a class='readmore' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/02%20%E5%AD%97%E7%AC%A6%E4%B8%B2/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/01%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
-        数据类型
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        
-数据类型分为基本类型和对象类型
-
-基本类型java中的基本类型有8种，其中4种整型、2种浮点型、char和boolean。还有void和reference类型
-
-1、java的基本类型值存储在内存栈上
-2、基本类型所占空间大小固定
-3、所有数值类型都有正负号
-
-整型
-
-
-类型
-包装类
-存储需求
-取值范围
-零值
-备注
-
-
-
-long
-Long
-8 字节 64 bits
--2^63 ~ +2^...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/01%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/">01基本设计</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/01%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/'>
             Read More
           </a>
         </div>
