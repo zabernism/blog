@@ -1,0 +1,1839 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <link rel="preload" href="/code-xiaozhuang.github.io/css/first.css" as="style">
+  
+
+  <!-- 页面元数据 -->
+  
+  <title>MyBatis-Plus学习 - 灵魂有香气a</title>
+  
+    <meta name="keywords" content="随笔,MyBatis-Plus">
+  
+
+  
+    <meta name="description" content="MyBatis-Plus（简称 MP）是一个 MyBatis 的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生。">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/code-xiaozhuang.github.io/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/code-xiaozhuang.github.io/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/code-xiaozhuang.github.io/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+
+  
+<script>
+if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
+    document.write(
+	'<style>'+
+		'html{'+
+			'overflow-x: hidden !important;'+
+			'overflow-y: hidden !important;'+
+		'}'+
+		'.kill-ie{'+
+			'text-align:center;'+
+			'height: 100%;'+
+			'margin-top: 15%;'+
+			'margin-bottom: 5500%;'+
+		'}'+
+	'</style>'+
+    '<div class="kill-ie">'+
+        '<h1><b>抱歉，您的浏览器无法访问本站</b></h1>'+
+        '<h3>微软已经于2016年终止了对 Internet Explorer (IE) 10 及更早版本的支持，<br/>'+
+        '继续使用存在极大的安全隐患，请使用当代主流的浏览器进行访问。</h3><br/>'+
+        '<a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/WindowsForBusiness/End-of-IE-support"><strong>了解详情 ></strong></a>'+
+    '</div>');
+</script>
+
+
+<noscript>
+	<style>
+		html{
+			overflow-x: hidden !important;
+			overflow-y: hidden !important;
+		}
+		.kill-noscript{
+			text-align:center;
+			height: 100%;
+			margin-top: 15%;
+			margin-bottom: 5500%;
+		}
+	</style>
+    <div class="kill-noscript">
+        <h1><b>抱歉，您的浏览器无法访问本站</b></h1>
+        <h3>本页面需要浏览器支持（启用）JavaScript</h3><br/>
+        <a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=启用JavaScript"><strong>了解详情 ></strong></a>
+    </div>
+</noscript>
+
+</head>
+
+  <body>
+    
+
+<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/code-xiaozhuang.github.io/'>
+          
+            <img no-lazy class='logo' src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png'/>
+          
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/code-xiaozhuang.github.io/
+                  
+                  
+                  
+                    id="code-xiaozhuanggithubio"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/code-xiaozhuang.github.io/categories/
+                  
+                  
+                  
+                    id="code-xiaozhuanggithubiocategories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/code-xiaozhuang.github.io/tags/
+                  
+                  
+                  
+                    id="code-xiaozhuanggithubiotags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/code-xiaozhuang.github.io/archives/
+                  
+                  
+                  
+                    id="code-xiaozhuanggithubioarchives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/code-xiaozhuang.github.io/friends/
+                  
+                  
+                  
+                    id="code-xiaozhuanggithubiofriends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/code-xiaozhuang.github.io/about/
+                  
+                  
+                  
+                    id="code-xiaozhuanggithubioabout"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/code-xiaozhuang.github.io/
+                  
+                  
+                  
+                    id="code-xiaozhuanggithubio"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/code-xiaozhuang.github.io/categories/
+                  
+                  
+                  
+                    id="code-xiaozhuanggithubiocategories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/code-xiaozhuang.github.io/tags/
+                  
+                  
+                  
+                    id="code-xiaozhuanggithubiotags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/code-xiaozhuang.github.io/archives/
+                  
+                  
+                  
+                    id="code-xiaozhuanggithubioarchives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/code-xiaozhuang.github.io/friends/
+                  
+                  
+                  
+                    id="code-xiaozhuanggithubiofriends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/code-xiaozhuang.github.io/about/
+                  
+                  
+                  
+                    id="code-xiaozhuanggithubioabout"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+    <div id="l_body">
+      <div id="l_cover">
+  
+    
+        <div id="half" class='cover-wrapper post search' style="display: ;">
+          
+            <div class='cover-bg lazyload placeholder' data-bg="https://bing.ioliu.cn/v1/rand?w=1920&h=1200"></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+    
+      <p class="title">灵魂有香气a</p>
+    
+    
+  </div>
+  <div class='bottom'>
+    
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <input type="text" class="input u-search-input" placeholder="" />
+          <i class="icon fas fa-search fa-fw"></i>
+        </form>
+      </div>
+    
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+      <div id="safearea">
+        <div class="body-wrapper" id="pjax-container">
+          
+
+<div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        MyBatis-Plus学习
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="">
+    <p>张帅</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/code-xiaozhuang.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Jul 27, 2021</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="MyBatis-Plus学习" data-path="/code-xiaozhuang.github.io/2021/07/27/06%20%E6%95%B0%E6%8D%AE%E5%BA%93/02%20MyBatis/MyBatis-plus/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  
+  <p><a target="_blank" rel="noopener" href="https://github.com/baomidou/mybatis-plus">MyBatis-Plus</a>（简称 MP）是一个 <a target="_blank" rel="noopener" href="http://www.mybatis.org/mybatis-3/">MyBatis</a> 的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生。</p>
+<span id="more"></span>
+
+<h1 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h1><h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><ul>
+<li><strong>无侵入</strong>：只做增强不做改变，引入它不会对现有工程产生影响，如丝般顺滑</li>
+<li><strong>损耗小</strong>：启动即会自动注入基本 CURD，性能基本无损耗，直接面向对象操作</li>
+<li><strong>强大的 CRUD 操作</strong>：内置通用 Mapper、通用 Service，仅仅通过少量配置即可实现单表大部分 CRUD 操作，更有强大的条件构造器，满足各类使用需求</li>
+<li><strong>支持 Lambda 形式调用</strong>：通过 Lambda 表达式，方便的编写各类查询条件，无需再担心字段写错</li>
+<li><strong>支持多种数据库</strong>：支持 MySQL、MariaDB、Oracle、DB2、H2、HSQL、SQLite、Postgre、SQLServer2005、SQLServer 等多种数据库</li>
+<li><strong>支持主键自动生成</strong>：支持多达 4 种主键策略（内含分布式唯一 ID 生成器 - Sequence），可自由配置，完美解决主键问题</li>
+<li><strong>支持 XML 热加载</strong>：Mapper 对应的 XML 支持热加载，对于简单的 CRUD 操作，甚至可以无 XML 启动</li>
+<li><strong>支持 ActiveRecord 模式</strong>：支持 ActiveRecord 形式调用，实体类只需继承 Model 类即可进行强大的 CRUD 操作</li>
+<li><strong>支持自定义全局通用操作</strong>：支持全局通用方法注入（ Write once, use anywhere ）</li>
+<li><strong>支持关键词自动转义</strong>：支持数据库关键词（order、key……）自动转义，还可自定义关键词</li>
+<li><strong>内置代码生成器</strong>：采用代码或者 Maven 插件可快速生成 Mapper 、 Model 、 Service 、 Controller 层代码，支持模板引擎，更有超多自定义配置等您来使用</li>
+<li><strong>内置分页插件</strong>：基于 MyBatis 物理分页，开发者无需关心具体操作，配置好插件之后，写分页等同于普通 List 查询</li>
+<li><strong>内置性能分析插件</strong>：可输出 Sql 语句以及其执行时间，建议开发测试时启用该功能，能快速揪出慢查询</li>
+<li><strong>内置全局拦截插件</strong>：提供全表 delete 、 update 操作智能分析阻断，也可自定义拦截规则，预防误操作</li>
+<li><strong>内置 Sql 注入剥离器</strong>：支持 Sql 注入剥离，有效预防 Sql 注入攻击</li>
+</ul>
+<h2 id="构建工程"><a href="#构建工程" class="headerlink" title="构建工程"></a>构建工程</h2><p>新建springBoot工程，并且添加相关依赖：</p>
+<p><code>spring-boot-starter</code>、<code>spring-boot-starter-test</code>、<code>mybatis-plus-boot-starter</code>、<code>MySQL</code>、<code>lombok</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!--mybatis-plus--&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.baomidou<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-plus-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在yml文件中配置</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/mybatis_plus?serverTimezone=GMT%2B8</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">zS123.</span></span><br><span class="line"><span class="comment"># 日志配置</span></span><br><span class="line"><span class="attr">mybatis-plus:</span></span><br><span class="line">  <span class="attr">configuration:</span></span><br><span class="line">    <span class="attr">log-impl:</span> <span class="string">org.apache.ibatis.logging.stdout.StdOutImpl</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h2><h3 id="主类"><a href="#主类" class="headerlink" title="主类"></a>主类</h3><p>在springBoot启动类上添加@MapperScan注解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@MapperScan(&quot;com.mybaitis_plus.demo.Mapper&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(DemoApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="实体"><a href="#实体" class="headerlink" title="实体"></a>实体</h3><p>创建entity包编写实体类User.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Builder</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">    <span class="keyword">private</span> String email;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建Mapper接口"><a href="#创建Mapper接口" class="headerlink" title="创建Mapper接口"></a>创建Mapper接口</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserMapper</span> <span class="keyword">extends</span> <span class="title">BaseMapper</span>&lt;<span class="title">User</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.mybaitis_plus.demo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.mybaitis_plus.demo.Mapper.UserMapper;</span><br><span class="line"><span class="keyword">import</span> com.mybaitis_plus.demo.entity.User;</span><br><span class="line"><span class="keyword">import</span> org.junit.jupiter.api.Assertions;</span><br><span class="line"><span class="keyword">import</span> org.junit.jupiter.api.Test;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.test.context.SpringBootTest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.annotation.Resource;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoApplicationTests</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> UserMapper userMapper;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">findAll</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        List&lt;User&gt; users = userMapper.selectList(<span class="keyword">null</span>);</span><br><span class="line">        users.forEach(System.out::println);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ==&gt;  Preparing: SELECT id,name,age,email,create_time,update_time,version FROM user </span><br><span class="line">==&gt; Parameters: </span><br><span class="line">&lt;==    Columns: id, name, age, email, create_time, update_time, version</span><br><span class="line">&lt;==        Row: <span class="number">1</span>, Jone, <span class="number">18</span>, test1<span class="meta">@baomidou</span>.com, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span></span><br><span class="line">&lt;==        Row: <span class="number">2</span>, Jack, <span class="number">120</span>, test2<span class="meta">@baomidou</span>.com, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span></span><br><span class="line">&lt;==        Row: <span class="number">3</span>, Tom, <span class="number">28</span>, test3<span class="meta">@baomidou</span>.com, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span></span><br><span class="line">&lt;==        Row: <span class="number">4</span>, Sandy, <span class="number">21</span>, test4<span class="meta">@baomidou</span>.com, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span></span><br><span class="line">&lt;==        Row: <span class="number">5</span>, Billie, <span class="number">24</span>, test5<span class="meta">@baomidou</span>.com, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span></span><br><span class="line">&lt;==        Row: <span class="number">123</span>, Tom, <span class="number">13</span>, <span class="number">163</span><span class="meta">@qq</span>.com, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span></span><br><span class="line">&lt;==        Row: <span class="number">1350690530678820866</span>, Tom, <span class="number">13</span>, <span class="number">163</span><span class="meta">@qq</span>.com, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span></span><br><span class="line">&lt;==        Row: <span class="number">1350695049487712257</span>, Tom, <span class="number">13</span>, <span class="number">163</span><span class="meta">@qq</span>.com, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span></span><br><span class="line">&lt;==        Row: <span class="number">1350695559137624066</span>, Tom, <span class="number">13</span>, <span class="number">163</span><span class="meta">@qq</span>.com, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span></span><br><span class="line">&lt;==        Row: <span class="number">1350695968782802945</span>, Tom, <span class="number">13</span>, <span class="number">163</span><span class="meta">@qq</span>.com, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span></span><br><span class="line">&lt;==        Row: <span class="number">1350701498381185025</span>, Tom, <span class="number">13</span>, <span class="number">163</span><span class="meta">@qq</span>.com, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span></span><br><span class="line">&lt;==        Row: <span class="number">1350719491010035714</span>, Tom, <span class="number">120</span>, <span class="number">163</span><span class="meta">@qq</span>.com, <span class="number">2021</span>-<span class="number">01</span>-<span class="number">17</span> <span class="number">16</span>:<span class="number">19</span>:<span class="number">56</span>, <span class="number">2021</span>-<span class="number">01</span>-<span class="number">17</span> <span class="number">16</span>:<span class="number">22</span>:<span class="number">13</span>, <span class="keyword">null</span></span><br><span class="line">&lt;==        Row: <span class="number">1356574076241006594</span>, Tom, <span class="number">13</span>, <span class="number">163</span><span class="meta">@qq</span>.com, <span class="number">2021</span>-<span class="number">02</span>-<span class="number">02</span> <span class="number">20</span>:<span class="number">03</span>:<span class="number">58</span>, <span class="number">2021</span>-<span class="number">02</span>-<span class="number">02</span> <span class="number">20</span>:<span class="number">03</span>:<span class="number">58</span>, <span class="keyword">null</span></span><br><span class="line">&lt;==      Total: <span class="number">13</span></span><br><span class="line">Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6a638c79]</span><br><span class="line">User(id=<span class="number">1</span>, name=Jone, age=<span class="number">18</span>, email=test1<span class="meta">@baomidou</span>.com, createTime=<span class="keyword">null</span>, updateTime=<span class="keyword">null</span>, version=<span class="keyword">null</span>)</span><br><span class="line">User(id=<span class="number">2</span>, name=Jack, age=<span class="number">120</span>, email=test2<span class="meta">@baomidou</span>.com, createTime=<span class="keyword">null</span>, updateTime=<span class="keyword">null</span>, version=<span class="keyword">null</span>)</span><br><span class="line">User(id=<span class="number">3</span>, name=Tom, age=<span class="number">28</span>, email=test3<span class="meta">@baomidou</span>.com, createTime=<span class="keyword">null</span>, updateTime=<span class="keyword">null</span>, version=<span class="keyword">null</span>)</span><br><span class="line">User(id=<span class="number">4</span>, name=Sandy, age=<span class="number">21</span>, email=test4<span class="meta">@baomidou</span>.com, createTime=<span class="keyword">null</span>, updateTime=<span class="keyword">null</span>, version=<span class="keyword">null</span>)</span><br><span class="line">User(id=<span class="number">5</span>, name=Billie, age=<span class="number">24</span>, email=test5<span class="meta">@baomidou</span>.com, createTime=<span class="keyword">null</span>, updateTime=<span class="keyword">null</span>, version=<span class="keyword">null</span>)</span><br><span class="line">User(id=<span class="number">123</span>, name=Tom, age=<span class="number">13</span>, email=<span class="number">163</span><span class="meta">@qq</span>.com, createTime=<span class="keyword">null</span>, updateTime=<span class="keyword">null</span>, version=<span class="keyword">null</span>)</span><br><span class="line">User(id=<span class="number">1350690530678820866</span>, name=Tom, age=<span class="number">13</span>, email=<span class="number">163</span><span class="meta">@qq</span>.com, createTime=<span class="keyword">null</span>, updateTime=<span class="keyword">null</span>, version=<span class="keyword">null</span>)</span><br><span class="line">User(id=<span class="number">1350695049487712257</span>, name=Tom, age=<span class="number">13</span>, email=<span class="number">163</span><span class="meta">@qq</span>.com, createTime=<span class="keyword">null</span>, updateTime=<span class="keyword">null</span>, version=<span class="keyword">null</span>)</span><br><span class="line">User(id=<span class="number">1350695559137624066</span>, name=Tom, age=<span class="number">13</span>, email=<span class="number">163</span><span class="meta">@qq</span>.com, createTime=<span class="keyword">null</span>, updateTime=<span class="keyword">null</span>, version=<span class="keyword">null</span>)</span><br><span class="line">User(id=<span class="number">1350695968782802945</span>, name=Tom, age=<span class="number">13</span>, email=<span class="number">163</span><span class="meta">@qq</span>.com, createTime=<span class="keyword">null</span>, updateTime=<span class="keyword">null</span>, version=<span class="keyword">null</span>)</span><br><span class="line">User(id=<span class="number">1350701498381185025</span>, name=Tom, age=<span class="number">13</span>, email=<span class="number">163</span><span class="meta">@qq</span>.com, createTime=<span class="keyword">null</span>, updateTime=<span class="keyword">null</span>, version=<span class="keyword">null</span>)</span><br><span class="line">User(id=<span class="number">1350719491010035714</span>, name=Tom, age=<span class="number">120</span>, email=<span class="number">163</span><span class="meta">@qq</span>.com, createTime=Sun Jan <span class="number">17</span> <span class="number">16</span>:<span class="number">19</span>:<span class="number">56</span> CST <span class="number">2021</span>, updateTime=Sun Jan <span class="number">17</span> <span class="number">16</span>:<span class="number">22</span>:<span class="number">13</span> CST <span class="number">2021</span>, version=<span class="keyword">null</span>)</span><br><span class="line">User(id=<span class="number">1356574076241006594</span>, name=Tom, age=<span class="number">13</span>, email=<span class="number">163</span><span class="meta">@qq</span>.com, createTime=Tue Feb <span class="number">02</span> <span class="number">20</span>:<span class="number">03</span>:<span class="number">58</span> CST <span class="number">2021</span>, updateTime=Tue Feb <span class="number">02</span> <span class="number">20</span>:<span class="number">03</span>:<span class="number">58</span> CST <span class="number">2021</span>, version=<span class="keyword">null</span>)</span><br><span class="line"><span class="number">2021</span>-<span class="number">02</span>-<span class="number">02</span> <span class="number">20</span>:<span class="number">32</span>:<span class="number">11.232</span>  INFO <span class="number">12704</span> --- [extShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-<span class="number">1</span> - Shutdown initiated...</span><br><span class="line"><span class="number">2021</span>-<span class="number">02</span>-<span class="number">02</span> <span class="number">20</span>:<span class="number">32</span>:<span class="number">11.239</span>  INFO <span class="number">12704</span> --- [extShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-<span class="number">1</span> - Shutdown completed.</span><br><span class="line"></span><br><span class="line">Process finished with exit code <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="MyBatis-puls之CRUD"><a href="#MyBatis-puls之CRUD" class="headerlink" title="MyBatis-puls之CRUD"></a>MyBatis-puls之CRUD</h2><h3 id="插入操作-Insert"><a href="#插入操作-Insert" class="headerlink" title="插入操作(Insert)"></a>插入操作(Insert)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertTest</span><span class="params">()</span></span>&#123;</span><br><span class="line">    User user = User.builder()</span><br><span class="line">            .age(<span class="number">13</span>)</span><br><span class="line">            .name(<span class="string">&quot;Tom&quot;</span>)</span><br><span class="line">            .email(<span class="string">&quot;163@qq.com&quot;</span>)</span><br><span class="line">            .build();</span><br><span class="line">    <span class="keyword">int</span> insert = userMapper.insert(user); <span class="comment">// 影响的行数</span></span><br><span class="line">    Assertions.assertEquals(insert,<span class="number">1</span>); <span class="comment">// id自动回填</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong> ：数据库插入id值默认为全局唯一id</p>
+<h3 id="主键策略"><a href="#主键策略" class="headerlink" title="主键策略"></a>主键策略</h3><ul>
+<li>ID_WORKER</li>
+</ul>
+<blockquote>
+<p>MyBatis-Plus默认的主键策略是：ID_WORKER  <em>全局唯一ID</em></p>
+</blockquote>
+<p><strong>参考资料：分布式系统唯一ID生成方案汇总：</strong><a target="_blank" rel="noopener" href="https://www.cnblogs.com/haoxinyue/p/5208136.html">https://www.cnblogs.com/haoxinyue/p/5208136.html</a></p>
+<ul>
+<li><p>自增策略</p>
+<ul>
+<li><p>需要在创建数据表的时候设置主键自增</p>
+</li>
+<li><p>实体字段中配置 @TableId(type = IdType.AUTO)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@TableId(type = IdType.AUTO)</span></span><br><span class="line"><span class="keyword">private</span> Long id;</span><br></pre></td></tr></table></figure></li>
+<li><p>想要影响所有实体的配置，可以设置全局主键配置</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#全局设置主键生成策略</span></span><br><span class="line"><span class="string">mybatis-plus.global-config.db-config.id-type=auto</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>其他主键策略，分析IdType源码可知</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">IdType</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 数据库ID自增</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    AUTO(<span class="number">0</span>),</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 该类型为未设置主键类型</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    NONE(<span class="number">1</span>),</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 用户输入ID</span></span><br><span class="line"><span class="comment">     * 该类型可以通过自己注册自动填充插件进行填充</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    INPUT(<span class="number">2</span>),</span><br><span class="line">    <span class="comment">/* 以下3种类型、只有当插入对象ID 为空，才自动填充。 */</span></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 全局唯一ID (idWorker)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    ID_WORKER(<span class="number">3</span>),</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 全局唯一ID (UUID)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    UUID(<span class="number">4</span>),</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 字符串全局唯一ID (idWorker 的字符串表示)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    ID_WORKER_STR(<span class="number">5</span>);</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> key;</span><br><span class="line">    IdType(<span class="keyword">int</span> key) &#123;</span><br><span class="line">        <span class="keyword">this</span>.key = key;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="更新操作-update"><a href="#更新操作-update" class="headerlink" title="更新操作(update)"></a>更新操作(update)</h3><h4 id="根据ID更新操作"><a href="#根据ID更新操作" class="headerlink" title="根据ID更新操作"></a>根据ID更新操作</h4><p><strong>注意：</strong>update时生成的sql自动是动态sql：UPDATE user SET age=? WHERE id=? </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateTest</span><span class="params">()</span></span>&#123;</span><br><span class="line">    User user = User.builder()</span><br><span class="line">            .id(<span class="number">1350719491010035714L</span>)</span><br><span class="line">            .age(<span class="number">120</span>)</span><br><span class="line">            .build();</span><br><span class="line">    <span class="keyword">int</span> row = userMapper.updateById(user); <span class="comment">// 受影响的行数</span></span><br><span class="line">    System.out.println(row);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="自动填充"><a href="#自动填充" class="headerlink" title="自动填充"></a>自动填充</h4><blockquote>
+<p>项目中经常会遇到一些数据，每次都使用相同的方式填充，例如记录的<strong>创建时间</strong>，<strong>更新时间</strong>等。</p>
+<p>我们可以使用MyBatis Plus的自动填充功能，完成这些字段的赋值工作：</p>
+</blockquote>
+<h5 id="数据库表中的自动填充"><a href="#数据库表中的自动填充" class="headerlink" title="数据库表中的自动填充"></a>数据库表中的自动填充</h5><blockquote>
+<p>在User表中添加datetime类型的新的字段 <strong>create_time</strong>、<strong>update_time</strong></p>
+</blockquote>
+<h5 id="实体类上添加注解"><a href="#实体类上添加注解" class="headerlink" title="实体类上添加注解"></a>实体类上添加注解</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Builder</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">    <span class="keyword">private</span> String email;</span><br><span class="line">    <span class="meta">@TableField(fill = FieldFill.INSERT)</span></span><br><span class="line">    <span class="keyword">private</span> Date createTime;</span><br><span class="line">    <span class="meta">@TableField(fill = FieldFill.INSERT_UPDATE)</span></span><br><span class="line">    <span class="keyword">private</span> Date updateTime;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="实现源对象的接口"><a href="#实现源对象的接口" class="headerlink" title="实现源对象的接口"></a>实现源对象的接口</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyHandler</span> <span class="keyword">implements</span> <span class="title">MetaObjectHandler</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertFill</span><span class="params">(MetaObject metaObject)</span> </span>&#123;</span><br><span class="line">        log.info(<span class="string">&quot;start insert fill...&quot;</span>);</span><br><span class="line">        <span class="keyword">this</span>.setFieldValByName(<span class="string">&quot;createTime&quot;</span>, <span class="keyword">new</span> Date(), metaObject);</span><br><span class="line">        <span class="keyword">this</span>.setFieldValByName(<span class="string">&quot;updateTime&quot;</span>, <span class="keyword">new</span> Date(), metaObject);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateFill</span><span class="params">(MetaObject metaObject)</span> </span>&#123;</span><br><span class="line">        log.info(<span class="string">&quot;start update fill...&quot;</span>);</span><br><span class="line">        <span class="keyword">this</span>.setFieldValByName(<span class="string">&quot;updateTime&quot;</span>, <span class="keyword">new</span> Date(), metaObject);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="乐观锁"><a href="#乐观锁" class="headerlink" title="乐观锁"></a>乐观锁</h4><blockquote>
+<p><strong>主要适用场景：</strong>当要更新一条记录的时候，希望这条记录没有被别人更新，也就是说实现线程安全的数据更新</p>
+</blockquote>
+<p><strong>乐观锁实现方式：</strong></p>
+<ul>
+<li>取出记录时，获取当前version</li>
+<li>更新时，带上这个version</li>
+<li>执行更新时， set version = newVersion where version = oldVersion</li>
+<li>如果version不对，就更新失败</li>
+</ul>
+<h5 id="数据库中添加version字段"><a href="#数据库中添加version字段" class="headerlink" title="数据库中添加version字段"></a>数据库中添加version字段</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> `<span class="keyword">user</span>` <span class="keyword">ADD</span> <span class="keyword">COLUMN</span> `version` <span class="type">INT</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="实体类添加version字段"><a href="#实体类添加version字段" class="headerlink" title="实体类添加version字段"></a>实体类添加version字段</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Version</span></span><br><span class="line"><span class="keyword">private</span> Integer version;</span><br></pre></td></tr></table></figure>
+
+<h5 id="设置源对象初始值"><a href="#设置源对象初始值" class="headerlink" title="设置源对象初始值"></a>设置源对象初始值</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertFill</span><span class="params">(MetaObject metaObject)</span> </span>&#123;</span><br><span class="line">    log.info(<span class="string">&quot;start insert fill...&quot;</span>);</span><br><span class="line">    <span class="keyword">this</span>.setFieldValByName(<span class="string">&quot;createTime&quot;</span>, <span class="keyword">new</span> Date(), metaObject);</span><br><span class="line">    <span class="keyword">this</span>.setFieldValByName(<span class="string">&quot;updateTime&quot;</span>, <span class="keyword">new</span> Date(), metaObject);</span><br><span class="line">    <span class="comment">// 设置version初始值</span></span><br><span class="line">    <span class="keyword">this</span>.setFieldValByName(<span class="string">&quot;version&quot;</span>, <span class="number">1</span>, metaObject);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>说明：</p>
+<ul>
+<li>支持的数据类型只有 int,Integer,long,Long,Date,Timestamp,LocalDateTime</li>
+<li>整数类型下 <code>newVersion = oldVersion + 1</code></li>
+<li><code>newVersion</code> 会回写到 <code>entity</code> 中</li>
+<li>仅支持 <code>updateById(id)</code> 与 <code>update(entity, wrapper)</code> 方法</li>
+<li>在 <code>update(entity, wrapper)</code> 方法下, <code>wrapper</code> 不能复用!!!</li>
+</ul>
+<h5 id="创建配置类"><a href="#创建配置类" class="headerlink" title="创建配置类"></a>创建配置类</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;</span><br><span class="line"><span class="keyword">import</span> org.mybatis.spring.annotation.MapperScan;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.transaction.annotation.EnableTransactionManagement;</span><br><span class="line"></span><br><span class="line"><span class="meta">@EnableTransactionManagement</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@MapperScan(&quot;com.mybaitis_plus.demo.Mapper&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyConfig</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 乐观锁插件</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> OptimisticLockerInterceptor <span class="title">optimisticLockerInterceptor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> OptimisticLockerInterceptor();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="测试乐观锁可以修改成功"><a href="#测试乐观锁可以修改成功" class="headerlink" title="测试乐观锁可以修改成功"></a>测试乐观锁可以修改成功</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">versionTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 查询</span></span><br><span class="line">    User user = userMapper.selectById(<span class="number">1L</span>);</span><br><span class="line">    <span class="comment">// 修改数据</span></span><br><span class="line">    user.setAge(<span class="number">600</span>);</span><br><span class="line">    user.setEmail(<span class="string">&quot;222@qq.com&quot;</span>);</span><br><span class="line">    <span class="comment">// 执行更新</span></span><br><span class="line">    userMapper.updateById(user);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="测试乐观锁修改失败"><a href="#测试乐观锁修改失败" class="headerlink" title="测试乐观锁修改失败"></a>测试乐观锁修改失败</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">versionTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 查询</span></span><br><span class="line">    User user = userMapper.selectById(<span class="number">1L</span>);</span><br><span class="line">    <span class="comment">// 修改数据</span></span><br><span class="line">    user.setAge(<span class="number">60</span>);</span><br><span class="line">    user.setEmail(<span class="string">&quot;333@qq.com&quot;</span>);</span><br><span class="line">    <span class="comment">// 模拟取出数据后，数据库中version实际数据比取出的值大，即已被其它线程修改并更新了version</span></span><br><span class="line">    user.setVersion(user.getVersion() - <span class="number">1</span>);</span><br><span class="line">    <span class="comment">// 执行更新</span></span><br><span class="line">    userMapper.updateById(user);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="查询操作-select"><a href="#查询操作-select" class="headerlink" title="查询操作(select)"></a>查询操作(select)</h3><h4 id="根据id查询"><a href="#根据id查询" class="headerlink" title="根据id查询"></a>根据id查询</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">selectTest</span><span class="params">()</span></span>&#123;</span><br><span class="line">    User user = userMapper.selectById(<span class="number">1L</span>);</span><br><span class="line">    System.out.println(user);</span><br><span class="line">&#125;</span><br><span class="line">User(id=<span class="number">1</span>, name=Jone, age=<span class="number">600</span>, email=<span class="number">222</span><span class="meta">@qq</span>.com, createTime=<span class="keyword">null</span>, updateTime=Tue Feb <span class="number">02</span> <span class="number">21</span>:<span class="number">04</span>:<span class="number">07</span> CST <span class="number">2021</span>, version=<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="批量查询"><a href="#批量查询" class="headerlink" title="批量查询"></a>批量查询</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">selectBatchTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    List&lt;User&gt; users = userMapper.selectBatchIds(Arrays.asList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>));</span><br><span class="line">    users.forEach(System.out::println);</span><br><span class="line">&#125;</span><br><span class="line">User(id=<span class="number">1</span>, name=Jone, age=<span class="number">600</span>, email=<span class="number">222</span><span class="meta">@qq</span>.com, createTime=<span class="keyword">null</span>, updateTime=Tue Feb <span class="number">02</span> <span class="number">21</span>:<span class="number">04</span>:<span class="number">07</span> CST <span class="number">2021</span>, version=<span class="number">2</span>)</span><br><span class="line">User(id=<span class="number">2</span>, name=Jack, age=<span class="number">120</span>, email=test2<span class="meta">@baomidou</span>.com, createTime=<span class="keyword">null</span>, updateTime=<span class="keyword">null</span>, version=<span class="keyword">null</span>)</span><br><span class="line">User(id=<span class="number">3</span>, name=Tom, age=<span class="number">28</span>, email=test3<span class="meta">@baomidou</span>.com, createTime=<span class="keyword">null</span>, updateTime=<span class="keyword">null</span>, version=<span class="keyword">null</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="简单条件查询"><a href="#简单条件查询" class="headerlink" title="简单条件查询"></a>简单条件查询</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSelectByMap</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Map&lt;String, Object&gt; map = <span class="keyword">new</span> HashMap&lt;String, Object&gt;() &#123;&#123;</span><br><span class="line">        put(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;Tom&quot;</span>);</span><br><span class="line">        put(<span class="string">&quot;age&quot;</span>, <span class="number">28</span>);</span><br><span class="line">    &#125;&#125;;</span><br><span class="line">    List&lt;User&gt; users = userMapper.selectByMap(map);</span><br><span class="line">    users.forEach(System.out::println);</span><br><span class="line">&#125;</span><br><span class="line">User(id=<span class="number">3</span>, name=Tom, age=<span class="number">28</span>, email=test3<span class="meta">@baomidou</span>.com, createTime=<span class="keyword">null</span>, updateTime=<span class="keyword">null</span>, version=<span class="keyword">null</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h3><p>MyBatis Plus自带分页插件，只要简单的配置即可实现分页功能</p>
+<h4 id="创建配置类-1"><a href="#创建配置类-1" class="headerlink" title="创建配置类"></a>创建配置类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 分页插件</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> PaginationInterceptor <span class="title">paginationInterceptor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> PaginationInterceptor();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="测试分页查询"><a href="#测试分页查询" class="headerlink" title="测试分页查询"></a>测试分页查询</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSelectPage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Page&lt;User&gt; page = <span class="keyword">new</span> Page&lt;&gt;(<span class="number">1</span>,<span class="number">5</span>);</span><br><span class="line">    userMapper.selectPage(page, <span class="keyword">null</span>);</span><br><span class="line">    page.getRecords().forEach(System.out::println);</span><br><span class="line">    System.out.println(page.getCurrent()); <span class="comment">// 1</span></span><br><span class="line">    System.out.println(page.getPages()); <span class="comment">// 3</span></span><br><span class="line">    System.out.println(page.getSize()); <span class="comment">// 5</span></span><br><span class="line">    System.out.println(page.getTotal()); <span class="comment">// 13</span></span><br><span class="line">    System.out.println(page.hasNext()); <span class="comment">// true</span></span><br><span class="line">    System.out.println(page.hasPrevious()); <span class="comment">// false</span></span><br><span class="line">&#125;</span><br><span class="line">SELECT id,name,age,email,create_time,update_time,version FROM user LIMIT <span class="number">0</span>,<span class="number">5</span></span><br><span class="line">    </span><br><span class="line">User(id=<span class="number">1</span>, name=Jone, age=<span class="number">600</span>, email=<span class="number">222</span><span class="meta">@qq</span>.com, createTime=<span class="keyword">null</span>, updateTime=Tue Feb <span class="number">02</span> <span class="number">21</span>:<span class="number">04</span>:<span class="number">07</span> CST <span class="number">2021</span>, version=<span class="number">2</span>)</span><br><span class="line">User(id=<span class="number">2</span>, name=Jack, age=<span class="number">120</span>, email=test2<span class="meta">@baomidou</span>.com, createTime=<span class="keyword">null</span>, updateTime=<span class="keyword">null</span>, version=<span class="keyword">null</span>)</span><br><span class="line">User(id=<span class="number">3</span>, name=Tom, age=<span class="number">28</span>, email=test3<span class="meta">@baomidou</span>.com, createTime=<span class="keyword">null</span>, updateTime=<span class="keyword">null</span>, version=<span class="keyword">null</span>)</span><br><span class="line">User(id=<span class="number">4</span>, name=Sandy, age=<span class="number">21</span>, email=test4<span class="meta">@baomidou</span>.com, createTime=<span class="keyword">null</span>, updateTime=<span class="keyword">null</span>, version=<span class="keyword">null</span>)</span><br><span class="line">User(id=<span class="number">5</span>, name=Billie, age=<span class="number">24</span>, email=test5<span class="meta">@baomidou</span>.com, createTime=<span class="keyword">null</span>, updateTime=<span class="keyword">null</span>, version=<span class="keyword">null</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="测试selectMapsPage分页：结果集是map"><a href="#测试selectMapsPage分页：结果集是map" class="headerlink" title="测试selectMapsPage分页：结果集是map"></a>测试selectMapsPage分页：结果集是map</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSelectPageMap</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Page&lt;User&gt; page = <span class="keyword">new</span> Page&lt;&gt;(<span class="number">1</span>, <span class="number">5</span>);</span><br><span class="line">    IPage&lt;Map&lt;String, Object&gt;&gt; mapIPage = userMapper.selectMapsPage(page, <span class="keyword">null</span>);</span><br><span class="line">    mapIPage.getRecords().forEach(System.out::println);</span><br><span class="line">    System.out.println(page.getCurrent());</span><br><span class="line">    System.out.println(page.getPages());</span><br><span class="line">    System.out.println(page.getSize());</span><br><span class="line">    System.out.println(page.getTotal());</span><br><span class="line">    System.out.println(page.hasNext());</span><br><span class="line">    System.out.println(page.hasPrevious());</span><br><span class="line">&#125;</span><br><span class="line">&#123;update_time=<span class="number">2021</span>-<span class="number">02</span>-<span class="number">02</span> <span class="number">21</span>:<span class="number">04</span>:<span class="number">07.0</span>, name=Jone, id=<span class="number">1</span>, version=<span class="number">2</span>, age=<span class="number">600</span>, email=<span class="number">222</span><span class="meta">@qq</span>.com&#125;</span><br><span class="line">&#123;name=Jack, id=<span class="number">2</span>, age=<span class="number">120</span>, email=test2<span class="meta">@baomidou</span>.com&#125;</span><br><span class="line">&#123;name=Tom, id=<span class="number">3</span>, age=<span class="number">28</span>, email=test3<span class="meta">@baomidou</span>.com&#125;</span><br><span class="line">&#123;name=Sandy, id=<span class="number">4</span>, age=<span class="number">21</span>, email=test4<span class="meta">@baomidou</span>.com&#125;</span><br><span class="line">&#123;name=Billie, id=<span class="number">5</span>, age=<span class="number">24</span>, email=test5<span class="meta">@baomidou</span>.com&#125;</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">13</span></span><br><span class="line"><span class="keyword">true</span></span><br><span class="line"><span class="keyword">false</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="删除操作-delete"><a href="#删除操作-delete" class="headerlink" title="删除操作(delete)"></a>删除操作(delete)</h3><h4 id="根据id删除"><a href="#根据id删除" class="headerlink" title="根据id删除"></a>根据id删除</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delegateByIdTest</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(userMapper.deleteById(<span class="number">2L</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="批量删除"><a href="#批量删除" class="headerlink" title="批量删除"></a>批量删除</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delegateBatchIds</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(userMapper.deleteBatchIds(Arrays.asList(<span class="number">1</span>, <span class="number">2</span>)));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="简单的条件查询删除"><a href="#简单的条件查询删除" class="headerlink" title="简单的条件查询删除"></a>简单的条件查询删除</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testDeleteByMap</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    HashMap&lt;String, Object&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    map.put(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;Helen&quot;</span>);</span><br><span class="line">    map.put(<span class="string">&quot;age&quot;</span>, <span class="number">18</span>);</span><br><span class="line">    <span class="keyword">int</span> result = userMapper.deleteByMap(map);</span><br><span class="line">    System.out.println(result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="逻辑删除"><a href="#逻辑删除" class="headerlink" title="逻辑删除"></a>逻辑删除</h4><ul>
+<li>物理删除：真实删除，将对应数据从数据库中删除，之后查询不到此条被删除数据</li>
+<li>逻辑删除：假删除，将对应数据中代表是否被删除字段状态修改为“被删除状态”，之后在数据库中仍旧能看到此条数据记录</li>
+</ul>
+<h5 id="数据库中新增deleted字段"><a href="#数据库中新增deleted字段" class="headerlink" title="数据库中新增deleted字段"></a>数据库中新增deleted字段</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> `<span class="keyword">user</span>` <span class="keyword">ADD</span> <span class="keyword">COLUMN</span> `deleted` <span class="type">boolean</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="实体类添加deleted字段"><a href="#实体类添加deleted字段" class="headerlink" title="实体类添加deleted字段"></a>实体类添加deleted字段</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@TableLogic</span> <span class="comment">// 逻辑删除</span></span><br><span class="line"><span class="meta">@TableField(fill = FieldFill.INSERT)</span></span><br><span class="line"><span class="keyword">private</span> Integer deleted;</span><br></pre></td></tr></table></figure>
+
+<h5 id="application-yml文件中加入配置"><a href="#application-yml文件中加入配置" class="headerlink" title="application.yml文件中加入配置"></a>application.yml文件中加入配置</h5><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">mybatis-plus:</span></span><br><span class="line">  <span class="attr">configuration:</span></span><br><span class="line">    <span class="attr">log-impl:</span> <span class="string">org.apache.ibatis.logging.stdout.StdOutImpl</span></span><br><span class="line">  <span class="attr">global-config:</span></span><br><span class="line">    <span class="attr">db-config:</span></span><br><span class="line">      <span class="attr">logic-delete-value:</span> <span class="number">1</span></span><br><span class="line">      <span class="attr">logic-not-delete-value:</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="在mybatisPlusConfig中注册Bean"><a href="#在mybatisPlusConfig中注册Bean" class="headerlink" title="在mybatisPlusConfig中注册Bean"></a>在mybatisPlusConfig中注册Bean</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 逻辑删除</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> ISqlInjector <span class="title">sqlInjector</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> LogicSqlInjector();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong> ：数据库中deleted必须有值</p>
+<h2 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h2><p><a target="_blank" rel="noopener" href="https://imgchr.com/i/ywHcm8"><img src="https://s3.ax1x.com/2021/02/10/ywHcm8.png" class="lazyload" data-srcset="https://s3.ax1x.com/2021/02/10/ywHcm8.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="ywHcm8.png"></a></p>
+<ul>
+<li>Wrapper ： 条件构造抽象类，最顶端父类</li>
+<li>AbstractWrapper ： 用于查询条件封装，生成 sql 的 where 条件</li>
+<li>QueryWrapper ： Entity 对象封装操作类，不是用lambda语法</li>
+<li>UpdateWrapper ： Update 条件封装，用于Entity对象更新操作</li>
+<li>AbstractLambdaWrapper ： Lambda 语法使用 Wrapper统一处理解析 lambda 获取 column。</li>
+<li>LambdaQueryWrapper ：用于Lambda语法使用的查询Wrapper</li>
+<li>LambdaUpdateWrapper ： Lambda 更新封装Wrapper</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>查询方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>setSqlSelect</td>
+<td>设置 SELECT 查询字段</td>
+</tr>
+<tr>
+<td>where</td>
+<td>WHERE 语句，拼接 + <code>WHERE 条件</code></td>
+</tr>
+<tr>
+<td>and</td>
+<td>AND 语句，拼接 + <code>AND 字段=值</code></td>
+</tr>
+<tr>
+<td>andNew</td>
+<td>AND 语句，拼接 + <code>AND (字段=值)</code></td>
+</tr>
+<tr>
+<td>or</td>
+<td>OR 语句，拼接 + <code>OR 字段=值</code></td>
+</tr>
+<tr>
+<td>orNew</td>
+<td>OR 语句，拼接 + <code>OR (字段=值)</code></td>
+</tr>
+<tr>
+<td>eq</td>
+<td>等于=</td>
+</tr>
+<tr>
+<td>allEq</td>
+<td>基于 map 内容等于=</td>
+</tr>
+<tr>
+<td>ne</td>
+<td>不等于&lt;&gt;</td>
+</tr>
+<tr>
+<td>gt</td>
+<td>大于&gt;</td>
+</tr>
+<tr>
+<td>ge</td>
+<td>大于等于&gt;=</td>
+</tr>
+<tr>
+<td>lt</td>
+<td>小于&lt;</td>
+</tr>
+<tr>
+<td>le</td>
+<td>小于等于&lt;=</td>
+</tr>
+<tr>
+<td>like</td>
+<td>模糊查询 LIKE</td>
+</tr>
+<tr>
+<td>notLike</td>
+<td>模糊查询 NOT LIKE</td>
+</tr>
+<tr>
+<td>in</td>
+<td>IN 查询</td>
+</tr>
+<tr>
+<td>notIn</td>
+<td>NOT IN 查询</td>
+</tr>
+<tr>
+<td>isNull</td>
+<td>NULL 值查询</td>
+</tr>
+<tr>
+<td>isNotNull</td>
+<td>IS NOT NULL</td>
+</tr>
+<tr>
+<td>groupBy</td>
+<td>分组 GROUP BY</td>
+</tr>
+<tr>
+<td>having</td>
+<td>HAVING 关键词</td>
+</tr>
+<tr>
+<td>orderBy</td>
+<td>排序 ORDER BY</td>
+</tr>
+<tr>
+<td>orderAsc</td>
+<td>ASC 排序 ORDER BY</td>
+</tr>
+<tr>
+<td>orderDesc</td>
+<td>DESC 排序 ORDER BY</td>
+</tr>
+<tr>
+<td>exists</td>
+<td>EXISTS 条件语句</td>
+</tr>
+<tr>
+<td>notExists</td>
+<td>NOT EXISTS 条件语句</td>
+</tr>
+<tr>
+<td>between</td>
+<td>BETWEEN 条件语句</td>
+</tr>
+<tr>
+<td>notBetween</td>
+<td>NOT BETWEEN 条件语句</td>
+</tr>
+<tr>
+<td>addFilter</td>
+<td>自由拼接 SQL</td>
+</tr>
+<tr>
+<td>last</td>
+<td>拼接在最后，例如：last(“LIMIT 1”)</td>
+</tr>
+<tr>
+<td><code>addFilterIfNeed</code></td>
+<td>其中可以写sql:如,<code>.addFilterIfNeed(StringUtils.equals(userId,&quot;1&quot;),&quot;date_format(FOLLOW_TIME,&#39;%Y-%m-%d&#39;)=date_format(NOW(),&#39;%Y-%m-%d&#39;)&quot;)</code></td>
+</tr>
+</tbody></table>
+<h3 id="ge、gt、le、lt、isNull、isNotNull"><a href="#ge、gt、le、lt、isNull、isNotNull" class="headerlink" title="ge、gt、le、lt、isNull、isNotNull"></a>ge、gt、le、lt、isNull、isNotNull</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 逻辑删除这个范围的数据</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    QueryWrapper&lt;User&gt; queryWrapper = <span class="keyword">new</span> QueryWrapper&lt;&gt;();</span><br><span class="line">    queryWrapper.isNull(<span class="string">&quot;create_time&quot;</span>)</span><br><span class="line">            .isNotNull(<span class="string">&quot;name&quot;</span>)</span><br><span class="line">            .ge(<span class="string">&quot;age&quot;</span>,<span class="number">12</span>);</span><br><span class="line">    System.out.println(userMapper.delete(queryWrapper));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sql：</span><br><span class="line">UPDATE user SET deleted=<span class="number">1</span> WHERE deleted=<span class="number">0</span> AND create_time IS NULL AND name IS NOT NULL AND age &gt;= ? </span><br></pre></td></tr></table></figure>
+
+<h3 id="eq、ne"><a href="#eq、ne" class="headerlink" title="eq、ne"></a>eq、ne</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 输出单个对象</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">selectOneTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    QueryWrapper&lt;User&gt; queryWrapper = <span class="keyword">new</span> QueryWrapper&lt;&gt;();</span><br><span class="line">    queryWrapper.eq(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;Sandy&quot;</span>);</span><br><span class="line">    User user = userMapper.selectOne(queryWrapper);</span><br><span class="line">    System.out.println(user);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sql：</span><br><span class="line">SELECT id,name,age,email,create_time,update_time,version,deleted FROM user WHERE deleted=<span class="number">0</span> AND name = ? </span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是：<code>selectOne</code>当查询到1条以上的数据时候，会抛错</p>
+<h3 id="between、notBetween"><a href="#between、notBetween" class="headerlink" title="between、notBetween"></a>between、notBetween</h3><blockquote>
+<p>包含大小边界</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 输出数量</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">selectCountTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    QueryWrapper&lt;User&gt; queryWrapper = <span class="keyword">new</span> QueryWrapper&lt;&gt;();</span><br><span class="line">    queryWrapper.between(<span class="string">&quot;age&quot;</span>, <span class="number">20</span>, <span class="number">30</span>);</span><br><span class="line">    System.out.println(userMapper.selectCount(queryWrapper));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sql:</span><br><span class="line"><span class="function">SELECT <span class="title">COUNT</span><span class="params">(<span class="number">1</span>)</span> FROM user WHERE deleted</span>=<span class="number">0</span> AND age BETWEEN ? AND ? </span><br></pre></td></tr></table></figure>
+
+<h3 id="allEq"><a href="#allEq" class="headerlink" title="allEq"></a>allEq</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 查询list</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">selectListTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    QueryWrapper&lt;User&gt; queryWrapper = <span class="keyword">new</span> QueryWrapper&lt;&gt;();</span><br><span class="line">    Map&lt;String, Object&gt; map = <span class="keyword">new</span> HashMap&lt;String, Object&gt;() &#123;&#123;</span><br><span class="line">        put(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;Sandy&quot;</span>);</span><br><span class="line">        put(<span class="string">&quot;age&quot;</span>, <span class="number">21</span>);</span><br><span class="line">    &#125;&#125;;</span><br><span class="line">    queryWrapper.allEq(map);</span><br><span class="line">    List&lt;User&gt; users = userMapper.selectList(queryWrapper);</span><br><span class="line">    users.forEach(System.out::println);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sql：</span><br><span class="line">SELECT id,name,age,email,create_time,update_time,version,deleted FROM user WHERE deleted=<span class="number">0</span> AND name = ? AND age = ? </span><br></pre></td></tr></table></figure>
+
+<h3 id="like、notLike、likeLeft、likeRight"><a href="#like、notLike、likeLeft、likeRight" class="headerlink" title="like、notLike、likeLeft、likeRight"></a>like、notLike、likeLeft、likeRight</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 查询map</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">selectMapTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    QueryWrapper&lt;User&gt; queryWrapper = <span class="keyword">new</span> QueryWrapper&lt;&gt;();</span><br><span class="line">    queryWrapper.notLike(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;T&quot;</span>)</span><br><span class="line">            .likeRight(<span class="string">&quot;email&quot;</span>, <span class="string">&quot;qq&quot;</span>);</span><br><span class="line">    List&lt;Map&lt;String, Object&gt;&gt; maps = userMapper.selectMaps(queryWrapper);</span><br><span class="line">    maps.forEach(System.out::println);</span><br><span class="line">&#125;</span><br><span class="line">Preparing: SELECT id,name,age,email,create_time,update_time,version,deleted FROM user WHERE deleted=<span class="number">0</span> AND name NOT LIKE ? AND email LIKE ? </span><br><span class="line">Parameters: %T%(String), qq%(String)</span><br></pre></td></tr></table></figure>
+
+<h3 id="in、notIn、inSql、notinSql、exists、notExists"><a href="#in、notIn、inSql、notinSql、exists、notExists" class="headerlink" title="in、notIn、inSql、notinSql、exists、notExists"></a>in、notIn、inSql、notinSql、exists、notExists</h3><h4 id="in、notIn"><a href="#in、notIn" class="headerlink" title="in、notIn"></a>in、notIn</h4><ul>
+<li><p><code>notIn(&quot;age&quot;,&#123;1,2,3&#125;)</code>—&gt;<code>age not in (1,2,3)</code></p>
+</li>
+<li><p><code>notIn(&quot;age&quot;, 1, 2, 3)</code>—&gt;<code>age not in (1,2,3)</code></p>
+</li>
+</ul>
+<h4 id="inSql、notinSql：可以实现子查询"><a href="#inSql、notinSql：可以实现子查询" class="headerlink" title="inSql、notinSql：可以实现子查询"></a>inSql、notinSql：可以实现子查询</h4><ul>
+<li><p><code>inSql(&quot;age&quot;, &quot;1,2,3,4,5,6&quot;)</code>—&gt;<code>age in (1,2,3,4,5,6)</code></p>
+</li>
+<li><p><code>inSql(&quot;id&quot;, &quot;select id from table where id &lt; 3&quot;)</code>—&gt;<code>id in (select id from table where id &lt; 3)</code></p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSelectObjs</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    QueryWrapper&lt;User&gt; queryWrapper = <span class="keyword">new</span> QueryWrapper&lt;&gt;();</span><br><span class="line">    <span class="comment">//queryWrapper.in(&quot;id&quot;, 1, 2, 3);</span></span><br><span class="line">    queryWrapper.inSql(<span class="string">&quot;id&quot;</span>, <span class="string">&quot;select id from user where id &lt; 3&quot;</span>);</span><br><span class="line">    List&lt;Object&gt; objects = userMapper.selectObjs(queryWrapper);<span class="comment">//返回值是Object列表</span></span><br><span class="line">    objects.forEach(System.out::println);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">SELECT id,name,age,email,create_time,update_time,deleted,version FROM user WHERE deleted=<span class="number">0</span> <span class="function">AND id <span class="title">IN</span> <span class="params">(select id from user where id &lt; <span class="number">3</span>)</span> </span></span><br></pre></td></tr></table></figure>
+
+<h3 id="or、and"><a href="#or、and" class="headerlink" title="or、and"></a>or、and</h3><blockquote>
+<p>不调用<code>or</code>则默认为使用 <code>and </code>连</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testUpdate1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//修改值</span></span><br><span class="line">    User user = User.builder()</span><br><span class="line">            .age(<span class="number">99</span>)</span><br><span class="line">            .name(<span class="string">&quot;Andy&quot;</span>)</span><br><span class="line">            .build();</span><br><span class="line">    <span class="comment">//修改条件</span></span><br><span class="line">    UpdateWrapper&lt;User&gt; userUpdateWrapper = <span class="keyword">new</span> UpdateWrapper&lt;&gt;();</span><br><span class="line">    userUpdateWrapper</span><br><span class="line">        .like(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;h&quot;</span>)</span><br><span class="line">        .or()</span><br><span class="line">        .between(<span class="string">&quot;age&quot;</span>, <span class="number">20</span>, <span class="number">30</span>);</span><br><span class="line">    <span class="keyword">int</span> result = userMapper.update(user, userUpdateWrapper);</span><br><span class="line">    System.out.println(result);</span><br><span class="line">&#125;</span><br><span class="line">UPDATE user SET name=?, age=?, update_time=? WHERE deleted=<span class="number">0</span> AND name LIKE ? OR age BETWEEN ? AND ?</span><br></pre></td></tr></table></figure>
+
+<h3 id="嵌套or、嵌套and"><a href="#嵌套or、嵌套and" class="headerlink" title="嵌套or、嵌套and"></a>嵌套or、嵌套and</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testUpdate2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//修改值</span></span><br><span class="line">    User user = User.builder()</span><br><span class="line">            .age(<span class="number">99</span>)</span><br><span class="line">            .name(<span class="string">&quot;Andy&quot;</span>)</span><br><span class="line">            .build();</span><br><span class="line">    <span class="comment">//修改条件</span></span><br><span class="line">    UpdateWrapper&lt;User&gt; userUpdateWrapper = <span class="keyword">new</span> UpdateWrapper&lt;&gt;();</span><br><span class="line">    userUpdateWrapper</span><br><span class="line">            .like(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;h&quot;</span>)</span><br><span class="line">            .or(i -&gt; i.eq(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;李白&quot;</span>).ne(<span class="string">&quot;age&quot;</span>, <span class="number">20</span>));</span><br><span class="line">    <span class="keyword">int</span> result = userMapper.update(user, userUpdateWrapper);</span><br><span class="line">    System.out.println(result);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">UPDATE user SET name=?, age=?, update_time=? </span><br><span class="line">WHERE deleted=<span class="number">0</span> AND name LIKE ? </span><br><span class="line">OR ( name = ? AND age &lt;&gt; ? ) </span><br></pre></td></tr></table></figure>
+
+<h3 id="orderBy、orderByDesc、orderByAsc"><a href="#orderBy、orderByDesc、orderByAsc" class="headerlink" title="orderBy、orderByDesc、orderByAsc"></a>orderBy、orderByDesc、orderByAsc</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSelectListOrderBy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    QueryWrapper&lt;User&gt; queryWrapper = <span class="keyword">new</span> QueryWrapper&lt;&gt;();</span><br><span class="line">    queryWrapper.orderByDesc(<span class="string">&quot;id&quot;</span>);</span><br><span class="line">    List&lt;User&gt; users = userMapper.selectList(queryWrapper);</span><br><span class="line">    users.forEach(System.out::println);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">SELECT id,name,age,email,create_time,update_time,deleted,version </span><br><span class="line">FROM user WHERE deleted=<span class="number">0</span> ORDER BY id DESC </span><br></pre></td></tr></table></figure>
+
+<h3 id="last"><a href="#last" class="headerlink" title="last"></a>last</h3><p>直接拼接到 sql 的最后</p>
+<p><strong>注意：</strong>只能调用一次,多次调用以最后一次为准 有sql注入的风险,请谨慎使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSelectListLast</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    QueryWrapper&lt;User&gt; queryWrapper = <span class="keyword">new</span> QueryWrapper&lt;&gt;();</span><br><span class="line">    queryWrapper.last(<span class="string">&quot;limit 1&quot;</span>);</span><br><span class="line">    List&lt;User&gt; users = userMapper.selectList(queryWrapper);</span><br><span class="line">    users.forEach(System.out::println);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">SELECT id,name,age,email,create_time,update_time,deleted,version </span><br><span class="line">FROM user WHERE deleted=<span class="number">0</span> limit <span class="number">1</span> </span><br></pre></td></tr></table></figure>
+
+<h3 id="指定要查询的列"><a href="#指定要查询的列" class="headerlink" title="指定要查询的列"></a>指定要查询的列</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSelectListColumn</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    QueryWrapper&lt;User&gt; queryWrapper = <span class="keyword">new</span> QueryWrapper&lt;&gt;();</span><br><span class="line">    queryWrapper.select(<span class="string">&quot;id&quot;</span>, <span class="string">&quot;name&quot;</span>, <span class="string">&quot;age&quot;</span>);</span><br><span class="line">    List&lt;User&gt; users = userMapper.selectList(queryWrapper);</span><br><span class="line">    users.forEach(System.out::println);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">SELECT id,name,age FROM user WHERE deleted=<span class="number">0</span> </span><br></pre></td></tr></table></figure>
+
+<h3 id="set、setSql"><a href="#set、setSql" class="headerlink" title="set、setSql"></a>set、setSql</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testUpdateSet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//修改值</span></span><br><span class="line">    User user = <span class="keyword">new</span> User();</span><br><span class="line">    user.setAge(<span class="number">99</span>);</span><br><span class="line">    <span class="comment">//修改条件</span></span><br><span class="line">    UpdateWrapper&lt;User&gt; userUpdateWrapper = <span class="keyword">new</span> UpdateWrapper&lt;&gt;();</span><br><span class="line">    userUpdateWrapper</span><br><span class="line">        .like(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;h&quot;</span>)</span><br><span class="line">        .set(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;老李头&quot;</span>)<span class="comment">//除了可以查询还可以使用set设置修改的字段</span></span><br><span class="line">        .setSql(<span class="string">&quot; email = &#x27;123@qq.com&#x27;&quot;</span>);<span class="comment">//可以有子查询</span></span><br><span class="line">    <span class="keyword">int</span> result = userMapper.update(user, userUpdateWrapper);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">UPDATE user SET age=?, update_time=?, name=?, email = <span class="string">&#x27;123@qq.com&#x27;</span> WHERE deleted=<span class="number">0</span> AND name LIKE ? </span><br></pre></td></tr></table></figure>
+
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://code-xiaozhuang.github.io/2021/07/27/06%20%E6%95%B0%E6%8D%AE%E5%BA%93/02%20MyBatis/MyBatis-plus/>https://code-xiaozhuang.github.io/2021/07/27/06%20%E6%95%B0%E6%8D%AE%E5%BA%93/02%20MyBatis/MyBatis-plus/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-27T17:52:15+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Jul 27, 2021</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/code-xiaozhuang.github.io/tags/%E9%9A%8F%E7%AC%94/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>随笔</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/code-xiaozhuang.github.io/tags/MyBatis-Plus/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>MyBatis-Plus</p></a></div>
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/code-xiaozhuang.github.io/2021/07/27/06%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySql/SQl%E4%B8%ADwhere%E4%B8%8Ehaving%E7%9A%84%E5%8C%BA%E5%88%AB/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i></p>
+          <p class='content'>where和having的区别 where:
+
+where是一个约束声明,使用where来约束来自数据库的数据;
+where是在结果返回之前起作用的;
+where中不能使用聚合函数。
+
+ hav...</p>
+        </a>
+      
+      
+        <a class='next' href='/code-xiaozhuang.github.io/2021/07/27/01%20java/03%20Effective%20java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/'>
+          <p class='title'>设计模式学习笔记<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>设计模式学习笔记
+
+
+设计模式原文链接
+设计模式概述概念和意义概念
+软件设计模式（Software Design Pattern），又称设计模式，是一套被反复使用、多数人知晓的、经过分类编目的、...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E6%80%A7"><span class="toc-text">特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA%E5%B7%A5%E7%A8%8B"><span class="toc-text">构建工程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8"><span class="toc-text">开始使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E7%B1%BB"><span class="toc-text">主类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BD%93"><span class="toc-text">实体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAMapper%E6%8E%A5%E5%8F%A3"><span class="toc-text">创建Mapper接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-text">测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MyBatis-puls%E4%B9%8BCRUD"><span class="toc-text">MyBatis-puls之CRUD</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E6%93%8D%E4%BD%9C-Insert"><span class="toc-text">插入操作(Insert)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E9%94%AE%E7%AD%96%E7%95%A5"><span class="toc-text">主键策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E6%93%8D%E4%BD%9C-update"><span class="toc-text">更新操作(update)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AEID%E6%9B%B4%E6%96%B0%E6%93%8D%E4%BD%9C"><span class="toc-text">根据ID更新操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%A1%AB%E5%85%85"><span class="toc-text">自动填充</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E4%B8%AD%E7%9A%84%E8%87%AA%E5%8A%A8%E5%A1%AB%E5%85%85"><span class="toc-text">数据库表中的自动填充</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9E%E4%BD%93%E7%B1%BB%E4%B8%8A%E6%B7%BB%E5%8A%A0%E6%B3%A8%E8%A7%A3"><span class="toc-text">实体类上添加注解</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%BA%90%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%8E%A5%E5%8F%A3"><span class="toc-text">实现源对象的接口</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B9%90%E8%A7%82%E9%94%81"><span class="toc-text">乐观锁</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E6%B7%BB%E5%8A%A0version%E5%AD%97%E6%AE%B5"><span class="toc-text">数据库中添加version字段</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9E%E4%BD%93%E7%B1%BB%E6%B7%BB%E5%8A%A0version%E5%AD%97%E6%AE%B5"><span class="toc-text">实体类添加version字段</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E6%BA%90%E5%AF%B9%E8%B1%A1%E5%88%9D%E5%A7%8B%E5%80%BC"><span class="toc-text">设置源对象初始值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%85%8D%E7%BD%AE%E7%B1%BB"><span class="toc-text">创建配置类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E4%B9%90%E8%A7%82%E9%94%81%E5%8F%AF%E4%BB%A5%E4%BF%AE%E6%94%B9%E6%88%90%E5%8A%9F"><span class="toc-text">测试乐观锁可以修改成功</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E4%B9%90%E8%A7%82%E9%94%81%E4%BF%AE%E6%94%B9%E5%A4%B1%E8%B4%A5"><span class="toc-text">测试乐观锁修改失败</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C-select"><span class="toc-text">查询操作(select)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AEid%E6%9F%A5%E8%AF%A2"><span class="toc-text">根据id查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%B9%E9%87%8F%E6%9F%A5%E8%AF%A2"><span class="toc-text">批量查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2"><span class="toc-text">简单条件查询</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E9%A1%B5"><span class="toc-text">分页</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%85%8D%E7%BD%AE%E7%B1%BB-1"><span class="toc-text">创建配置类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2"><span class="toc-text">测试分页查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95selectMapsPage%E5%88%86%E9%A1%B5%EF%BC%9A%E7%BB%93%E6%9E%9C%E9%9B%86%E6%98%AFmap"><span class="toc-text">测试selectMapsPage分页：结果集是map</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%93%8D%E4%BD%9C-delete"><span class="toc-text">删除操作(delete)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AEid%E5%88%A0%E9%99%A4"><span class="toc-text">根据id删除</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%B9%E9%87%8F%E5%88%A0%E9%99%A4"><span class="toc-text">批量删除</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E7%9A%84%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2%E5%88%A0%E9%99%A4"><span class="toc-text">简单的条件查询删除</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E5%88%A0%E9%99%A4"><span class="toc-text">逻辑删除</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E6%96%B0%E5%A2%9Edeleted%E5%AD%97%E6%AE%B5"><span class="toc-text">数据库中新增deleted字段</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9E%E4%BD%93%E7%B1%BB%E6%B7%BB%E5%8A%A0deleted%E5%AD%97%E6%AE%B5"><span class="toc-text">实体类添加deleted字段</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#application-yml%E6%96%87%E4%BB%B6%E4%B8%AD%E5%8A%A0%E5%85%A5%E9%85%8D%E7%BD%AE"><span class="toc-text">application.yml文件中加入配置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9C%A8mybatisPlusConfig%E4%B8%AD%E6%B3%A8%E5%86%8CBean"><span class="toc-text">在mybatisPlusConfig中注册Bean</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2"><span class="toc-text">条件查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ge%E3%80%81gt%E3%80%81le%E3%80%81lt%E3%80%81isNull%E3%80%81isNotNull"><span class="toc-text">ge、gt、le、lt、isNull、isNotNull</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#eq%E3%80%81ne"><span class="toc-text">eq、ne</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#between%E3%80%81notBetween"><span class="toc-text">between、notBetween</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#allEq"><span class="toc-text">allEq</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#like%E3%80%81notLike%E3%80%81likeLeft%E3%80%81likeRight"><span class="toc-text">like、notLike、likeLeft、likeRight</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#in%E3%80%81notIn%E3%80%81inSql%E3%80%81notinSql%E3%80%81exists%E3%80%81notExists"><span class="toc-text">in、notIn、inSql、notinSql、exists、notExists</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#in%E3%80%81notIn"><span class="toc-text">in、notIn</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#inSql%E3%80%81notinSql%EF%BC%9A%E5%8F%AF%E4%BB%A5%E5%AE%9E%E7%8E%B0%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="toc-text">inSql、notinSql：可以实现子查询</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#or%E3%80%81and"><span class="toc-text">or、and</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B5%8C%E5%A5%97or%E3%80%81%E5%B5%8C%E5%A5%97and"><span class="toc-text">嵌套or、嵌套and</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#orderBy%E3%80%81orderByDesc%E3%80%81orderByAsc"><span class="toc-text">orderBy、orderByDesc、orderByAsc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#last"><span class="toc-text">last</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E5%AE%9A%E8%A6%81%E6%9F%A5%E8%AF%A2%E7%9A%84%E5%88%97"><span class="toc-text">指定要查询的列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#set%E3%80%81setSql"><span class="toc-text">set、setSql</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+		  
+		  <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="MyBatis-Plus学习";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+  // header 这里无论是否开启pjax都需要
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.remove("show");
+  
+  
+    // cover
+    var cover_wrapper=document.querySelector('.cover-wrapper');
+    
+    cover_wrapper.id="half";
+    cover_wrapper.style.display="";
+    
+  
+</script>
+
+        </div>
+        
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        <div><p>Blog content follows the <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p>
+</div>
+      
+    
+      
+        
+          <div><p><span id="lc-sv">本站总访问量为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
+</div>
+        
+      
+    
+      
+        Use
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1" target="_blank" class="codename">Volantis</a>
+        as theme
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="/">Copyright © 2020-2021 XXX</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+        <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+      </div>
+    </div>
+    <div>
+      <script>
+/************这个文件存放不需要重载的全局变量和全局函数*********/
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/******************** Pjax ********************************/
+function VPjax(){
+	this.list=[] // 存放回调函数
+	this.start=()=>{
+	  for(var i=0;i<this.list.length;i++){
+		this.list[i].run();
+	  }
+	}
+	this.push=(fn,name)=>{
+		var f=new PjaxItem(fn,name);
+		this.list.push(f);
+	}
+	// 构造一个可以run的对象
+	function PjaxItem(fn,name){
+		// 函数名称
+		this.name = name || fn.name
+		// run方法
+		this.run=()=>{
+			fn()
+		}
+	}
+}
+volantis.pjax={}
+volantis.pjax.method={
+	complete: new VPjax(),
+	error: new VPjax(),
+	send: new VPjax()
+}
+volantis.pjax={
+	...volantis.pjax,
+	push: volantis.pjax.method.complete.push,
+	error: volantis.pjax.method.error.push,
+	send: volantis.pjax.method.send.push
+}
+/********************脚本懒加载函数********************************/
+// 已经加入了setTimeout
+function loadScript(src, cb) {
+	setTimeout(function() {
+		var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+		var script = document.createElement('script');
+		script.setAttribute('type','text/javascript');
+		if (cb) script.onload = cb;
+		script.setAttribute('src', src);
+		HEAD.appendChild(script);
+	});
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css", window.volantis.loadcss);
+  
+  
+  
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+  function Pjax_SCload_fancybox(){
+	if (typeof $.fancybox == "undefined") {
+	 SCload_fancybox();
+    } else {
+	 pjax_fancybox();
+    }
+  }
+  volantis.pjax.push(Pjax_SCload_fancybox)
+  volantis.pjax.send(()=>{
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+  },'fancybox')
+</script>
+
+
+<!-- internal -->
+
+
+
+
+<script>
+  function loadIssuesJS() {
+    if ($(".md").find(".issues-api").length == 0) return;
+	
+	  loadScript('/code-xiaozhuang.github.io/js/issues.js');
+	
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+  volantis.pjax.push(()=>{
+	if (typeof IssuesAPI == "undefined") {
+	  loadIssuesJS();
+	}
+  },"IssuesJS")
+</script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+
+<script>
+  window.FPConfig = {
+	delay: 0,
+	ignoreKeywords: [],
+	maxRPS: 5,
+	hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+<script src="/code-xiaozhuang.github.io/js/valine.js"></script>
+
+
+<script>
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+    var valine = new Valine();
+    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":null,"appKey":null,"meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false}, {
+      el: '#valine_container',
+      path: path,
+      placeholder: pagePlaceholder,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps,
+    }))
+  }
+  $(function () {
+    pjax_valine();
+  });
+  volantis.pjax.push(pjax_valine);
+</script>
+
+
+
+
+
+
+  
+<script src="/code-xiaozhuang.github.io/js/app.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/code-xiaozhuang.github.io/" || "/").endsWith('/') ? ("/code-xiaozhuang.github.io/" || "/") : ("/code-xiaozhuang.github.io//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('/code-xiaozhuang.github.io/js/search/hexo.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+		document.addEventListener("pjax:success", listenSearch);
+	
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+  <script defer>
+
+  const LCCounter = {
+    app_id: 'u9j57bwJod4EDmXWdxrwuqQT-MdYXbMMI',
+    app_key: 'jfHtEKVE24j0IVCGHbvuFClp',
+    custom_api_server: '',
+
+    // 查询存储的记录
+    getRecord(Counter, url, title) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {url, title: title, times: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    },
+
+    // 发起自增请求
+    increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    },
+
+    // 构建自增请求体
+    buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "times": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    },
+
+    // 校验是否为有效的 UV
+    validUV() {
+      var key = 'LeanCloudUVTimestamp';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    },
+
+    addCount(Counter) {
+      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
+      enableIncr = true;
+      var getterArr = [];
+      var incrArr = [];
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#lc-sv');
+      if (pvCtn || enableIncr) {
+        var pvGetter = this.getRecord(Counter, 'https://code-xiaozhuang.github.io' + '/#lc-sv', 'Visits').then((record) => {
+          incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-sv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + 1;
+              if (pvCtn) {
+                pvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#lc-uv');
+      if (uvCtn || enableIncr) {
+        var uvGetter = this.getRecord(Counter, 'https://code-xiaozhuang.github.io' + '/#lc-uv', 'Visitors').then((record) => {
+          var vuv = this.validUV();
+          vuv && incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-uv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + (vuv ? 1 : 0);
+              if (uvCtn) {
+                uvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 请求文章的浏览数，如果是当前页面就自增
+      var allPV = document.querySelectorAll('#lc-pv');
+      if (allPV.length > 0 || enableIncr) {
+        for (i = 0; i < allPV.length; i++) {
+          let pv = allPV[i];
+          let title = pv.getAttribute('data-title');
+          var url = 'https://code-xiaozhuang.github.io' + pv.getAttribute('data-path');
+          if (url) {
+            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
+              // 是当前页面就自增
+              let curPath = window.location.pathname;
+              if (curPath.includes('index.html')) {
+                curPath = curPath.substring(0, curPath.lastIndexOf('index.html'));
+              }
+              if (pv.getAttribute('data-path') == curPath) {
+                incrArr.push(this.buildIncrement(record.objectId));
+              }
+              if (pv) {
+                var ele = pv.querySelector('#lc-pv #number');
+                if (ele) {
+                  if (pv.getAttribute('data-path') == curPath) {
+                    ele.innerText = (record.times || 0) + 1;
+                  } else {
+                    ele.innerText = record.times || 0;
+                  }
+                  pv.style.display = 'inline';
+                }
+              }
+            });
+            getterArr.push(viewGetter);
+          }
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && this.increment(Counter, incrArr);
+        })
+      }
+
+    },
+
+
+    fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': this.app_id,
+            'X-LC-Key': this.app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      this.addCount(Counter);
+    },
+
+    refreshCounter() {
+      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+      if (api_server) {
+        this.fetchData(api_server);
+      } else {
+        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
+          .then(resp => resp.json())
+          .then(({api_server}) => {
+            this.fetchData('https://' + api_server);
+          });
+      }
+    }
+
+  };
+
+  LCCounter.refreshCounter();
+
+  document.addEventListener('pjax:complete', function () {
+    LCCounter.refreshCounter();
+  });
+</script>
+
+
+
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "user-color-scheme";
+const rootElementDarkModeAttributeName = "data-user-color-scheme";
+
+const setLS = (k, v) => {
+    localStorage.setItem(k, v);
+};
+
+const removeLS = (k) => {
+    localStorage.removeItem(k);
+};
+
+const getLS = (k) => {
+    return localStorage.getItem(k);
+};
+
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+
+/**
+ * get target mode
+ */
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+
+/**
+ * bind click event for toggle button
+ */
+var btn=$("#wrapper .toggle-mode-btn,#rightmenu-wrapper .toggle-mode-btn");
+function bindToggleButton() {
+    btn.on('click',(e) => {
+      const mode = toggleCustomDarkMode();
+      applyCustomDarkModeSettings(mode);
+    });
+}
+
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", bindToggleButton);
+volantis.pjax.push(bindToggleButton);
+volantis.pjax.send(()=>{
+	btn.unbind('click');
+},'toggle-mode-btn-unbind');
+</script>
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+ 
+	   
+	    
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  // 使用 volantis.pjax.send 方法传入pjax:send回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.send.start();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+		// 使用 volantis.pjax.push 方法传入重载函数 参见layout/_partial/scripts/global.ejs
+		volantis.pjax.method.complete.start();
+      } catch (e) {
+        console.log(e);
+      }
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.error.start();
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+ 
+	  
+    </div>
+  </body>
+</html>
