@@ -410,26 +410,22 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
-      <a href="/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/03%20%E7%B1%BB/">
-        修饰符
+      <a href="/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/02%20lambda/">
+        lambda
       </a>
     </h2>
   
   <div class='md'>
     
       
-        类类是构造对象的模板。
-由类构造对象的过程称为创建类的实例。
-一个源文件中，只能有一个公共类，类名必须与文件名相同。
-类之间的关系最常见的关系有：
+        
+@since 1.8
 
-依赖（uses-a）：一个类的方法需要操纵另一个类的对象
-聚合（has-a）：类 A 的对象包含着类 B 的对象
-继承（is-a）：继承是一种用于表示特殊与一般的关系，父类更一般
+语法参数，箭头（-&gt;）以及一个表达式。
+1(String first, String second) -&gt;first.length() - second.length()
 
-应该尽可能地将相互依赖的类减至最少。
-构造器
-构造器和类名同名...
+没有参数也要提供空括号，就像无参数方法一样。
+1() -&gt; &#123; for (int i = 100; i &gt;= 0; i--) System.out.printl...
       
     
   </div>
@@ -440,124 +436,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <time>2021-07-27</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/code-xiaozhuang.github.io/categories/java/">java</a><span class="sep"></span><a class="category-link" href="/code-xiaozhuang.github.io/categories/java/java%E5%9F%BA%E7%A1%80/">java基础</a><span class="sep"></span><a class="category-link" href="/code-xiaozhuang.github.io/categories/java/java%E5%9F%BA%E7%A1%80/%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/">对象与类</a>
+          <a class="category-link" href="/code-xiaozhuang.github.io/categories/java/">java</a><span class="sep"></span><a class="category-link" href="/code-xiaozhuang.github.io/categories/java/java%E5%9F%BA%E7%A1%80/">java基础</a><span class="sep"></span><a class="category-link" href="/code-xiaozhuang.github.io/categories/java/java%E5%9F%BA%E7%A1%80/%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/">接口、lambda、内部类</a>
         
       </div>
       
         <div>
-          <a class='readmore' href='/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/03%20%E7%B1%BB/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/05%20%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/">
-        文档注释
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        注释方法三种注释方法，注释不会出现在可执行文件中
-
-//
-/* */
-/** */自动生成文档
-
-注释的插入javadoc 从下面几个特性中抽取信息：
-
-包
-公有类与接口
-公有的和受保护的构造器和方法
-公有的和受保护的域
-
-类注释类注释必须在 import 语句之后，在类定义之前。
-方法注释方法注释必须放在方法之前，除了通用标记之外，还可以使用 @param ，@return ，@throw...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/code-xiaozhuang.github.io/categories/java/">java</a><span class="sep"></span><a class="category-link" href="/code-xiaozhuang.github.io/categories/java/java%E5%9F%BA%E7%A1%80/">java基础</a><span class="sep"></span><a class="category-link" href="/code-xiaozhuang.github.io/categories/java/java%E5%9F%BA%E7%A1%80/%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/">对象与类</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/05%20%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/">
-        对象与类
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        反射可以提供运行时的类信息，并且这个类可以在运行时才加载进来，甚至在编译时期该类的 .class 不存在也可以加载进来。
-反射允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。
-反射的核心是 JVM 在运行时才动态加载类或调用方法/访问属性，它不需要事先知道运行对象是谁。
-反射的作用反射机制可以用来：
-
-在运行时判断任意一个对象所属的类；
-在运行时构造任意一个类的对...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/code-xiaozhuang.github.io/categories/java/">java</a><span class="sep"></span><a class="category-link" href="/code-xiaozhuang.github.io/categories/java/java%E5%9F%BA%E7%A1%80/">java基础</a><span class="sep"></span><a class="category-link" href="/code-xiaozhuang.github.io/categories/java/java%E5%9F%BA%E7%A1%80/%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/">对象与类</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/'>
+          <a class='readmore' href='/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/02%20lambda/'>
             Read More
           </a>
         </div>
@@ -684,59 +568,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
-      <a href="/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/02%20lambda/">
-        lambda
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        
-@since 1.8
-
-语法参数，箭头（-&gt;）以及一个表达式。
-1(String first, String second) -&gt;first.length() - second.length()
-
-没有参数也要提供空括号，就像无参数方法一样。
-1() -&gt; &#123; for (int i = 100; i &gt;= 0; i--) System.out.printl...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/code-xiaozhuang.github.io/categories/java/">java</a><span class="sep"></span><a class="category-link" href="/code-xiaozhuang.github.io/categories/java/java%E5%9F%BA%E7%A1%80/">java基础</a><span class="sep"></span><a class="category-link" href="/code-xiaozhuang.github.io/categories/java/java%E5%9F%BA%E7%A1%80/%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/">接口、lambda、内部类</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/02%20lambda/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
       <a href="/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/03%20%E5%86%85%E9%83%A8%E7%B1%BB/">
         内部类
       </a>
@@ -793,6 +624,285 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
+      <a href="/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/">
+        对象与类
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        反射可以提供运行时的类信息，并且这个类可以在运行时才加载进来，甚至在编译时期该类的 .class 不存在也可以加载进来。
+反射允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。
+反射的核心是 JVM 在运行时才动态加载类或调用方法/访问属性，它不需要事先知道运行对象是谁。
+反射的作用反射机制可以用来：
+
+在运行时判断任意一个对象所属的类；
+在运行时构造任意一个类的对...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/code-xiaozhuang.github.io/categories/java/">java</a><span class="sep"></span><a class="category-link" href="/code-xiaozhuang.github.io/categories/java/java%E5%9F%BA%E7%A1%80/">java基础</a><span class="sep"></span><a class="category-link" href="/code-xiaozhuang.github.io/categories/java/java%E5%9F%BA%E7%A1%80/%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/">对象与类</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/03%20%E7%B1%BB/">
+        修饰符
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        类类是构造对象的模板。
+由类构造对象的过程称为创建类的实例。
+一个源文件中，只能有一个公共类，类名必须与文件名相同。
+类之间的关系最常见的关系有：
+
+依赖（uses-a）：一个类的方法需要操纵另一个类的对象
+聚合（has-a）：类 A 的对象包含着类 B 的对象
+继承（is-a）：继承是一种用于表示特殊与一般的关系，父类更一般
+
+应该尽可能地将相互依赖的类减至最少。
+构造器
+构造器和类名同名...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/code-xiaozhuang.github.io/categories/java/">java</a><span class="sep"></span><a class="category-link" href="/code-xiaozhuang.github.io/categories/java/java%E5%9F%BA%E7%A1%80/">java基础</a><span class="sep"></span><a class="category-link" href="/code-xiaozhuang.github.io/categories/java/java%E5%9F%BA%E7%A1%80/%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/">对象与类</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/03%20%E7%B1%BB/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/05%20%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/">
+        文档注释
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        注释方法三种注释方法，注释不会出现在可执行文件中
+
+//
+/* */
+/** */自动生成文档
+
+注释的插入javadoc 从下面几个特性中抽取信息：
+
+包
+公有类与接口
+公有的和受保护的构造器和方法
+公有的和受保护的域
+
+类注释类注释必须在 import 语句之后，在类定义之前。
+方法注释方法注释必须放在方法之前，除了通用标记之外，还可以使用 @param ，@return ，@throw...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/code-xiaozhuang.github.io/categories/java/">java</a><span class="sep"></span><a class="category-link" href="/code-xiaozhuang.github.io/categories/java/java%E5%9F%BA%E7%A1%80/">java基础</a><span class="sep"></span><a class="category-link" href="/code-xiaozhuang.github.io/categories/java/java%E5%9F%BA%E7%A1%80/%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/">对象与类</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/05%20%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/06%20%E6%8E%A7%E5%88%B6%E6%B5%81%E7%A8%8B/">
+        控制流程
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        
+Java 使用条件语句和循环语句控制流程。
+
+块作用域块（block、复合语句），由一对花括号括起来，确定了变量的作用域。
+不能在嵌套的块中声明同名的变量。
+条件语句if else if
+循环while
+do while
+确定循环for（初始化；检查；更新）
+警告：循环中检测两个浮点数是否相等时要格外小心，由于舍入可能得不到精确值。
+多重选择：switch 语句switch 从与选项值相匹...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/code-xiaozhuang.github.io/categories/java/">java</a><span class="sep"></span><a class="category-link" href="/code-xiaozhuang.github.io/categories/java/java%E5%9F%BA%E7%A1%80/">java基础</a><span class="sep"></span><a class="category-link" href="/code-xiaozhuang.github.io/categories/java/java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/">基本设计</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/06%20%E6%8E%A7%E5%88%B6%E6%B5%81%E7%A8%8B/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/01%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+        面向对象
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        抽象抽象是将一类对象的共同特征总结出来构造类的过程，包括数据抽象和行为抽象两方面。抽象只关注对象有哪些属性和行为，并不关注这些行为的细节是什么。
+封装把数据和行为隐藏，只能通过暴露的接口访问数据。
+继承通过扩展一个类来建立另一个新的类。
+慎用继承
+将公共操作和域放在超类。
+不要使用受保护的域。
+使用继承实现”is-a”。
+除非所有继承的方法都有意义，否则不要使用继承。
+在覆盖方法时，不要改变...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/code-xiaozhuang.github.io/categories/java/">java</a><span class="sep"></span><a class="category-link" href="/code-xiaozhuang.github.io/categories/java/java%E5%9F%BA%E7%A1%80/">java基础</a><span class="sep"></span><a class="category-link" href="/code-xiaozhuang.github.io/categories/java/java%E5%9F%BA%E7%A1%80/%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/">对象与类</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/01%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
       <a href="/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/03%20%E6%95%B0%E7%BB%84%E5%92%8C%E5%B9%BF%E4%B9%89%E8%A1%A8/">
         数组和广义表
       </a>
@@ -828,120 +938,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <div>
           <a class='readmore' href='/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/03%20%E6%95%B0%E7%BB%84%E5%92%8C%E5%B9%BF%E4%B9%89%E8%A1%A8/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/04%20%E8%BF%90%E7%AE%97%E7%AC%A6/">
-        运算符
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        数学函数与常量
-Math.sqrt(x)：平方根
-Math.pow(x, y)：幂运算，x 的 y 次幂
-Math.floorMod(x, y)：求余
-
-自增与自减运算符建议不要在表达式中使用 ++，容易带来疑惑和 bug
-关系和 boolean 运算符
-==
-!=
-&lt;
-&gt;
-&lt;=
-&gt;=
-&amp;&amp;（短路）
-||（短路）
-?:
-
-位运算符
-逻辑
-整型
-| (或...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/code-xiaozhuang.github.io/categories/java/">java</a><span class="sep"></span><a class="category-link" href="/code-xiaozhuang.github.io/categories/java/java%E5%9F%BA%E7%A1%80/">java基础</a><span class="sep"></span><a class="category-link" href="/code-xiaozhuang.github.io/categories/java/java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/">基本设计</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/04%20%E8%BF%90%E7%AE%97%E7%AC%A6/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/05%20%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/">
-        输入输出
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        读取输入Scanner 类文件输入12// 如果是 win 系统，使用双反斜杠，&quot;c:\\mydirectory\\myfile.txt&quot; ，每个 \ 需要额外的一个 \。Scanner scan = new Scanner(Paths.get(&quot;myfile.txt&quot;)，&quot;UTF-8&quot;);
-
-标准输入1Scanner in = n...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/code-xiaozhuang.github.io/categories/java/">java</a><span class="sep"></span><a class="category-link" href="/code-xiaozhuang.github.io/categories/java/java%E5%9F%BA%E7%A1%80/">java基础</a><span class="sep"></span><a class="category-link" href="/code-xiaozhuang.github.io/categories/java/java%E5%9F%BA%E7%A1%80/%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/">基本设计</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/05%20%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/'>
             Read More
           </a>
         </div>

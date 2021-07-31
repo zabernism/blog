@@ -422,23 +422,26 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
-      <a href="/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/01%20%E5%BC%82%E5%B8%B8/">
-        异常
+      <a href="/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/03%20%E6%97%A5%E5%BF%97/">
+        日志
       </a>
     </h2>
   
   <div class='md'>
     
       
-        异常分类
-Throwable
-Error
-表示 JVM 无法处理的错误，如 OutOfMemoryError, StackOverflowError。
+        
+java.util.logging.Logger
+
+日志记录器全局日志记录器Logger.getGlobal()
+1Logger.getGlobal().info(&quot;&quot;);
 
 
-Exception
-未检查异常（RuntimeException，运行时异常）
-程序出错导致的异常，例如 NullPointerException，IllegalArgumentException，ArrayIndexOutOfBound...
+
+自定义日志记录器Logger.getLogger()
+1Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
+
+日志级别日志...
       
     
   </div>
@@ -454,7 +457,7 @@ Exception
       </div>
       
         <div>
-          <a class='readmore' href='/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/01%20%E5%BC%82%E5%B8%B8/'>
+          <a class='readmore' href='/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/03%20%E6%97%A5%E5%BF%97/'>
             Read More
           </a>
         </div>
@@ -529,26 +532,23 @@ assert 条件:表达式1assert x &gt;= 0 : x;
   
     
     <h2 class="article-title" >
-      <a href="/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/03%20%E6%97%A5%E5%BF%97/">
-        日志
+      <a href="/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/01%20%E5%BC%82%E5%B8%B8/">
+        异常
       </a>
     </h2>
   
   <div class='md'>
     
       
-        
-java.util.logging.Logger
-
-日志记录器全局日志记录器Logger.getGlobal()
-1Logger.getGlobal().info(&quot;&quot;);
-
+        异常分类
+Throwable
+Error
+表示 JVM 无法处理的错误，如 OutOfMemoryError, StackOverflowError。
 
 
-自定义日志记录器Logger.getLogger()
-1Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
-
-日志级别日志...
+Exception
+未检查异常（RuntimeException，运行时异常）
+程序出错导致的异常，例如 NullPointerException，IllegalArgumentException，ArrayIndexOutOfBound...
       
     
   </div>
@@ -564,7 +564,7 @@ java.util.logging.Logger
       </div>
       
         <div>
-          <a class='readmore' href='/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/03%20%E6%97%A5%E5%BF%97/'>
+          <a class='readmore' href='/code-xiaozhuang.github.io/2021/07/27/01%20java/01%20java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/01%20%E5%BC%82%E5%B8%B8/'>
             Read More
           </a>
         </div>
