@@ -552,32 +552,75 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p><a target="_blank" rel="noopener" href="https://wujun234.github.io/images/1545011836585.png"><img src="https://wujun234.github.io/images/1545011836585.png" class="lazyload" data-srcset="https://wujun234.github.io/images/1545011836585.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="ArrayDeque_base.png"></a></p>
 <h1 id="方法剖析"><a href="#方法剖析" class="headerlink" title="方法剖析"></a>方法剖析</h1><h2 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h2><p><strong>空间问题在插入之后解决</strong>，因为 <code>tail</code> 总是指向下一个可插入的空位，也就意味着 <code>elements</code>数组至少有一个空位，所以插入元素的时候不用考虑空间问题。</p>
 <h3 id="addFirst"><a href="#addFirst" class="headerlink" title="addFirst()"></a>addFirst()</h3><p><code>addFirst(E e)</code>是在<code>head</code>前插入元素。 elements[–head] = e 。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addFirst</span><span class="params">(E e)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (e == <span class="keyword">null</span>)<span class="comment">//不允许放入null</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</span><br><span class="line">    elements[head = (head - <span class="number">1</span>) &amp; (elements.length - <span class="number">1</span>)] = e;<span class="comment">//下标是否越界</span></span><br><span class="line">    <span class="keyword">if</span> (head == tail)<span class="comment">//空间是否够用</span></span><br><span class="line">        doubleCapacity();<span class="comment">//扩容</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">public void addFirst(E e) &#123;
+    if (e == null)//不允许放入null
+        throw new NullPointerException();
+    elements[head = (head - 1) &amp; (elements.length - 1)] = e;//下标是否越界
+    if (head == tail)//空间是否够用
+        doubleCapacity();//扩容
+&#125;
+</code></pre>
 <h3 id="addLast"><a href="#addLast" class="headerlink" title="addLast()"></a>addLast()</h3><p><code>addLast(E e)</code>是在<code>tail</code>的位置插入元素。elements[tail] = e;</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addLast</span><span class="params">(E e)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (e == <span class="keyword">null</span>)<span class="comment">//不允许放入null</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</span><br><span class="line">    elements[tail] = e;<span class="comment">//赋值</span></span><br><span class="line">    <span class="keyword">if</span> ( (tail = (tail + <span class="number">1</span>) &amp; (elements.length - <span class="number">1</span>)) == head)<span class="comment">//下标越界处理</span></span><br><span class="line">        doubleCapacity();<span class="comment">//扩容</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">public void addLast(E e) &#123;
+    if (e == null)//不允许放入null
+        throw new NullPointerException();
+    elements[tail] = e;//赋值
+    if ( (tail = (tail + 1) &amp; (elements.length - 1)) == head)//下标越界处理
+        doubleCapacity();//扩容
+&#125;
+</code></pre>
 <h3 id="下标越界"><a href="#下标越界" class="headerlink" title="下标越界"></a>下标越界</h3><p>下标越界时 <code>head = (head - 1) &amp; (elements.length - 1)</code> 取余。<br>因为 <code>elements.length</code> 必需是 <code>2</code> 的指数倍，<code>elements - 1</code> 就是二进制低位全 <code>1</code> ，跟 <code>head - 1</code> 相与之后就起到了取模的作用，如果 <code>head - 1</code> 为负数（其实只可能是-1），则相当于对其取相对于<code>elements.length</code>的补码。</p>
 <h3 id="扩容"><a href="#扩容" class="headerlink" title="扩容"></a>扩容</h3><p>扩容函数<code>doubleCapacity()</code>，逻辑是申请一个更大的数组（原数组的两倍），然后将原数组复制过去。</p>
 <p><a target="_blank" rel="noopener" href="https://wujun234.github.io/images/1545011836851.png"><img src="https://wujun234.github.io/images/1545011836851.png" class="lazyload" data-srcset="https://wujun234.github.io/images/1545011836851.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="ArrayDeque_doubleCapacity.png"></a></p>
 <p>复制分两次进行，第一次复制<code>head</code>右边的元素，第二次复制<code>head</code>左边的元素。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">doubleCapacity</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">assert</span> head == tail;</span><br><span class="line">    <span class="keyword">int</span> p = head;</span><br><span class="line">    <span class="keyword">int</span> n = elements.length;</span><br><span class="line">    <span class="keyword">int</span> r = n - p; <span class="comment">// head右边元素的个数</span></span><br><span class="line">    <span class="keyword">int</span> newCapacity = n &lt;&lt; <span class="number">1</span>;<span class="comment">//原空间的2倍</span></span><br><span class="line">    <span class="keyword">if</span> (newCapacity &lt; <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(<span class="string">&quot;Sorry, deque too big&quot;</span>);</span><br><span class="line">    Object[] a = <span class="keyword">new</span> Object[newCapacity];</span><br><span class="line">    System.arraycopy(elements, p, a, <span class="number">0</span>, r);<span class="comment">//复制右半部分</span></span><br><span class="line">    System.arraycopy(elements, <span class="number">0</span>, a, r, p);<span class="comment">//复制左半部分</span></span><br><span class="line">    elements = (E[])a;</span><br><span class="line">    head = <span class="number">0</span>;</span><br><span class="line">    tail = n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">private void doubleCapacity() &#123;
+    assert head == tail;
+    int p = head;
+    int n = elements.length;
+    int r = n - p; // head右边元素的个数
+    int newCapacity = n &lt;&lt; 1;//原空间的2倍
+    if (newCapacity &lt; 0)
+        throw new IllegalStateException(&quot;Sorry, deque too big&quot;);
+    Object[] a = new Object[newCapacity];
+    System.arraycopy(elements, p, a, 0, r);//复制右半部分
+    System.arraycopy(elements, 0, a, r, p);//复制左半部分
+    elements = (E[])a;
+    head = 0;
+    tail = n;
+&#125;
+</code></pre>
 <h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><h3 id="pollFirst"><a href="#pollFirst" class="headerlink" title="pollFirst()"></a>pollFirst()</h3><p><code>pollFirst()</code>删除并返回<code>head</code>处的元素。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">pollFirst</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    E result = elements[head];</span><br><span class="line">    <span class="keyword">if</span> (result == <span class="keyword">null</span>)<span class="comment">//null值意味着deque为空</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    elements[h] = <span class="keyword">null</span>;<span class="comment">//let GC work</span></span><br><span class="line">    head = (head + <span class="number">1</span>) &amp; (elements.length - <span class="number">1</span>);<span class="comment">//下标越界处理</span></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">public E pollFirst() &#123;
+    E result = elements[head];
+    if (result == null)//null值意味着deque为空
+        return null;
+    elements[h] = null;//let GC work
+    head = (head + 1) &amp; (elements.length - 1);//下标越界处理
+    return result;
+&#125;
+</code></pre>
 <h3 id="pollLast"><a href="#pollLast" class="headerlink" title="pollLast()"></a>pollLast()</h3><p><code>pollLast()</code>删除并返回<code>tail</code>前的元素。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">pollLast</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t = (tail - <span class="number">1</span>) &amp; (elements.length - <span class="number">1</span>);<span class="comment">//tail的上一个位置是最后一个元素</span></span><br><span class="line">    E result = elements[t];</span><br><span class="line">    <span class="keyword">if</span> (result == <span class="keyword">null</span>)<span class="comment">//null值意味着deque为空</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    elements[t] = <span class="keyword">null</span>;<span class="comment">//let GC work</span></span><br><span class="line">    tail = t;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">public E pollLast() &#123;
+    int t = (tail - 1) &amp; (elements.length - 1);//tail的上一个位置是最后一个元素
+    E result = elements[t];
+    if (result == null)//null值意味着deque为空
+        return null;
+    elements[t] = null;//let GC work
+    tail = t;
+    return result;
+&#125;
+</code></pre>
 <h2 id="取值"><a href="#取值" class="headerlink" title="取值"></a>取值</h2><h3 id="peekFirst"><a href="#peekFirst" class="headerlink" title="peekFirst()"></a>peekFirst()</h3><p><code>peekFirst()</code>返回但不删除<code>head</code>处的元素。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">peekFirst</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> elements[head]; <span class="comment">// elements[head] is null if deque empty</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">public E peekFirst() &#123;
+    return elements[head]; // elements[head] is null if deque empty
+&#125;
+</code></pre>
 <h3 id="peekLast"><a href="#peekLast" class="headerlink" title="peekLast()"></a>peekLast()</h3><p><code>peekLast()</code>返回但不删除<code>tail</code>前的元素。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">peekLast</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> elements[(tail - <span class="number">1</span>) &amp; (elements.length - <span class="number">1</span>)];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public E peekLast() &#123;
+    return elements[(tail - 1) &amp; (elements.length - 1)];
+&#125;
+</code></pre>
+
   
   
     
@@ -711,35 +754,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/02%20%E5%85%B7%E4%BD%93%E9%9B%86%E5%90%88/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>具体集合</p>
-          <p class='content'>
+        <a class='prev' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/04%20linkedList/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>LinkedList</p>
+          <p class='content'>现在栈或者队列的首选是ArrayDeque。
+总体介绍LinkedList同时实现了List接口和Deque接口，允许null元素。
 
-
-集合类型
-同步
-可null
-有序
-描述
-
-
-
-ArrayList
-否
-是
-是
-动态增缩的索引序列
-
-
-Vector
-是
-是
-是
-过时，同步的ArrayList
-
-
-LinkedList
-否...</p>
+LinkedList底层通过双向链表实现。节点用内部类No...</p>
         </a>
       
       

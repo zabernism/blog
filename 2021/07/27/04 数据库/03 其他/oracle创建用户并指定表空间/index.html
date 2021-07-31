@@ -474,16 +474,22 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-<h1 id="创建表空间"><a href="#创建表空间" class="headerlink" title="创建表空间"></a>创建表空间</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span>space eprk</span><br><span class="line">logging datafile <span class="string">&#x27;D:\oracle\oradata\orcl\eprk.dbf&#x27;</span>#表空间的路径</span><br><span class="line">size <span class="number">100</span>m autoextend <span class="keyword">on</span></span><br><span class="line">next <span class="number">50</span>m maxsize <span class="number">20480</span>m extent management <span class="keyword">local</span>;</span><br></pre></td></tr></table></figure>
+<h1 id="创建表空间"><a href="#创建表空间" class="headerlink" title="创建表空间"></a>创建表空间</h1><pre><code class="sql">create tablespace eprk
+logging datafile &#39;D:\oracle\oradata\orcl\eprk.dbf&#39;#表空间的路径
+size 100m autoextend on
+next 50m maxsize 20480m extent management local;
+</code></pre>
+<h1 id="创建qh2用户并指定表空间"><a href="#创建qh2用户并指定表空间" class="headerlink" title="创建qh2用户并指定表空间"></a>创建qh2用户并指定表空间</h1><pre><code class="sql">create user qh2 identified by 123456
+default tablespace eprk
+temporary tablespace temp profile default;
+</code></pre>
+<h1 id="给qh2用户授予权限"><a href="#给qh2用户授予权限" class="headerlink" title="给qh2用户授予权限"></a>给qh2用户授予权限</h1><pre><code class="sql">grant connect,resource to qh2;
+grant dba to qh2;
+</code></pre>
+<h1 id="远程导入dmp文件"><a href="#远程导入dmp文件" class="headerlink" title="远程导入dmp文件"></a>远程导入dmp文件</h1><pre><code class="sql">cd /d D:\oraclexe\app\oracle\product\11.2.0\server\bin
 
-<h1 id="创建qh2用户并指定表空间"><a href="#创建qh2用户并指定表空间" class="headerlink" title="创建qh2用户并指定表空间"></a>创建qh2用户并指定表空间</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">user</span> qh2 identified <span class="keyword">by</span> <span class="number">123456</span></span><br><span class="line"><span class="keyword">default</span> tablespace eprk</span><br><span class="line">temporary tablespace temp profile <span class="keyword">default</span>;</span><br></pre></td></tr></table></figure>
-
-<h1 id="给qh2用户授予权限"><a href="#给qh2用户授予权限" class="headerlink" title="给qh2用户授予权限"></a>给qh2用户授予权限</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">grant</span> <span class="keyword">connect</span>,resource <span class="keyword">to</span> qh2;</span><br><span class="line"><span class="keyword">grant</span> dba <span class="keyword">to</span> qh2;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="远程导入dmp文件"><a href="#远程导入dmp文件" class="headerlink" title="远程导入dmp文件"></a>远程导入dmp文件</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd <span class="operator">/</span>d D:\oraclexe\app\oracle\product\<span class="number">11.2</span><span class="number">.0</span>\server\bin</span><br><span class="line"></span><br><span class="line">imp qh2<span class="operator">/</span><span class="number">123456</span><span class="variable">@192</span><span class="number">.168</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">1521</span><span class="operator">/</span>orcl file<span class="operator">=</span>G:\global.dmp <span class="keyword">full</span><span class="operator">=</span>y</span><br></pre></td></tr></table></figure>
-
+imp qh2/123456@192.168.0.1:1521/orcl file=G:\global.dmp full=y
+</code></pre>
 
   
   
@@ -535,7 +541,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>115 words</p>
+      <p>120 words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -618,16 +624,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/blog/2021/07/27/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/01%20JAVA/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>JAVA</p>
-          <p class='content'>一、基础篇网络基础TCP三次握手​    三次握手过程：
-​        客户端——发送带有SYN标志的数据包——服务端       一次握手  Client进入syn_sent状态
-​   ...</p>
-        </a>
-      
-      
-        <a class='next' href='/blog/2021/07/27/04%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20%E5%85%B6%E4%BB%96/oracle11g%E5%9C%A8windows10%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%8C%E5%85%A8%E5%8D%B8%E8%BD%BD/'>
-          <p class='title'>oracle11g在windows环境下完全卸载<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+        <a class='prev' href='/blog/2021/07/27/04%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20%E5%85%B6%E4%BB%96/oracle11g%E5%9C%A8windows10%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%8C%E5%85%A8%E5%8D%B8%E8%BD%BD/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>oracle11g在windows环境下完全卸载</p>
           <p class='content'>1.停止所有oracle相关的服务步骤：控制面板－＞管理工具－＞服务停止所有Oracle服务。
 
 2.卸载oracle搜索Universal Installer
@@ -635,6 +633,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 点击卸载产品
 
 注意这个目录不...</p>
+        </a>
+      
+      
+        <a class='next' href='/blog/2021/07/27/06%20%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/lombok%E4%BD%BF%E7%94%A8/'>
+          <p class='title'>lombok学习笔记<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>Lombok是一个可以通过简单的注解形式来帮助我们简化消除一些必须有但显得很臃肿的Java代码的工具，通过使用对应的注解，可以在编译源码的时候生成对应的方法。
+Lombok学习注解介绍官网
+注解...</p>
         </a>
       
     </div>

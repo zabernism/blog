@@ -469,25 +469,26 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>@since 1.8</p>
 </blockquote>
 <h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><p>参数，箭头（-&gt;）以及一个表达式。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(String first, String second) -&gt;first.length() - second.length()</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">(String first, String second) -&gt;first.length() - second.length()
+</code></pre>
 <p>没有参数也要提供空括号，就像无参数方法一样。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">() -&gt; &#123; <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">100</span>; i &gt;= <span class="number">0</span>; i--) System.out.println(i); &#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">() -&gt; &#123; for (int i = 100; i &gt;= 0; i--) System.out.println(i); &#125;
+</code></pre>
 <p>如果可以推导出参数类型，则可以忽略类型。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Comparator&lt;String&gt; comp</span><br><span class="line">    = (first, second) <span class="comment">// Same as (String first, String second)</span></span><br><span class="line">        -&gt; first.length() - second.length();</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">Comparator&lt;String&gt; comp
+    = (first, second) // Same as (String first, String second)
+        -&gt; first.length() - second.length();
+</code></pre>
 <p>如果方法只有一个参数，而且参数类型可以推导出，这个连小括号都省略了</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ActionListener listener = event -&gt;</span><br><span class="line">    System.out.println(<span class="string">&quot;The time is &quot;</span> + <span class="keyword">new</span> Date());</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">ActionListener listener = event -&gt;
+    System.out.println(&quot;The time is &quot; + new Date());
+</code></pre>
 <p>无需指定lambda表达式的返回类型。返回类型总会由上下文推导得出。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(String first, String second) -&gt;first.length() - second.length()</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">(String first, String second) -&gt;first.length() - second.length()
+</code></pre>
 <h1 id="函数式接口"><a href="#函数式接口" class="headerlink" title="函数式接口"></a>函数式接口</h1><p>对于只有一个抽象方法的接口，需要这种接口的对象时，就可以提供一个lambda表达式。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Arrays.sort(planets, (first, second) -&gt; first.length() - second.length());</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">Arrays.sort(planets, (first, second) -&gt; first.length() - second.length());
+</code></pre>
 <p><code>Arrays.sort()</code> 方法的第二个参数要求是一个实现 <code>Comparaor</code> 接口的实例。<code>Comparaor </code>就是只有一个方法的接口。</p>
 <p><code>Lambda </code>表达式不是对象，而是函数。或者更具体的说，上面的 sort 方法想要传入的参数并不是那个 <code>Comparator </code>对象的实例，而是其 <code>compare </code>方法的计算方法。</p>
 <p>在 Java 中对 <code>lambda </code>表达式能做的也只是转换为函数式接口。想要用 <code>lambda </code>表达式做某些处理，就为它建立一个特定的函数式接口。</p>
@@ -508,15 +509,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h1 id="构造器引用"><a href="#构造器引用" class="headerlink" title="构造器引用"></a>构造器引用</h1><p><code>Class::new</code>，或者更一般的 <code>Class&lt; T &gt;::new</code>。请注意构造器没有参数。</p>
 <p>与方法引用类似，只是用 <code>new </code>代替方法名称。</p>
 <p>哪一个构造器取决于上下文。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;String&gt; names = . . .;</span><br><span class="line">Stream&lt;Person&gt; stream = names.stream().map(Person::<span class="keyword">new</span>);<span class="comment">//等同于调用 new Person(String)</span></span><br><span class="line">List&lt;Person&gt; people = stream.collect(Collectors.toList());</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">ArrayList&lt;String&gt; names = . . .;
+Stream&lt;Person&gt; stream = names.stream().map(Person::new);//等同于调用 new Person(String)
+List&lt;Person&gt; people = stream.collect(Collectors.toList());
+</code></pre>
 <h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>int[]::new 参数数组的长度，等价于 x-&gt;new int[x].<br>数组构造器引用可以克服对泛型数组的限制。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Object[] people = stream.toArray();<span class="comment">//返回一个Object[]</span></span><br><span class="line">Person[] people = stream.toArray(Person[]::<span class="keyword">new</span>);<span class="comment">//返回一个Person[]</span></span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">Object[] people = stream.toArray();//返回一个Object[]
+Person[] people = stream.toArray(Person[]::new);//返回一个Person[]
+</code></pre>
 <h1 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h1><p>lambda 表达式由 3 个部分：</p>
 <ol>
 <li>一个代码块</li>
@@ -589,7 +589,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>785 words</p>
+      <p>782 words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -682,12 +682,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         </a>
       
       
-        <a class='next' href='/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/04%20%E4%BB%A3%E7%90%86/'>
-          <p class='title'>代理<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>代理模式：就是为其他对象提供一种代理以控制对这个对象的访问。
-代理可以在不改动目标对象的基础上，增加其他额外的功能（扩展功能）。
-静态代理代理对象和目标对象实现了相同的接口。
-目标对象作为代理对...</p>
+        <a class='next' href='/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/03%20%E5%86%85%E9%83%A8%E7%B1%BB/'>
+          <p class='title'>内部类<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>内部类（ inner class）是定义在另一个类中的类。为什么需要使用内部类：
+
+内部类方法可以访问该类定义所在的作用域中的数据，包括私有数据
+内部类可以对同一个包中的其他类隐藏起来
+当想要定...</p>
         </a>
       
     </div>

@@ -470,8 +470,47 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h2 id="注解使用"><a href="#注解使用" class="headerlink" title="注解使用"></a>注解使用</h2><h3 id="val（值）"><a href="#val（值）" class="headerlink" title="val（值）"></a>val（值）</h3><blockquote>
 <p>类似于js中的val属性，<strong>val</strong> 是某种类型，从初始化程序程序表达式中推断类型；此功能仅适用于局部变量和foreach循环，不适用于字段。</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.val;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> ：zhangshuai</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> ：Created in 2020/11/25 15:26</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ValExample ex = <span class="keyword">new</span> ValExample();</span><br><span class="line">        System.out.println(<span class="string">&quot;测试list集合：&quot;</span>+ex.example());</span><br><span class="line">        System.out.println(<span class="string">&quot;测试map集合：&quot;</span>);</span><br><span class="line">        ex.example2();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ValExample</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">example</span><span class="params">()</span></span>&#123;</span><br><span class="line">        val temp = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        temp.add(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line">        val foo  =temp.toString().toLowerCase();</span><br><span class="line">        <span class="keyword">return</span> foo;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">example2</span><span class="params">()</span></span>&#123;</span><br><span class="line">        val map = <span class="keyword">new</span> HashMap&lt;Integer, String&gt;();</span><br><span class="line">        map.put(<span class="number">1</span>,<span class="string">&quot;张三&quot;</span>);</span><br><span class="line">        map.put(<span class="number">2</span>,<span class="string">&quot;李四&quot;</span>);</span><br><span class="line">        <span class="comment">// 遍历一</span></span><br><span class="line">        <span class="keyword">for</span> (val entry :map.entrySet()) &#123;</span><br><span class="line">            System.out.println(entry.getKey()+<span class="string">&quot;=&quot;</span>+entry.getValue());</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;遍历二-------&quot;</span>);</span><br><span class="line">        <span class="comment">// 遍历二</span></span><br><span class="line">        map.forEach((k,v) -&gt;&#123;</span><br><span class="line">            System.out.println(k+<span class="string">&quot;=&quot;</span>+v);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">
+import lombok.val;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
+/**
+ * @author ：zhangshuai
+ * @date ：Created in 2020/11/25 15:26
+ */
+public class Main &#123;
+    public static void main(String[] args) &#123;
+        ValExample ex = new ValExample();
+        System.out.println(&quot;测试list集合：&quot;+ex.example());
+        System.out.println(&quot;测试map集合：&quot;);
+        ex.example2();
+    &#125;
+&#125;
+class ValExample&#123;
+    public String example()&#123;
+        val temp = new ArrayList&lt;String&gt;();
+        temp.add(&quot;Hello&quot;);
+        val foo  =temp.toString().toLowerCase();
+        return foo;
+    &#125;
+    public void example2()&#123;
+        val map = new HashMap&lt;Integer, String&gt;();
+        map.put(1,&quot;张三&quot;);
+        map.put(2,&quot;李四&quot;);
+        // 遍历一
+        for (val entry :map.entrySet()) &#123;
+            System.out.println(entry.getKey()+&quot;=&quot;+entry.getValue());
+        &#125;
+        System.out.println(&quot;遍历二-------&quot;);
+        // 遍历二
+        map.forEach((k,v) -&gt;&#123;
+            System.out.println(k+&quot;=&quot;+v);
+        &#125;);
+    &#125;
+&#125;
+</code></pre>
 <h3 id="NonNull注解"><a href="#NonNull注解" class="headerlink" title="@NonNull注解"></a>@NonNull注解</h3><blockquote>
 <p>可以在方法或者构造函数的参数上使用，进行非空判断。如果为null，抛出空指针异常。对于构造函数，将在任何显式<code>this()</code>或<code>super()</code>调用之后立即插入空检查。</p>
 </blockquote>
@@ -482,39 +521,93 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h3 id="clean注解"><a href="#clean注解" class="headerlink" title="@clean注解"></a>@clean注解</h3><blockquote>
 <p>类似于finally块中的关闭资源操作</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CleanUpExample</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">example</span><span class="params">(String[] files)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="meta">@Cleanup</span> InputStream in = <span class="keyword">new</span> FileInputStream(files[<span class="number">0</span>]);</span><br><span class="line">        <span class="meta">@Cleanup</span> OutputStream out = <span class="keyword">new</span> FileOutputStream(files[<span class="number">1</span>]);</span><br><span class="line">        <span class="keyword">byte</span>[] b = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">10000</span>];</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> r = in.read(b);</span><br><span class="line">            <span class="keyword">if</span> (r == -<span class="number">1</span>) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            out.write(b, <span class="number">0</span>, r);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">class CleanUpExample&#123;
+    public void example(String[] files) throws IOException &#123;
+        @Cleanup InputStream in = new FileInputStream(files[0]);
+        @Cleanup OutputStream out = new FileOutputStream(files[1]);
+        byte[] b = new byte[10000];
+        while (true) &#123;
+            int r = in.read(b);
+            if (r == -1) &#123;
+                break;
+            &#125;
+            out.write(b, 0, r);
+        &#125;
+    &#125;
+&#125;
+</code></pre>
 <h3 id="Getter-Setter注解"><a href="#Getter-Setter注解" class="headerlink" title="@Getter/@Setter注解"></a>@Getter/@Setter注解</h3><blockquote>
 <p>自动生成默认的getter/setter方法，可以注解到单独属性上或者一个类上。默认生成的方法是public的，如果要修改方法的修饰符可以设置<strong>AccessLevel</strong> 的值，例如：**@Getter(access = AccessLevel.PROTECTED)**</p>
 </blockquote>
 <ul>
 <li>生成全部</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@Setter</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GetterAndSetterException</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">@Getter
+@Setter
+class GetterAndSetterException&#123;
+    private String name;
+    private String password;
+&#125;
+</code></pre>
 <ul>
 <li>某一个属性</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GetterAndSetterException</span></span>&#123;</span><br><span class="line">    <span class="meta">@Getter(AccessLevel.PROTECTED)</span> <span class="meta">@Setter</span> <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="meta">@Setter</span> <span class="meta">@Getter</span> <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="meta">@Setter</span> <span class="meta">@Getter</span> <span class="keyword">private</span> String password;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">class GetterAndSetterException&#123;
+    @Getter(AccessLevel.PROTECTED) @Setter private Integer id;
+    @Setter @Getter private String name;
+    @Setter @Getter private String password;
+&#125;
+</code></pre>
 <h3 id="ToString注解"><a href="#ToString注解" class="headerlink" title="@ToString注解"></a>@ToString注解</h3><blockquote>
 <p>生成<em><em>toString()<strong>方法，默认情况下，它会按顺序（以逗号分隔）打印你的类名称以及每个字段。可以这样设置不包含哪些字段</strong></em>@ToString(exclude = “id”)</em>**  <strong>@ToString(exclude = {“id”,”name”})</strong><br> 如果继承的有父类的话，可以设置<strong>callSuper</strong> 让其调用父类的toString()方法，例如：**@ToString(callSuper = true)**</p>
 </blockquote>
 <h3 id="EqualsAndHashCode注解"><a href="#EqualsAndHashCode注解" class="headerlink" title="@EqualsAndHashCode注解"></a>@EqualsAndHashCode注解</h3><blockquote>
 <p>生成hashCode()和equals()方法，默认情况下，它将使用所有非静态，非transient字段。但可以通过在可选的exclude参数中来排除更多字段。或者，通过在parameter参数中命名它们来准确指定希望使用哪些字段。</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@EqualsAndHashCode(exclude=&#123;&quot;id&quot;, &quot;tags&quot;&#125;)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EqualsAndHashCodeExample</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">transient</span> <span class="keyword">int</span> transientVar = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> score;</span><br><span class="line">    <span class="keyword">private</span> String[] tags;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">transient</span> <span class="keyword">int</span> id;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@EqualsAndHashCode(callSuper=true)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Square</span> <span class="keyword">extends</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> width, height;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Square</span><span class="params">(<span class="keyword">int</span> width, <span class="keyword">int</span> height)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.width = width;</span><br><span class="line">            <span class="keyword">this</span>.height = height;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">@EqualsAndHashCode(exclude=&#123;&quot;id&quot;, &quot;tags&quot;&#125;)
+class EqualsAndHashCodeExample &#123;
+    private transient int transientVar = 10;
+    private String name;
+    private double score;
+    private String[] tags;
+    private transient int id;
 
+    public String getName() &#123;
+        return this.name;
+    &#125;
+
+    @EqualsAndHashCode(callSuper=true)
+    public static class Square extends Shape &#123;
+        private final int width, height;
+
+        public Square(int width, int height) &#123;
+            this.width = width;
+            this.height = height;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
 <h3 id="NoArgsConstructor注解"><a href="#NoArgsConstructor注解" class="headerlink" title="@NoArgsConstructor注解"></a>@NoArgsConstructor注解</h3><blockquote>
 <p>@NoArgsConstructor生成一个无参构造方法。当类中有final字段没有被初始化时，编译器会报错，此时可用@NoArgsConstructor(force = true)，然后就会为没有初始化的final字段设置默认值 0 / false / null。对于具有约束的字段（例如@NonNull字段），不会生成检查或分配，因此请注意，正确初始化这些字段之前，这些约束无效。</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@NoArgsConstructor(force = true)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="meta">@NonNull</span></span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="meta">@NonNull</span> <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String phone ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">@NoArgsConstructor(force = true)
+class User &#123;
+    @NonNull
+    private Integer id;
+    @NonNull private String name;
+    private final String phone ;
+&#125;
+</code></pre>
 <h3 id="RequiredArgsConstructor-注解"><a href="#RequiredArgsConstructor-注解" class="headerlink" title="@RequiredArgsConstructor 注解"></a>@RequiredArgsConstructor 注解</h3><blockquote>
 <p><strong>@RequiredArgsConstructor</strong>会生成构造方法（可能带参数也可能不带参数），如果带参数，这参数只能是以final修饰的未经初始化的字段，或者是以**@NonNull**注解的未经初始化的字段<br> **@RequiredArgsConstructor(staticName = “of”)**会生成一个of()的静态方法，并把构造方法设置为私有的</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequiredArgsConstructor(staticName = &quot;of&quot;)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="meta">@NonNull</span> <span class="keyword">private</span> Integer id ;</span><br><span class="line">    <span class="meta">@NonNull</span> <span class="keyword">private</span> String name =<span class="string">&quot;bbb&quot;</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String phone;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">@RequiredArgsConstructor(staticName = &quot;of&quot;)
+class User &#123;
+    @NonNull private Integer id ;
+    @NonNull private String name =&quot;bbb&quot;;
+    private final String phone;
+&#125;
+</code></pre>
 <h3 id="Data注解"><a href="#Data注解" class="headerlink" title="@ Data注解"></a>@ Data注解</h3><blockquote>
 <p><strong>@Data</strong> 包含了 <strong>@ToString</strong>、**@EqualsAndHashCode<strong>、</strong>@Getter** / <strong>@Setter</strong>和**@RequiredArgsConstructor**的功能</p>
 </blockquote>
@@ -526,15 +619,61 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>prefix 设置前缀 例如：@Accessors(prefix = “abc”) private String abcAge  当生成get/set方法时，会把此前缀去掉</li>
 </ul>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Accessors(fluent = true,chain = true,prefix = &quot;anc&quot;)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id ;</span><br><span class="line">    <span class="keyword">private</span> String name ;</span><br><span class="line">    <span class="keyword">private</span>  String phone;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">@Data
+@Accessors(fluent = true,chain = true,prefix = &quot;anc&quot;)
+class User &#123;
+    private Integer id ;
+    private String name ;
+    private  String phone;
+&#125;
+</code></pre>
 <h3 id="Synchronized注解"><a href="#Synchronized注解" class="headerlink" title="@Synchronized注解"></a>@Synchronized注解</h3><blockquote>
 <p>给方法加上同步锁</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lombok.Synchronized;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SynchronizedExample</span> </span>&#123;</span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">final</span> Object readLock = <span class="keyword">new</span> Object();</span><br><span class="line">   </span><br><span class="line">  <span class="meta">@Synchronized</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;world&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">   </span><br><span class="line">  <span class="meta">@Synchronized</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">answerToLife</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">42</span>;</span><br><span class="line"> &#125;</span><br><span class="line">  <span class="meta">@Synchronized(&quot;readLock&quot;)</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;bar&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">import lombok.Synchronized;
+public class SynchronizedExample &#123;
+   private final Object readLock = new Object();
+   
+  @Synchronized
+  public static void hello() &#123;
+    System.out.println(&quot;world&quot;);
+  &#125;
+   
+  @Synchronized
+  public int answerToLife() &#123;
+    return 42;
+ &#125;
+  @Synchronized(&quot;readLock&quot;)
+  public void foo() &#123;
+    System.out.println(&quot;bar&quot;);
+   &#125;
+&#125;
+</code></pre>
+<pre><code class="java">//等效代码
+public class SynchronizedExample &#123;
+private static final Object $LOCK = new Object[0];
+private final Object $lock = new Object[0];
+private final Object readLock = new Object();
+ 
+public static void hello() &#123;
+  synchronized($LOCK) &#123;
+    System.out.println(&quot;world&quot;);
+  &#125;
+&#125;
+ 
+public int answerToLife() &#123;
+ synchronized($lock) &#123;
+    return 42;
+  &#125;
+&#125;
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//等效代码</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SynchronizedExample</span> </span>&#123;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Object $LOCK = <span class="keyword">new</span> Object[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> Object $lock = <span class="keyword">new</span> Object[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> Object readLock = <span class="keyword">new</span> Object();</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">hello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">synchronized</span>($LOCK) &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;world&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">answerToLife</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> <span class="keyword">synchronized</span>($lock) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">42</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">synchronized</span>(readLock) &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;bar&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+public void foo() &#123;
+  synchronized(readLock) &#123;
+    System.out.println(&quot;bar&quot;);
+  &#125;
+&#125;
+&#125;
+</code></pre>
 <h3 id="Wither注解"><a href="#Wither注解" class="headerlink" title="@Wither注解"></a>@Wither注解</h3><blockquote>
 <p>提供了给final字段赋值的一种方法</p>
 </blockquote>
@@ -542,11 +681,93 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>@Builder注释为你的类生成复杂的构造器API。</p>
 </blockquote>
 <p>链式调用</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用lombok注解的</span></span><br><span class="line"><span class="keyword">import</span> lombok.Builder;</span><br><span class="line"><span class="keyword">import</span> lombok.Singular;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"><span class="meta">@Builder</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BuilderExample</span> </span>&#123;</span><br><span class="line"> <span class="keyword">private</span> String name;</span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"> <span class="meta">@Singular</span> <span class="keyword">private</span> Set&lt;String&gt; occupations;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">//使用lombok注解的
+import lombok.Builder;
+import lombok.Singular;
+import java.util.Set;
+@Builder
+public class BuilderExample &#123;
+ private String name;
+ private int age;
+ @Singular private Set&lt;String&gt; occupations;
+&#125;
+</code></pre>
 <p><strong>注意：</strong> @Singular注解的集合属性必须是<code>occupations</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//等效代码</span></span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BuilderExample</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> String name;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">  <span class="keyword">private</span> Set&lt;String&gt; occupations;</span><br><span class="line"></span><br><span class="line">  BuilderExample(String name, <span class="keyword">int</span> age, Set&lt;String&gt; occupations) &#123;</span><br><span class="line">      <span class="keyword">this</span>.name = name;</span><br><span class="line">      <span class="keyword">this</span>.age = age;</span><br><span class="line">      <span class="keyword">this</span>.occupations = occupations;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> BuilderExampleBuilder <span class="title">builder</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> BuilderExampleBuilder();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">BuilderExampleBuilder</span> </span>&#123;</span><br><span class="line">      <span class="keyword">private</span> String name;</span><br><span class="line">      <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">      <span class="keyword">private</span> java.util.ArrayList&lt;String&gt; occupations;</span><br><span class="line"></span><br><span class="line">      BuilderExampleBuilder() &#123;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="function"><span class="keyword">public</span> BuilderExampleBuilder <span class="title">name</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">          <span class="keyword">this</span>.name = name;</span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="function"><span class="keyword">public</span> BuilderExampleBuilder <span class="title">age</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">          <span class="keyword">this</span>.age = age;</span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="function"><span class="keyword">public</span> BuilderExampleBuilder <span class="title">occupation</span><span class="params">(String occupation)</span> </span>&#123;</span><br><span class="line">          <span class="keyword">if</span> (<span class="keyword">this</span>.occupations == <span class="keyword">null</span>) &#123;</span><br><span class="line">              <span class="keyword">this</span>.occupations = <span class="keyword">new</span> java.util.ArrayList&lt;String&gt;();</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          <span class="keyword">this</span>.occupations.add(occupation);</span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="function"><span class="keyword">public</span> BuilderExampleBuilder <span class="title">occupations</span><span class="params">(Collection&lt;? extends String&gt; occupations)</span> </span>&#123;</span><br><span class="line">          <span class="keyword">if</span> (<span class="keyword">this</span>.occupations == <span class="keyword">null</span>) &#123;</span><br><span class="line">              <span class="keyword">this</span>.occupations = <span class="keyword">new</span> java.util.ArrayList&lt;String&gt;();</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          <span class="keyword">this</span>.occupations.addAll(occupations);</span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="function"><span class="keyword">public</span> BuilderExampleBuilder <span class="title">clearOccupations</span><span class="params">()</span> </span>&#123;</span><br><span class="line">          <span class="keyword">if</span> (<span class="keyword">this</span>.occupations != <span class="keyword">null</span>) &#123;</span><br><span class="line">              <span class="keyword">this</span>.occupations.clear();</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="function"><span class="keyword">public</span> BuilderExample <span class="title">build</span><span class="params">()</span> </span>&#123;</span><br><span class="line">          <span class="comment">// complicated switch statement to produce a compact properly sized immutable set omitted.</span></span><br><span class="line">          <span class="comment">// go to https://projectlombok.org/features/Singular-snippet.html to see it.</span></span><br><span class="line">          Set&lt;String&gt; occupations = ...;</span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">new</span> BuilderExample(name, age, occupations);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="meta">@java</span>.lang.<span class="function">Override</span></span><br><span class="line"><span class="function">      <span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="string">&quot;BuilderExample.BuilderExampleBuilder(name = &quot;</span> + <span class="keyword">this</span>.name + <span class="string">&quot;, age = &quot;</span> + <span class="keyword">this</span>.age + <span class="string">&quot;, occupations = &quot;</span> + <span class="keyword">this</span>.occupations + <span class="string">&quot;)&quot;</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">//等效代码
+import java.util.Set;
+class BuilderExample &#123;
+  private String name;
+  private int age;
+  private Set&lt;String&gt; occupations;
 
+  BuilderExample(String name, int age, Set&lt;String&gt; occupations) &#123;
+      this.name = name;
+      this.age = age;
+      this.occupations = occupations;
+  &#125;
+
+  public static BuilderExampleBuilder builder() &#123;
+      return new BuilderExampleBuilder();
+  &#125;
+
+  public static class BuilderExampleBuilder &#123;
+      private String name;
+      private int age;
+      private java.util.ArrayList&lt;String&gt; occupations;
+
+      BuilderExampleBuilder() &#123;
+      &#125;
+
+      public BuilderExampleBuilder name(String name) &#123;
+          this.name = name;
+          return this;
+      &#125;
+
+      public BuilderExampleBuilder age(int age) &#123;
+          this.age = age;
+          return this;
+      &#125;
+
+      public BuilderExampleBuilder occupation(String occupation) &#123;
+          if (this.occupations == null) &#123;
+              this.occupations = new java.util.ArrayList&lt;String&gt;();
+          &#125;
+
+          this.occupations.add(occupation);
+          return this;
+      &#125;
+
+      public BuilderExampleBuilder occupations(Collection&lt;? extends String&gt; occupations) &#123;
+          if (this.occupations == null) &#123;
+              this.occupations = new java.util.ArrayList&lt;String&gt;();
+          &#125;
+
+          this.occupations.addAll(occupations);
+          return this;
+      &#125;
+
+      public BuilderExampleBuilder clearOccupations() &#123;
+          if (this.occupations != null) &#123;
+              this.occupations.clear();
+          &#125;
+
+          return this;
+      &#125;
+
+      public BuilderExample build() &#123;
+          // complicated switch statement to produce a compact properly sized immutable set omitted.
+          // go to https://projectlombok.org/features/Singular-snippet.html to see it.
+          Set&lt;String&gt; occupations = ...;
+          return new BuilderExample(name, age, occupations);
+      &#125;
+
+      @java.lang.Override
+      public String toString() &#123;
+          return &quot;BuilderExample.BuilderExampleBuilder(name = &quot; + this.name + &quot;, age = &quot; + this.age + &quot;, occupations = &quot; + this.occupations + &quot;)&quot;;
+      &#125;
+  &#125;
+&#125;
+</code></pre>
 <h3 id="Log注解"><a href="#Log注解" class="headerlink" title="@Log注解"></a>@Log注解</h3><blockquote>
 <p>将@Log放到类上（适用于任何一种日志系统）</p>
 </blockquote>
@@ -554,8 +775,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <ul>
 <li><strong>@CommonsLog</strong></li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">private static final org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(LogExample.class);</span><br></pre></td></tr></table></figure>
-
+<pre><code>private static final org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(LogExample.class);
+</code></pre>
 <ul>
 <li><strong>@Flogger</strong></li>
 </ul>
@@ -723,15 +944,17 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/blog/2021/07/27/04%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20%E5%85%B6%E4%BB%96/oracle11g%E5%9C%A8windows10%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%8C%E5%85%A8%E5%8D%B8%E8%BD%BD/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>oracle11g在windows环境下完全卸载</p>
-          <p class='content'>1.停止所有oracle相关的服务步骤：控制面板－＞管理工具－＞服务停止所有Oracle服务。
+        <a class='prev' href='/blog/2021/07/27/04%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20%E5%85%B6%E4%BB%96/oracle%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7%E5%B9%B6%E6%8C%87%E5%AE%9A%E8%A1%A8%E7%A9%BA%E9%97%B4/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>oracle11g创建用户并指定表空间</p>
+          <p class='content'>oracle创建表空间并赋值给用户
 
-2.卸载oracle搜索Universal Installer
 
-点击卸载产品
 
-注意这个目录不...</p>
+
+
+
+创建表空间create tablespace eprk
+logging datafile &#39;D:\oracle\oradata\orcl\...</p>
         </a>
       
       
@@ -741,7 +964,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 在命令窗口执行
-1SELECT &#x27;drop  table &#x27;|| table_name || &#x27;;&#x27; FROM USER_...</p>
+SELECT &#39;drop  table &#39;|| table_name || &#39;;&#39; FROM USER_TABLE...</p>
         </a>
       
     </div>

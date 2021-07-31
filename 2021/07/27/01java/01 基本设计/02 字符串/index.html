@@ -471,13 +471,24 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h2 id="java-8-char数组"><a href="#java-8-char数组" class="headerlink" title="java 8 -char数组"></a>java 8 -char数组</h2><blockquote>
 <p>在java8中，String内部使用char数组存储数据。</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">String</span></span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span>, <span class="title">Comparable</span>&lt;<span class="title">String</span>&gt;, <span class="title">CharSequence</span> </span>&#123;</span><br><span class="line">    <span class="comment">/** The value is used for character storage. */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">char</span> value[];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">public final class String
+    implements java.io.Serializable, Comparable&lt;String&gt;, CharSequence &#123;
+    /** The value is used for character storage. */
+    private final char value[];
+&#125;
+</code></pre>
 <h2 id="java-9-byte数组"><a href="#java-9-byte数组" class="headerlink" title="java 9 - byte数组"></a>java 9 - byte数组</h2><blockquote>
 <p>在java 9之后，String类的实现改用byte数组存储字符串，同时使用<code>coder</code>来标识使用了那种编码</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">String</span></span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span>, <span class="title">Comparable</span>&lt;<span class="title">String</span>&gt;, <span class="title">CharSequence</span> </span>&#123;</span><br><span class="line">    <span class="comment">/** The value is used for character storage. */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">byte</span>[] value;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** The identifier of the encoding used to encode the bytes in &#123;<span class="doctag">@code</span> value&#125;. */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">byte</span> coder;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public final class String
+    implements java.io.Serializable, Comparable&lt;String&gt;, CharSequence &#123;
+    /** The value is used for character storage. */
+    private final byte[] value;
 
+    /** The identifier of the encoding used to encode the bytes in &#123;@code value&#125;. */
+    private final byte coder;
+&#125;
+</code></pre>
 <h2 id="不可变的好处"><a href="#不可变的好处" class="headerlink" title="不可变的好处"></a>不可变的好处</h2><ol>
 <li>可以缓存hash值</li>
 </ol>
@@ -513,13 +524,24 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <ul>
 <li>AbstractStringBuilder</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">AbstractStringBuilder(<span class="keyword">int</span> capacity) &#123;</span><br><span class="line">    value = <span class="keyword">new</span> <span class="keyword">char</span>[capacity];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">AbstractStringBuilder(int capacity) &#123;
+    value = new char[capacity];
+&#125;
+</code></pre>
 <ul>
 <li>StringBuilder</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">StringBuilder</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// StringBuilder 类继承 AbstractStringBuilder 抽象类</span></span><br><span class="line">    <span class="comment">// 创建长度 16 的字符数组</span></span><br><span class="line">    <span class="keyword">super</span>(<span class="number">16</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 字符串拼接</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">StringBuilder</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>(str.length() + <span class="number">16</span>);</span><br><span class="line">    append(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">public StringBuilder() &#123;
+    // StringBuilder 类继承 AbstractStringBuilder 抽象类
+    // 创建长度 16 的字符数组
+    super(16);
+&#125;
+// 字符串拼接
+public StringBuilder(String str) &#123;
+    super(str.length() + 16);
+    append(str);
+&#125;
+</code></pre>
 <h1 id="String-Pool与引用"><a href="#String-Pool与引用" class="headerlink" title="String Pool与引用"></a>String Pool与引用</h1><p>字符串常量池（String Pool）保存着所有字符串字面量（literal strings），这些字面量在编译时期就确定。</p>
 <p>在 Java 7 之前，String Pool 被放在运行时常量池中，它属于永久代。而在 Java 7，String Pool 被移到堆中。这是因为永久代的空间有限，在大量使用字符串的场景下会导致 OutOfMemoryError 错误。</p>
 <ul>
@@ -527,17 +549,29 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>intern() 方法： String 对象的 intern 方法会得到字符串对象在常量池中对应的版本的引用，如果常量池中没有对应的字符串，则该字符串将被添加到常量池中，然后返回常量池中字符串的引用；</li>
 <li>“”字面量：使用字面量的形式创建字符串，会自动地将字符串放入 String Pool 中</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">String s1 = <span class="string">&quot;Programming&quot;</span>;<span class="comment">//先去常量池取，没有就新建对象放在常量池</span></span><br><span class="line">String s2 = <span class="keyword">new</span> String(<span class="string">&quot;Programming&quot;</span>);<span class="comment">//两个字符串对象，一个是常量池的&quot;Programming&quot;，一个是用 new 创建在堆上的对象</span></span><br><span class="line">String s3 = <span class="string">&quot;Program&quot;</span>;<span class="comment">//常量池</span></span><br><span class="line">String s4 = <span class="string">&quot;ming&quot;</span>;<span class="comment">//常量池</span></span><br><span class="line">String s5 = <span class="string">&quot;Program&quot;</span> + <span class="string">&quot;ming&quot;</span>;<span class="comment">//常量池</span></span><br><span class="line">String s6 = s3 + s4;<span class="comment">//堆</span></span><br><span class="line">System.out.println(s1 == s2);<span class="comment">//false</span></span><br><span class="line">System.out.println(s1 == s5);<span class="comment">//true</span></span><br><span class="line">System.out.println(s1 == s6);<span class="comment">//false</span></span><br><span class="line">System.out.println(s1 == s6.intern());<span class="comment">//true</span></span><br><span class="line">System.out.println(s2 == s2.intern());<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">String s1 = &quot;Programming&quot;;//先去常量池取，没有就新建对象放在常量池
+String s2 = new String(&quot;Programming&quot;);//两个字符串对象，一个是常量池的&quot;Programming&quot;，一个是用 new 创建在堆上的对象
+String s3 = &quot;Program&quot;;//常量池
+String s4 = &quot;ming&quot;;//常量池
+String s5 = &quot;Program&quot; + &quot;ming&quot;;//常量池
+String s6 = s3 + s4;//堆
+System.out.println(s1 == s2);//false
+System.out.println(s1 == s5);//true
+System.out.println(s1 == s6);//false
+System.out.println(s1 == s6.intern());//true
+System.out.println(s2 == s2.intern());//false
+</code></pre>
 <p><strong>注：</strong> intern() 方法返回字符串对象的规范化表示形式。它遵循以下规则：对于任意两个字符串 s 和 t，当且仅当 s.equals(t) 为 true 时，s.intern() == t.intern() 才为 true。</p>
-<h1 id="String常用方法"><a href="#String常用方法" class="headerlink" title="String常用方法"></a>String常用方法</h1><h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><h3 id="使用字符串常量直接初始化"><a href="#使用字符串常量直接初始化" class="headerlink" title="使用字符串常量直接初始化"></a>使用字符串常量直接初始化</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="string">&quot;hello!&quot;</span>;</span><br></pre></td></tr></table></figure>
-
-<h3 id="使用构造方法创建并初始化"><a href="#使用构造方法创建并初始化" class="headerlink" title="使用构造方法创建并初始化"></a>使用构造方法创建并初始化</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="keyword">new</span> String(Object);</span><br></pre></td></tr></table></figure>
-
-<h3 id="初始化源码"><a href="#初始化源码" class="headerlink" title="初始化源码"></a>初始化源码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">char</span> value[];</span><br><span class="line"><span class="comment">// 本质是字符数组常量，所以不可变</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">String</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.value = <span class="string">&quot;&quot;</span>.value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
+<h1 id="String常用方法"><a href="#String常用方法" class="headerlink" title="String常用方法"></a>String常用方法</h1><h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><h3 id="使用字符串常量直接初始化"><a href="#使用字符串常量直接初始化" class="headerlink" title="使用字符串常量直接初始化"></a>使用字符串常量直接初始化</h3><pre><code class="java">String s = &quot;hello!&quot;;
+</code></pre>
+<h3 id="使用构造方法创建并初始化"><a href="#使用构造方法创建并初始化" class="headerlink" title="使用构造方法创建并初始化"></a>使用构造方法创建并初始化</h3><pre><code class="java">String s = new String(Object);
+</code></pre>
+<h3 id="初始化源码"><a href="#初始化源码" class="headerlink" title="初始化源码"></a>初始化源码</h3><pre><code class="java">private final char value[];
+// 本质是字符数组常量，所以不可变
+public String() &#123;
+    this.value = &quot;&quot;.value;
+&#125;
+</code></pre>
 <h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><h3 id="截取字符串"><a href="#截取字符串" class="headerlink" title="截取字符串"></a>截取字符串</h3><ul>
 <li>单点截取：subString(开始下标)</li>
 <li>双点截取：subString(开始下标，结束下标)</li>

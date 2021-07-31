@@ -465,39 +465,47 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
-  <h1 id="git常用命令"><a href="#git常用命令" class="headerlink" title="git常用命令"></a>git常用命令</h1><h2 id="改动添加到暂存区"><a href="#改动添加到暂存区" class="headerlink" title="改动添加到暂存区"></a>改动添加到暂存区</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git stash save</span><br><span class="line"></span><br><span class="line">使用场景：切换分支时或者拉取远程代码时可以将本地的所有改动暂存到 stash 中</span><br></pre></td></tr></table></figure>
+  <h1 id="git常用命令"><a href="#git常用命令" class="headerlink" title="git常用命令"></a>git常用命令</h1><h2 id="改动添加到暂存区"><a href="#改动添加到暂存区" class="headerlink" title="改动添加到暂存区"></a>改动添加到暂存区</h2><pre><code>git stash save
 
-<h2 id="读出暂存器内容"><a href="#读出暂存器内容" class="headerlink" title="读出暂存器内容"></a>读出暂存器内容</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash pop</span><br></pre></td></tr></table></figure>
+使用场景：切换分支时或者拉取远程代码时可以将本地的所有改动暂存到 stash 中
+</code></pre>
+<h2 id="读出暂存器内容"><a href="#读出暂存器内容" class="headerlink" title="读出暂存器内容"></a>读出暂存器内容</h2><pre><code class="undefined">git stash pop
+</code></pre>
+<h2 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h2><pre><code class="xml">git branch &lt;branch-name&gt;
+</code></pre>
+<h2 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h2><pre><code class="xml">git branch -d &lt;branch-name&gt;
+</code></pre>
+<h2 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h2><pre><code class="ruby">git push &lt;remote-name&gt; :&lt;branch-name&gt;
+</code></pre>
+<h2 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h2><pre><code class="xml">git checkout &lt;branch-name&gt;
+</code></pre>
+<h2 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h2><pre><code class="xml">git merge &lt;branch-name&gt;
 
-<h2 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch <span class="tag">&lt;<span class="name">branch-name</span>&gt;</span></span><br></pre></td></tr></table></figure>
+当前分支合并&lt;branch-name&gt;
+</code></pre>
+<h2 id="添加tag"><a href="#添加tag" class="headerlink" title="添加tag"></a>添加tag</h2><pre><code class="xml">git tag &lt;tag-name&gt;
+</code></pre>
+<h2 id="删除本地tag"><a href="#删除本地tag" class="headerlink" title="删除本地tag"></a>删除本地tag</h2><pre><code class="xml">git tag -d  &lt;tag-name&gt;
+</code></pre>
+<h2 id="提交tag到远程仓库"><a href="#提交tag到远程仓库" class="headerlink" title="提交tag到远程仓库"></a>提交tag到远程仓库</h2><pre><code class="xml">git push origin &lt;tag-name&gt;
+</code></pre>
+<h2 id="删除远程tag"><a href="#删除远程tag" class="headerlink" title="删除远程tag"></a>删除远程tag</h2><pre><code class="ruby">git push origin :&lt;tag-name&gt;
+</code></pre>
+<h2 id="代码切换到指定tag"><a href="#代码切换到指定tag" class="headerlink" title="代码切换到指定tag"></a>代码切换到指定tag</h2><pre><code class="xml">git checkout &lt;tag-name&gt;
+</code></pre>
+<h2 id="查看版本记录"><a href="#查看版本记录" class="headerlink" title="查看版本记录"></a>查看版本记录</h2><pre><code class="undefined">git reflog
+</code></pre>
+<h2 id="添加子项目"><a href="#添加子项目" class="headerlink" title="添加子项目"></a>添加子项目</h2><pre><code class="csharp">git submodule add &lt;repo-url&gt; &lt;path&gt;
 
-<h2 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d <span class="tag">&lt;<span class="name">branch-name</span>&gt;</span></span><br></pre></td></tr></table></figure>
+如：git submodule add git@github.com:weelion/test.git vendor
+</code></pre>
+<h2 id="初始化子项目"><a href="#初始化子项目" class="headerlink" title="初始化子项目"></a>初始化子项目</h2><pre><code class="kotlin">git submodule update --init --recursive 
+</code></pre>
+<h2 id="删除子项目"><a href="#删除子项目" class="headerlink" title="删除子项目"></a>删除子项目</h2><pre><code class="xml">git submodule rm &lt;path&gt;
+</code></pre>
+<h2 id="提交任意几个提交"><a href="#提交任意几个提交" class="headerlink" title="提交任意几个提交"></a>提交任意几个提交</h2><pre><code class="xml">git cherry-pick &lt;commit-hash&gt; &lt;commit-hash&gt; …
+</code></pre>
 
-<h2 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push &lt;remote-name&gt; <span class="symbol">:&lt;branch-name&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout <span class="tag">&lt;<span class="name">branch-name</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git merge <span class="tag">&lt;<span class="name">branch-name</span>&gt;</span></span><br><span class="line"></span><br><span class="line">当前分支合并<span class="tag">&lt;<span class="name">branch-name</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="添加tag"><a href="#添加tag" class="headerlink" title="添加tag"></a>添加tag</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag <span class="tag">&lt;<span class="name">tag-name</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="删除本地tag"><a href="#删除本地tag" class="headerlink" title="删除本地tag"></a>删除本地tag</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -d  <span class="tag">&lt;<span class="name">tag-name</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="提交tag到远程仓库"><a href="#提交tag到远程仓库" class="headerlink" title="提交tag到远程仓库"></a>提交tag到远程仓库</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin <span class="tag">&lt;<span class="name">tag-name</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="删除远程tag"><a href="#删除远程tag" class="headerlink" title="删除远程tag"></a>删除远程tag</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin <span class="symbol">:&lt;tag-name&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="代码切换到指定tag"><a href="#代码切换到指定tag" class="headerlink" title="代码切换到指定tag"></a>代码切换到指定tag</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout <span class="tag">&lt;<span class="name">tag-name</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="查看版本记录"><a href="#查看版本记录" class="headerlink" title="查看版本记录"></a>查看版本记录</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reflog</span><br></pre></td></tr></table></figure>
-
-<h2 id="添加子项目"><a href="#添加子项目" class="headerlink" title="添加子项目"></a>添加子项目</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git submodule <span class="keyword">add</span> &lt;repo-url&gt; &lt;path&gt;</span><br><span class="line"></span><br><span class="line">如：git submodule <span class="keyword">add</span> git@github.com:weelion/test.git vendor</span><br></pre></td></tr></table></figure>
-
-<h2 id="初始化子项目"><a href="#初始化子项目" class="headerlink" title="初始化子项目"></a>初始化子项目</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule update --<span class="keyword">init</span> --recursive </span><br></pre></td></tr></table></figure>
-
-<h2 id="删除子项目"><a href="#删除子项目" class="headerlink" title="删除子项目"></a>删除子项目</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule rm <span class="tag">&lt;<span class="name">path</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="提交任意几个提交"><a href="#提交任意几个提交" class="headerlink" title="提交任意几个提交"></a>提交任意几个提交</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git cherry-pick <span class="tag">&lt;<span class="name">commit-hash</span>&gt;</span> <span class="tag">&lt;<span class="name">commit-hash</span>&gt;</span> …</span><br></pre></td></tr></table></figure>
   
   
     
@@ -631,20 +639,21 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/blog/2021/07/27/07%20DevOps/1%20Git/git%E5%85%A5%E9%97%A8%E5%88%B0%E4%BD%BF%E7%94%A8/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>git学习笔记</p>
-          <p class='content'>通过观看狂神讲师的视频所做的笔记，以便后来自己复习：地址
-
-
-版本控制
-版本控制（Revision control）是一种在开发的过程中用于管理我们对文件、目录或工程等内容的修改历史，方便查看更...</p>
+        <a class='prev' href='/blog/2021/07/27/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/P7/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>JAVA</p>
+          <p class='content'>一、ES篇
+Elasticsearch可以实现秒级的搜索，cluster是一种分布式的部署，极易扩展(scale )这样很容易使它处理PB级的数据库容量。最重要的是Elasticsearch是它...</p>
         </a>
       
       
-        <a class='next' href='/blog/2021/07/27/03%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/01%20%E6%A6%82%E8%BF%B0%E4%B8%8E%E5%88%86%E7%B1%BB/'>
-          <p class='title'>概述与分类<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>设计模式概述概念和意义概念
-软件设计模式（Software Design Pattern），又称设计模式，是一套被反复使用、多数人知晓的、经过分类编目的、代码设计经验的总结。它描述了在软件设计过...</p>
+        <a class='next' href='/blog/2021/07/27/04%20%E6%95%B0%E6%8D%AE%E5%BA%93/02%20MyBatis/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/'>
+          <p class='title'>MyBatis学习笔记<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>视频链接
+
+
+MyBatis学习笔记简介MyBatis是什么
+MyBatis 是支持定制化 SQL、存储过程以及高级映射的优秀的持久层框架。
+MyBatis 避免了几乎所有的 JDBC 代码和手...</p>
         </a>
       
     </div>

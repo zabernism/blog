@@ -812,10 +812,84 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>​        原理：选择最近且最久未使用的页面进行淘汰</p>
 <p>​        优点：考虑到了程序访问的时间局部性，有较好的性能，实际应用也比较多</p>
 <p>​        缺点：没有合适的算法，只有适合的算法，lFU、random都可以</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@program</span>: Java</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: LRU最近最久未使用置换算法，通过LinkedHashMap实现</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: Mr.Li</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span>: 2020-07-17 10:29</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LRUCache</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> LinkedHashMap&lt;Integer,Integer&gt; cache;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> capacity;   <span class="comment">//容量大小</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *初始化构造函数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> capacity</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">LRUCache</span><span class="params">(<span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">        cache = <span class="keyword">new</span> LinkedHashMap&lt;&gt;(capacity);</span><br><span class="line">        <span class="keyword">this</span>.capacity = capacity;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//缓存中不存在此key，直接返回</span></span><br><span class="line">        <span class="keyword">if</span>(!cache.containsKey(key)) &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> res = cache.get(key);</span><br><span class="line">        cache.remove(key);   <span class="comment">//先从链表中删除</span></span><br><span class="line">        cache.put(key,res);  <span class="comment">//再把该节点放到链表末尾处</span></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(<span class="keyword">int</span> key,<span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(cache.containsKey(key)) &#123;</span><br><span class="line">            cache.remove(key); <span class="comment">//已经存在，在当前链表移除</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(capacity == cache.size()) &#123;</span><br><span class="line">            <span class="comment">//cache已满，删除链表头位置</span></span><br><span class="line">            Set&lt;Integer&gt; keySet = cache.keySet();</span><br><span class="line">            Iterator&lt;Integer&gt; iterator = keySet.iterator();</span><br><span class="line">            cache.remove(iterator.next());</span><br><span class="line">        &#125;</span><br><span class="line">        cache.put(key,value);  <span class="comment">//插入到链表末尾</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code class="java">/**
+ * @program: Java
+ * @description: LRU最近最久未使用置换算法，通过LinkedHashMap实现
+ * @author: Mr.Li
+ * @create: 2020-07-17 10:29
+ **/
+public class LRUCache &#123;
+    private LinkedHashMap&lt;Integer,Integer&gt; cache;
+    private int capacity;   //容量大小
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@program</span>: Java</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: LRU最近最久未使用置换算法，通过LinkedHashMap内部removeEldestEntry方法实现</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: Mr.Li</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span>: 2020-07-17 10:59</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LRUCache</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Map&lt;Integer, Integer&gt; map;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> capacity;</span><br><span class="line">	</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *初始化构造函数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> capacity</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">LRUCache</span><span class="params">(<span class="keyword">int</span> capacity)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.capacity = capacity;</span><br><span class="line">        map = <span class="keyword">new</span> LinkedHashMap&lt;Integer, Integer&gt;(capacity, <span class="number">0.75f</span>, <span class="keyword">true</span>) &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">protected</span> <span class="keyword">boolean</span> <span class="title">removeEldestEntry</span><span class="params">(Map.Entry eldest)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> size() &gt; capacity;  <span class="comment">// 容量大于capacity 时就删除</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//返回key对应的value值，若不存在，返回-1</span></span><br><span class="line">        <span class="keyword">return</span> map.getOrDefault(key, -<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(<span class="keyword">int</span> key, <span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">        map.put(key, value);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    /**
+     *初始化构造函数
+     * @param capacity
+     */
+    public LRUCache(int capacity) &#123;
+        cache = new LinkedHashMap&lt;&gt;(capacity);
+        this.capacity = capacity;
+    &#125;
 
+    public int get(int key) &#123;
+        //缓存中不存在此key，直接返回
+        if(!cache.containsKey(key)) &#123;
+            return -1;
+        &#125;
+
+        int res = cache.get(key);
+        cache.remove(key);   //先从链表中删除
+        cache.put(key,res);  //再把该节点放到链表末尾处
+        return res;
+    &#125;
+
+    public void put(int key,int value) &#123;
+        if(cache.containsKey(key)) &#123;
+            cache.remove(key); //已经存在，在当前链表移除
+        &#125;
+        if(capacity == cache.size()) &#123;
+            //cache已满，删除链表头位置
+            Set&lt;Integer&gt; keySet = cache.keySet();
+            Iterator&lt;Integer&gt; iterator = keySet.iterator();
+            cache.remove(iterator.next());
+        &#125;
+        cache.put(key,value);  //插入到链表末尾
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">/**
+ * @program: Java
+ * @description: LRU最近最久未使用置换算法，通过LinkedHashMap内部removeEldestEntry方法实现
+ * @author: Mr.Li
+ * @create: 2020-07-17 10:59
+ **/
+class LRUCache &#123;
+    private Map&lt;Integer, Integer&gt; map;
+    private int capacity;
+    
+    /**
+     *初始化构造函数
+     * @param capacity
+     */
+    public LRUCache(int capacity) &#123;
+        this.capacity = capacity;
+        map = new LinkedHashMap&lt;Integer, Integer&gt;(capacity, 0.75f, true) &#123;
+            @Override
+            protected boolean removeEldestEntry(Map.Entry eldest) &#123;
+                return size() &gt; capacity;  // 容量大于capacity 时就删除
+            &#125;
+        &#125;;
+    &#125;
+    public int get(int key) &#123;
+        //返回key对应的value值，若不存在，返回-1
+        return map.getOrDefault(key, -1);
+    &#125;
+
+    public void put(int key, int value) &#123;
+        map.put(key, value);
+    &#125;
+&#125;
+</code></pre>
 <p><strong>最佳置换算法OPT:</strong></p>
 <p>​        原理：每次选择当前物理块中的页面在未来长时间不被访问的或未来不再使用的页面进行淘汰</p>
 <p>​        优点：具有较好的性能，可以保证获得最低的缺页率</p>
@@ -923,14 +997,25 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>​            ②<strong>CopyOnWriteArrayList：</strong>写时加锁，使用了一种叫<strong>写时复制</strong>的方法；读操作是可以不用加锁的</p>
 <p>​            </p>
 <h4 id="2、List遍历快速和安全失败"><a href="#2、List遍历快速和安全失败" class="headerlink" title="2、List遍历快速和安全失败"></a><strong>2、List遍历快速和安全失败</strong></h4><p><strong>①普通for循环遍历List删除指定元素</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i &lt; list.size(); i++)&#123;</span><br><span class="line">   <span class="keyword">if</span>(list.get(i) == <span class="number">5</span>) </span><br><span class="line">       list.remove(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">for(int i=0; i &lt; list.size(); i++)&#123;
+   if(list.get(i) == 5) 
+       list.remove(i);
+&#125;
+</code></pre>
 <p><strong>② 迭代遍历,用list.remove(i)方法删除元素</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Iterator&lt;Integer&gt; it = list.iterator();</span><br><span class="line"><span class="keyword">while</span>(it.hasNext())&#123;</span><br><span class="line">    Integer value = it.next();</span><br><span class="line">    <span class="keyword">if</span>(value == <span class="number">5</span>)&#123;</span><br><span class="line">        list.remove(value);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="JAVA">Iterator&lt;Integer&gt; it = list.iterator();
+while(it.hasNext())&#123;
+    Integer value = it.next();
+    if(value == 5)&#123;
+        list.remove(value);
+    &#125;
+&#125;
+</code></pre>
 <p><strong>③foreach遍历List删除元素</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(Integer i:list)&#123;</span><br><span class="line">    <span class="keyword">if</span>(i==<span class="number">3</span>) list.remove(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="JAVA">for(Integer i:list)&#123;
+    if(i==3) list.remove(i);
+&#125;
+</code></pre>
 <p><strong>fail—fast：</strong>快速失败</p>
 <p>​        当异常产生时，直接抛出异常，程序终止;</p>
 <p>​        fail-fast主要是体现在当我们在遍历集合元素的时候，经常会使用迭代器，但在迭代器遍历元素的过程中，如果集合的结构（modCount）被改变的话，就会抛出异常ConcurrentModificationException，防止继续遍历。这就是所谓的快速失败机制。</p>
@@ -1224,27 +1309,47 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h4 id="4、JVM性能调优"><a href="#4、JVM性能调优" class="headerlink" title="4、JVM性能调优"></a><strong>4、JVM性能调优</strong></h4><p>对应进程的JVM状态以定位问题和解决问题并作出相应的优化</p>
 <p><strong>常用命令：</strong>jps、jinfo、jstat、jstack、jmap</p>
 <p><strong>jps：查看java进程及相关信息</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">jps -l 输出jar包路径，类全名</span><br><span class="line">jps -m 输出main参数</span><br><span class="line">jps -v 输出JVM参数</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">jps -l 输出jar包路径，类全名
+jps -m 输出main参数
+jps -v 输出JVM参数
+</code></pre>
 <p><strong>jinfo：查看JVM参数</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">jinfo <span class="number">11666</span></span><br><span class="line">jinfo -flags <span class="number">11666</span></span><br><span class="line">Xmx、Xms、Xmn、MetaspaceSize</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">jinfo 11666
+jinfo -flags 11666
+Xmx、Xms、Xmn、MetaspaceSize
+</code></pre>
 <p><strong>jstat：查看JVM运行时的状态信息，包括内存状态、垃圾回收</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">jstat [option] LVMID [interval] [count]</span><br><span class="line">其中LVMID是进程id，interval是打印间隔时间（毫秒），count是打印次数（默认一直打印）</span><br><span class="line">  </span><br><span class="line">option参数解释：</span><br><span class="line">-gc 垃圾回收堆的行为统计</span><br><span class="line">-gccapacity 各个垃圾回收代容量(young,old,perm)和他们相应的空间统计</span><br><span class="line">-gcutil 垃圾回收统计概述</span><br><span class="line">-gcnew 新生代行为统计</span><br><span class="line">-gcold 年老代和永生代行为统计</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">jstat [option] LVMID [interval] [count]
+其中LVMID是进程id，interval是打印间隔时间（毫秒），count是打印次数（默认一直打印）
+  
+option参数解释：
+-gc 垃圾回收堆的行为统计
+-gccapacity 各个垃圾回收代容量(young,old,perm)和他们相应的空间统计
+-gcutil 垃圾回收统计概述
+-gcnew 新生代行为统计
+-gcold 年老代和永生代行为统计
+</code></pre>
 <p><strong>jstack：查看JVM线程快照，jstack命令可以定位线程出现长时间卡顿的原因，例如死锁，死循环</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">jstack [-l] &lt;pid&gt; (连接运行中的进程)</span><br><span class="line">  </span><br><span class="line">option参数解释：</span><br><span class="line">-F 当使用jstack &lt;pid&gt;无响应时，强制输出线程堆栈。</span><br><span class="line">-m 同时输出java和本地堆栈(混合模式)</span><br><span class="line">-l 额外显示锁信息</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">jstack [-l] &lt;pid&gt; (连接运行中的进程)
+  
+option参数解释：
+-F 当使用jstack &lt;pid&gt;无响应时，强制输出线程堆栈。
+-m 同时输出java和本地堆栈(混合模式)
+-l 额外显示锁信息
+</code></pre>
 <p><strong>jmap：可以用来查看内存信息</strong>(配合jhat使用)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">jmap [option] &lt;pid&gt; (连接正在执行的进程)</span><br><span class="line"></span><br><span class="line">option参数解释：</span><br><span class="line">-heap 打印java heap摘要</span><br><span class="line">-dump:&lt;dump-options&gt; 生成java堆的dump文件</span><br></pre></td></tr></table></figure>
+<pre><code class="java">jmap [option] &lt;pid&gt; (连接正在执行的进程)
 
-
-
+option参数解释：
+-heap 打印java heap摘要
+-dump:&lt;dump-options&gt; 生成java堆的dump文件
+</code></pre>
 <h4 id="5、JDK新特性"><a href="#5、JDK新特性" class="headerlink" title="5、JDK新特性"></a>5、JDK新特性</h4><p>JDK8</p>
 <p>支持 Lamda 表达式、集合的 stream 操作、提升HashMap性能</p>
 <p><strong>JDK9</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Stream API中iterate方法的新重载方法，可以指定什么时候结束迭代</span></span><br><span class="line">IntStream.iterate(<span class="number">1</span>, i -&gt; i &lt; <span class="number">100</span>, i -&gt; i + <span class="number">1</span>).forEach(System.out::println);</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">//Stream API中iterate方法的新重载方法，可以指定什么时候结束迭代
+IntStream.iterate(1, i -&gt; i &lt; 100, i -&gt; i + 1).forEach(System.out::println);
+</code></pre>
 <p>默认G1垃圾回收器</p>
 <p><strong>JDK10</strong> </p>
 <p>其重点在于通过完全GC并行来改善G1最坏情况的等待时间。</p>
@@ -1268,85 +1373,83 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>查看比如 CPU、系统内存等，通过历史状态可以体现一个趋势性问题，而这些信息的获取一般依靠监控系统的协作。           </p>
 <p><strong>保留信息</strong></p>
 <p>（1）<strong>系统当前网络连接</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ss -antp &gt; $DUMP_DIR/ss.dump 2&gt;&amp;1</span><br></pre></td></tr></table></figure>
-
-
+<pre><code>ss -antp &gt; $DUMP_DIR/ss.dump 2&gt;&amp;1
+</code></pre>
 <p>使用 ss 命令而不是 netstat 的原因，是因为 netstat 在网络连接非常多的情况下，执行非常缓慢。</p>
 <p>后续的处理，可通过查看各种网络连接状态的梳理，来排查 TIME_WAIT 或者 CLOSE_WAIT，或者其他连接过高的问题，非常有用。</p>
 <p>（2）<strong>网络状态统计</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -s &gt; $DUMP_DIR/netstat-s.dump <span class="number">2</span>&gt;&amp;<span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-
+<pre><code class="java">netstat -s &gt; $DUMP_DIR/netstat-s.dump 2&gt;&amp;1
+</code></pre>
 <p>它能够按照各个协议进行统计输出，对把握当时整个网络状态，有非常大的作用。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sar -n DEV <span class="number">1</span> <span class="number">2</span> &gt; $DUMP_DIR/sar-traffic.dump <span class="number">2</span>&gt;&amp;<span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-
+<pre><code class="java">sar -n DEV 1 2 &gt; $DUMP_DIR/sar-traffic.dump 2&gt;&amp;1
+</code></pre>
 <p>在一些速度非常高的模块上，比如 Redis、Kafka，就经常发生跑满网卡的情况。表现形式就是网络通信非常缓慢。</p>
 <p>（3）<strong>进程资源</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsof -p $PID &gt; $DUMP_DIR/lsof-$PID.dump</span><br></pre></td></tr></table></figure>
-
-
+<pre><code class="java">lsof -p $PID &gt; $DUMP_DIR/lsof-$PID.dump
+</code></pre>
 <p>通过查看进程，能看到打开了哪些文件，可以以进程的维度来查看整个资源的使用情况，包括每条网络连接、每个打开的文件句柄。同时，也可以很容易的看到连接到了哪些服务器、使用了哪些资源。这个命令在资源非常多的情况下，输出稍慢，请耐心等待。</p>
 <p>（4）<strong>CPU 资源</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mpstat &gt; $DUMP_DIR/mpstat.dump 2&gt;&amp;1</span><br><span class="line">vmstat 1 3 &gt; $DUMP_DIR/vmstat.dump 2&gt;&amp;1</span><br><span class="line">sar -p ALL  &gt; $DUMP_DIR/sar-cpu.dump  2&gt;&amp;1</span><br><span class="line">uptime &gt; $DUMP_DIR/uptime.dump 2&gt;&amp;1</span><br></pre></td></tr></table></figure>
-
+<pre><code>mpstat &gt; $DUMP_DIR/mpstat.dump 2&gt;&amp;1
+vmstat 1 3 &gt; $DUMP_DIR/vmstat.dump 2&gt;&amp;1
+sar -p ALL  &gt; $DUMP_DIR/sar-cpu.dump  2&gt;&amp;1
+uptime &gt; $DUMP_DIR/uptime.dump 2&gt;&amp;1
+</code></pre>
 <p>主要用于输出当前系统的 CPU 和负载，便于事后排查。</p>
 <p>（5）<strong>I/O 资源</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iostat -x &gt; $DUMP_DIR/iostat.dump <span class="number">2</span>&gt;&amp;<span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-
+<pre><code class="java">iostat -x &gt; $DUMP_DIR/iostat.dump 2&gt;&amp;1
+</code></pre>
 <p>一般，以计算为主的服务节点，I/O 资源会比较正常，但有时也会发生问题，比如<strong>日志输出过多，或者磁盘问题</strong>等。此命令可以输出每块磁盘的基本性能信息，用来排查 I/O 问题。在第 8 课时介绍的 GC 日志分磁盘问题，就可以使用这个命令去发现。</p>
 <p>（6）<strong>内存问题</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">free -h &gt; $DUMP_DIR/free.dump <span class="number">2</span>&gt;&amp;<span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-
+<pre><code class="java">free -h &gt; $DUMP_DIR/free.dump 2&gt;&amp;1
+</code></pre>
 <p>free 命令能够大体展现操作系统的内存概况，这是故障排查中一个非常重要的点，比如 SWAP 影响了 GC，SLAB 区挤占了 JVM 的内存。</p>
 <p>（7）<strong>其他全局</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ps -ef &gt; $DUMP_DIR/ps.dump <span class="number">2</span>&gt;&amp;<span class="number">1</span></span><br><span class="line">dmesg &gt; $DUMP_DIR/dmesg.dump <span class="number">2</span>&gt;&amp;<span class="number">1</span></span><br><span class="line">sysctl -a &gt; $DUMP_DIR/sysctl.dump <span class="number">2</span>&gt;&amp;<span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-
+<pre><code class="java">ps -ef &gt; $DUMP_DIR/ps.dump 2&gt;&amp;1
+dmesg &gt; $DUMP_DIR/dmesg.dump 2&gt;&amp;1
+sysctl -a &gt; $DUMP_DIR/sysctl.dump 2&gt;&amp;1
+</code></pre>
 <p>dmesg 是许多静悄悄死掉的服务留下的最后一点线索。当然，ps 作为执行频率最高的一个命令，由于内核的配置参数，会对系统和 JVM 产生影响，所以我们也输出了一份。</p>
 <p>（8）<strong>进程快照</strong>，最后的遗言（jinfo）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;JDK_BIN&#125;jinfo $PID &gt; $DUMP_DIR/jinfo.dump <span class="number">2</span>&gt;&amp;<span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-
+<pre><code class="java">$&#123;JDK_BIN&#125;jinfo $PID &gt; $DUMP_DIR/jinfo.dump 2&gt;&amp;1
+</code></pre>
 <p>此命令将输出 Java 的基本进程信息，包括<strong>环境变量和参数配置</strong>，可以查看是否因为一些错误的配置造成了 JVM 问题。</p>
 <p><strong>（9）dump 堆信息</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$&#123;JDK_BIN&#125;jstat -gcutil $PID &gt; $DUMP_DIR/jstat-gcutil.dump <span class="number">2</span>&gt;&amp;<span class="number">1</span></span><br><span class="line">$&#123;JDK_BIN&#125;jstat -gccapacity $PID &gt; $DUMP_DIR/jstat-gccapacity.dump <span class="number">2</span>&gt;&amp;<span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-
+<pre><code class="java">$&#123;JDK_BIN&#125;jstat -gcutil $PID &gt; $DUMP_DIR/jstat-gcutil.dump 2&gt;&amp;1
+$&#123;JDK_BIN&#125;jstat -gccapacity $PID &gt; $DUMP_DIR/jstat-gccapacity.dump 2&gt;&amp;1
+</code></pre>
 <p>jstat 将输出当前的 gc 信息。一般，基本能大体看出一个端倪，如果不能，可将借助 jmap 来进行分析。</p>
 <p><strong>（10）堆信息</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$&#123;JDK_BIN&#125;jmap $PID &gt; $DUMP_DIR/jmap.dump <span class="number">2</span>&gt;&amp;<span class="number">1</span></span><br><span class="line">$&#123;JDK_BIN&#125;jmap -heap $PID &gt; $DUMP_DIR/jmap-heap.dump <span class="number">2</span>&gt;&amp;<span class="number">1</span></span><br><span class="line">$&#123;JDK_BIN&#125;jmap -histo $PID &gt; $DUMP_DIR/jmap-histo.dump <span class="number">2</span>&gt;&amp;<span class="number">1</span></span><br><span class="line">$&#123;JDK_BIN&#125;jmap -dump:format=b,file=$DUMP_DIR/heap.bin $PID &gt; /dev/<span class="keyword">null</span>  <span class="number">2</span>&gt;&amp;<span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-
+<pre><code class="java">$&#123;JDK_BIN&#125;jmap $PID &gt; $DUMP_DIR/jmap.dump 2&gt;&amp;1
+$&#123;JDK_BIN&#125;jmap -heap $PID &gt; $DUMP_DIR/jmap-heap.dump 2&gt;&amp;1
+$&#123;JDK_BIN&#125;jmap -histo $PID &gt; $DUMP_DIR/jmap-histo.dump 2&gt;&amp;1
+$&#123;JDK_BIN&#125;jmap -dump:format=b,file=$DUMP_DIR/heap.bin $PID &gt; /dev/null  2&gt;&amp;1
+</code></pre>
 <p>jmap 将会得到当前 Java 进程的 dump 信息。如上所示，其实最有用的就是第 4 个命令，但是前面三个能够让你初步对系统概况进行大体判断。因为，第 4 个命令产生的文件，一般都非常的大。而且，需要下载下来，导入 MAT 这样的工具进行深入分析，才能获取结果。这是分析内存泄漏一个必经的过程。</p>
 <p><strong>（11）JVM 执行栈</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;JDK_BIN&#125;jstack $PID &gt; $DUMP_DIR/jstack.dump <span class="number">2</span>&gt;&amp;<span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-
+<pre><code class="java">$&#123;JDK_BIN&#125;jstack $PID &gt; $DUMP_DIR/jstack.dump 2&gt;&amp;1
+</code></pre>
 <p>jstack 将会获取当时的执行栈。一般会多次取值，我们这里取一次即可。这些信息非常有用，能够还原 Java 进程中的线程情况。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">top -Hp $PID -b -n <span class="number">1</span> -c &gt;  $DUMP_DIR/top-$PID.dump <span class="number">2</span>&gt;&amp;<span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-
+<pre><code class="java">top -Hp $PID -b -n 1 -c &gt;  $DUMP_DIR/top-$PID.dump 2&gt;&amp;1
+</code></pre>
 <p>为了能够得到更加精细的信息，我们使用 top 命令，来获取进程中所有线程的 CPU 信息，这样，就可以看到资源到底耗费在什么地方了。</p>
 <p><strong>（12）高级替补</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -<span class="number">3</span> $PID</span><br></pre></td></tr></table></figure>
-
-
+<pre><code class="java">kill -3 $PID
+</code></pre>
 <p>有时候，jstack 并不能够运行，有很多原因，比如 Java 进程几乎不响应了等之类的情况。我们会尝试向进程发送 kill -3 信号，这个信号将会打印 jstack 的 trace 信息到日志文件中，是 jstack 的一个替补方案。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcore -o $DUMP_DIR/core $PID</span><br></pre></td></tr></table></figure>
-
-
+<pre><code class="java">gcore -o $DUMP_DIR/core $PID
+</code></pre>
 <p>对于 jmap 无法执行的问题，也有替补，那就是 GDB 组件中的 gcore，将会生成一个 core 文件。我们可以使用如下的命令去生成 dump：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;JDK_BIN&#125;jhsdb jmap --exe $&#123;JDK&#125;java  --core $DUMP_DIR/core --binaryheap</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">$&#123;JDK_BIN&#125;jhsdb jmap --exe $&#123;JDK&#125;java  --core $DUMP_DIR/core --binaryheap
+</code></pre>
 <ol start="3">
 <li><strong>内存泄漏的现象</strong></li>
 </ol>
 <p>稍微提一下 jmap 命令，它在 9 版本里被干掉了，取而代之的是 jhsdb，你可以像下面的命令一样使用。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jhsdb jmap  --heap --pid  <span class="number">37340</span></span><br><span class="line">jhsdb jmap  --pid  <span class="number">37288</span></span><br><span class="line">jhsdb jmap  --histo --pid  <span class="number">37340</span></span><br><span class="line">jhsdb jmap  --binaryheap --pid  <span class="number">37340</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">jhsdb jmap  --heap --pid  37340
+jhsdb jmap  --pid  37288
+jhsdb jmap  --histo --pid  37340
+jhsdb jmap  --binaryheap --pid  37340
+</code></pre>
 <p>一般内存溢出，表现形式就是 Old 区的占用持续上升，即使经过了多轮 GC 也没有明显改善。比如ThreadLocal里面的GC Roots，内存泄漏的根本就是，这些对象并没有切断和 GC Roots 的关系，可通过一些工具，能够看到它们的联系。</p>
 <h4 id="2、报表异常-JVM调优"><a href="#2、报表异常-JVM调优" class="headerlink" title="2、报表异常 | JVM调优"></a>2、报表异常 | JVM调优</h4><p>有一个报表系统，频繁发生内存溢出，在高峰期间使用时，还会频繁的发生拒绝服务，由于大多数使用者是管理员角色，所以很快就反馈到研发这里。</p>
 <p>业务场景是由于有些结果集的字段不是太全，因此需要对结果集合进行循环，并通过 HttpClient 调用其他服务的接口进行数据填充。使用 Guava 做了 JVM 内缓存，但是响应时间依然很长。</p>
@@ -1392,32 +1495,45 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>内存溢出是一个结果，而<strong>内存泄漏</strong>是一个原因。内存溢出的原因有<strong>内存空间不足、配置错误</strong>等因素。一些错误的编程方式，不再被使用的对象、没有被回收、没有及时切断与 GC Roots 的联系，这就是内存泄漏。</p>
 <p>举个例子，有团队使用了 HashMap 做缓存，但是并没有设置超时时间或者 LRU 策略，造成了放入 Map 对象的数据越来越多，而产生了内存泄漏。</p>
 <p>再来看一个经常发生的内存泄漏的例子，也是由于 HashMap 产生的。代码如下，由于没有重写 Key 类的 hashCode 和 equals 方法，造成了放入 HashMap 的所有对象都无法被取出来，它们和外界失联了。所以下面的代码结果是 null。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//leak example</span></span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HashMapLeakDemo</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Key</span> </span>&#123;</span><br><span class="line">        String title;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Key</span><span class="params">(String title)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.title = title;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Map&lt;Key, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    map.put(<span class="keyword">new</span> Key(<span class="string">&quot;1&quot;</span>), <span class="number">1</span>);</span><br><span class="line">    map.put(<span class="keyword">new</span> Key(<span class="string">&quot;2&quot;</span>), <span class="number">2</span>);</span><br><span class="line">    map.put(<span class="keyword">new</span> Key(<span class="string">&quot;3&quot;</span>), <span class="number">2</span>);</span><br><span class="line">    Integer integer = map.get(<span class="keyword">new</span> Key(<span class="string">&quot;2&quot;</span>));</span><br><span class="line">    System.out.println(integer);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">//leak example
+import java.util.HashMap;
+import java.util.Map;
+public class HashMapLeakDemo &#123;
+    public static class Key &#123;
+        String title;
+    public Key(String title) &#123;
+        this.title = title;
+    &#125;
+&#125;
 
-
+public static void main(String[] args) &#123;
+    Map&lt;Key, Integer&gt; map = new HashMap&lt;&gt;();
+    map.put(new Key(&quot;1&quot;), 1);
+    map.put(new Key(&quot;2&quot;), 2);
+    map.put(new Key(&quot;3&quot;), 2);
+    Integer integer = map.get(new Key(&quot;2&quot;));
+    System.out.println(integer);
+    &#125;
+&#125;
+</code></pre>
 <p>即使提供了 equals 方法和 hashCode 方法，也要非常小心，尽量避免使用自定义的对象作为 Key。</p>
 <p>再看一个例子，关于文件处理器的应用，在读取或者写入一些文件之后，由于发生了一些异常，<strong>close 方法又没有放在 finally</strong> 块里面，造成了文件句柄的泄漏。由于文件处理十分频繁，产生了严重的内存泄漏问题。</p>
 <h4 id="6：CPU飙高-死循环"><a href="#6：CPU飙高-死循环" class="headerlink" title="6：CPU飙高 | 死循环"></a>6：CPU飙高 | 死循环</h4><p>我们有个线上应用，单节点在运行一段时间后，CPU 的使用会飙升，一旦飙升，一般怀疑某个业务逻辑的计算量太大，或者是触发了死循环（比如著名的 HashMap 高并发引起的死循环），但排查到最后其实是 GC 的问题。        </p>
 <p>（1）使用 top 命令，查找到使用 CPU 最多的某个进程，记录它的 pid。使用 Shift + P 快捷键可以按 CPU 的使用率进行排序。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">top</span><br></pre></td></tr></table></figure>
-
-
+<pre><code class="java">top
+</code></pre>
 <p>（2）再次使用 top 命令，加 -H 参数，查看某个进程中使用 CPU 最多的某个线程，记录线程的 ID。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">top -Hp $pid</span><br></pre></td></tr></table></figure>
-
-
+<pre><code class="java">top -Hp $pid
+</code></pre>
 <p>（3）使用 printf 函数，将十进制的 tid 转化成十六进制。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">printf %x $tid</span><br></pre></td></tr></table></figure>
-
-
+<pre><code class="java">printf %x $tid
+</code></pre>
 <p>（4）使用 jstack 命令，查看 Java 进程的线程栈。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jstack $pid &gt;$pid.log</span><br></pre></td></tr></table></figure>
-
-
+<pre><code class="java">jstack $pid &gt;$pid.log
+</code></pre>
 <p>（5）使用 less 命令查看生成的文件，并查找刚才转化的十六进制 tid，找到发生问题的线程上下文。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">less $pid.log</span><br></pre></td></tr></table></figure>
-
-
+<pre><code class="java">less $pid.log
+</code></pre>
 <p>我们在 jstack 日志搜关键字DEAD，以及中找到了 CPU 使用最多的几个线程id。</p>
 <p>可以看到问题发生的根源，是我们的堆已经满了，但是又没有发生 OOM，于是 GC 进程就一直在那里回收，回收的效果又非常一般，造成 CPU 升高应用假死。接下来的具体问题排查，就需要把内存 dump 一份下来，使用 MAT 等工具分析具体原因了。</p>
 <h1 id="三、多线程篇"><a href="#三、多线程篇" class="headerlink" title="三、多线程篇"></a>三、多线程篇</h1><h3 id="线程调度"><a href="#线程调度" class="headerlink" title="线程调度"></a>线程调度</h3><h4 id="1、线程状态"><a href="#1、线程状态" class="headerlink" title="1、线程状态"></a><strong>1、线程状态</strong></h4><p>​        线程是cpu任务调度的最小执行单位，每个线程拥有自己独立的程序计数器、虚拟机栈、本地方法栈</p>
@@ -1496,24 +1612,46 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </li>
 </ul>
 <h4 id="5、创建线程方式"><a href="#5、创建线程方式" class="headerlink" title="5、创建线程方式"></a>5、创建线程方式</h4><p><strong>实现 Runnable 接口</strong>（优先使用）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RunnableThread</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;System.out.println(<span class="string">&#x27;用实现Runnable接口实现线程&#x27;</span>);&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">public class RunnableThread implements Runnable &#123;
+    @Override
+    public void run() &#123;System.out.println(&#39;用实现Runnable接口实现线程&#39;);&#125;
+&#125;
+</code></pre>
 <p><strong>实现Callable接口</strong>（有返回值可抛出异常）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CallableTask</span> <span class="keyword">implements</span> <span class="title">Callable</span>&lt;<span class="title">Integer</span>&gt; </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123; <span class="keyword">return</span> <span class="keyword">new</span> Random().nextInt();&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">class CallableTask implements Callable&lt;Integer&gt; &#123;
+    @Override
+    public Integer call() throws Exception &#123; return new Random().nextInt();&#125;
+&#125;
+</code></pre>
 <p><strong>继承Thread类</strong>（java不支持多继承）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExtendsThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;System.out.println(<span class="string">&#x27;用Thread类实现线程&#x27;</span>);&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">public class ExtendsThread extends Thread &#123;
+    @Override
+    public void run() &#123;System.out.println(&#39;用Thread类实现线程&#39;);&#125;
+&#125;
+</code></pre>
 <p><strong>使用线程池</strong>（底层都是实现run方法）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">DefaultThreadFactory</span> <span class="keyword">implements</span> <span class="title">ThreadFactory</span> </span>&#123;</span><br><span class="line">    DefaultThreadFactory() &#123;</span><br><span class="line">        SecurityManager s = System.getSecurityManager();</span><br><span class="line">        group = (s != <span class="keyword">null</span>) ? s.getThreadGroup() : Thread.currentThread().getThreadGroup();</span><br><span class="line">        namePrefix = <span class="string">&quot;pool-&quot;</span> + poolNumber.getAndIncrement() +<span class="string">&quot;-thread-&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Thread <span class="title">newThread</span><span class="params">(Runnable r)</span> </span>&#123;</span><br><span class="line">        Thread t = <span class="keyword">new</span> Thread(group, r,namePrefix + threadNumber.getAndIncrement(),<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span> (t.isDaemon()) t.setDaemon(<span class="keyword">false</span>);  <span class="comment">//是否守护线程</span></span><br><span class="line">        <span class="keyword">if</span> (t.getPriority() != Thread.NORM_PRIORITY) t.setPriority(Thread.NORM_PRIORITY); <span class="comment">//线程优先级</span></span><br><span class="line">        <span class="keyword">return</span> t;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
+<pre><code class="java">static class DefaultThreadFactory implements ThreadFactory &#123;
+    DefaultThreadFactory() &#123;
+        SecurityManager s = System.getSecurityManager();
+        group = (s != null) ? s.getThreadGroup() : Thread.currentThread().getThreadGroup();
+        namePrefix = &quot;pool-&quot; + poolNumber.getAndIncrement() +&quot;-thread-&quot;;
+    &#125;
+    public Thread newThread(Runnable r) &#123;
+        Thread t = new Thread(group, r,namePrefix + threadNumber.getAndIncrement(),0);
+        if (t.isDaemon()) t.setDaemon(false);  //是否守护线程
+        if (t.getPriority() != Thread.NORM_PRIORITY) t.setPriority(Thread.NORM_PRIORITY); //线程优先级
+        return t;
+    &#125;
+&#125;
+</code></pre>
 <h3 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h3><p>优点：通过复用已创建的线程，<strong>降低资源损耗</strong>、线程可以直接处理队列中的任务<strong>加快响应速度</strong>、同时便于<strong>统一监控和管理</strong>。</p>
-<h4 id="1、线程池构造函数"><a href="#1、线程池构造函数" class="headerlink" title="1、线程池构造函数"></a><strong>1、线程池构造函数</strong></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 线程池构造函数7大参数</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ThreadPoolExecutor</span><span class="params">(<span class="keyword">int</span> corePoolSize,<span class="keyword">int</span> maximumPoolSize,<span class="keyword">long</span> keepAliveTime,</span></span></span><br><span class="line"><span class="params"><span class="function">    TimeUnit unit,BlockingQueue&lt;Runnable&gt; workQueue,ThreadFactory threadFactory,</span></span></span><br><span class="line"><span class="params"><span class="function">    RejectedExecutionHandler handler)</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-
+<h4 id="1、线程池构造函数"><a href="#1、线程池构造函数" class="headerlink" title="1、线程池构造函数"></a><strong>1、线程池构造函数</strong></h4><pre><code class="java">/**
+* 线程池构造函数7大参数
+*/
+public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTime,
+    TimeUnit unit,BlockingQueue&lt;Runnable&gt; workQueue,ThreadFactory threadFactory,
+    RejectedExecutionHandler handler) &#123;&#125;
+</code></pre>
 <p><strong>参数介绍：</strong></p>
 <table>
 <thead>
@@ -1667,13 +1805,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>​        我们使用的 get()、set() 方法其实都是调用了这个ThreadLocalMap类对应的 get()、set() 方法。例如下面的 </p>
 <p><strong>如何使用：</strong></p>
 <p>​        1）存储用户Session</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> ThreadLocal threadSession = <span class="keyword">new</span> ThreadLocal();</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">private static final ThreadLocal threadSession = new ThreadLocal();
+</code></pre>
 <p>​        2）解决线程安全的问题</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> ThreadLocal&lt;SimpleDateFormat&gt; format1 = <span class="keyword">new</span> ThreadLocal&lt;SimpleDateFormat&gt;()</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">private static ThreadLocal&lt;SimpleDateFormat&gt; format1 = new ThreadLocal&lt;SimpleDateFormat&gt;()
+</code></pre>
 <p><strong>ThreadLocal内存泄漏的场景</strong> </p>
 <p>​        实际上 ThreadLocalMap 中使用的 key 为 ThreadLocal 的弱引用，⽽ value 是强引⽤。弱引用的特点是，如果这个对象持有弱引用，那么在下一次垃圾回收的时候必然会被清理掉。</p>
 <p>​        所以如果 ThreadLocal 没有被外部强引用的情况下，在垃圾回收的时候会被清理掉的，这样一来 ThreadLocalMap中使用这个 ThreadLocal 的 key 也会被清理掉。但是，value 是强引用，不会被清理，这样一来就会出现 key 为 null 的 value。 假如我们不做任何措施的话，value 永远⽆法被GC 回收，如果线程长时间不被销毁，可能会产⽣内存泄露。</p>
@@ -1713,13 +1849,27 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>　　3）如果是写操作，它会导致其他CPU中对应的缓存行无效。</p>
 <p><strong>单例模式中volatile的作用：</strong></p>
 <p>防止代码读取到instance不为null时，instance引用的对象有可能还没有完成初始化。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> Singleton instance = <span class="keyword">null</span>;   <span class="comment">//禁止指令重排</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;</span><br><span class="line">         </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(instance==<span class="keyword">null</span>) &#123; <span class="comment">//减少加锁的损耗</span></span><br><span class="line">            <span class="keyword">synchronized</span> (Singleton.class) &#123;</span><br><span class="line">                <span class="keyword">if</span>(instance==<span class="keyword">null</span>) <span class="comment">//确认是否初始化完成</span></span><br><span class="line">                    instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">class Singleton&#123;
+    private volatile static Singleton instance = null;   //禁止指令重排
+    private Singleton() &#123;
+         
+    &#125;
+    public static Singleton getInstance() &#123;
+        if(instance==null) &#123; //减少加锁的损耗
+            synchronized (Singleton.class) &#123;
+                if(instance==null) //确认是否初始化完成
+                    instance = new Singleton();
+            &#125;
+        &#125;
+        return instance;
+    &#125;
+&#125;
+</code></pre>
 <h4 id="2、AQS思想"><a href="#2、AQS思想" class="headerlink" title="2、AQS思想"></a><strong>2、AQS思想</strong></h4><p>​        AQS的全称为（AbstractQueuedSynchronizer）抽象的队列式的同步器，是⼀个⽤来构建锁和同步器的框架，使⽤AQS能简单且⾼效地构造出应⽤⼴泛的⼤量的同步器，如：基于AQS实现的lock, CountDownLatch、CyclicBarrier、Semaphore需解决的问题：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">状态的原子性管理</span><br><span class="line">线程的阻塞与解除阻塞</span><br><span class="line">队列的管理</span><br></pre></td></tr></table></figure>
-
+<pre><code>状态的原子性管理
+线程的阻塞与解除阻塞
+队列的管理
+</code></pre>
 <p>​        AQS核⼼思想是，如果被请求的共享资源空闲，则将当前请求资源的线程设置为有效的⼯作线程，并且将共享资源设置为锁定状态。如果被请求的共享资源被占⽤，那么就需要⼀套线程阻塞等待以及被唤醒时锁分配的机制，这个机制AQS是⽤<strong>CLH（虚拟的双向队列）</strong>队列锁实现的，即将暂时获取不到锁的线程加⼊到队列中。</p>
 <p><strong>lock：</strong></p>
 <p>​        是一种可重入锁，除了能完成 synchronized 所能完成的所有工作外，还提供了诸如可响应中断锁、可轮询锁请求、定时锁等避免多线程死锁的方法。默认为非公平锁，但可以初始化为公平锁； 通过方法 lock()与 unlock()来进行加锁与解锁操作；</p>
@@ -1846,10 +1996,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </li>
 </ul>
 <p><img src="https://tva1.sinaimg.cn/large/0081Kckwly1gmaqc75y6bj30wc0d60u4.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1gmaqc75y6bj30wc0d60u4.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210103192653004"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 查询三层级关系节点如下：with可以将前面查询结果作为后面查询条件</span></span><br><span class="line">match (na:Person)-[re]-(nb:Person) where na.name=<span class="string">&quot;林婉儿&quot;</span> WITH na,re,<span class="function">nb <span class="title">match</span> <span class="params">(nb:Person)</span>- [re2:Friends]-&gt;<span class="params">(nc:Person)</span> return na,re,nb,re2,nc</span></span><br><span class="line"><span class="function"><span class="comment">// 直接拼接关系节点查询</span></span></span><br><span class="line"><span class="function">match data</span>=(na:Person&#123;name:<span class="string">&quot;范闲&quot;</span>&#125;)-[re]-&gt;(nb:Person)-[re2]-&gt;(nc:Person) <span class="keyword">return</span> data</span><br><span class="line"><span class="comment">// 使用深度运算符</span></span><br><span class="line">显然使用以上方式比较繁琐,可变数量的关系-&gt;节点可以使用-[:TYPE*minHops..maxHops]-。</span><br><span class="line">match data=(na:Person&#123;name:<span class="string">&quot;范闲&quot;</span>&#125;)-[*<span class="number">1.</span><span class="number">.2</span>]-(nb:Person) <span class="keyword">return</span> data</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">// 查询三层级关系节点如下：with可以将前面查询结果作为后面查询条件
+match (na:Person)-[re]-(nb:Person) where na.name=&quot;林婉儿&quot; WITH na,re,nb match (nb:Person)- [re2:Friends]-&gt;(nc:Person) return na,re,nb,re2,nc
+// 直接拼接关系节点查询
+match data=(na:Person&#123;name:&quot;范闲&quot;&#125;)-[re]-&gt;(nb:Person)-[re2]-&gt;(nc:Person) return data
+// 使用深度运算符
+显然使用以上方式比较繁琐,可变数量的关系-&gt;节点可以使用-[:TYPE*minHops..maxHops]-。
+match data=(na:Person&#123;name:&quot;范闲&quot;&#125;)-[*1..2]-(nb:Person) return data
+</code></pre>
 <h4 id="文档MongoDB"><a href="#文档MongoDB" class="headerlink" title="文档MongoDB"></a><strong>文档MongoDB</strong></h4><blockquote>
 <p>MongoDB 是一个基于分布式文件存储的数据库，是非关系数据库中功能最丰富、最像关系数据库的。在高负载的情况下，通过添加更多的节点，可以保证服务器性能。由 C++ 编写，可以为 WEB 应用提供可扩展、高性能、易部署的数据存储解决方案。</p>
 </blockquote>
@@ -1860,8 +2014,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>{key:value,key2:value2}和Json类似，是一种二进制形式的存储格式，支持内嵌的文档对象和数组对象，但是BSON有JSON没有的一些数据类型，比如 value包括字符串,double,Array,DateBSON可以做为网络数据交换的一种存储形式,它的优点是灵活性高，但它的缺点是空间利用率不是很理想。</p>
 </blockquote>
 <p>BSON有三个特点：轻量性、可遍历性、高效性</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/* 查询 find() 方法可以传入多个键(key)，每个键(key)以逗号隔开*/</span><br><span class="line">db.collection.find(&#123;key1:value1, key2:value2&#125;).pretty()</span><br><span class="line">/* 更新 $set ：设置字段值 $unset :删除指定字段 $inc：对修改的值进行自增*/</span><br><span class="line">db.collection.update(&#123;where&#125;,&#123;$set:&#123;字段名:值&#125;&#125;,&#123;multi:true&#125;)</span><br><span class="line">/* 删除 justOne :如果设为true，只删除一个文档，默认false，删除所有匹配条件的文档*/</span><br><span class="line">db.collection.remove(&#123;where&#125;, &#123;justOne: &lt;boolean&gt;, writeConcern: &lt;回执&gt; &#125; )</span><br></pre></td></tr></table></figure>
-
+<pre><code class="mysql">/* 查询 find() 方法可以传入多个键(key)，每个键(key)以逗号隔开*/
+db.collection.find(&#123;key1:value1, key2:value2&#125;).pretty()
+/* 更新 $set ：设置字段值 $unset :删除指定字段 $inc：对修改的值进行自增*/
+db.collection.update(&#123;where&#125;,&#123;$set:&#123;字段名:值&#125;&#125;,&#123;multi:true&#125;)
+/* 删除 justOne :如果设为true，只删除一个文档，默认false，删除所有匹配条件的文档*/
+db.collection.remove(&#123;where&#125;, &#123;justOne: &lt;boolean&gt;, writeConcern: &lt;回执&gt; &#125; )
+</code></pre>
 <p><strong>优点：</strong></p>
 <ul>
 <li><p><strong>文档结构的存储方式，能够更便捷的获取数据。</strong></p>
@@ -1961,12 +2120,25 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>​    续传涉及到的文件大小MD5不会改变。续传流程与文件上传类似，先<strong>定位到源storage</strong>，完成完整或部分上传，再<strong>通过binlog进行同group内server文件同步</strong>。</p>
 <p><strong>配置优化</strong></p>
 <p>配置文件：tracker.conf 和 storage.conf </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// FastDFS采用内存池的做法。 </span></span><br><span class="line"><span class="comment">// v5.04对预分配采用增量方式，tracker一次预分配 1024个，storage一次预分配256个。 </span></span><br><span class="line">max_connections = <span class="number">10240</span></span><br><span class="line"><span class="comment">// 根据实际需要将 max_connections 设置为一个较大的数值，比如 10240 甚至更大。</span></span><br><span class="line"><span class="comment">// 同时需要将一个进程允许打开的最大文件数调大</span></span><br><span class="line">vi /etc/security/limits.conf 重启系统生效 </span><br><span class="line">* soft nofile <span class="number">65535</span> </span><br><span class="line">* hard nofile <span class="number">65535</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">work_threads = <span class="number">4</span> </span><br><span class="line"><span class="comment">// 说明：为了避免CPU上下文切换的开销，以及不必要的资源消耗，不建议将本参数设置得过大。</span></span><br><span class="line"><span class="comment">// 公式为： work_threads + (reader_threads + writer_threads) = CPU数</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 对于单盘挂载方式，磁盘读写线程分 别设置为 1即可 </span></span><br><span class="line"><span class="comment">// 如果磁盘做了RAID，那么需要酌情加大读写线程数，这样才能最大程度地发挥磁盘性能</span></span><br><span class="line">disk_rw_separated：磁盘读写是否分离 </span><br><span class="line">disk_reader_threads：单个磁盘读线程数 </span><br><span class="line">disk_writer_threads：单个磁盘写线程数 </span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">// FastDFS采用内存池的做法。 
+// v5.04对预分配采用增量方式，tracker一次预分配 1024个，storage一次预分配256个。 
+max_connections = 10240
+// 根据实际需要将 max_connections 设置为一个较大的数值，比如 10240 甚至更大。
+// 同时需要将一个进程允许打开的最大文件数调大
+vi /etc/security/limits.conf 重启系统生效 
+* soft nofile 65535 
+* hard nofile 65535
+</code></pre>
+<pre><code class="java">work_threads = 4 
+// 说明：为了避免CPU上下文切换的开销，以及不必要的资源消耗，不建议将本参数设置得过大。
+// 公式为： work_threads + (reader_threads + writer_threads) = CPU数
+</code></pre>
+<pre><code class="java">// 对于单盘挂载方式，磁盘读写线程分 别设置为 1即可 
+// 如果磁盘做了RAID，那么需要酌情加大读写线程数，这样才能最大程度地发挥磁盘性能
+disk_rw_separated：磁盘读写是否分离 
+disk_reader_threads：单个磁盘读线程数 
+disk_writer_threads：单个磁盘写线程数 
+</code></pre>
 <p><strong>避免重复</strong></p>
 <p>​    如何避免文件重复上传 解决方案 上传成功后计算文件对应的MD5然后<strong>存入MySQL</strong>,添加文件时把<strong>文件MD5和之前存入MYSQL中的存储的信息对比</strong> 。DigestUtils.md5DigestAsHex(bytes)。</p>
 <h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><h4 id="1、事务4大特性"><a href="#1、事务4大特性" class="headerlink" title="1、事务4大特性"></a><strong>1、事务4大特性</strong></h4><p><strong>事务4大特性：</strong>原子性、一致性、隔离性、持久性</p>
@@ -2008,13 +2180,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>​        同⼀字段的多次读取结果都是⼀致的，除⾮数据是被本身事务⾃⼰所修改；</p>
 <p>​        可重复读是有可能出现幻读的，如果要保证绝对的安全只能把隔离级别设置成SERIALIZABLE；这样所有事务都只能顺序执行，自然不会因为并发有什么影响了，但是性能会下降许多。</p>
 <p>​        第二种方式，使用MVCC解决<strong>快照读幻读问题</strong>（如简单select），读取的不是最新的数据。维护一个字段作为version，这样可以控制到每次只能有一个人更新一个版本。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select id from table_xx where id = ? and version = V</span><br><span class="line">update id from table_xx where id = ? and version = V+1</span><br></pre></td></tr></table></figure>
-
+<pre><code class="mysql">select id from table_xx where id = ? and version = V
+update id from table_xx where id = ? and version = V+1
+</code></pre>
 <p>​        第三种方式，如果需要读最新的数据，可以通过GapLock+Next-KeyLock可以解决<strong>当前读幻读问题</strong>，</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select id from table_xx where id &gt; 100 for update;</span><br><span class="line">select id from table_xx where id &gt; 100 lock in share mode;</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="mysql">select id from table_xx where id &gt; 100 for update;
+select id from table_xx where id &gt; 100 lock in share mode;
+</code></pre>
 <h4 id="4、RR和RC使用场景"><a href="#4、RR和RC使用场景" class="headerlink" title="4、RR和RC使用场景"></a><strong>4、RR和RC使用场景</strong></h4><p>​        事务隔离级别RC(read commit)和RR（repeatable read）两种事务隔离级别基于多版本并发控制MVCC(multi-version concurrency control）来实现。</p>
 <table>
 <thead>
@@ -2118,10 +2290,16 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>​        B+树是B树的升级版，B+树只有叶节点存放数据，其余节点用来索引。索引节点可以全部加入内存，增加查询效率，叶子节点可以做双向链表，从而<strong>提高范围查找的效率，增加的索引的范围</strong></p>
 <p>​        在大规模数据存储的时候，红黑树往往出现由于<strong>树的深度过大</strong>而造成磁盘IO读写过于频繁，进而导致效率低下的情况。所以，只要我们通过某种较好的树结构减少树的结构尽量减少树的高度，B树与B+树可以有多个子女，从几十到上千，可以降低树的高度。</p>
 <p>​        <strong>磁盘预读原理</strong>：将一个节点的大小设为等于一个页，这样每个节点只需要一次I/O就可以完全载入。为了达到这个目的，在实际实现B-Tree还需要使用如下技巧：每次新建节点时，直接申请一个页的空间，这样就保证<strong>一个节点物理上也存储在一个页里</strong>，加之计算机存储分配都是按页对齐的，就实现了一个node只需一次I/O。</p>
-<h4 id="4、创建索引"><a href="#4、创建索引" class="headerlink" title="4、创建索引"></a>4、创建索引</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span>  [<span class="keyword">UNIQUE</span> <span class="operator">|</span> FULLTEXT]  INDEX  索引名 <span class="keyword">ON</span>  表名(字段名) [<span class="keyword">USING</span> 索引方法]；</span><br><span class="line"></span><br><span class="line">说明：</span><br><span class="line"><span class="keyword">UNIQUE</span>:可选。表示索引为唯一性索引。</span><br><span class="line">FULLTEXT:可选。表示索引为全文索引。</span><br><span class="line">INDEX和KEY:用于指定字段为索引，两者选择其中之一就可以了，作用是一样的。</span><br><span class="line">索引名:可选。给创建的索引取一个新名称。</span><br><span class="line">字段名<span class="number">1</span>:指定索引对应的字段的名称，该字段必须是前面定义好的字段。</span><br><span class="line">注：索引方法默认使用B<span class="operator">+</span>TREE。</span><br></pre></td></tr></table></figure>
+<h4 id="4、创建索引"><a href="#4、创建索引" class="headerlink" title="4、创建索引"></a>4、创建索引</h4><pre><code class="sql">CREATE  [UNIQUE | FULLTEXT]  INDEX  索引名 ON  表名(字段名) [USING 索引方法]；
 
-
-
+说明：
+UNIQUE:可选。表示索引为唯一性索引。
+FULLTEXT:可选。表示索引为全文索引。
+INDEX和KEY:用于指定字段为索引，两者选择其中之一就可以了，作用是一样的。
+索引名:可选。给创建的索引取一个新名称。
+字段名1:指定索引对应的字段的名称，该字段必须是前面定义好的字段。
+注：索引方法默认使用B+TREE。
+</code></pre>
 <h4 id="5、聚簇索引和非聚簇索引"><a href="#5、聚簇索引和非聚簇索引" class="headerlink" title="5、聚簇索引和非聚簇索引"></a><strong>5、聚簇索引和非聚簇索引</strong></h4><p>​    <strong>聚簇索引：</strong>将数据存储与索引放到了一块，索引结构的叶子节点保存了行数据（<strong>主键索引</strong>）</p>
 <p>​    <strong>非聚簇索引：</strong>将数据与索引分开存储，索引结构的叶子节点指向了数据对应的位置（<strong>辅助索引</strong>）</p>
 <p>​    聚簇索引的叶子节点就是数据节点，而非聚簇索引的叶子节点仍然是索引节点，只不过有指向对应数据块的指针。</p>
@@ -2129,8 +2307,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>​        联合索引的底层是一颗B+树，只不过联合索引的B+树节点中存储的是键值。由于构建一棵B+树只能根据一个值来确定索引关系，所以数据库依赖联合索引最左的字段来构建。</p>
 <p>​        采用&gt;、&lt;等进行匹配都会导致后面的列无法走索引，因为通过以上方式匹配到的数据是不可知的。</p>
 <h3 id="SQL查询"><a href="#SQL查询" class="headerlink" title="SQL查询"></a>SQL查询</h3><h4 id="1、SQL语句的执行过程"><a href="#1、SQL语句的执行过程" class="headerlink" title="1、SQL语句的执行过程"></a><strong>1、SQL语句的执行过程</strong></h4><p><strong>查询语句：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from student  A where A.age=&#x27;18&#x27; and A.name=&#x27;张三&#x27;;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="mysql">select * from student  A where A.age=&#39;18&#39; and A.name=&#39;张三&#39;;
+</code></pre>
 <img src="http://s0.lgstatic.com/i/image2/M01/8B/0F/CgotOV14ySKAMxohAAH2VHcAzkE612.png" class="lazyload" data-srcset="http://s0.lgstatic.com/i/image2/M01/8B/0F/CgotOV14ySKAMxohAAH2VHcAzkE612.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img" style="zoom: 67%;" />
 
 <p>结合上面的说明，我们分析下这个语句的执行流程：</p>
@@ -2147,24 +2325,31 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>​    如果where条件的列和返回的数据在一个索引中，那么不需要回查表，那么就叫覆盖索引。</p>
 <p><strong>实现覆盖索引</strong>：常见的方法是，将被查询的字段，建立到联合索引里去。</p>
 <h4 id="3、Explain及优化"><a href="#3、Explain及优化" class="headerlink" title="3、Explain及优化"></a>3、Explain及优化</h4><p>参考：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/8fab76bbf448">https://www.jianshu.com/p/8fab76bbf448</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; explain select * from staff;</span><br><span class="line">+----+-------------+-------+------+---------------+------+---------+------+------+-------+</span><br><span class="line">| id | select_type | table | type | possible_keys | key  | key_len | ref  | rows | Extra |</span><br><span class="line">+----+-------------+-------+------+---------------+------+---------+------+------+-------+</span><br><span class="line">|  1 | SIMPLE      | staff | ALL  | NULL          | 索引  | NULL    | NULL |    2 | NULL  |</span><br><span class="line">+----+-------------+-------+------+---------------+------+---------+------+------+-------+</span><br><span class="line">1 row in set</span><br></pre></td></tr></table></figure>
-
+<pre><code class="mysql">mysql&gt; explain select * from staff;
++----+-------------+-------+------+---------------+------+---------+------+------+-------+
+| id | select_type | table | type | possible_keys | key  | key_len | ref  | rows | Extra |
++----+-------------+-------+------+---------------+------+---------+------+------+-------+
+|  1 | SIMPLE      | staff | ALL  | NULL          | 索引  | NULL    | NULL |    2 | NULL  |
++----+-------------+-------+------+---------------+------+---------+------+------+-------+
+1 row in set
+</code></pre>
 <p><strong>索引优化：</strong></p>
 <p>​    ①最左前缀索引：like只用于’string%’，语句中的=和in会动态调整顺序</p>
 <p>​    ②唯一索引：唯一键区分度在0.1以上</p>
 <p>​    ③无法使用索引：!=  、is null 、 or、&gt;&lt; 、（<strong>5.7以后根据数量自动判定）in 、not in</strong></p>
 <p>​    ④联合索引：避免select * ，查询列使用覆盖索引</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT uid From user Where gid = 2 order by ctime asc limit 10</span><br><span class="line">ALTER TABLE user add index idx_gid_ctime_uid(gid,ctime,uid) #创建联合覆盖索引，避免回表查询</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="mysql">SELECT uid From user Where gid = 2 order by ctime asc limit 10
+ALTER TABLE user add index idx_gid_ctime_uid(gid,ctime,uid) #创建联合覆盖索引，避免回表查询
+</code></pre>
 <p><strong>语句优化：</strong></p>
 <p>​    ①char固定长度查询效率高，varchar第一个字节记录数据长度</p>
 <p>​    ②应该针对Explain中Rows增加索引</p>
 <p>​    ③group/order by字段均会涉及索引</p>
 <p>​    ④Limit中分页查询会随着start值增大而变缓慢，通过子查询+表连接解决</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> mytbl <span class="keyword">order</span> <span class="keyword">by</span> id limit <span class="number">100000</span>,<span class="number">10</span>  改进后的<span class="keyword">SQL</span>语句如下：</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> mytbl <span class="keyword">where</span> id <span class="operator">&gt;=</span> ( <span class="keyword">select</span> id <span class="keyword">from</span> mytbl <span class="keyword">order</span> <span class="keyword">by</span> id limit <span class="number">100000</span>,<span class="number">1</span> ) limit <span class="number">10</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> mytbl <span class="keyword">inner</span> ori <span class="keyword">join</span> (<span class="keyword">select</span> id <span class="keyword">from</span> mytbl <span class="keyword">order</span> <span class="keyword">by</span> id limit <span class="number">100000</span>,<span class="number">10</span>) <span class="keyword">as</span> tmp <span class="keyword">on</span> tmp.id<span class="operator">=</span>ori.id;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="sql">select * from mytbl order by id limit 100000,10  改进后的SQL语句如下：
+select * from mytbl where id &gt;= ( select id from mytbl order by id limit 100000,1 ) limit 10
+select * from mytbl inner ori join (select id from mytbl order by id limit 100000,10) as tmp on tmp.id=ori.id;
+</code></pre>
 <p>​    ⑤count会进行全表扫描，如果估算可以使用explain</p>
 <p>​    ⑥delete删除表时会增加大量undo和redo日志， 确定删除可使用trancate</p>
 <p><strong>表结构优化：</strong></p>
@@ -2298,8 +2483,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h3 id="线上故障及优化"><a href="#线上故障及优化" class="headerlink" title="线上故障及优化"></a>线上故障及优化</h3><h4 id="更新失败-主从同步延时"><a href="#更新失败-主从同步延时" class="headerlink" title="更新失败 | 主从同步延时"></a>更新失败 | 主从同步延时</h4><p>以前线上确实处理过因为主从同步延时问题而导致的线上的 bug，属于小型的生产事故。</p>
 <p>是这个么场景。有个同学是这样写代码逻辑的。先插入一条数据，再把它查出来，然后更新这条数据。在生产环境高峰期，写并发达到了 2000/s，这个时候，主从复制延时大概是在小几十毫秒。线上会发现，每天总有那么一些数据，我们期望更新一些重要的数据状态，但在高峰期时候却没更新。用户跟客服反馈，而客服就会反馈给我们。</p>
 <p>我们通过 MySQL 命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show slave status</span><br></pre></td></tr></table></figure>
-
+<pre><code>show slave status
+</code></pre>
 <p>查看 <code>Seconds_Behind_Master</code> ，可以看到从库复制主库的数据落后了几 ms。</p>
 <p>一般来说，如果主从延迟较为严重，有以下解决方案：</p>
 <ul>
@@ -2328,11 +2513,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>（4）设置虚拟time_min，找到time_min在各个分库的offset，从而得到time_min在全局的offset</p>
 <p>（5）得到了time_min在全局的offset，自然得到了全局的offset X limit Y</p>
 <h4 id="查询异常-SQL-调优"><a href="#查询异常-SQL-调优" class="headerlink" title="查询异常 | SQL 调优"></a>查询异常 | SQL 调优</h4><p>分库分表前，有一段用用户名来查询某个用户的 SQL 语句：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * <span class="keyword">from</span> user where name = <span class="string">&quot;xxx&quot;</span> <span class="keyword">and</span> community=<span class="string">&quot;other&quot;</span>;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">select * from user where name = &quot;xxx&quot; and community=&quot;other&quot;;
+</code></pre>
 <p>为了达到动态拼接的效果，这句 SQL 语句被一位同事进行了如下修改。他的本意是，当 name 或者 community 传入为空的时候，动态去掉这些查询条件。这种写法，在 MyBaits 的配置文件中，也非常常见。大多数情况下，这种写法是没有问题的，因为结果集合是可以控制的。但随着系统的运行，用户表的记录越来越多，当传入的 name 和 community 全部为空时，悲剧的事情发生了:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from user where 1=1</span><br></pre></td></tr></table></figure>
-
+<pre><code>select * from user where 1=1
+</code></pre>
 <p>数据库中的所有记录，都会被查询出来，载入到 JVM 的内存中。由于数据库记录实在太多，直接把内存给撑爆了。由于这种原因引起的内存溢出，发生的频率非常高，比如导入Excel文件时。</p>
 <p>通常的解决方式是<strong>强行加入分页功能</strong>，或者对一些<strong>必填的参数进行校验</strong></p>
 <p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gobovqjvijj30zd0lctbp.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gobovqjvijj30zd0lctbp.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
@@ -2341,8 +2526,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>因此，保持结果集的精简，是非常有必要的，这也是 DTO（Data Transfer Object）存在的必要。互联网环境不怕小结果集的高并发请求，却非常恐惧大结果集的耗时请求，这是其中一方面的原因。</p>
 <p><strong>Service 层</strong></p>
 <p>Service 层用于处理具体的业务，更加贴合业务的功能需求。一个 Service，可能会被多个 Controller 层所使用，也可能会使用多个 dao 结构的查询结果进行计算、拼装。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getUserSize</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        List&lt;User&gt; users = dao.getAllUser();</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span> == users ? <span class="number">0</span> : users.size();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">int getUserSize() &#123;
+        List&lt;User&gt; users = dao.getAllUser();
+        return null == users ? 0 : users.size();
+&#125;
+</code></pre>
 <p>代码review中发现了定时炸弹，这种在数据量达到一定程度后，才会暴露问题。</p>
 <p><strong>ORM 层</strong></p>
 <p>比如使用Mybatis时，有一个批量导入服务，在 MyBatis 执行批量插入的时候，竟然产生了内存溢出，按道理这种插入操作是不会引起额外内存占用的，最后通过源码追踪到了问题。</p>
@@ -2655,8 +2843,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </tr>
 </tbody></table>
 <h4 id="3、redis底层结构"><a href="#3、redis底层结构" class="headerlink" title="3、redis底层结构"></a>3、redis底层结构</h4><p><strong>SDS数组结构</strong>，用于存储字符串和整型数据及输入缓冲。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">struct sdshdr&#123; </span><br><span class="line">  <span class="keyword">int</span> len;<span class="comment">//记录buf数组中已使用字节的数量 </span></span><br><span class="line">  <span class="keyword">int</span> free; <span class="comment">//记录 buf 数组中未使用字节的数量 </span></span><br><span class="line">  <span class="keyword">char</span> buf[];<span class="comment">//字符数组，用于保存字符串</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">struct sdshdr&#123; 
+  int len;//记录buf数组中已使用字节的数量 
+  int free; //记录 buf 数组中未使用字节的数量 
+  char buf[];//字符数组，用于保存字符串
+&#125;
+</code></pre>
 <p><strong>跳跃表</strong>：将有序链表中的部分节点分层，每一层都是一个有序链表。</p>
 <p>​    1、可以快速查找到需要的节点 O(logn) ，额外存储了一倍的空间</p>
 <p>​    2、可以在O(1)的时间复杂度下，快速获得跳跃表的头节点、尾结点、长度和高度。            </p>
@@ -2744,8 +2936,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <p>​    业务端处理所有数据访问细节，同时利用 <strong>Lazy 计算</strong>的思想，更新 DB 后，直接删除 cache 并通过 DB 更新，确保数据以 DB 结果为准，则可以大幅降低 cache 和 DB 中数据不一致的概率</p>
 <p>​    如果没有专门的存储服务，同时是对<strong>数据一致性要求比较高的业务，或者是缓存数据更新比较复杂的业务</strong>，适合使用 Cache Aside 模式。如微博发展初期，不少业务采用这种模式</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 延迟双删，用以保证最终一致性,防止小概率旧数据读请求在第一次删除后更新数据库</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(String key,Object data)</span></span>&#123;</span><br><span class="line">	redis.delKey(key);</span><br><span class="line">	db.updateData(data);</span><br><span class="line">	Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">	redis.delKey(key);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">// 延迟双删，用以保证最终一致性,防止小概率旧数据读请求在第一次删除后更新数据库
+public void write(String key,Object data)&#123;
+    redis.delKey(key);
+    db.updateData(data);
+    Thread.sleep(1000);
+    redis.delKey(key);
+&#125;
+</code></pre>
 <p>高并发下保证绝对的一致，先删缓存再更新数据，需要用到<strong>内存队列做异步串行化</strong>。非高并发场景，先更新数据再删除缓存，<strong>延迟双删</strong>策略基本满足了</p>
 <ul>
 <li>先更新db后删除redis：删除redis失败则出现问题</li>
@@ -2907,12 +3105,18 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>​    乐观锁基于CAS(Compare And Swap)比较并替换思想，不会产生锁等待而消耗资源，但是需要反复的重试，但也是因为重试的机制，能比较快的响应。因此我们可以利用redis来实现乐观锁<strong>（秒杀）</strong>。具体思路如下:</p>
 <p>1、利用redis的watch功能，监控这个redisKey的状态值<br>2、获取redisKey的值，创建redis事务，给这个key的值+1<br>3、执行这个事务，如果key的值被修改过则回滚，key不加1</p>
 <p><strong>利用setnx防止库存超卖</strong><br>    分布式锁是控制分布式系统之间同步访问共享资源的一种方式。 利用Redis的单线程特性对共享资源进行串行化处理</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取锁推荐使用set的方式</span></span><br><span class="line">String result = jedis.set(lockKey, requestId, <span class="string">&quot;NX&quot;</span>, <span class="string">&quot;EX&quot;</span>, expireTime);</span><br><span class="line">String result = jedis.setnx(lockKey, requestId); <span class="comment">//如线程死掉，其他线程无法获取到锁</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 释放锁，非原子操作，可能会释放其他线程刚加上的锁</span></span><br><span class="line"><span class="keyword">if</span> (requestId.equals(jedis.get(lockKey))) &#123; </span><br><span class="line">  jedis.del(lockKey);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 推荐使用redis+lua脚本</span></span><br><span class="line">String lua = <span class="string">&quot;if redis.call(&#x27;get&#x27;,KEYS[1]) == ARGV[1] then return redis.call(&#x27;del&#x27;,KEYS[1]) else return 0 end&quot;</span>;</span><br><span class="line">Object result = jedis.eval(lua, Collections.singletonList(lockKey),</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">// 获取锁推荐使用set的方式
+String result = jedis.set(lockKey, requestId, &quot;NX&quot;, &quot;EX&quot;, expireTime);
+String result = jedis.setnx(lockKey, requestId); //如线程死掉，其他线程无法获取到锁
+</code></pre>
+<pre><code class="java">// 释放锁，非原子操作，可能会释放其他线程刚加上的锁
+if (requestId.equals(jedis.get(lockKey))) &#123; 
+  jedis.del(lockKey);
+&#125;
+// 推荐使用redis+lua脚本
+String lua = &quot;if redis.call(&#39;get&#39;,KEYS[1]) == ARGV[1] then return redis.call(&#39;del&#39;,KEYS[1]) else return 0 end&quot;;
+Object result = jedis.eval(lua, Collections.singletonList(lockKey),
+</code></pre>
 <p><strong>分布式锁存在的问题</strong>：</p>
 <ul>
 <li><strong>客户端长时间阻塞导致锁失效问题</strong></li>
@@ -2987,8 +3191,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>​    1、检测主从的连接状态 检测主从服务器的网络连接状态</p>
 <p>​            lag的值应该在0或1之间跳动，如果超过1则说明主从之间的连接有 故障。</p>
 <p>​    2、辅助实现min-slaves,Redis可以通过配置防止主服务器在不安全的情况下执行写命令</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">min-slaves-to-write</span> <span class="number">3</span> <span class="string">(min-replicas-to-write</span> <span class="number">3</span> <span class="string">)</span></span><br><span class="line"></span><br><span class="line"><span class="string">min-slaves-max-lag</span> <span class="number">10</span> <span class="string">(min-replicas-max-lag</span> <span class="number">10</span><span class="string">)</span></span><br></pre></td></tr></table></figure>
+<pre><code class="yaml">min-slaves-to-write 3 (min-replicas-to-write 3 )
 
+min-slaves-max-lag 10 (min-replicas-max-lag 10)
+</code></pre>
 <p>​        上面的配置表示:从服务器的数量少于3个，或者三个从服务器的延迟(lag)值都大于或等于10 秒时，主服务器将拒绝执行写命令。</p>
 <p>​    3、检测命令丢失，增加重传机制</p>
 <p>​        如果因为网络故障，主服务器传播给从服务器的写命令在半路丢失，那么当从服务器向主服务器发 送REPLCONF ACK命令时，主服务器将发觉从服务器当前的复制偏移量少于自己的复制偏移量， 然后主服务器就会根据从服务器提交的复制偏移量，在复制积压缓冲区里面找到从服务器缺少的数据，并将这些数据重新发送给从服务器。</p>
@@ -3184,8 +3390,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </li>
 </ul>
 <p><strong>增删改查</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">kafka-topics.sh --zookeeper localhost:2181/myKafka --create --topic topic_x </span><br><span class="line">								--partitions 1 --replication-factor 1</span><br><span class="line">kafka-topics.sh --zookeeper localhost:2181/myKafka --delete --topic topic_x</span><br><span class="line">kafka-topics.sh --zookeeper localhost:2181/myKafka --alter --topic topic_x</span><br><span class="line">								--config max.message.bytes=1048576</span><br><span class="line">kafka-topics.sh --zookeeper localhost:2181/myKafka --describe --topic topic_x</span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">kafka-topics.sh --zookeeper localhost:2181/myKafka --create --topic topic_x 
+                                --partitions 1 --replication-factor 1
+kafka-topics.sh --zookeeper localhost:2181/myKafka --delete --topic topic_x
+kafka-topics.sh --zookeeper localhost:2181/myKafka --alter --topic topic_x
+                                --config max.message.bytes=1048576
+kafka-topics.sh --zookeeper localhost:2181/myKafka --describe --topic topic_x
+</code></pre>
 <p><strong>如何查看偏移量为23的消息？</strong></p>
 <p>通过查询跳跃表<code>ConcurrentSkipListMap</code>，定位到在00000000000000000000.index ，通过二分法在偏移量索引文件中找到不大于 23 的<strong>最大索引项</strong>，即offset 20 那栏，然后从日志分段文件中的物理位置为320 开始顺序查找偏移量为 23 的消息。</p>
 <img src="https://img-blog.csdnimg.cn/20191230225447849.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwMjMzNzA2,size_16,color_FFFFFF,t_70" class="lazyload" data-srcset="https://img-blog.csdnimg.cn/20191230225447849.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwMjMzNzA2,size_16,color_FFFFFF,t_70" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img" style="zoom:50%;" />
@@ -3207,8 +3418,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmefdeas1vj315i0bgmya.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gmefdeas1vj315i0bgmya.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210107000942286"></p>
 <p><strong>如何实现？</strong></p>
 <p>​    添加唯一ID，类似于数据库的主键，用于唯一标记一个消息。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ProducerID：<span class="comment">#在每个新的Producer初始化时，会被分配一个唯一的PID</span></span><br><span class="line">SequenceNumber：<span class="comment">#对于每个PID发送数据的每个Topic都对应一个从0开始单调递增的SN值</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="bash">ProducerID：#在每个新的Producer初始化时，会被分配一个唯一的PID
+SequenceNumber：#对于每个PID发送数据的每个Topic都对应一个从0开始单调递增的SN值
+</code></pre>
 <img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmefjpeet8j317e0cgmyp.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gmefjpeet8j317e0cgmyp.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210107001546404" style="zoom:80%;" />
 
 <p><strong>如何选举</strong></p>
@@ -3238,10 +3450,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </li>
 </ul>
 <p>解决方案：</p>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">加大超时时间</span> <span class="string">session.timout.ms=6s</span></span><br><span class="line"><span class="meta">加大心跳频率</span> <span class="string">heartbeat.interval.ms=2s</span></span><br><span class="line"><span class="meta">增长推送间隔</span> <span class="string">max.poll.interval.ms=t+1 minutes</span></span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="properties">加大超时时间 session.timout.ms=6s
+加大心跳频率 heartbeat.interval.ms=2s
+增长推送间隔 max.poll.interval.ms=t+1 minutes
+</code></pre>
 <h4 id="ZooKeeper-的作用"><a href="#ZooKeeper-的作用" class="headerlink" title="ZooKeeper 的作用"></a>ZooKeeper 的作用</h4><p>目前，Kafka 使用 ZooKeeper 存放集群元数据、成员管理、Controller 选举，以及其他一些管理类任务。之后，等 KIP-500 提案完成后，Kafka 将完全不再依赖于 ZooKeeper。</p>
 <ul>
 <li><strong>存放元数据</strong>是指主题分区的所有数据都保存在 ZooKeeper 中，其他“人”都要与它保持对齐。</li>
@@ -3289,10 +3501,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>减少组件IO的交互次数</li>
 <li>优先级消费</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (maxOffset - curOffset &gt; <span class="number">100000</span>) &#123;</span><br><span class="line">  <span class="comment">// TODO 消息堆积情况的优先处理逻辑</span></span><br><span class="line">  <span class="comment">// 未处理的消息可以选择丢弃或者打日志</span></span><br><span class="line">  <span class="keyword">return</span> ConsumeConcurrentlyStatus.CONSUME_SUCCESS;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// TODO 正常消费过程</span></span><br><span class="line"><span class="keyword">return</span> ConsumeConcurrentlyStatus.CONSUME_SUCCESS;</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">if (maxOffset - curOffset &gt; 100000) &#123;
+  // TODO 消息堆积情况的优先处理逻辑
+  // 未处理的消息可以选择丢弃或者打日志
+  return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
+&#125;
+// TODO 正常消费过程
+return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
+</code></pre>
 <h4 id="如何设计消息队列"><a href="#如何设计消息队列" class="headerlink" title="如何设计消息队列"></a>如何设计消息队列</h4><p>需要支持快速水平扩容，broker+partition，partition放不同的机器上，增加机器时将数据根据topic做迁移，分布式需要考虑一致性、可用性、分区容错性</p>
 <ul>
 <li><strong>一致性：</strong>生产者的消息确认、消费者的幂等性、Broker的数据同步</li>
@@ -3316,8 +3532,37 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <img src="https://s0.lgstatic.com/i/image3/M01/89/0C/Cgq2xl6WvHqAdmt4AABGAn2eSiI631.png" class="lazyload" data-srcset="https://s0.lgstatic.com/i/image3/M01/89/0C/Cgq2xl6WvHqAdmt4AABGAn2eSiI631.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img" style="zoom:67%;" />
 
 <p>IOC容器初始化加载Bean流程：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">refresh</span><span class="params">()</span> <span class="keyword">throws</span> BeansException, IllegalStateException </span>&#123; <span class="keyword">synchronized</span> (<span class="keyword">this</span>.startupShutdownMonitor) &#123;</span><br><span class="line">  <span class="comment">// 第一步:刷新前的预处理 </span></span><br><span class="line">  prepareRefresh();</span><br><span class="line">  <span class="comment">//第二步: 获取BeanFactory并注册到 BeanDefitionRegistry</span></span><br><span class="line">  ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();</span><br><span class="line">  <span class="comment">// 第三步:加载BeanFactory的预准备工作(BeanFactory进行一些设置，比如context的类加载器等)</span></span><br><span class="line">  prepareBeanFactory(beanFactory);</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// 第四步:完成BeanFactory准备工作后的前置处理工作 </span></span><br><span class="line">    postProcessBeanFactory(beanFactory);</span><br><span class="line">    <span class="comment">// 第五步:实例化BeanFactoryPostProcessor接口的Bean </span></span><br><span class="line">    invokeBeanFactoryPostProcessors(beanFactory);</span><br><span class="line">    <span class="comment">// 第六步:注册BeanPostProcessor后置处理器，在创建bean的后执行 </span></span><br><span class="line">    registerBeanPostProcessors(beanFactory);</span><br><span class="line">    <span class="comment">// 第七步:初始化MessageSource组件(做国际化功能;消息绑定，消息解析); </span></span><br><span class="line">    initMessageSource();</span><br><span class="line">    <span class="comment">// 第八步:注册初始化事件派发器 </span></span><br><span class="line">    initApplicationEventMulticaster();</span><br><span class="line">    <span class="comment">// 第九步:子类重写这个方法，在容器刷新的时候可以自定义逻辑 </span></span><br><span class="line">    onRefresh();</span><br><span class="line">    <span class="comment">// 第十步:注册应用的监听器。就是注册实现了ApplicationListener接口的监听器</span></span><br><span class="line">    registerListeners();</span><br><span class="line">    <span class="comment">//第十一步:初始化所有剩下的非懒加载的单例bean 初始化创建非懒加载方式的单例Bean实例(未设置属性)</span></span><br><span class="line">    finishBeanFactoryInitialization(beanFactory);</span><br><span class="line">    <span class="comment">//第十二步: 完成context的刷新。主要是调用LifecycleProcessor的onRefresh()方法，完成创建</span></span><br><span class="line">    finishRefresh();</span><br><span class="line">	&#125;</span><br><span class="line">  ……</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">@Override
+public void refresh() throws BeansException, IllegalStateException &#123; synchronized (this.startupShutdownMonitor) &#123;
+  // 第一步:刷新前的预处理 
+  prepareRefresh();
+  //第二步: 获取BeanFactory并注册到 BeanDefitionRegistry
+  ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();
+  // 第三步:加载BeanFactory的预准备工作(BeanFactory进行一些设置，比如context的类加载器等)
+  prepareBeanFactory(beanFactory);
+  try &#123;
+    // 第四步:完成BeanFactory准备工作后的前置处理工作 
+    postProcessBeanFactory(beanFactory);
+    // 第五步:实例化BeanFactoryPostProcessor接口的Bean 
+    invokeBeanFactoryPostProcessors(beanFactory);
+    // 第六步:注册BeanPostProcessor后置处理器，在创建bean的后执行 
+    registerBeanPostProcessors(beanFactory);
+    // 第七步:初始化MessageSource组件(做国际化功能;消息绑定，消息解析); 
+    initMessageSource();
+    // 第八步:注册初始化事件派发器 
+    initApplicationEventMulticaster();
+    // 第九步:子类重写这个方法，在容器刷新的时候可以自定义逻辑 
+    onRefresh();
+    // 第十步:注册应用的监听器。就是注册实现了ApplicationListener接口的监听器
+    registerListeners();
+    //第十一步:初始化所有剩下的非懒加载的单例bean 初始化创建非懒加载方式的单例Bean实例(未设置属性)
+    finishBeanFactoryInitialization(beanFactory);
+    //第十二步: 完成context的刷新。主要是调用LifecycleProcessor的onRefresh()方法，完成创建
+    finishRefresh();
+    &#125;
+  ……
+&#125; 
+</code></pre>
 <p>总结：</p>
 <p><strong>四个阶段</strong></p>
 <ul>
@@ -3430,8 +3675,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>​         @Autowired的使用简化了我们的开发，</p>
 <p>​                实现 AutowiredAnnotationBeanPostProcessor 类，该类实现了 Spring 框架的一些扩展接口。<br>​                实现 BeanFactoryAware 接口使其内部持有了 BeanFactory（可轻松的获取需要依赖的的 Bean）。<br>​                实现 MergedBeanDefinitionPostProcessor 接口，实例化Bean 前获取到 里面的 @Autowired 信息并缓存下来；<br>​                实现 postProcessPropertyValues 接口， 实例化Bean 后从缓存取出注解信息，通过反射将依赖对象设置到 Bean 属性里面。</p>
 <p><strong>@SpringBootApplication</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JpaApplication</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(JpaApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">@SpringBootApplication
+public class JpaApplication &#123;
+    public static void main(String[] args) &#123;
+        SpringApplication.run(JpaApplication.class, args);
+    &#125;
+&#125;
+</code></pre>
 <p><strong>@SpringBootApplication</strong>注解等同于下面三个注解：</p>
 <ul>
 <li><strong>@SpringBootConfiguration：</strong> 底层是<strong>Configuration</strong>注解，说白了就是支持<strong>JavaConfig</strong>的方式来进行配置</li>
@@ -3443,14 +3693,16 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p> <strong>@EnableAutoConfiguration作用：</strong></p>
 <p>它主要利用了一个</p>
 <p>EnableAutoConfigurationImportSelector选择器给Spring容器中来导入一些组件。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Import(EnableAutoConfigurationImportSelector.class)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> EnableAutoConfiguration </span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h4 id="2、-SpringMVC"><a href="#2、-SpringMVC" class="headerlink" title="2、@SpringMVC"></a><strong>2、@SpringMVC</strong></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span> 声明该类为SpringMVC中的Controller</span><br><span class="line"><span class="meta">@RequestMapping</span> 用于映射Web请求</span><br><span class="line"><span class="meta">@ResponseBody</span> 支持将返回值放在response内，而不是一个页面，通常用户返回json数据</span><br><span class="line"><span class="meta">@RequestBody</span> 允许request的参数在request体中，而不是在直接连接在地址后面。</span><br><span class="line"><span class="meta">@PathVariable</span> 用于接收路径参数</span><br><span class="line"><span class="meta">@RequestMapping(&quot;/hello/&#123;name&#125;&quot;)</span>申明的路径，将注解放在参数中前，即可获取该值，通常作为Restful的接口实现方法。</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">@Import(EnableAutoConfigurationImportSelector.class)
+public @interface EnableAutoConfiguration 
+</code></pre>
+<h4 id="2、-SpringMVC"><a href="#2、-SpringMVC" class="headerlink" title="2、@SpringMVC"></a><strong>2、@SpringMVC</strong></h4><pre><code class="java">@Controller 声明该类为SpringMVC中的Controller
+@RequestMapping 用于映射Web请求
+@ResponseBody 支持将返回值放在response内，而不是一个页面，通常用户返回json数据
+@RequestBody 允许request的参数在request体中，而不是在直接连接在地址后面。
+@PathVariable 用于接收路径参数
+@RequestMapping(&quot;/hello/&#123;name&#125;&quot;)申明的路径，将注解放在参数中前，即可获取该值，通常作为Restful的接口实现方法。
+</code></pre>
 <p><strong>SpringMVC原理</strong> </p>
 <img src="https://img-blog.csdn.net/20181022224058617?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2F3YWtlX2xxaA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" class="lazyload" data-srcset="https://img-blog.csdn.net/20181022224058617?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2F3YWtlX2xxaA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" style="zoom: 50%;" />
 
@@ -3464,8 +3716,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>DispaterServlet 把返回的  Model 传给  View （视图渲染）。</li>
 <li>把  View 返回给请求者（浏览器）</li>
 </ol>
-<h4 id="3、-SpringMybatis"><a href="#3、-SpringMybatis" class="headerlink" title="3、@SpringMybatis"></a>3、@SpringMybatis</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Insert</span> ： 插入sql ,和xml insert sql语法完全一样</span><br><span class="line"><span class="meta">@Select</span> ： 查询sql, 和xml select sql语法完全一样</span><br><span class="line"><span class="meta">@Update</span> ： 更新sql, 和xml update sql语法完全一样</span><br><span class="line"><span class="meta">@Delete</span> ： 删除sql, 和xml delete sql语法完全一样</span><br><span class="line"><span class="meta">@Param</span> ： 入参</span><br><span class="line"><span class="meta">@Results</span> ： 设置结果集合<span class="meta">@Result</span> ： 结果</span><br><span class="line"><span class="meta">@ResultMap</span> ： 引用结果集合</span><br><span class="line"><span class="meta">@SelectKey</span> ： 获取最新插入id </span><br></pre></td></tr></table></figure>
-
+<h4 id="3、-SpringMybatis"><a href="#3、-SpringMybatis" class="headerlink" title="3、@SpringMybatis"></a>3、@SpringMybatis</h4><pre><code class="java">@Insert ： 插入sql ,和xml insert sql语法完全一样
+@Select ： 查询sql, 和xml select sql语法完全一样
+@Update ： 更新sql, 和xml update sql语法完全一样
+@Delete ： 删除sql, 和xml delete sql语法完全一样
+@Param ： 入参
+@Results ： 设置结果集合@Result ： 结果
+@ResultMap ： 引用结果集合
+@SelectKey ： 获取最新插入id 
+</code></pre>
 <p><strong>mybatis如何防止sql注入？</strong></p>
 <p>​    简单的说就是#{}是经过预编译的，是安全的，**$<strong>{}是未经过预编译的，仅仅是取变量的值，是非安全的，存在SQL注入。在编写mybatis的映射语句时，尽量采用</strong>“#{xxx}”<strong>这样的格式。如果需要实现动态传入表名、列名，还需要做如下修改：添加属性</strong>statementType=”STATEMENT”<strong>，同时sql里的属有变量取值都改成</strong>${xxxx}**</p>
 <p><strong>Mybatis和Hibernate的区别</strong> </p>
@@ -3485,8 +3744,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>  <strong>对象管理比对</strong></p>
 <p>​    Hibernate 是完整的对象-关系映射的框架，开发工程中，无需过多关注底层实现，只要去管理对象即可；</p>
 <p>​    Mybatis 需要自行管理映射关系；</p>
-<h4 id="4、-Transactional"><a href="#4、-Transactional" class="headerlink" title="4、@Transactional"></a>4、@Transactional</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@EnableTransactionManagement</span> </span><br><span class="line"><span class="meta">@Transactional</span></span><br></pre></td></tr></table></figure>
-
+<h4 id="4、-Transactional"><a href="#4、-Transactional" class="headerlink" title="4、@Transactional"></a>4、@Transactional</h4><pre><code class="java">@EnableTransactionManagement 
+@Transactional
+</code></pre>
 <p>注意事项：</p>
 <p>​    ①事务函数中不要处理耗时任务，会导致长期占有数据库连接。</p>
 <p>​    ②事务函数中不要处理无关业务，防止产生异常导致事务回滚。</p>
@@ -3569,8 +3829,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>​    应用程序可以直接通过 Maven 命令编译成可执行的 jar 包，通过 java-jar 命令启动即可，非常方便。</p>
 <p><strong>应用监控：</strong>Spring Boot 中自带监控功能 Actuator，可以实现对程序内部运行情况进行监控，</p>
 <p>​    比如 Bean 加载情况、环境变量、日志信息、线程信息等。当然也可以自定义跟业务相关的监控，通过Actuator 的端点信息进行暴露。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">spring-boot-starter-web          <span class="comment">//用于快速构建基于 Spring MVC 的 Web 项目。</span></span><br><span class="line">spring-boot-starter-data-redis   <span class="comment">//用于快速整合并操作 Redis。</span></span><br><span class="line">spring-boot-starter-data-mongodb <span class="comment">//用于对 MongoDB 的集成。</span></span><br><span class="line">spring-boot-starter-data-jpa     <span class="comment">//用于操作 MySQL。</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">spring-boot-starter-web          //用于快速构建基于 Spring MVC 的 Web 项目。
+spring-boot-starter-data-redis   //用于快速整合并操作 Redis。
+spring-boot-starter-data-mongodb //用于对 MongoDB 的集成。
+spring-boot-starter-data-jpa     //用于操作 MySQL。
+</code></pre>
 <p><strong>自定义一个Starter</strong></p>
 <ol>
 <li><p>创建 Starter 项目，定义 Starter 需要的配置（Properties）类，比如数据库的连接信息；</p>
@@ -4004,10 +4267,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li><p>测试完成之后，让新的版本接收正常流量，然后部署下一个节点，以此类推。</p>
 </li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grayVersions = &#123;<span class="string">&quot;discovery-article-service&quot;</span>:[<span class="string">&quot;1.01&quot;</span>]&#125;</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">grayVersions = &#123;&quot;discovery-article-service&quot;:[&quot;1.01&quot;]&#125;
+</code></pre>
 <h3 id="多版本隔离"><a href="#多版本隔离" class="headerlink" title="多版本隔离"></a>多版本隔离</h3><img src="https://s0.lgstatic.com/i/image3/M01/54/41/Cgq2xl3nXSeAZMTOAAE2sCaIhPE668.png" class="lazyload" data-srcset="https://s0.lgstatic.com/i/image3/M01/54/41/Cgq2xl3nXSeAZMTOAAE2sCaIhPE668.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img" style="zoom:50%;" />
 
 
@@ -4019,20 +4280,30 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>[^]: 当你访问修改的服务 A 时，这个服务依赖了 B、C 两个服务，B 和 C 本地没有启动，B 和 C 找不到相同的 zone 就会选择其他的 zone 进行调用，也就是会调用到测试环境部署的 B 和 C 服务，这样一来就解决了本地部署多个服务的问题。</p>
 <h4 id="各组件调优"><a href="#各组件调优" class="headerlink" title="各组件调优"></a><strong>各组件调优</strong></h4><p>当你对网关进行压测时，会发现并发量一直上不去，错误率也很高。因为你用的是默认配置，这个时候我们就需要去调整配置以达到最优的效果。</p>
 <p>首先我们可以对容器进行调优，最常见的就是<strong>内置的 Tomcat</strong> 容器了，</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">server.tomcat.accept-count <span class="comment">//请求队列排队数</span></span><br><span class="line">server.tomcat.max-threads <span class="comment">//最大线程数</span></span><br><span class="line">server.tomcat.max-connections <span class="comment">//最大连接数</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">server.tomcat.accept-count //请求队列排队数
+server.tomcat.max-threads //最大线程数
+server.tomcat.max-connections //最大连接数
+</code></pre>
 <p><strong>Hystrix</strong> 的信号量（semaphore）隔离模式，并发量上不去很大的原因都在这里，信号量默认值是 100，也就是最大并发只有 100，超过 100 就得等待。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//信号量</span></span><br><span class="line">zuul.semaphore.max-semaphores <span class="comment">//信号量：最大并发数</span></span><br><span class="line"><span class="comment">//线程池</span></span><br><span class="line">hystrix.threadpool.<span class="keyword">default</span>.coreSize <span class="comment">//最大线程数</span></span><br><span class="line">hystrix.threadpool.<span class="keyword">default</span>.maximumSize <span class="comment">//队列的大</span></span><br><span class="line">hystrix.threadpool.<span class="keyword">default</span>.maxQueueSize <span class="comment">//等参数</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">//信号量
+zuul.semaphore.max-semaphores //信号量：最大并发数
+//线程池
+hystrix.threadpool.default.coreSize //最大线程数
+hystrix.threadpool.default.maximumSize //队列的大
+hystrix.threadpool.default.maxQueueSize //等参数
+</code></pre>
 <p>配置<strong>Gateway</strong>并发信息，</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gateway.host.max-per-route-connections <span class="comment">//每个路由的连接数 </span></span><br><span class="line">gateway.host.max-total-connections <span class="comment">//总连接数</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">gateway.host.max-per-route-connections //每个路由的连接数 
+gateway.host.max-total-connections //总连接数
+</code></pre>
 <p>调整<strong>Ribbon</strong> 的并发配置，</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ribbon.MaxConnectionsPerHost <span class="comment">//单服务并发数</span></span><br><span class="line">ribbon.MaxTotalConnections   <span class="comment">//总并发数</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">ribbon.MaxConnectionsPerHost //单服务并发数
+ribbon.MaxTotalConnections   //总并发数
+</code></pre>
 <p>修改<strong>Feign</strong>默认的HttpURLConnection 替换成 httpclient 来提高性能</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">feign.httpclient.max-connections-per-route<span class="comment">//每个路由的连接数</span></span><br><span class="line">feign.httpclient.max-connections <span class="comment">//总连接数</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">feign.httpclient.max-connections-per-route//每个路由的连接数
+feign.httpclient.max-connections //总连接数
+</code></pre>
 <p>Gateway+配置中心实现动态路由</p>
 <p>Feign+配置中心实现动态日志</p>
 <h1 id="九、分布式篇"><a href="#九、分布式篇" class="headerlink" title="九、分布式篇"></a><strong>九、分布式篇</strong></h1><blockquote>
@@ -4116,8 +4387,16 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li><strong>Acceptor</strong>：决策者，Accept以后会拒绝小于N的提案，并把自己的[N,V]返回给Proposer</li>
 <li><strong>Learners</strong>：最终决策的学习者、学习者充当该协议的复制因素</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//算法约束</span></span><br><span class="line">P1:一个Acceptor必须接受它收到的第一个提案。</span><br><span class="line"><span class="comment">//考虑到半数以上才作数，一个Accpter得接受多个相同v的提案</span></span><br><span class="line">P2a:如果某个v的提案被accept，那么被Acceptor接受编号更高的提案必须也是v</span><br><span class="line">P2b:如果某个v的提案被accept，那么从Proposal提出编号更高的提案必须也是v</span><br><span class="line"><span class="comment">//如何确保v的提案Accpter被选定后，Proposal都能提出编号更高的提案呢</span></span><br><span class="line">针对任意的[Mid,Vid]，有半数以上的Accepter集合S，满足以下二选一：</span><br><span class="line">  S中接受的提案都大于Mid</span><br><span class="line">  S中接受的提案若小于Mid，编号最大的那个值为Vid</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">//算法约束
+P1:一个Acceptor必须接受它收到的第一个提案。
+//考虑到半数以上才作数，一个Accpter得接受多个相同v的提案
+P2a:如果某个v的提案被accept，那么被Acceptor接受编号更高的提案必须也是v
+P2b:如果某个v的提案被accept，那么从Proposal提出编号更高的提案必须也是v
+//如何确保v的提案Accpter被选定后，Proposal都能提出编号更高的提案呢
+针对任意的[Mid,Vid]，有半数以上的Accepter集合S，满足以下二选一：
+  S中接受的提案都大于Mid
+  S中接受的提案若小于Mid，编号最大的那个值为Vid
+</code></pre>
 <p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmlato63bnj319m0u0wmi.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gmlato63bnj319m0u0wmi.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210112225118095"></p>
 <p>面试题：如何保证Paxos算法活性</p>
 <p>​    假设存在这样一种极端情况，有两个Proposer依次提出了一系列编号递增的提案，导致最终陷入死循环，没有value被选定</p>
@@ -4360,20 +4639,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           <p class='content'>注解@JsonProperty
 @JsonProperty 此注解用于属性上，作用是把该属性的名称序列化为另外一个名称，如把trueName属性序列化为name
 
-12@JsonProperty...</p>
+@JsonProperty(&...</p>
         </a>
       
       
-        <a class='next' href='/blog/2021/07/27/04%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20%E5%85%B6%E4%BB%96/oracle%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7%E5%B9%B6%E6%8C%87%E5%AE%9A%E8%A1%A8%E7%A9%BA%E9%97%B4/'>
-          <p class='title'>oracle11g创建用户并指定表空间<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>oracle创建表空间并赋值给用户
+        <a class='next' href='/blog/2021/07/27/04%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20%E5%85%B6%E4%BB%96/oracle11g%E5%9C%A8windows10%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%8C%E5%85%A8%E5%8D%B8%E8%BD%BD/'>
+          <p class='title'>oracle11g在windows环境下完全卸载<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>1.停止所有oracle相关的服务步骤：控制面板－＞管理工具－＞服务停止所有Oracle服务。
 
+2.卸载oracle搜索Universal Installer
 
+点击卸载产品
 
-
-
-
-创建表空间1234create tablespace eprklogging datafile &#x27;D:\oracle\oradata\o...</p>
+注意这个目录不...</p>
         </a>
       
     </div>

@@ -515,8 +515,63 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h2 id="线程的状态"><a href="#线程的状态" class="headerlink" title="线程的状态"></a>线程的状态</h2><blockquote>
 <p>在java的Thread.state包中存在一个枚举State，它记录了线程的几种状态</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">State</span> </span>&#123;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 尚未启动的线程的线程状态。</span></span><br><span class="line"><span class="comment">         *</span></span><br><span class="line"><span class="comment">         *  新建态</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        NEW,</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 可运行线程的线程状态。处于可运行状态的线程正在 Java 虚拟机中执行，</span></span><br><span class="line"><span class="comment">         * 但它可能正在等待来自操作系统的其他资源，例如处理器。</span></span><br><span class="line"><span class="comment">         *</span></span><br><span class="line"><span class="comment">         * 准备就绪</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        RUNNABLE,</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 线程阻塞等待监视器锁的线程状态。 处于阻塞状态的线程正在等待监视器锁进入</span></span><br><span class="line"><span class="comment">         * 同步块/方法或在调用Object.wait后重新进入同步块/方法。</span></span><br><span class="line"><span class="comment">         *</span></span><br><span class="line"><span class="comment">         * 阻塞态</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        BLOCKED,</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 等待线程的线程状态。 由于调用以下方法之一，线程处于等待状态：</span></span><br><span class="line"><span class="comment">         * Object.wait没有超时</span></span><br><span class="line"><span class="comment">         * Thread.join没有超时</span></span><br><span class="line"><span class="comment">         * LockSupport.park</span></span><br><span class="line"><span class="comment">         * 处于等待状态的线程正在等待另一个线程执行特定操作。</span></span><br><span class="line"><span class="comment">         * 例如，在对象上调用Object.wait()的线程正在等待另一个线程在该对象上调用Object.notify()或Object.notifyAll() 。</span></span><br><span class="line"><span class="comment">         * 调用Thread.join() 的线程正在等待指定的线程终止。</span></span><br><span class="line"><span class="comment">         *</span></span><br><span class="line"><span class="comment">         * 不见不散</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        WAITING,</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 具有指定等待时间的等待线程的线程状态。 由于使用指定的正等待时间调用以下方法之一，线程处于定时等待状态：</span></span><br><span class="line"><span class="comment">         * Thread.sleep</span></span><br><span class="line"><span class="comment">         * Object.wait超时</span></span><br><span class="line"><span class="comment">         * Thread.join超时</span></span><br><span class="line"><span class="comment">         * LockSupport.parkNanos</span></span><br><span class="line"><span class="comment">         * LockSupport.parkUntil</span></span><br><span class="line"><span class="comment">         *</span></span><br><span class="line"><span class="comment">         * 过时不候</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        TIMED_WAITING,</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 终止线程的线程状态。 线程已完成执行</span></span><br><span class="line"><span class="comment">         *</span></span><br><span class="line"><span class="comment">         * 终结</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        TERMINATED;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public enum State &#123;
+        /**
+         * 尚未启动的线程的线程状态。
+         *
+         *  新建态
+         */
+        NEW,
 
+        /**
+         * 可运行线程的线程状态。处于可运行状态的线程正在 Java 虚拟机中执行，
+         * 但它可能正在等待来自操作系统的其他资源，例如处理器。
+         *
+         * 准备就绪
+         */
+        RUNNABLE,
+
+        /**
+         * 线程阻塞等待监视器锁的线程状态。 处于阻塞状态的线程正在等待监视器锁进入
+         * 同步块/方法或在调用Object.wait后重新进入同步块/方法。
+         *
+         * 阻塞态
+         */
+        BLOCKED,
+
+        /**
+         * 等待线程的线程状态。 由于调用以下方法之一，线程处于等待状态：
+         * Object.wait没有超时
+         * Thread.join没有超时
+         * LockSupport.park
+         * 处于等待状态的线程正在等待另一个线程执行特定操作。
+         * 例如，在对象上调用Object.wait()的线程正在等待另一个线程在该对象上调用Object.notify()或Object.notifyAll() 。
+         * 调用Thread.join() 的线程正在等待指定的线程终止。
+         *
+         * 不见不散
+         */
+        WAITING,
+
+        /**
+         * 具有指定等待时间的等待线程的线程状态。 由于使用指定的正等待时间调用以下方法之一，线程处于定时等待状态：
+         * Thread.sleep
+         * Object.wait超时
+         * Thread.join超时
+         * LockSupport.parkNanos
+         * LockSupport.parkUntil
+         *
+         * 过时不候
+         */
+        TIMED_WAITING,
+
+        /**
+         * 终止线程的线程状态。 线程已完成执行
+         *
+         * 终结
+         */
+        TERMINATED;
+    &#125;
+</code></pre>
 <hr>
 <h2 id="wait与sleep的区别"><a href="#wait与sleep的区别" class="headerlink" title="wait与sleep的区别"></a>wait与sleep的区别</h2><ul>
 <li>sleep 是 Thread 的静态方法，wait 是 Object 的方法，任何对象实例都能调用。</li>
@@ -675,10 +730,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         </a>
       
       
-        <a class='next' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/03%20ArrayList%E3%80%81Vector/'>
-          <p class='title'>ArrayList、Vector<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>ArrayList 除未实现同步外，跟 Vector 大致相同。同步效率低，在不需要同步的时候使用 ArrayList。
-ArrayList总体介绍ArrayList 实现了 List、Rand...</p>
+        <a class='next' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/01%20%E9%9B%86%E5%90%88%E6%8E%A5%E5%8F%A3/'>
+          <p class='title'>集合接口<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>框架，是一个类的集。
+容器，是可以容纳其他 Java 对象的对象。
+JDK 1.2 开始，Java 集合框架（JCF）提供了通用的容器。
+JDK 1.5 开始，集合类是带有类型参数的泛型类。
+J...</p>
         </a>
       
     </div>

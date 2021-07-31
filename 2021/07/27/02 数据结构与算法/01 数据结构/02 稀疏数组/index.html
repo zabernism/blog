@@ -494,8 +494,206 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </li>
 </ol>
 <p><img src="https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731164657.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731164657.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Bxxd81.png"></p>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.awt.Desktop;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStreamReader;</span><br><span class="line"><span class="keyword">import</span> java.io.OutputStreamWriter;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 作者:张帅</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 创建时间：Nov 12, 2020 3:51:40 PM</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpareArray</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[][] chessArray = createArray();</span><br><span class="line">		<span class="keyword">int</span> sum = initSum(chessArray);</span><br><span class="line">		<span class="keyword">int</span>[][] spareArray = createSpareArray(sum, chessArray);</span><br><span class="line">		System.out.println(<span class="string">&quot;--------------棋盘&quot;</span>);</span><br><span class="line">		printArray(chessArray);</span><br><span class="line">		System.out.println(<span class="string">&quot;--------------稀疏数组&quot;</span>);</span><br><span class="line">		printArray(spareArray);</span><br><span class="line">		System.out.println(<span class="string">&quot;--------------将稀疏数组写入磁盘...&quot;</span>);</span><br><span class="line">		writerData(spareArray);</span><br><span class="line">		System.out.println(<span class="string">&quot;--------------读取磁盘中的数据...&quot;</span>);</span><br><span class="line">		<span class="keyword">int</span>[][] resultSpareArray = readData();</span><br><span class="line">		System.out.println(<span class="string">&quot;--------------文件中读出的稀疏数组...&quot;</span>);</span><br><span class="line">		printArray(resultSpareArray);</span><br><span class="line">		System.out.println(<span class="string">&quot;--------------稀疏矩阵转换为原始棋盘...&quot;</span>);</span><br><span class="line">		<span class="keyword">int</span>[][] result = initArray(resultSpareArray);</span><br><span class="line">		printArray(result);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 稀疏矩阵转换为原始矩阵</span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> resultSpareArray</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span>[][] initArray(<span class="keyword">int</span>[][] resultSpareArray) &#123;</span><br><span class="line">		<span class="keyword">int</span>[][] result = <span class="keyword">new</span> <span class="keyword">int</span>[resultSpareArray[<span class="number">0</span>][<span class="number">0</span>]][resultSpareArray[<span class="number">0</span>][<span class="number">1</span>]];</span><br><span class="line">		<span class="keyword">int</span> sum2 = resultSpareArray[<span class="number">0</span>][<span class="number">2</span>];<span class="comment">// 原始棋盘中的数字个数</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= sum2; i++) &#123;</span><br><span class="line">			result[resultSpareArray[i][<span class="number">0</span>]][resultSpareArray[i][<span class="number">1</span>]] = resultSpareArray[i][<span class="number">2</span>];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 读取磁盘中的数据</span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> IOException</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span>[][] readData() <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">		File file = <span class="keyword">new</span> File(<span class="string">&quot;E:&quot;</span> + File.separator + <span class="string">&quot;study&quot;</span> + File.separator + <span class="string">&quot;map.data&quot;</span>);</span><br><span class="line">		FileInputStream fis = <span class="keyword">null</span>;</span><br><span class="line">		InputStreamReader reader = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">int</span>[][] resultSpareArray = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;打开文件中...&quot;</span>);</span><br><span class="line">			<span class="comment">// 打开本地磁盘中的文件</span></span><br><span class="line">			Desktop.getDesktop().open(file);</span><br><span class="line">			fis = <span class="keyword">new</span> FileInputStream(file);</span><br><span class="line">			reader = <span class="keyword">new</span> InputStreamReader(fis, <span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line">			StringBuffer sb = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">			<span class="keyword">while</span> (reader.ready()) &#123;</span><br><span class="line">				sb.append((<span class="keyword">char</span>) reader.read());</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println(<span class="string">&quot;文件中的内容...&quot;</span>);</span><br><span class="line">			System.out.println(sb);</span><br><span class="line">			String str = sb.toString();</span><br><span class="line">			String[] strReg = str.split(<span class="string">&quot;,&quot;</span>);</span><br><span class="line">			<span class="comment">// 11 11 2 1 2 1 2 3 2</span></span><br><span class="line">			resultSpareArray = <span class="keyword">new</span> <span class="keyword">int</span>[strReg.length / <span class="number">3</span>][<span class="number">3</span>];</span><br><span class="line">			<span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">			<span class="keyword">for</span> (String str2 : strReg) &#123;</span><br><span class="line">				resultSpareArray[(index - (index % <span class="number">3</span>)) / <span class="number">3</span>][index % <span class="number">3</span>] = Integer.parseInt(str2);</span><br><span class="line">				index++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">			<span class="keyword">if</span> (reader != <span class="keyword">null</span>)</span><br><span class="line">				reader.close();</span><br><span class="line">			<span class="keyword">if</span> (fis != <span class="keyword">null</span>)</span><br><span class="line">				fis.close();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> resultSpareArray;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 将稀疏数组写入磁盘</span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> spareArray</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> IOException</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">writerData</span><span class="params">(<span class="keyword">int</span>[][] spareArray)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">		File file = <span class="keyword">new</span> File(<span class="string">&quot;E:&quot;</span> + File.separator + <span class="string">&quot;study&quot;</span> + File.separator + <span class="string">&quot;map.data&quot;</span>);</span><br><span class="line">		FileOutputStream fos = <span class="keyword">null</span>;</span><br><span class="line">		OutputStreamWriter write = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			fos = <span class="keyword">new</span> FileOutputStream(file);</span><br><span class="line">			write = <span class="keyword">new</span> OutputStreamWriter(fos, <span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; spareArray.length; i++) &#123;</span><br><span class="line">				write.append(spareArray[i][<span class="number">0</span>] + <span class="string">&quot;,&quot;</span> + spareArray[i][<span class="number">1</span>] + <span class="string">&quot;,&quot;</span> + spareArray[i][<span class="number">2</span>] + <span class="string">&quot;,&quot;</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line"></span><br><span class="line">			System.out.println(<span class="string">&quot;写入文件成功！&quot;</span>);</span><br><span class="line">			<span class="keyword">if</span> (write != <span class="keyword">null</span>) &#123;</span><br><span class="line">				write.close();</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> (fos != <span class="keyword">null</span>) &#123;</span><br><span class="line">				fos.close();</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 打印二维数组</span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> chessArray</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printArray</span><span class="params">(<span class="keyword">int</span>[][] Array)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span>[] arr : Array) &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> a : arr) &#123;</span><br><span class="line">				System.out.print(a + <span class="string">&quot; &quot;</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 初始化稀疏数组</span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> sum</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> chessArray棋盘</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span>[][] createSpareArray(<span class="keyword">int</span> sum, <span class="keyword">int</span>[][] chessArray) &#123;</span><br><span class="line">		<span class="keyword">int</span>[][] spareArray = <span class="keyword">new</span> <span class="keyword">int</span>[sum + <span class="number">1</span>][<span class="number">3</span>];</span><br><span class="line">		<span class="keyword">int</span> row = chessArray.length; <span class="comment">// 稀疏数组的row</span></span><br><span class="line">		<span class="keyword">int</span> col = chessArray[<span class="number">0</span>].length; <span class="comment">// 稀疏数组的col</span></span><br><span class="line">		spareArray[<span class="number">0</span>][<span class="number">0</span>] = row;</span><br><span class="line">		spareArray[<span class="number">0</span>][<span class="number">1</span>] = col;</span><br><span class="line">		spareArray[<span class="number">0</span>][<span class="number">2</span>] = sum;</span><br><span class="line">		<span class="keyword">int</span> k = <span class="number">1</span>;<span class="comment">// 记录稀疏数组的行数</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; row; i++) &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; col; j++) &#123;</span><br><span class="line">				<span class="keyword">if</span> (sum &lt; k) &#123;</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">if</span> (chessArray[i][j] != <span class="number">0</span>) &#123;</span><br><span class="line">					spareArray[k][<span class="number">0</span>] = i;</span><br><span class="line">					spareArray[k][<span class="number">1</span>] = j;</span><br><span class="line">					spareArray[k][<span class="number">2</span>] = chessArray[i][j];</span><br><span class="line">					k++;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> spareArray;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 遍历棋盘</span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> chessArray 棋盘</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span> 棋盘中共有多少个数</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">initSum</span><span class="params">(<span class="keyword">int</span>[][] chessArray)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span>[] arr : chessArray) &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> a : arr) &#123;</span><br><span class="line">				<span class="keyword">if</span> (a != <span class="number">0</span>)</span><br><span class="line">					sum++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> sum;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 创建棋盘</span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span> 返回的棋盘的二维数组</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span>[][] createArray() &#123;</span><br><span class="line">		<span class="keyword">int</span>[][] chessArray = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">11</span>][<span class="number">11</span>];</span><br><span class="line">		chessArray[<span class="number">1</span>][<span class="number">2</span>] = <span class="number">1</span>;</span><br><span class="line">		chessArray[<span class="number">2</span>][<span class="number">3</span>] = <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">return</span> chessArray;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><pre><code class="java">import java.awt.Desktop;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
+/**
+ * @author 作者:张帅
+ * @version 创建时间：Nov 12, 2020 3:51:40 PM
+ * 
+ */
+public class SpareArray &#123;
+
+    public static void main(String[] args) throws IOException &#123;
+        int[][] chessArray = createArray();
+        int sum = initSum(chessArray);
+        int[][] spareArray = createSpareArray(sum, chessArray);
+        System.out.println(&quot;--------------棋盘&quot;);
+        printArray(chessArray);
+        System.out.println(&quot;--------------稀疏数组&quot;);
+        printArray(spareArray);
+        System.out.println(&quot;--------------将稀疏数组写入磁盘...&quot;);
+        writerData(spareArray);
+        System.out.println(&quot;--------------读取磁盘中的数据...&quot;);
+        int[][] resultSpareArray = readData();
+        System.out.println(&quot;--------------文件中读出的稀疏数组...&quot;);
+        printArray(resultSpareArray);
+        System.out.println(&quot;--------------稀疏矩阵转换为原始棋盘...&quot;);
+        int[][] result = initArray(resultSpareArray);
+        printArray(result);
+    &#125;
+
+    /**
+     * 稀疏矩阵转换为原始矩阵
+     * 
+     * @param resultSpareArray
+     * @return
+     */
+    private static int[][] initArray(int[][] resultSpareArray) &#123;
+        int[][] result = new int[resultSpareArray[0][0]][resultSpareArray[0][1]];
+        int sum2 = resultSpareArray[0][2];// 原始棋盘中的数字个数
+        for (int i = 1; i &lt;= sum2; i++) &#123;
+            result[resultSpareArray[i][0]][resultSpareArray[i][1]] = resultSpareArray[i][2];
+        &#125;
+        return result;
+    &#125;
+
+    /**
+     * 读取磁盘中的数据
+     * 
+     * @return
+     * @throws IOException
+     */
+    private static int[][] readData() throws IOException &#123;
+        File file = new File(&quot;E:&quot; + File.separator + &quot;study&quot; + File.separator + &quot;map.data&quot;);
+        FileInputStream fis = null;
+        InputStreamReader reader = null;
+        int[][] resultSpareArray = null;
+        try &#123;
+            System.out.println(&quot;打开文件中...&quot;);
+            // 打开本地磁盘中的文件
+            Desktop.getDesktop().open(file);
+            fis = new FileInputStream(file);
+            reader = new InputStreamReader(fis, &quot;UTF-8&quot;);
+            StringBuffer sb = new StringBuffer();
+            while (reader.ready()) &#123;
+                sb.append((char) reader.read());
+            &#125;
+            System.out.println(&quot;文件中的内容...&quot;);
+            System.out.println(sb);
+            String str = sb.toString();
+            String[] strReg = str.split(&quot;,&quot;);
+            // 11 11 2 1 2 1 2 3 2
+            resultSpareArray = new int[strReg.length / 3][3];
+            int index = 0;
+            for (String str2 : strReg) &#123;
+                resultSpareArray[(index - (index % 3)) / 3][index % 3] = Integer.parseInt(str2);
+                index++;
+            &#125;
+        &#125; finally &#123;
+            if (reader != null)
+                reader.close();
+            if (fis != null)
+                fis.close();
+        &#125;
+        return resultSpareArray;
+    &#125;
+
+    /**
+     * 将稀疏数组写入磁盘
+     * 
+     * @param spareArray
+     * @throws IOException
+     */
+    private static void writerData(int[][] spareArray) throws IOException &#123;
+        File file = new File(&quot;E:&quot; + File.separator + &quot;study&quot; + File.separator + &quot;map.data&quot;);
+        FileOutputStream fos = null;
+        OutputStreamWriter write = null;
+        try &#123;
+            fos = new FileOutputStream(file);
+            write = new OutputStreamWriter(fos, &quot;UTF-8&quot;);
+            for (int i = 0; i &lt; spareArray.length; i++) &#123;
+                write.append(spareArray[i][0] + &quot;,&quot; + spareArray[i][1] + &quot;,&quot; + spareArray[i][2] + &quot;,&quot;);
+            &#125;
+        &#125; catch (Exception e) &#123;
+            e.printStackTrace();
+        &#125; finally &#123;
+
+            System.out.println(&quot;写入文件成功！&quot;);
+            if (write != null) &#123;
+                write.close();
+            &#125;
+            if (fos != null) &#123;
+                fos.close();
+            &#125;
+
+        &#125;
+    &#125;
+
+    /**
+     * 打印二维数组
+     * 
+     * @param chessArray
+     */
+    private static void printArray(int[][] Array) &#123;
+        for (int[] arr : Array) &#123;
+            for (int a : arr) &#123;
+                System.out.print(a + &quot; &quot;);
+            &#125;
+            System.out.println();
+        &#125;
+
+    &#125;
+
+    /**
+     * 初始化稀疏数组
+     * 
+     * @param sum
+     * @param chessArray棋盘
+     * @return
+     */
+    private static int[][] createSpareArray(int sum, int[][] chessArray) &#123;
+        int[][] spareArray = new int[sum + 1][3];
+        int row = chessArray.length; // 稀疏数组的row
+        int col = chessArray[0].length; // 稀疏数组的col
+        spareArray[0][0] = row;
+        spareArray[0][1] = col;
+        spareArray[0][2] = sum;
+        int k = 1;// 记录稀疏数组的行数
+        for (int i = 0; i &lt; row; i++) &#123;
+            for (int j = 0; j &lt; col; j++) &#123;
+                if (sum &lt; k) &#123;
+                    break;
+                &#125;
+                if (chessArray[i][j] != 0) &#123;
+                    spareArray[k][0] = i;
+                    spareArray[k][1] = j;
+                    spareArray[k][2] = chessArray[i][j];
+                    k++;
+                &#125;
+            &#125;
+        &#125;
+
+        return spareArray;
+    &#125;
+
+    /**
+     * 遍历棋盘
+     * 
+     * @param chessArray 棋盘
+     * @return 棋盘中共有多少个数
+     */
+    private static int initSum(int[][] chessArray) &#123;
+        int sum = 0;
+        for (int[] arr : chessArray) &#123;
+            for (int a : arr) &#123;
+                if (a != 0)
+                    sum++;
+            &#125;
+        &#125;
+
+        return sum;
+    &#125;
+
+    /**
+     * 创建棋盘
+     * 
+     * @return 返回的棋盘的二维数组
+     */
+    private static int[][] createArray() &#123;
+        int[][] chessArray = new int[11][11];
+        chessArray[1][2] = 1;
+        chessArray[2][3] = 2;
+        return chessArray;
+    &#125;
+
+&#125;
+</code></pre>
 
   
   
@@ -630,13 +828,16 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/blog/2021/07/27/02%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/01%20%E6%A6%82%E8%BF%B0/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>概述</p>
-          <p class='content'>程序设计 = 数据结构 + 算法
-数据结构数据结构：相互之间存在一种或多种特定关系的数据元素的集合。
-基本概念
-数据：能别计算机识别、处理的符号集合
-数据对象：性质相同的数据元素的集合，是数据的...</p>
+        <a class='prev' href='/blog/2021/07/27/02%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/03%20%E9%98%9F%E5%88%97/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>队列</p>
+          <p class='content'>队列队列介绍
+队列是一个有序列表，可以用**数组**或是**链表**来实现。 
+
+
+遵循先入先出的原则。即：**先存入队列的数据，要先取出。后存入的要后取出** 
+
+
+示意图：(使用数组模拟队列...</p>
         </a>
       
       

@@ -478,10 +478,17 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>对于每个节点，从该点至<code>null</code>（树尾端）的任何路径，都含有相同个数的黑色节点。</li>
 </ol>
 <p>在树的结构发生改变时（插入或者删除操作），往往会破坏上述条件3或条件4，需要通过调整使得查找树重新满足红黑树的约束条件。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//内部类Entry</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Map</span>.<span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; </span>&#123;</span><br><span class="line">    K key;</span><br><span class="line">    V value;</span><br><span class="line">    Entry&lt;K,V&gt; left = <span class="keyword">null</span>;</span><br><span class="line">    Entry&lt;K,V&gt; right = <span class="keyword">null</span>;</span><br><span class="line">    Entry&lt;K,V&gt; parent;</span><br><span class="line">    <span class="keyword">boolean</span> color = BLACK;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">//内部类Entry
+static final class Entry&lt;K,V&gt; implements Map.Entry&lt;K,V&gt; &#123;
+    K key;
+    V value;
+    Entry&lt;K,V&gt; left = null;
+    Entry&lt;K,V&gt; right = null;
+    Entry&lt;K,V&gt; parent;
+    boolean color = BLACK;
+    ...
+&#125;
+</code></pre>
 <h3 id="调整"><a href="#调整" class="headerlink" title="调整"></a>调整</h3><p>调整可以分为两类：</p>
 <ul>
 <li><strong>颜色调整</strong>：改变某个节点的颜色</li>
@@ -489,14 +496,42 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ul>
 <h4 id="左旋"><a href="#左旋" class="headerlink" title="左旋"></a>左旋</h4><p>左旋的过程是将<code>x</code>的右子树绕<code>x</code>逆时针旋转，使得<code>x</code>的右子树成为<code>x</code>的父亲，同时修改相关节点的引用。旋转之后，二叉查找树的属性仍然满足。</p>
 <p><a target="_blank" rel="noopener" href="https://wujun234.github.io/images/1545011837498.png"><img src="https://wujun234.github.io/images/1545011837498.png" class="lazyload" data-srcset="https://wujun234.github.io/images/1545011837498.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="TreeMap_rotateLeft.png"></a></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">rotateLeft</span><span class="params">(Entry&lt;K,V&gt; p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (p != <span class="keyword">null</span>) &#123;</span><br><span class="line">        Entry&lt;K,V&gt; r = p.right;</span><br><span class="line">        p.right = r.left;</span><br><span class="line">        <span class="keyword">if</span> (r.left != <span class="keyword">null</span>)</span><br><span class="line">            r.left.parent = p;</span><br><span class="line">        r.parent = p.parent;</span><br><span class="line">        <span class="keyword">if</span> (p.parent == <span class="keyword">null</span>)</span><br><span class="line">            root = r;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (p.parent.left == p)</span><br><span class="line">            p.parent.left = r;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            p.parent.right = r;</span><br><span class="line">        r.left = p;</span><br><span class="line">        p.parent = r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">private void rotateLeft(Entry&lt;K,V&gt; p) &#123;
+    if (p != null) &#123;
+        Entry&lt;K,V&gt; r = p.right;
+        p.right = r.left;
+        if (r.left != null)
+            r.left.parent = p;
+        r.parent = p.parent;
+        if (p.parent == null)
+            root = r;
+        else if (p.parent.left == p)
+            p.parent.left = r;
+        else
+            p.parent.right = r;
+        r.left = p;
+        p.parent = r;
+    &#125;
+&#125;
+</code></pre>
 <h4 id="右旋"><a href="#右旋" class="headerlink" title="右旋"></a>右旋</h4><p>右旋的过程是将<code>x</code>的左子树绕<code>x</code>顺时针旋转，使得<code>x</code>的左子树成为<code>x</code>的父亲，同时修改相关节点的引用。旋转之后，二叉查找树的属性仍然满足。</p>
 <p><a target="_blank" rel="noopener" href="https://wujun234.github.io/images/1545011837851.png"><img src="https://wujun234.github.io/images/1545011837851.png" class="lazyload" data-srcset="https://wujun234.github.io/images/1545011837851.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="TreeMap_rotateRight.png"></a></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">rotateRight</span><span class="params">(Entry&lt;K,V&gt; p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (p != <span class="keyword">null</span>) &#123;</span><br><span class="line">        Entry&lt;K,V&gt; l = p.left;</span><br><span class="line">        p.left = l.right;</span><br><span class="line">        <span class="keyword">if</span> (l.right != <span class="keyword">null</span>) l.right.parent = p;</span><br><span class="line">        l.parent = p.parent;</span><br><span class="line">        <span class="keyword">if</span> (p.parent == <span class="keyword">null</span>)</span><br><span class="line">            root = l;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (p.parent.right == p)</span><br><span class="line">            p.parent.right = l;</span><br><span class="line">        <span class="keyword">else</span> p.parent.left = l;</span><br><span class="line">        l.right = p;</span><br><span class="line">        p.parent = l;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">private void rotateRight(Entry&lt;K,V&gt; p) &#123;
+    if (p != null) &#123;
+        Entry&lt;K,V&gt; l = p.left;
+        p.left = l.right;
+        if (l.right != null) l.right.parent = p;
+        l.parent = p.parent;
+        if (p.parent == null)
+            root = l;
+        else if (p.parent.right == p)
+            p.parent.right = l;
+        else p.parent.left = l;
+        l.right = p;
+        p.parent = l;
+    &#125;
+&#125;
+</code></pre>
 <h3 id="寻找节点后继"><a href="#寻找节点后继" class="headerlink" title="寻找节点后继"></a>寻找节点后继</h3><p>对于一棵二叉查找树，给定节点 t ，寻找后继节点（树中比大于t的最小的那个元素）：</p>
 <ol>
 <li>t 的右子树不空，则 t 的后继是其右子树中最小的那个元素。</li>
@@ -504,26 +539,143 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ol>
 <p>后继节点在红黑树的删除操作中将会用到。</p>
 <p><a target="_blank" rel="noopener" href="https://wujun234.github.io/images/1545011838124.png"><img src="https://wujun234.github.io/images/1545011838124.png" class="lazyload" data-srcset="https://wujun234.github.io/images/1545011838124.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="TreeMap_successor.png"></a></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> &lt;K,V&gt; TreeMap.<span class="function">Entry&lt;K,V&gt; <span class="title">successor</span><span class="params">(Entry&lt;K,V&gt; t)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (t == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (t.right != <span class="keyword">null</span>) &#123;<span class="comment">// 1. t的右子树不空，则t的后继是其右子树中最小的那个元素</span></span><br><span class="line">        Entry&lt;K,V&gt; p = t.right;</span><br><span class="line">        <span class="keyword">while</span> (p.left != <span class="keyword">null</span>)</span><br><span class="line">            p = p.left;</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;<span class="comment">// 2. t的右孩子为空，则t的后继是其第一个向左走的祖先</span></span><br><span class="line">        Entry&lt;K,V&gt; p = t.parent;</span><br><span class="line">        Entry&lt;K,V&gt; ch = t;</span><br><span class="line">        <span class="keyword">while</span> (p != <span class="keyword">null</span> &amp;&amp; ch == p.right) &#123;</span><br><span class="line">            ch = p;</span><br><span class="line">            p = p.parent;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">static &lt;K,V&gt; TreeMap.Entry&lt;K,V&gt; successor(Entry&lt;K,V&gt; t) &#123;
+    if (t == null)
+        return null;
+    else if (t.right != null) &#123;// 1. t的右子树不空，则t的后继是其右子树中最小的那个元素
+        Entry&lt;K,V&gt; p = t.right;
+        while (p.left != null)
+            p = p.left;
+        return p;
+    &#125; else &#123;// 2. t的右孩子为空，则t的后继是其第一个向左走的祖先
+        Entry&lt;K,V&gt; p = t.parent;
+        Entry&lt;K,V&gt; ch = t;
+        while (p != null &amp;&amp; ch == p.right) &#123;
+            ch = p;
+            p = p.parent;
+        &#125;
+        return p;
+    &#125;
+&#125;
+</code></pre>
 <h2 id="方法剖析"><a href="#方法剖析" class="headerlink" title="方法剖析"></a>方法剖析</h2><h3 id="get"><a href="#get" class="headerlink" title="get()"></a>get()</h3><p><code>get(Object key)</code>调用了<code>getEntry(Object key)</code>得到相应的<code>entry</code>，然后返回<code>entry.value</code>。<br><code>getEntry()</code>根据<code>key</code>的顺序对二叉查找树进行查找，直到找到满足<code>k.compareTo(p.key) == 0</code>的<code>entry</code>。</p>
 <p><a target="_blank" rel="noopener" href="https://wujun234.github.io/images/1545011838400.png"><img src="https://wujun234.github.io/images/1545011838400.png" class="lazyload" data-srcset="https://wujun234.github.io/images/1545011838400.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="TreeMap_getEntry.png"></a></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">final</span> Entry&lt;K,V&gt; <span class="title">getEntry</span><span class="params">(Object key)</span> </span>&#123;</span><br><span class="line">    ......</span><br><span class="line">    <span class="keyword">if</span> (key == <span class="keyword">null</span>)<span class="comment">//不允许key值为null</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</span><br><span class="line">    Comparable&lt;? <span class="keyword">super</span> K&gt; k = (Comparable&lt;? <span class="keyword">super</span> K&gt;) key;<span class="comment">//使用元素的自然顺序</span></span><br><span class="line">    Entry&lt;K,V&gt; p = root;</span><br><span class="line">    <span class="keyword">while</span> (p != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> cmp = k.compareTo(p.key);</span><br><span class="line">        <span class="keyword">if</span> (cmp &lt; <span class="number">0</span>)<span class="comment">//向左找</span></span><br><span class="line">            p = p.left;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (cmp &gt; <span class="number">0</span>)<span class="comment">//向右找</span></span><br><span class="line">            p = p.right;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">final Entry&lt;K,V&gt; getEntry(Object key) &#123;
+    ......
+    if (key == null)//不允许key值为null
+        throw new NullPointerException();
+    Comparable&lt;? super K&gt; k = (Comparable&lt;? super K&gt;) key;//使用元素的自然顺序
+    Entry&lt;K,V&gt; p = root;
+    while (p != null) &#123;
+        int cmp = k.compareTo(p.key);
+        if (cmp &lt; 0)//向左找
+            p = p.left;
+        else if (cmp &gt; 0)//向右找
+            p = p.right;
+        else
+            return p;
+    &#125;
+    return null;
+&#125;
+</code></pre>
 <h4 id="put"><a href="#put" class="headerlink" title="put()"></a>put()</h4><p><code>put(K key, V value)</code>首先查找<code>map</code>，如果已包含则直接返回；否则插入新的<code>entry</code>，如果插入之后破坏了红黑树的约束条件，还需要进行调整（旋转，改变某些节点的颜色）。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> V <span class="title">put</span><span class="params">(K key, V value)</span> </span>&#123;</span><br><span class="line">    Entry&lt;K,V&gt; t = root;</span><br><span class="line">    <span class="keyword">if</span> (t == <span class="keyword">null</span>) &#123;<span class="comment">//为空说明是新建</span></span><br><span class="line">        compare(key, key); <span class="comment">// type (and possibly null) check</span></span><br><span class="line"></span><br><span class="line">        root = <span class="keyword">new</span> Entry&lt;&gt;(key, value, <span class="keyword">null</span>);<span class="comment">//此节点作为根节点</span></span><br><span class="line">        size = <span class="number">1</span>;</span><br><span class="line">        modCount++;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//首先查找map，如果已包含则直接返回</span></span><br><span class="line">    <span class="keyword">int</span> cmp;</span><br><span class="line">    Entry&lt;K,V&gt; parent;</span><br><span class="line">    <span class="comment">// split comparator and comparable paths</span></span><br><span class="line">    Comparator&lt;? <span class="keyword">super</span> K&gt; cpr = comparator;</span><br><span class="line">    <span class="keyword">if</span> (cpr != <span class="keyword">null</span>) &#123;<span class="comment">//顺序不为空</span></span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            parent = t;</span><br><span class="line">            cmp = cpr.compare(key, t.key);</span><br><span class="line">            <span class="keyword">if</span> (cmp &lt; <span class="number">0</span>)</span><br><span class="line">                t = t.left;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (cmp &gt; <span class="number">0</span>)</span><br><span class="line">                t = t.right;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="keyword">return</span> t.setValue(value);</span><br><span class="line">        &#125; <span class="keyword">while</span> (t != <span class="keyword">null</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (key == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</span><br><span class="line">        Comparable&lt;? <span class="keyword">super</span> K&gt; k = (Comparable&lt;? <span class="keyword">super</span> K&gt;) key;<span class="comment">//使用元素的自然顺序</span></span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            parent = t;</span><br><span class="line">            cmp = k.compareTo(t.key);</span><br><span class="line">            <span class="keyword">if</span> (cmp &lt; <span class="number">0</span>)<span class="comment">//向左找</span></span><br><span class="line">                t = t.left;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (cmp &gt; <span class="number">0</span>)<span class="comment">//向右找</span></span><br><span class="line">                t = t.right;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="keyword">return</span> t.setValue(value);</span><br><span class="line">        &#125; <span class="keyword">while</span> (t != <span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//如果没有找到则插入新的 entry</span></span><br><span class="line">    Entry&lt;K,V&gt; e = <span class="keyword">new</span> Entry&lt;&gt;(key, value, parent);<span class="comment">//创建并插入新的entry</span></span><br><span class="line">    <span class="keyword">if</span> (cmp &lt; <span class="number">0</span>)</span><br><span class="line">        parent.left = e;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        parent.right = e;</span><br><span class="line">    <span class="comment">//如果插入之后破坏了红黑树的约束条件，则调整</span></span><br><span class="line">    fixAfterInsertion(e);<span class="comment">//调整</span></span><br><span class="line">    size++;</span><br><span class="line">    modCount++;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public V put(K key, V value) &#123;
+    Entry&lt;K,V&gt; t = root;
+    if (t == null) &#123;//为空说明是新建
+        compare(key, key); // type (and possibly null) check
 
+        root = new Entry&lt;&gt;(key, value, null);//此节点作为根节点
+        size = 1;
+        modCount++;
+        return null;
+    &#125;
+    //首先查找map，如果已包含则直接返回
+    int cmp;
+    Entry&lt;K,V&gt; parent;
+    // split comparator and comparable paths
+    Comparator&lt;? super K&gt; cpr = comparator;
+    if (cpr != null) &#123;//顺序不为空
+        do &#123;
+            parent = t;
+            cmp = cpr.compare(key, t.key);
+            if (cmp &lt; 0)
+                t = t.left;
+            else if (cmp &gt; 0)
+                t = t.right;
+            else
+                return t.setValue(value);
+        &#125; while (t != null);
+    &#125;else &#123;
+        if (key == null)
+            throw new NullPointerException();
+        Comparable&lt;? super K&gt; k = (Comparable&lt;? super K&gt;) key;//使用元素的自然顺序
+        do &#123;
+            parent = t;
+            cmp = k.compareTo(t.key);
+            if (cmp &lt; 0)//向左找
+                t = t.left;
+            else if (cmp &gt; 0)//向右找
+                t = t.right;
+            else
+                return t.setValue(value);
+        &#125; while (t != null);
+    &#125;
+    //如果没有找到则插入新的 entry
+    Entry&lt;K,V&gt; e = new Entry&lt;&gt;(key, value, parent);//创建并插入新的entry
+    if (cmp &lt; 0)
+        parent.left = e;
+    else
+        parent.right = e;
+    //如果插入之后破坏了红黑树的约束条件，则调整
+    fixAfterInsertion(e);//调整
+    size++;
+    modCount++;
+    return null;
+&#125;
+</code></pre>
 <p><strong>插入调整</strong></p>
 <p>调整函数<code>fixAfterInsertion()</code></p>
 <p><a target="_blank" rel="noopener" href="https://wujun234.github.io/images/1545011838682.png"><img src="https://wujun234.github.io/images/1545011838682.png" class="lazyload" data-srcset="https://wujun234.github.io/images/1545011838682.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="TreeMap_put.png"></a></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">fixAfterInsertion</span><span class="params">(Entry&lt;K,V&gt; x)</span> </span>&#123;</span><br><span class="line">    x.color = RED;</span><br><span class="line">    <span class="keyword">while</span> (x != <span class="keyword">null</span> &amp;&amp; x != root &amp;&amp; x.parent.color == RED) &#123;</span><br><span class="line">        <span class="keyword">if</span> (parentOf(x) == leftOf(parentOf(parentOf(x)))) &#123;</span><br><span class="line">            Entry&lt;K,V&gt; y = rightOf(parentOf(parentOf(x)));</span><br><span class="line">            <span class="keyword">if</span> (colorOf(y) == RED) &#123;</span><br><span class="line">                setColor(parentOf(x), BLACK);              <span class="comment">// 情况1</span></span><br><span class="line">                setColor(y, BLACK);                        <span class="comment">// 情况1</span></span><br><span class="line">                setColor(parentOf(parentOf(x)), RED);      <span class="comment">// 情况1</span></span><br><span class="line">                x = parentOf(parentOf(x));                 <span class="comment">// 情况1</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (x == rightOf(parentOf(x))) &#123;</span><br><span class="line">                    x = parentOf(x);                       <span class="comment">// 情况2</span></span><br><span class="line">                    rotateLeft(x);                         <span class="comment">// 情况2</span></span><br><span class="line">                &#125;</span><br><span class="line">                setColor(parentOf(x), BLACK);              <span class="comment">// 情况3</span></span><br><span class="line">                setColor(parentOf(parentOf(x)), RED);      <span class="comment">// 情况3</span></span><br><span class="line">                rotateRight(parentOf(parentOf(x)));        <span class="comment">// 情况3</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            Entry&lt;K,V&gt; y = leftOf(parentOf(parentOf(x)));</span><br><span class="line">            <span class="keyword">if</span> (colorOf(y) == RED) &#123;</span><br><span class="line">                setColor(parentOf(x), BLACK);              <span class="comment">// 情况4</span></span><br><span class="line">                setColor(y, BLACK);                        <span class="comment">// 情况4</span></span><br><span class="line">                setColor(parentOf(parentOf(x)), RED);      <span class="comment">// 情况4</span></span><br><span class="line">                x = parentOf(parentOf(x));                 <span class="comment">// 情况4</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (x == leftOf(parentOf(x))) &#123;</span><br><span class="line">                    x = parentOf(x);                       <span class="comment">// 情况5</span></span><br><span class="line">                    rotateRight(x);                        <span class="comment">// 情况5</span></span><br><span class="line">                &#125;</span><br><span class="line">                setColor(parentOf(x), BLACK);              <span class="comment">// 情况6</span></span><br><span class="line">                setColor(parentOf(parentOf(x)), RED);      <span class="comment">// 情况6</span></span><br><span class="line">                rotateLeft(parentOf(parentOf(x)));         <span class="comment">// 情况6</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    root.color = BLACK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">private void fixAfterInsertion(Entry&lt;K,V&gt; x) &#123;
+    x.color = RED;
+    while (x != null &amp;&amp; x != root &amp;&amp; x.parent.color == RED) &#123;
+        if (parentOf(x) == leftOf(parentOf(parentOf(x)))) &#123;
+            Entry&lt;K,V&gt; y = rightOf(parentOf(parentOf(x)));
+            if (colorOf(y) == RED) &#123;
+                setColor(parentOf(x), BLACK);              // 情况1
+                setColor(y, BLACK);                        // 情况1
+                setColor(parentOf(parentOf(x)), RED);      // 情况1
+                x = parentOf(parentOf(x));                 // 情况1
+            &#125; else &#123;
+                if (x == rightOf(parentOf(x))) &#123;
+                    x = parentOf(x);                       // 情况2
+                    rotateLeft(x);                         // 情况2
+                &#125;
+                setColor(parentOf(x), BLACK);              // 情况3
+                setColor(parentOf(parentOf(x)), RED);      // 情况3
+                rotateRight(parentOf(parentOf(x)));        // 情况3
+            &#125;
+        &#125; else &#123;
+            Entry&lt;K,V&gt; y = leftOf(parentOf(parentOf(x)));
+            if (colorOf(y) == RED) &#123;
+                setColor(parentOf(x), BLACK);              // 情况4
+                setColor(y, BLACK);                        // 情况4
+                setColor(parentOf(parentOf(x)), RED);      // 情况4
+                x = parentOf(parentOf(x));                 // 情况4
+            &#125; else &#123;
+                if (x == leftOf(parentOf(x))) &#123;
+                    x = parentOf(x);                       // 情况5
+                    rotateRight(x);                        // 情况5
+                &#125;
+                setColor(parentOf(x), BLACK);              // 情况6
+                setColor(parentOf(parentOf(x)), RED);      // 情况6
+                rotateLeft(parentOf(parentOf(x)));         // 情况6
+            &#125;
+        &#125;
+    &#125;
+    root.color = BLACK;
+&#125;
+</code></pre>
 <h4 id="remove"><a href="#remove" class="headerlink" title="remove()"></a>remove()</h4><p><code>remove(Object key)</code>首先通过<code>getEntry(Object key)</code>找到对应的<code>entry</code>，然后调用<code>deleteEntry(Entry&lt;K,V&gt; entry)</code>删除。</p>
 <p><code>deleteEntry()</code>删除指定的<code>entry</code>并在红黑树的约束被破坏时进行调用<code>fixAfterDeletion(Entry&lt;K,V&gt; x)</code>调整。</p>
 <p>普通二叉查找树的删除过程，可以简单分为两种情况：</p>
@@ -531,19 +683,122 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>删除点 p 的左右子树都为空，或者只有一棵子树非空。<br>直接将 p 删除（左右子树都为空时），或者用非空子树替代 p（只有一棵子树非空时）</li>
 <li>删除点 p 的左右子树都非空。<br>可以用 p 的后继 s（树中大于x的最小的那个元素）代替 p，然后使用情况 1 删除 s（此时 s 一定满足情况 1）。</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">deleteEntry</span><span class="params">(Entry&lt;K,V&gt; p)</span> </span>&#123;</span><br><span class="line">    modCount++;</span><br><span class="line">    size--;</span><br><span class="line">    <span class="keyword">if</span> (p.left != <span class="keyword">null</span> &amp;&amp; p.right != <span class="keyword">null</span>) &#123;<span class="comment">// 2. 删除点p的左右子树都非空。</span></span><br><span class="line">        Entry&lt;K,V&gt; s = successor(p);<span class="comment">// 后继</span></span><br><span class="line">        p.key = s.key;</span><br><span class="line">        p.value = s.value;</span><br><span class="line">        p = s;</span><br><span class="line">    &#125;</span><br><span class="line">    Entry&lt;K,V&gt; replacement = (p.left != <span class="keyword">null</span> ? p.left : p.right);</span><br><span class="line">    <span class="keyword">if</span> (replacement != <span class="keyword">null</span>) &#123;<span class="comment">// 1. 删除点p只有一棵子树非空。</span></span><br><span class="line">        replacement.parent = p.parent;</span><br><span class="line">        <span class="keyword">if</span> (p.parent == <span class="keyword">null</span>)</span><br><span class="line">            root = replacement;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (p == p.parent.left)</span><br><span class="line">            p.parent.left  = replacement;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            p.parent.right = replacement;</span><br><span class="line">        p.left = p.right = p.parent = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (p.color == BLACK)</span><br><span class="line">            fixAfterDeletion(replacement);<span class="comment">// 调整</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (p.parent == <span class="keyword">null</span>) &#123;</span><br><span class="line">        root = <span class="keyword">null</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123; <span class="comment">// 1. 删除点p的左右子树都为空</span></span><br><span class="line">        <span class="keyword">if</span> (p.color == BLACK)</span><br><span class="line">            fixAfterDeletion(p);<span class="comment">// 调整</span></span><br><span class="line">        <span class="keyword">if</span> (p.parent != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (p == p.parent.left)</span><br><span class="line">                p.parent.left = <span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (p == p.parent.right)</span><br><span class="line">                p.parent.right = <span class="keyword">null</span>;</span><br><span class="line">            p.parent = <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">private void deleteEntry(Entry&lt;K,V&gt; p) &#123;
+    modCount++;
+    size--;
+    if (p.left != null &amp;&amp; p.right != null) &#123;// 2. 删除点p的左右子树都非空。
+        Entry&lt;K,V&gt; s = successor(p);// 后继
+        p.key = s.key;
+        p.value = s.value;
+        p = s;
+    &#125;
+    Entry&lt;K,V&gt; replacement = (p.left != null ? p.left : p.right);
+    if (replacement != null) &#123;// 1. 删除点p只有一棵子树非空。
+        replacement.parent = p.parent;
+        if (p.parent == null)
+            root = replacement;
+        else if (p == p.parent.left)
+            p.parent.left  = replacement;
+        else
+            p.parent.right = replacement;
+        p.left = p.right = p.parent = null;
+        if (p.color == BLACK)
+            fixAfterDeletion(replacement);// 调整
+    &#125; else if (p.parent == null) &#123;
+        root = null;
+    &#125; else &#123; // 1. 删除点p的左右子树都为空
+        if (p.color == BLACK)
+            fixAfterDeletion(p);// 调整
+        if (p.parent != null) &#123;
+            if (p == p.parent.left)
+                p.parent.left = null;
+            else if (p == p.parent.right)
+                p.parent.right = null;
+            p.parent = null;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
 <p><strong>删除调整</strong></p>
 <p>调整函数<code>fixAfterDeletion()</code></p>
 <p><strong>只有删除点是BLACK的时候，才会触发调整函数</strong>，因为删除 RED 节点不会破坏红黑树的任何约束，而删除 BLACK 节点会破坏规则 4。</p>
 <p><a target="_blank" rel="noopener" href="https://wujun234.github.io/images/1545011839131.png"><img src="https://wujun234.github.io/images/1545011839131.png" class="lazyload" data-srcset="https://wujun234.github.io/images/1545011839131.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="TreeMap_fixAfterDeletion.png"></a></p>
 <p>上述图解的总体思想是：将情况 1 首先转换成情况 2，或者转换成情况 3 和情况 4。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">fixAfterDeletion</span><span class="params">(Entry&lt;K,V&gt; x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (x != root &amp;&amp; colorOf(x) == BLACK) &#123;</span><br><span class="line">        <span class="keyword">if</span> (x == leftOf(parentOf(x))) &#123;</span><br><span class="line">            Entry&lt;K,V&gt; sib = rightOf(parentOf(x));</span><br><span class="line">            <span class="keyword">if</span> (colorOf(sib) == RED) &#123;</span><br><span class="line">                setColor(sib, BLACK);                   <span class="comment">// 情况1</span></span><br><span class="line">                setColor(parentOf(x), RED);             <span class="comment">// 情况1</span></span><br><span class="line">                rotateLeft(parentOf(x));                <span class="comment">// 情况1</span></span><br><span class="line">                sib = rightOf(parentOf(x));             <span class="comment">// 情况1</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (colorOf(leftOf(sib))  == BLACK &amp;&amp;</span><br><span class="line">                colorOf(rightOf(sib)) == BLACK) &#123;</span><br><span class="line">                setColor(sib, RED);                     <span class="comment">// 情况2</span></span><br><span class="line">                x = parentOf(x);                        <span class="comment">// 情况2</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (colorOf(rightOf(sib)) == BLACK) &#123;</span><br><span class="line">                    setColor(leftOf(sib), BLACK);       <span class="comment">// 情况3</span></span><br><span class="line">                    setColor(sib, RED);                 <span class="comment">// 情况3</span></span><br><span class="line">                    rotateRight(sib);                   <span class="comment">// 情况3</span></span><br><span class="line">                    sib = rightOf(parentOf(x));         <span class="comment">// 情况3</span></span><br><span class="line">                &#125;</span><br><span class="line">                setColor(sib, colorOf(parentOf(x)));    <span class="comment">// 情况4</span></span><br><span class="line">                setColor(parentOf(x), BLACK);           <span class="comment">// 情况4</span></span><br><span class="line">                setColor(rightOf(sib), BLACK);          <span class="comment">// 情况4</span></span><br><span class="line">                rotateLeft(parentOf(x));                <span class="comment">// 情况4</span></span><br><span class="line">                x = root;                               <span class="comment">// 情况4</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123; <span class="comment">// 跟前四种情况对称</span></span><br><span class="line">            Entry&lt;K,V&gt; sib = leftOf(parentOf(x));</span><br><span class="line">            <span class="keyword">if</span> (colorOf(sib) == RED) &#123;</span><br><span class="line">                setColor(sib, BLACK);                   <span class="comment">// 情况5</span></span><br><span class="line">                setColor(parentOf(x), RED);             <span class="comment">// 情况5</span></span><br><span class="line">                rotateRight(parentOf(x));               <span class="comment">// 情况5</span></span><br><span class="line">                sib = leftOf(parentOf(x));              <span class="comment">// 情况5</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (colorOf(rightOf(sib)) == BLACK &amp;&amp;</span><br><span class="line">                colorOf(leftOf(sib)) == BLACK) &#123;</span><br><span class="line">                setColor(sib, RED);                     <span class="comment">// 情况6</span></span><br><span class="line">                x = parentOf(x);                        <span class="comment">// 情况6</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (colorOf(leftOf(sib)) == BLACK) &#123;</span><br><span class="line">                    setColor(rightOf(sib), BLACK);      <span class="comment">// 情况7</span></span><br><span class="line">                    setColor(sib, RED);                 <span class="comment">// 情况7</span></span><br><span class="line">                    rotateLeft(sib);                    <span class="comment">// 情况7</span></span><br><span class="line">                    sib = leftOf(parentOf(x));          <span class="comment">// 情况7</span></span><br><span class="line">                &#125;</span><br><span class="line">                setColor(sib, colorOf(parentOf(x)));    <span class="comment">// 情况8</span></span><br><span class="line">                setColor(parentOf(x), BLACK);           <span class="comment">// 情况8</span></span><br><span class="line">                setColor(leftOf(sib), BLACK);           <span class="comment">// 情况8</span></span><br><span class="line">                rotateRight(parentOf(x));               <span class="comment">// 情况8</span></span><br><span class="line">                x = root;                               <span class="comment">// 情况8</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    setColor(x, BLACK);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">private void fixAfterDeletion(Entry&lt;K,V&gt; x) &#123;
+    while (x != root &amp;&amp; colorOf(x) == BLACK) &#123;
+        if (x == leftOf(parentOf(x))) &#123;
+            Entry&lt;K,V&gt; sib = rightOf(parentOf(x));
+            if (colorOf(sib) == RED) &#123;
+                setColor(sib, BLACK);                   // 情况1
+                setColor(parentOf(x), RED);             // 情况1
+                rotateLeft(parentOf(x));                // 情况1
+                sib = rightOf(parentOf(x));             // 情况1
+            &#125;
+            if (colorOf(leftOf(sib))  == BLACK &amp;&amp;
+                colorOf(rightOf(sib)) == BLACK) &#123;
+                setColor(sib, RED);                     // 情况2
+                x = parentOf(x);                        // 情况2
+            &#125; else &#123;
+                if (colorOf(rightOf(sib)) == BLACK) &#123;
+                    setColor(leftOf(sib), BLACK);       // 情况3
+                    setColor(sib, RED);                 // 情况3
+                    rotateRight(sib);                   // 情况3
+                    sib = rightOf(parentOf(x));         // 情况3
+                &#125;
+                setColor(sib, colorOf(parentOf(x)));    // 情况4
+                setColor(parentOf(x), BLACK);           // 情况4
+                setColor(rightOf(sib), BLACK);          // 情况4
+                rotateLeft(parentOf(x));                // 情况4
+                x = root;                               // 情况4
+            &#125;
+        &#125; else &#123; // 跟前四种情况对称
+            Entry&lt;K,V&gt; sib = leftOf(parentOf(x));
+            if (colorOf(sib) == RED) &#123;
+                setColor(sib, BLACK);                   // 情况5
+                setColor(parentOf(x), RED);             // 情况5
+                rotateRight(parentOf(x));               // 情况5
+                sib = leftOf(parentOf(x));              // 情况5
+            &#125;
+            if (colorOf(rightOf(sib)) == BLACK &amp;&amp;
+                colorOf(leftOf(sib)) == BLACK) &#123;
+                setColor(sib, RED);                     // 情况6
+                x = parentOf(x);                        // 情况6
+            &#125; else &#123;
+                if (colorOf(leftOf(sib)) == BLACK) &#123;
+                    setColor(rightOf(sib), BLACK);      // 情况7
+                    setColor(sib, RED);                 // 情况7
+                    rotateLeft(sib);                    // 情况7
+                    sib = leftOf(parentOf(x));          // 情况7
+                &#125;
+                setColor(sib, colorOf(parentOf(x)));    // 情况8
+                setColor(parentOf(x), BLACK);           // 情况8
+                setColor(leftOf(sib), BLACK);           // 情况8
+                rotateRight(parentOf(x));               // 情况8
+                x = root;                               // 情况8
+            &#125;
+        &#125;
+    &#125;
+    setColor(x, BLACK);
+&#125;
+</code></pre>
 <h1 id="TreeSet"><a href="#TreeSet" class="headerlink" title="TreeSet"></a>TreeSet</h1><p>前面已经说过<code>TreeSet</code>是对<code>TreeMap</code>的简单包装，对<code>TreeSet</code>的函数调用都会转换成合适的<code>TreeMap</code>方法，因此<code>TreeSet</code>的实现非常简单。这里不再赘述。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TreeSet</span>&lt;<span class="title">E</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractSet</span>&lt;<span class="title">E</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">NavigableSet</span>&lt;<span class="title">E</span>&gt;, <span class="title">Cloneable</span>, <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span>&#123;</span><br><span class="line">	......</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">transient</span> NavigableMap&lt;E,Object&gt; m;</span><br><span class="line">    <span class="comment">// Dummy value to associate with an Object in the backing Map</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Object PRESENT = <span class="keyword">new</span> Object();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TreeSet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.m = <span class="keyword">new</span> TreeMap&lt;E,Object&gt;();<span class="comment">// TreeSet里面有一个TreeMap</span></span><br><span class="line">    &#125;</span><br><span class="line">    ......</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> m.put(e, PRESENT)==<span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public class TreeSet&lt;E&gt; extends AbstractSet&lt;E&gt;
+    implements NavigableSet&lt;E&gt;, Cloneable, java.io.Serializable&#123;
+    ......
+    private transient NavigableMap&lt;E,Object&gt; m;
+    // Dummy value to associate with an Object in the backing Map
+    private static final Object PRESENT = new Object();
+    public TreeSet() &#123;
+        this.m = new TreeMap&lt;E,Object&gt;();// TreeSet里面有一个TreeMap
+    &#125;
+    ......
+    public boolean add(E e) &#123;
+        return m.put(e, PRESENT)==null;
+    &#125;
+    ......
+&#125;
+</code></pre>
+
   
   
     
@@ -684,16 +939,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         </a>
       
       
-        <a class='next' href='/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/01%20%E5%BC%82%E5%B8%B8/'>
-          <p class='title'>异常<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>异常分类
-Throwable
-Error
-表示 JVM 无法处理的错误，如 OutOfMemoryError, StackOverflowError。
+        <a class='next' href='/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/02%20%E6%96%AD%E8%A8%80/'>
+          <p class='title'>断言<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>断言用在开发、测试期间。
+当代码发布时，这些插入的检测语句将会被自动地移走。
+表达形式assert 条件assert x &gt;= 0;
 
-
-Exception
-未检查异常（Run...</p>
+assert 条件:表达式assert x &gt;...</p>
         </a>
       
     </div>

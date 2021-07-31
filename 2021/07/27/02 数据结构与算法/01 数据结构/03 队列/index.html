@@ -484,7 +484,130 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>当队空的时候，rear == front;</li>
 <li>判断队中的元素个数:(rear + maxSize - front) % maxSize;</li>
 </ul>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 作者:张帅</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 创建时间：Nov 13, 2020 9:19:13 PM</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CircleArrayQueue</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		System.out.print(<span class="string">&quot;输入队列的长度：&quot;</span>);</span><br><span class="line">		<span class="keyword">int</span> maxSize = input.nextInt();</span><br><span class="line"></span><br><span class="line">		CircleArray circleArray = <span class="keyword">new</span> CircleArray(maxSize + <span class="number">1</span>);</span><br><span class="line">		<span class="keyword">boolean</span> flag = <span class="keyword">true</span>;</span><br><span class="line">		<span class="keyword">int</span> tem;</span><br><span class="line">		<span class="keyword">while</span> (flag) &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;输入要操作的编号：&quot;</span>);</span><br><span class="line">			System.out.println(<span class="string">&quot;1、打印队列&quot;</span>);</span><br><span class="line">			System.out.println(<span class="string">&quot;2、数据添加&quot;</span>);</span><br><span class="line">			System.out.println(<span class="string">&quot;3、数据删除&quot;</span>);</span><br><span class="line">			System.out.println(<span class="string">&quot;4、查看第一个数字&quot;</span>);</span><br><span class="line">			System.out.println(<span class="string">&quot;5、退出程序&quot;</span>);</span><br><span class="line">			tem = input.nextInt();</span><br><span class="line">			<span class="keyword">switch</span> (tem) &#123;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">				circleArray.printQueue();</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">				System.out.println(<span class="string">&quot;输入要添加的数字&quot;</span>);</span><br><span class="line">				<span class="keyword">int</span> n = input.nextInt();</span><br><span class="line">				circleArray.addQueue(n);</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">				circleArray.putQueue();</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">				<span class="keyword">int</span> peek = circleArray.peek();</span><br><span class="line">				System.out.println(peek);</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">				flag = <span class="keyword">false</span>;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">&quot;程序退出成功&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CircleArray</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> maxSize; <span class="comment">// 表示数组的最大容量</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> front; <span class="comment">// 变量的含义做一个调整，初始值0，指向当前队列</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> rear; <span class="comment">// 指向队列最后一个元素的下一个</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span>[] arr;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">CircleArray</span><span class="params">(<span class="keyword">int</span> maxSize)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.maxSize = maxSize;</span><br><span class="line">		arr = <span class="keyword">new</span> <span class="keyword">int</span>[maxSize];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 判断队列是否为空</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> front == rear;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 判断是否满</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isFull</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> (rear + <span class="number">1</span>) % maxSize == front;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 添加数据到队列</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addQueue</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 判断队列是否为满</span></span><br><span class="line">		<span class="keyword">if</span> (isFull()) &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;队列满，不能加入数据~&quot;</span>);</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 直接加入数据</span></span><br><span class="line">		arr[rear] = n;</span><br><span class="line">		<span class="comment">// rear数据后移</span></span><br><span class="line">		rear = (rear + <span class="number">1</span>) % maxSize;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 出队列</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">putQueue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 判断队列是否为空</span></span><br><span class="line">		<span class="keyword">if</span> (isEmpty()) &#123;</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">&quot;队列空&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">int</span> value = arr[front];</span><br><span class="line">		front = (front + <span class="number">1</span>) % maxSize;</span><br><span class="line">		<span class="keyword">return</span> value;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 输出所有队列中数据</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printQueue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 判断是否为空</span></span><br><span class="line">		<span class="keyword">if</span> (isEmpty()) &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;队列空&quot;</span>);</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = front; i &lt; front + size(); i++) &#123;</span><br><span class="line">			System.out.printf(<span class="string">&quot;arr[%d] = %d\n&quot;</span>, i % maxSize, arr[i % maxSize]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 队列中 的有效数据</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> (rear + maxSize - front) % maxSize;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 查看队列第一个元素</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">peek</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (isEmpty()) &#123;</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">&quot;队列空&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> arr[front];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code class="java">import java.util.Scanner;
+
+/**
+ * @author 作者:张帅
+ * @version 创建时间：Nov 13, 2020 9:19:13 PM
+ * 
+ */
+public class CircleArrayQueue &#123;
+
+    public static void main(String[] args) &#123;
+        Scanner input = new Scanner(System.in);
+        System.out.print(&quot;输入队列的长度：&quot;);
+        int maxSize = input.nextInt();
+
+        CircleArray circleArray = new CircleArray(maxSize + 1);
+        boolean flag = true;
+        int tem;
+        while (flag) &#123;
+            System.out.println(&quot;输入要操作的编号：&quot;);
+            System.out.println(&quot;1、打印队列&quot;);
+            System.out.println(&quot;2、数据添加&quot;);
+            System.out.println(&quot;3、数据删除&quot;);
+            System.out.println(&quot;4、查看第一个数字&quot;);
+            System.out.println(&quot;5、退出程序&quot;);
+            tem = input.nextInt();
+            switch (tem) &#123;
+            case 1:
+                circleArray.printQueue();
+                break;
+            case 2:
+                System.out.println(&quot;输入要添加的数字&quot;);
+                int n = input.nextInt();
+                circleArray.addQueue(n);
+                break;
+            case 3:
+                circleArray.putQueue();
+                break;
+            case 4:
+                int peek = circleArray.peek();
+                System.out.println(peek);
+                break;
+            case 5:
+                flag = false;
+                break;
+            &#125;
+        &#125;
+        System.out.println(&quot;程序退出成功&quot;);
+    &#125;
+
+&#125;
+
+class CircleArray &#123;
+
+    private int maxSize; // 表示数组的最大容量
+    private int front; // 变量的含义做一个调整，初始值0，指向当前队列
+    private int rear; // 指向队列最后一个元素的下一个
+
+    private int[] arr;
+
+    public CircleArray(int maxSize) &#123;
+        this.maxSize = maxSize;
+        arr = new int[maxSize];
+    &#125;
+
+    // 判断队列是否为空
+    public boolean isEmpty() &#123;
+        return front == rear;
+    &#125;
+
+    // 判断是否满
+    public boolean isFull() &#123;
+        return (rear + 1) % maxSize == front;
+    &#125;
+
+    // 添加数据到队列
+    public void addQueue(int n) &#123;
+        // 判断队列是否为满
+        if (isFull()) &#123;
+            System.out.println(&quot;队列满，不能加入数据~&quot;);
+            return;
+        &#125;
+        // 直接加入数据
+        arr[rear] = n;
+        // rear数据后移
+        rear = (rear + 1) % maxSize;
+    &#125;
+
+    // 出队列
+    public int putQueue() &#123;
+        // 判断队列是否为空
+        if (isEmpty()) &#123;
+            throw new RuntimeException(&quot;队列空&quot;);
+        &#125;
+        int value = arr[front];
+        front = (front + 1) % maxSize;
+        return value;
+    &#125;
+
+    // 输出所有队列中数据
+    public void printQueue() &#123;
+        // 判断是否为空
+        if (isEmpty()) &#123;
+            System.out.println(&quot;队列空&quot;);
+            return;
+        &#125;
+        for (int i = front; i &lt; front + size(); i++) &#123;
+            System.out.printf(&quot;arr[%d] = %d\n&quot;, i % maxSize, arr[i % maxSize]);
+        &#125;
+    &#125;
+
+    // 队列中 的有效数据
+    public int size() &#123;
+        return (rear + maxSize - front) % maxSize;
+    &#125;
+
+    // 查看队列第一个元素
+    public int peek() &#123;
+        if (isEmpty()) &#123;
+            throw new RuntimeException(&quot;队列空&quot;);
+        &#125;
+        return arr[front];
+    &#125;
+&#125;
+</code></pre>
 
   
   
@@ -619,23 +742,24 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/blog/2021/07/27/04%20%E6%95%B0%E6%8D%AE%E5%BA%93/02%20MyBatis/MyBatis-plus/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>MyBatis-Plus学习</p>
-          <p class='content'>MyBatis-Plus（简称 MP）是一个 MyBatis 的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生。
-
-
-入门特性
-无侵入：只做增强不做改变，引入它...</p>
-        </a>
-      
-      
-        <a class='next' href='/blog/2021/07/27/02%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/01%20%E6%A6%82%E8%BF%B0/'>
-          <p class='title'>概述<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+        <a class='prev' href='/blog/2021/07/27/02%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/01%20%E6%A6%82%E8%BF%B0/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>概述</p>
           <p class='content'>程序设计 = 数据结构 + 算法
 数据结构数据结构：相互之间存在一种或多种特定关系的数据元素的集合。
 基本概念
 数据：能别计算机识别、处理的符号集合
 数据对象：性质相同的数据元素的集合，是数据的...</p>
+        </a>
+      
+      
+        <a class='next' href='/blog/2021/07/27/02%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/02%20%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84/'>
+          <p class='title'>稀疏数组<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>稀疏数组
+
+分析问题
+
+因为该二维数组的很多值是默认值 0, 因此记录了很多没有意义的数据.-&gt;稀疏数组。 
+基本介绍当一个数组中大部分元素为０，或者为同一个值的数组时，可以使用稀疏数组来...</p>
         </a>
       
     </div>

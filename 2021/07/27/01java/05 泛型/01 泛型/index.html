@@ -466,57 +466,103 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   
   <h1 id="为什么要使用泛型"><a href="#为什么要使用泛型" class="headerlink" title="为什么要使用泛型"></a>为什么要使用泛型</h1><p>泛型程序设计意味着编写的代码可以被很多不同的类型的的对象所重用。在java中增加泛型之前，泛型的程序设计是用继承实现的。<code>ArrayList</code> 类只维护一个<code>Object</code> 引用的数组。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayList</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Object[] elementData;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> Object <span class="title">get</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;...&#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(Object o)</span></span>&#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">public class ArrayList&#123;
+    private Object[] elementData;
+    private Object get(int i)&#123;...&#125;
+    private void add(Object o)&#123;...&#125;
+&#125;
+</code></pre>
 <p>这样做有两个问题：</p>
 <p>1、获取一个值的时候必须经过前置类型转换</p>
 <p>2、由于集合中使用的是Object类型进行接收，所以可以像集合中存入各种类型，容易出现强制类型转换错误</p>
 <h1 id="泛型类"><a href="#泛型类" class="headerlink" title="泛型类"></a>泛型类</h1><p>泛型类可以有多个<strong>类型变量</strong>，用尖括号（&lt; &gt;）括起来，并放在类名的后面。</p>
 <p>通常用E表示集合的元素类型， K 和 V 分别表示表的关键字与值的类型。 T、U、S等表示“任意类型”。</p>
 <p>泛型类可看作普通类的工厂。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Pair</span>&lt;<span class="title">T</span>,<span class="title">U</span>&gt;</span>&#123;&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Pair</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> T first;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Pair</span><span class="params">(T first)</span></span>&#123; <span class="keyword">this</span>.first=first;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">getFirst</span><span class="params">()</span></span>&#123; <span class="keyword">return</span> first;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFirst</span><span class="params">(T first)</span></span>&#123; <span class="keyword">this</span>.first=first;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">public class Pair&lt;T,U&gt;&#123;&#125;
+public class Pair&lt;T&gt;&#123;
+    private T first;
+    public Pair(T first)&#123; this.first=first;&#125;
+    public T getFirst()&#123; return first;&#125;
+    public void setFirst(T first)&#123; this.first=first;&#125;
+&#125;
+</code></pre>
 <h1 id="泛型方法"><a href="#泛型方法" class="headerlink" title="泛型方法"></a>泛型方法</h1><p>泛型方法可以定义在普通类中，也可以定义在泛型类中。</p>
 <p>只有声明了 <code>&lt;T&gt;</code> 的方法才是泛型方法</p>
 <p>类型变量放在修饰符的后面，返回类型的前面。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ArrayAlg</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">T <span class="title">getMiddle</span><span class="params">(T... a)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a[a.length/<span class="number">2</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">class ArrayAlg&#123;
+    public static &lt;T&gt; T getMiddle(T... a)&#123;
+        return a[a.length/2];
+    &#125;
+&#125;
+</code></pre>
 <h1 id="类型变量的限定"><a href="#类型变量的限定" class="headerlink" title="类型变量的限定"></a>类型变量的限定</h1><p>通过对类型变量 T 设置限定，对类型变量加以约束。</p>
 <p>T 和绑定类型可以是类，也可以是接口。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;T extends Bounding Type &gt;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">&lt;T extends Bounding Type &gt;
+</code></pre>
 <p>一个类型变量或通配符可以有多个限定。</p>
 <p>限定类型用“&amp;”分隔，而逗号用来分隔类型变量。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;T extends Comparable &amp; Serializable,U&gt;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">&lt;T extends Comparable &amp; Serializable,U&gt;
+</code></pre>
 <p>在 Java 的继承中，可以拥有多个接口超类型，但限定中至多有一个类。如果用一个类作为限定，它必须是限定列表中的第一个。</p>
 <h1 id="泛型代码和虚拟机"><a href="#泛型代码和虚拟机" class="headerlink" title="泛型代码和虚拟机"></a>泛型代码和虚拟机</h1><h2 id="原始类型"><a href="#原始类型" class="headerlink" title="原始类型"></a>原始类型</h2><p>虚拟机中没有泛型，泛型类型都会转换为相应普通类，即原始类型。</p>
 <p>原始类型的名字就是删去类型参数后的泛型类型名。擦除类型变量，并替换为第一个限定类型（无限定的变量用Object）。</p>
 <p><code>Pair&lt;T&gt;</code> 的原始类型：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Pair</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> Object first;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Pair</span><span class="params">(Object first)</span></span>&#123;<span class="keyword">this</span>.first=first;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">getFirst</span><span class="params">()</span></span>&#123; <span class="keyword">return</span> first; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFirst</span><span class="params">(Object first)</span></span>&#123; <span class="keyword">this</span>.first=first; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">public class Pair&#123;
+    private Object first;
+    public Pair(Object first)&#123;this.first=first;&#125;
+    public Object getFirst()&#123; return first; &#125;
+    public void setFirst(Object first)&#123; this.first=first; &#125;
+&#125;
+</code></pre>
 <p>因为<code>T</code> 是一个无限定变量，所以直接用Object替换。</p>
 <p>结果是一个普通类，就如同泛型引入java语言之前就已经实现那样。</p>
 <p>原始类型用第一个限定的类型变量来替换，如果没有，那就用Object类型替换。<strong>例如：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Interval</span>&lt;<span class="title">T</span> <span class="keyword">extends</span> <span class="title">Comparable</span> &amp; <span class="title">Serializable</span>&gt; <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> T lower;</span><br><span class="line">    <span class="keyword">private</span> T upper;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Interval</span><span class="params">(T first, T second)</span> </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code class="java">public class Interval&lt;T extends Comparable &amp; Serializable&gt; implements Serializable &#123;
+    private T lower;
+    private T upper;
 
+    public Interval(T first, T second) &#123;
+        ...
+    &#125;
+&#125;
+</code></pre>
 <p>原始类型Interval如下所示</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Interval</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Comparable lower;</span><br><span class="line">    <span class="keyword">private</span> Comparable upper;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Interval</span><span class="params">(Comparable first, Comparable second)</span> </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code class="java">public class Interval implements Serializable &#123;
+    private Comparable lower;
+    private Comparable upper;
 
+    public Interval(Comparable first, Comparable second) &#123;
+        ...
+    &#125;
+&#125;
+</code></pre>
 <h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><p>当程序调用泛型方法时，如果擦除返回类型，编译器插入强制类型转换。</p>
 <ol>
 <li>调用原始方法</li>
 <li>将返回的 Object 对象进行强制类型转换</li>
 </ol>
 <p>当存取一个泛型域时也要插入强制类型转换。</p>
-<h2 id="桥方法"><a href="#桥方法" class="headerlink" title="桥方法"></a>桥方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//超类  </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pair</span>&lt;<span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSecond</span><span class="params">(T second)</span></span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//子类  </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DateInterval</span> <span class="keyword">extends</span> <span class="title">Pair</span>&lt;<span class="title">Date</span>&gt;</span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSecond</span><span class="params">(Date second)</span></span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//子类被擦除后  </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DateInterval</span> <span class="keyword">extends</span> <span class="title">Pair</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSecond</span><span class="params">(Date second)</span></span>&#123; ... &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//还有从超类继承的方法  </span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSecond</span><span class="params">(Object second)</span></span></span><br><span class="line"><span class="function"><span class="comment">//此时调用，多态冲突  </span></span></span><br><span class="line"><span class="function">DateInterval interval</span>=<span class="keyword">new</span> DateInterval(...);</span><br><span class="line">Pair&lt;Date&gt; pair=interval;<span class="comment">//OK--assignment to superclass</span></span><br><span class="line">pair.setSecond(aDate);</span><br><span class="line"><span class="comment">//编译器在DateInterval类中生成桥方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSecond</span><span class="params">(Object second)</span></span>&#123; setSecond((Date) second); &#125;</span><br></pre></td></tr></table></figure>
-
-
-
+<h2 id="桥方法"><a href="#桥方法" class="headerlink" title="桥方法"></a>桥方法</h2><pre><code class="java">//超类  
+class Pair&lt;T&gt;&#123;
+    public void setSecond(T second)&#123;&#125;
+&#125;
+//子类  
+class DateInterval extends Pair&lt;Date&gt;&#123;
+    public void setSecond(Date second)&#123;&#125;
+&#125;
+//子类被擦除后  
+class DateInterval extends Pair&#123;
+    public void setSecond(Date second)&#123; ... &#125;
+&#125;
+//还有从超类继承的方法  
+public void setSecond(Object second)
+//此时调用，多态冲突  
+DateInterval interval=new DateInterval(...);
+Pair&lt;Date&gt; pair=interval;//OK--assignment to superclass
+pair.setSecond(aDate);
+//编译器在DateInterval类中生成桥方法
+public void setSecond(Object second)&#123; setSecond((Date) second); &#125;
+</code></pre>
 <h1 id="约束与局限性"><a href="#约束与局限性" class="headerlink" title="约束与局限性"></a>约束与局限性</h1><ol>
 <li>类型参数不支持基本类型</li>
 <li>运行时类型检查只适用于原始类型<br>instanceof、getClass 判断获取的都是原始类型</li>
@@ -527,14 +573,20 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>注意擦除后的冲突</li>
 <li>可以消除对受查异常的检查</li>
 </ol>
-<h1 id="通配符类型"><a href="#通配符类型" class="headerlink" title="通配符类型"></a>通配符类型</h1><h2 id="子类型限定"><a href="#子类型限定" class="headerlink" title="子类型限定"></a>子类型限定</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;? extends Class&gt;</span><br><span class="line">? <span class="function">extends Employee <span class="title">getFirst</span><span class="params">()</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setFirst</span><span class="params">(? extends Employee)</span></span></span><br></pre></td></tr></table></figure>
-
+<h1 id="通配符类型"><a href="#通配符类型" class="headerlink" title="通配符类型"></a>通配符类型</h1><h2 id="子类型限定"><a href="#子类型限定" class="headerlink" title="子类型限定"></a>子类型限定</h2><pre><code class="java">&lt;? extends Class&gt;
+? extends Employee getFirst()
+void setFirst(? extends Employee)
+</code></pre>
 <p>可以调用 get，不能调用 set 方法。</p>
-<h2 id="超类型限定"><a href="#超类型限定" class="headerlink" title="超类型限定"></a>超类型限定</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;? <span class="keyword">super</span> Manager&gt;</span><br><span class="line">? <span class="function"><span class="keyword">super</span> Manager <span class="title">getFirst</span><span class="params">()</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setFirst</span><span class="params">(? <span class="keyword">super</span> Manager)</span></span></span><br></pre></td></tr></table></figure>
-
+<h2 id="超类型限定"><a href="#超类型限定" class="headerlink" title="超类型限定"></a>超类型限定</h2><pre><code class="java">&lt;? super Manager&gt;
+? super Manager getFirst()
+void setFirst(? super Manager)
+</code></pre>
 <p>可以调用 set，不能调用 get 方法。</p>
-<h2 id="无限定通配符"><a href="#无限定通配符" class="headerlink" title="无限定通配符"></a>无限定通配符</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?&gt;</span><br><span class="line">? getFirst()</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setFirst</span><span class="params">(?)</span></span></span><br></pre></td></tr></table></figure>
-
+<h2 id="无限定通配符"><a href="#无限定通配符" class="headerlink" title="无限定通配符"></a>无限定通配符</h2><pre><code class="java">&lt;?&gt;
+? getFirst()
+void setFirst(?)
+</code></pre>
 <p>get 的返回值只能赋给一个 Object，set 方法不能被调。</p>
 
   
@@ -670,23 +722,25 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/02%20%E6%96%AD%E8%A8%80/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>断言</p>
-          <p class='content'>断言用在开发、测试期间。
-当代码发布时，这些插入的检测语句将会被自动地移走。
-表达形式assert 条件1assert x &gt;= 0;
+        <a class='prev' href='/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/02%20%E6%B3%9B%E5%9E%8B%E4%B8%8E%E5%BA%8F%E5%88%97%E5%8C%96/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>泛型与序列化</p>
+          <p class='content'>java介绍
 
-assert 条件:表达式1assert x &g...</p>
+
+java泛型
+Java泛型方法和泛型类支持程序员使用一个方法指定一组相关方法，或者使用一个类指定一组相关的类型。
+Java泛型（generics）是JDK 5中引入的一个新特性...</p>
         </a>
       
       
-        <a class='next' href='/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/03%20%E6%97%A5%E5%BF%97/'>
-          <p class='title'>日志<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>
-java.util.logging.Logger
+        <a class='next' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/03%20%E7%B1%BB/'>
+          <p class='title'>修饰符<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>类类是构造对象的模板。
+由类构造对象的过程称为创建类的实例。
+一个源文件中，只能有一个公共类，类名必须与文件名相同。
+类之间的关系最常见的关系有：
 
-日志记录器全局日志记录器Logger.getGlobal()
-1Logger.getGlobal().info(&quot;&quot;);...</p>
+依赖（uses-a）：一个类的方法需要操纵另...</p>
         </a>
       
     </div>

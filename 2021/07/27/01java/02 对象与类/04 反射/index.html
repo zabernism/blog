@@ -507,25 +507,28 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h2 id="创建实例"><a href="#创建实例" class="headerlink" title="创建实例"></a>创建实例</h2><ol>
 <li>调用 Class 类的 newInstance()</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Class&lt;?&gt; c = String.class;</span><br><span class="line">Object str = c.newInstance();</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">Class&lt;?&gt; c = String.class;
+Object str = c.newInstance();
+</code></pre>
 <ol>
 <li>调用 <code>Constructor </code>类的 <code>newInstance()</code></li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取String所对应的Class对象</span></span><br><span class="line">Class&lt;?&gt; c = String.class;</span><br><span class="line"><span class="comment">//获取String类带一个String参数的构造器</span></span><br><span class="line">Constructor constructor = c.getConstructor(String.class);</span><br><span class="line"><span class="comment">//根据构造器创建实例</span></span><br><span class="line">Object obj = constructor.newInstance(<span class="string">&quot;23333&quot;</span>);</span><br><span class="line">System.out.println(obj);</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">//获取String所对应的Class对象
+Class&lt;?&gt; c = String.class;
+//获取String类带一个String参数的构造器
+Constructor constructor = c.getConstructor(String.class);
+//根据构造器创建实例
+Object obj = constructor.newInstance(&quot;23333&quot;);
+System.out.println(obj);
+</code></pre>
 <h2 id="获取方法"><a href="#获取方法" class="headerlink" title="获取方法"></a>获取方法</h2><p>获取某个 Class 对象的方法集合</p>
 <ul>
 <li><code>getDeclaredMethods</code><br>返回类或接口声明的所有方法，包括公共、保护、默认（包）访问和私有方法，但不包括继承的方法。</li>
 <li><code>getMethods</code><br>返回某个类的所有公用方法，包括超类的公用方法。</li>
 <li><code>getMethod</code><br>返回一个特定的方法，其中第一个参数为方法名称，后面的参数为方法的参数对应 Class 的对象。</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Method <span class="title">getMethod</span><span class="params">(String name, Class&lt;?&gt;... parameterTypes)</span></span></span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">public Method getMethod(String name, Class&lt;?&gt;... parameterTypes)
+</code></pre>
 <h2 id="获取构造器信息"><a href="#获取构造器信息" class="headerlink" title="获取构造器信息"></a>获取构造器信息</h2><p>获取某个 Class 对象的构造器集合,与获取方法用法相似</p>
 <ul>
 <li><code>getDeclaredConstructors</code></li>
@@ -537,13 +540,22 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li><code>getDeclaredField</code>、<code>getDeclaredFields</code><br>所有已声明的全部域，包括私有和受保护域，但不包括超类的域</li>
 </ul>
 <h2 id="调用方法"><a href="#调用方法" class="headerlink" title="调用方法"></a>调用方法</h2><p>利用 Method 类中的 invoke 方法，调用任意方法。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object obj, Object... args)</span></span></span><br><span class="line"><span class="function">        <span class="keyword">throws</span> IllegalAccessException, IllegalArgumentException,</span></span><br><span class="line"><span class="function">           InvocationTargetException</span></span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">public Object invoke(Object obj, Object... args)
+        throws IllegalAccessException, IllegalArgumentException,
+           InvocationTargetException
+</code></pre>
 <h2 id="获取修饰符"><a href="#获取修饰符" class="headerlink" title="获取修饰符"></a>获取修饰符</h2><p><code>Modifier </code>类的静态方法分析 <code>getModifiers </code>返回的整型数值，<code>isPublish</code>、<code>isPrivate </code>或 <code>isFinal </code>判断方法或构造器是否是 <code>public</code>、<code>private </code>或 <code>final</code>。</p>
 <h2 id="利用反射创建数组"><a href="#利用反射创建数组" class="headerlink" title="利用反射创建数组"></a>利用反射创建数组</h2><p>java.lang.reflect 包中的 Array 类允许动态地创建数组。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testArray</span><span class="params">()</span> <span class="keyword">throws</span> ClassNotFoundException </span>&#123;</span><br><span class="line">    Class&lt;?&gt; cls = Class.forName(<span class="string">&quot;java.lang.String&quot;</span>);</span><br><span class="line">    Object array = Array.newInstance(cls,<span class="number">25</span>);</span><br><span class="line">    <span class="comment">//往数组里添加内容</span></span><br><span class="line">    Array.set(array,<span class="number">0</span>,<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">    Array.set(array,<span class="number">1</span>,<span class="string">&quot;Java&quot;</span>);</span><br><span class="line">    <span class="comment">//获取某一项的内容</span></span><br><span class="line">    System.out.println(Array.get(array,<span class="number">0</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public static void testArray() throws ClassNotFoundException &#123;
+    Class&lt;?&gt; cls = Class.forName(&quot;java.lang.String&quot;);
+    Object array = Array.newInstance(cls,25);
+    //往数组里添加内容
+    Array.set(array,0,&quot;hello&quot;);
+    Array.set(array,1,&quot;Java&quot;);
+    //获取某一项的内容
+    System.out.println(Array.get(array,0));
+&#125;
+</code></pre>
 
   
   
@@ -678,29 +690,24 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/05%20%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>文档注释</p>
-          <p class='content'>注释方法三种注释方法，注释不会出现在可执行文件中
+        <a class='prev' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/03%20%E7%B1%BB/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>修饰符</p>
+          <p class='content'>类类是构造对象的模板。
+由类构造对象的过程称为创建类的实例。
+一个源文件中，只能有一个公共类，类名必须与文件名相同。
+类之间的关系最常见的关系有：
 
-//
-/* */
-/** */自动生成文档
-
-注释的插入javadoc 从下面几个特性中抽取信息：
-
-包
-公有类与接口
-公有的和受保护的构造器...</p>
+依赖（uses-a）：一个类的方法需要操纵另...</p>
         </a>
       
       
-        <a class='next' href='/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/03%20%E5%86%85%E9%83%A8%E7%B1%BB/'>
-          <p class='title'>内部类<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>内部类（ inner class）是定义在另一个类中的类。为什么需要使用内部类：
-
-内部类方法可以访问该类定义所在的作用域中的数据，包括私有数据
-内部类可以对同一个包中的其他类隐藏起来
-当想要定...</p>
+        <a class='next' href='/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/01%20%E6%8E%A5%E5%8F%A3/'>
+          <p class='title'>接口<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>概念与特性
+成员默认 public
+常量必须赋初值，内部类自动成为 static 类。
+不能含有实例域，不能实现方法。（JDK 8 之后允许提供静态方法、默认方法）
+可以声明接口变量，不能使用 ...</p>
         </a>
       
     </div>

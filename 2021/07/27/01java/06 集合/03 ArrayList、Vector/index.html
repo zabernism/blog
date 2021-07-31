@@ -477,19 +477,38 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>扩容校验。</li>
 <li>将插入的值放到尾部，并将 size + 1 。</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span> </span>&#123;</span><br><span class="line">    ensureCapacityInternal(size + <span class="number">1</span>);  <span class="comment">// Increments modCount!!</span></span><br><span class="line">    elementData[size++] = e;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">public boolean add(E e) &#123;
+    ensureCapacityInternal(size + 1);  // Increments modCount!!
+    elementData[size++] = e;
+    return true;
+&#125;
+</code></pre>
 <p>调用 <code>add(index,e)</code></p>
 <ol>
 <li>扩容校验。</li>
 <li>复制数据，本次数据插入 index ，后面数据后移。</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> index, E element)</span> </span>&#123;</span><br><span class="line">    rangeCheckForAdd(index);</span><br><span class="line">    ensureCapacityInternal(size + <span class="number">1</span>);  <span class="comment">// Increments modCount!!</span></span><br><span class="line">    System.arraycopy(elementData, index, elementData, index + <span class="number">1</span>,</span><br><span class="line">                     size - index);</span><br><span class="line">    elementData[index] = element;</span><br><span class="line">    size++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">public void add(int index, E element) &#123;
+    rangeCheckForAdd(index);
+    ensureCapacityInternal(size + 1);  // Increments modCount!!
+    System.arraycopy(elementData, index, elementData, index + 1,
+                     size - index);
+    elementData[index] = element;
+    size++;
+&#125;
+</code></pre>
 <h3 id="grow"><a href="#grow" class="headerlink" title="grow()"></a>grow()</h3><p>扩容操作</p>
 <p><a target="_blank" rel="noopener" href="https://wujun234.github.io/images/1545011835380.png"><img src="https://wujun234.github.io/images/1545011835380.png" class="lazyload" data-srcset="https://wujun234.github.io/images/1545011835380.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image"></a></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">grow</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> oldCapacity = elementData.length;</span><br><span class="line">    <span class="keyword">int</span> newCapacity = oldCapacity + (oldCapacity &gt;&gt; <span class="number">1</span>);<span class="comment">//原来的1.5倍</span></span><br><span class="line">    <span class="keyword">if</span> (newCapacity - minCapacity &lt; <span class="number">0</span>)</span><br><span class="line">        newCapacity = minCapacity;</span><br><span class="line">    <span class="keyword">if</span> (newCapacity - MAX_ARRAY_SIZE &gt; <span class="number">0</span>)</span><br><span class="line">        newCapacity = hugeCapacity(minCapacity);</span><br><span class="line">    elementData = Arrays.copyOf(elementData, newCapacity);<span class="comment">//扩展空间并复制</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">private void grow(int minCapacity) &#123;
+    int oldCapacity = elementData.length;
+    int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);//原来的1.5倍
+    if (newCapacity - minCapacity &lt; 0)
+        newCapacity = minCapacity;
+    if (newCapacity - MAX_ARRAY_SIZE &gt; 0)
+        newCapacity = hugeCapacity(minCapacity);
+    elementData = Arrays.copyOf(elementData, newCapacity);//扩展空间并复制
+&#125;
+</code></pre>
 <h3 id="remove"><a href="#remove" class="headerlink" title="remove()"></a>remove()</h3><ul>
 <li>remove(int index)：删除指定位置的元素</li>
 <li>remove(Object o)：删除第一个满足 o.equals(elementData[index]) 的元素</li>
@@ -497,8 +516,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>删除操作是 add() 操作的逆过程，需要将删除点之后的元素向前移动一个位置。为了让 GC 起作用，必须显式的为最后一个位置赋 null 值。</p>
 <h2 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h2><p>ArrayList 只序列化了被使用的数据。</p>
 <p>由于 ArrayList 是基于动态数组实现的，所以并不是所有的空间都被使用。因此使用了 <code>transient</code> 修饰，可以防止被自动序列化。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">transient</span> Object[] elementData;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">transient Object[] elementData;
+</code></pre>
 <p>ArrayList 自定义了序列化与反序列化: writeObject 和 readObject 方法。</p>
 <h1 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h1><p><code>Vector</code> 实现与 <code>ArrayList</code> 类似, 但所有方法都被 <code>synchronized</code> 修饰 ，开销较大。</p>
 
@@ -635,13 +654,35 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/blog/2021/07/27/01java/07%20%E5%B9%B6%E5%8F%91/01%20JUC%E6%A6%82%E8%BF%B0/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>JUC概述</p>
-          <p class='content'>什么是JUC
-JUC其实就是java.util.concurrent下面的类包，专门用来多线程的开发
+        <a class='prev' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/02%20%E5%85%B7%E4%BD%93%E9%9B%86%E5%90%88/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>具体集合</p>
+          <p class='content'>
 
-并发与并行的区别串行模式
-串行表示所有任务都一一按先后顺序进行。串行意味着必须先装完一车柴...</p>
+
+集合类型
+同步
+可null
+有序
+描述
+
+
+
+ArrayList
+否
+是
+是
+动态增缩的索引序列
+
+
+Vector
+是
+是
+是
+过时，同步的ArrayList
+
+
+LinkedList
+否...</p>
         </a>
       
       

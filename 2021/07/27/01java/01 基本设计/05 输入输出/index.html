@@ -465,10 +465,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
-  <h1 id="读取输入"><a href="#读取输入" class="headerlink" title="读取输入"></a>读取输入</h1><h2 id="Scanner-类"><a href="#Scanner-类" class="headerlink" title="Scanner 类"></a>Scanner 类</h2><h3 id="文件输入"><a href="#文件输入" class="headerlink" title="文件输入"></a>文件输入</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 如果是 win 系统，使用双反斜杠，&quot;c:\\mydirectory\\myfile.txt&quot; ，每个 \ 需要额外的一个 \。</span></span><br><span class="line">Scanner scan = <span class="keyword">new</span> Scanner(Paths.get(<span class="string">&quot;myfile.txt&quot;</span>)，<span class="string">&quot;UTF-8&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<h3 id="标准输入"><a href="#标准输入" class="headerlink" title="标准输入"></a>标准输入</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Scanner in = <span class="keyword">new</span> Scanner(System.in);</span><br></pre></td></tr></table></figure>
-
+  <h1 id="读取输入"><a href="#读取输入" class="headerlink" title="读取输入"></a>读取输入</h1><h2 id="Scanner-类"><a href="#Scanner-类" class="headerlink" title="Scanner 类"></a>Scanner 类</h2><h3 id="文件输入"><a href="#文件输入" class="headerlink" title="文件输入"></a>文件输入</h3><pre><code class="java">// 如果是 win 系统，使用双反斜杠，&quot;c:\\mydirectory\\myfile.txt&quot; ，每个 \ 需要额外的一个 \。
+Scanner scan = new Scanner(Paths.get(&quot;myfile.txt&quot;)，&quot;UTF-8&quot;);
+</code></pre>
+<h3 id="标准输入"><a href="#标准输入" class="headerlink" title="标准输入"></a>标准输入</h3><pre><code class="java">Scanner in = new Scanner(System.in);
+</code></pre>
 <ul>
 <li>nextLine():下一行</li>
 <li>next()：下一个单词（以空格分割）</li>
@@ -476,23 +477,25 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>nextDouble()</li>
 </ul>
 <h2 id="Console-类"><a href="#Console-类" class="headerlink" title="Console 类"></a>Console 类</h2><p>因为输入是可见的，所以 Scanner 类不适用于控制台读取密码，可以使用 Console 类，但每次只能读取一行，而且在 IDE 上无法使用：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Console cons = System.console();</span><br><span class="line">String username = cons.readLine(<span class="string">&quot;User name: &quot;</span>);</span><br><span class="line"><span class="keyword">char</span>[] passwd = cons.readPassword(<span class="string">&quot;Password: &quot;</span>);</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">Console cons = System.console();
+String username = cons.readLine(&quot;User name: &quot;);
+char[] passwd = cons.readPassword(&quot;Password: &quot;);
+</code></pre>
 <h1 id="格式化输出"><a href="#格式化输出" class="headerlink" title="格式化输出"></a>格式化输出</h1><h2 id="printf-方法"><a href="#printf-方法" class="headerlink" title="printf 方法"></a>printf 方法</h2><p>一种方法是 Java 沿用了 C 语言的 printf 方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//输出3,333.33</span></span><br><span class="line">System.out.printf(<span class="string">&quot;%,.2f&quot;</span>, <span class="number">10000</span> / <span class="number">3.0</span>);</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">//输出3,333.33
+System.out.printf(&quot;%,.2f&quot;, 10000 / 3.0);
+</code></pre>
 <h2 id="String-format"><a href="#String-format" class="headerlink" title="String.format"></a>String.format</h2><p>另一种方法可以用 String.format 方法创建一个不输出的格式化字符串。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String name = <span class="string">&quot;boy&quot;</span>;</span><br><span class="line"><span class="keyword">int</span> age = <span class="number">10</span>;</span><br><span class="line">String message = String.format(<span class="string">&quot;Hello,%s.Next year,you&#x27;ll be %d \n&quot;</span>, name, age);</span><br><span class="line">System.out.printf(message);</span><br><span class="line"><span class="comment">// 输出 Hello,boy.Next year,you&#x27;ll be 1</span></span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">String name = &quot;boy&quot;;
+int age = 10;
+String message = String.format(&quot;Hello,%s.Next year,you&#39;ll be %d \n&quot;, name, age);
+System.out.printf(message);
+// 输出 Hello,boy.Next year,you&#39;ll be 1
+</code></pre>
 <h2 id="文件输出"><a href="#文件输出" class="headerlink" title="文件输出"></a>文件输出</h2><p>写入文件需要构造一个 PrintWriter 对象，此 PrintWriter 类与 System.out（是 PrintStream 类对象）在 print、println、printf 上用法相同。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在构造器中只需要提供文件名，没有的话会新建，如果之前已存在会覆盖</span></span><br><span class="line">PrintWriter out = <span class="keyword">new</span> PrintWriter(<span class="string">&quot;myfile.txt&quot;</span>,<span class="string">&quot;UTF-8&quot;</span>);</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">//在构造器中只需要提供文件名，没有的话会新建，如果之前已存在会覆盖
+PrintWriter out = new PrintWriter(&quot;myfile.txt&quot;,&quot;UTF-8&quot;);
+</code></pre>
 <p>用相对路径时，文件位于 java 虚拟机启动路径的相对位置。可以调用 System.getProperty(“user.dir”) 找到。</p>
 <h2 id="printf-格式化符号"><a href="#printf-格式化符号" class="headerlink" title="printf 格式化符号"></a>printf 格式化符号</h2><h3 id="类型字符"><a href="#类型字符" class="headerlink" title="类型字符"></a>类型字符</h3><table>
 <thead>
@@ -752,25 +755,26 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/03%20%E6%95%B0%E7%BB%84%E5%92%8C%E5%B9%BF%E4%B9%89%E8%A1%A8/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>数组和广义表</p>
-          <p class='content'>一维数组声明一旦创建了数组就不能改变它的大小。
-12int[] a = new int[n];int a[] = new int[n];
-
-
-
-初始化数字数组初始化为 0。boolean 数组初...</p>
-        </a>
-      
-      
-        <a class='next' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/04%20%E8%BF%90%E7%AE%97%E7%AC%A6/'>
-          <p class='title'>运算符<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+        <a class='prev' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/04%20%E8%BF%90%E7%AE%97%E7%AC%A6/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>运算符</p>
           <p class='content'>数学函数与常量
 Math.sqrt(x)：平方根
 Math.pow(x, y)：幂运算，x 的 y 次幂
 Math.floorMod(x, y)：求余
 
 自增与自减运算符建议不要在表达式中使用 ...</p>
+        </a>
+      
+      
+        <a class='next' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/06%20%E6%8E%A7%E5%88%B6%E6%B5%81%E7%A8%8B/'>
+          <p class='title'>控制流程<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>
+Java 使用条件语句和循环语句控制流程。
+
+块作用域块（block、复合语句），由一对花括号括起来，确定了变量的作用域。
+不能在嵌套的块中声明同名的变量。
+条件语句if else if
+循环...</p>
         </a>
       
     </div>

@@ -468,11 +468,16 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <h1 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h1><h2 id="JsonProperty"><a href="#JsonProperty" class="headerlink" title="@JsonProperty"></a>@JsonProperty</h2><blockquote>
 <p><code>@JsonProperty</code> 此注解用于属性上，作用是把该属性的名称序列化为另外一个名称，如把trueName属性序列化为name</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@JsonProperty(&quot;name&quot;)</span> </span><br><span class="line"><span class="keyword">private</span> String trueName; </span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">@JsonProperty(&quot;name&quot;) 
+private String trueName; 
+</code></pre>
 <h2 id="FeignClient注解"><a href="#FeignClient注解" class="headerlink" title="@FeignClient注解"></a>@FeignClient注解</h2><p>FeignClient注解被@Target(ElementType.TYPE)修饰，表示FeignClient注解的作用目标在<strong>接口上</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FeignClient(name = ``&quot;github-client&quot;``, url = ``&quot;https://api.github.com&quot;``, configuration = GitHubExampleConfig.``class``)</span></span><br><span class="line"><span class="keyword">public</span>` `<span class="class"><span class="keyword">interface</span>` `<span class="title">GitHubClient</span> </span>&#123;</span><br><span class="line">  ``<span class="meta">@RequestMapping(value = ``&quot;/search/repositories&quot;``, method = RequestMethod.GET)</span></span><br><span class="line">  ``<span class="function">String <span class="title">searchRepo</span><span class="params">(<span class="meta">@RequestParam(``&quot;q&quot;``)</span> String queryStr)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">@FeignClient(name = ``&quot;github-client&quot;``, url = ``&quot;https://api.github.com&quot;``, configuration = GitHubExampleConfig.``class``)
+public` `interface` `GitHubClient &#123;
+  ``@RequestMapping(value = ``&quot;/search/repositories&quot;``, method = RequestMethod.GET)
+  ``String searchRepo(@RequestParam(``&quot;q&quot;``) String queryStr);
+&#125;
+</code></pre>
 <p>声明接口之后，在代码中通过@Resource注入之后即可使用。@FeignClient标签的常用属性如下：</p>
 <ul>
 <li>name：指定FeignClient的名称，如果项目使用了Ribbon，name属性会作为微服务的名称，用于服务发现</li>
@@ -486,11 +491,27 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h2 id="Valid注解"><a href="#Valid注解" class="headerlink" title="@Valid注解"></a>@Valid注解</h2><blockquote>
 <p>用于验证注解是否符合要求，直接加在变量user之前，在变量中添加验证信息的要求，当不符合要求时就会在方法中返回message 的错误提示信息。</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/user&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@PostMapping</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> User <span class="title">create</span> <span class="params">(<span class="meta">@Valid</span> <span class="meta">@RequestBody</span> User user)</span> </span>&#123;</span><br><span class="line">        System.out.println(user.getId());</span><br><span class="line">        System.out.println(user.getUsername());</span><br><span class="line">        System.out.println(user.getPassword());</span><br><span class="line">        user.setId(<span class="string">&quot;1&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> user;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;    </span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">@RestController
+@RequestMapping(&quot;/user&quot;)
+public class UserController &#123;
+    @PostMapping
+    public User create (@Valid @RequestBody User user) &#123;
+        System.out.println(user.getId());
+        System.out.println(user.getUsername());
+        System.out.println(user.getPassword());
+        user.setId(&quot;1&quot;);
+        return user;
+    &#125;
+&#125;    
+</code></pre>
 <p>然后在 User 类中添加验证信息的要求</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String id;  </span><br><span class="line"> </span><br><span class="line">    <span class="meta">@NotBlank(message = &quot;密码不能为空&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">public class User &#123;
+    private String id;  
+ 
+    @NotBlank(message = &quot;密码不能为空&quot;)
+    private String password;
+&#125;
+</code></pre>
 <p>@NotBlank 注解所指的 password 字段，表示验证密码不能为空，如果为空的话，上面 Controller 中的 create 方法会将message 中的”密码不能为空”返回。</p>
 <p><strong>更多信息要求</strong></p>
 <table>
@@ -616,7 +637,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>863 words</p>
+      <p>860 words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -704,7 +725,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           <p class='content'>找到主题文件文件-&gt;偏好设置-&gt;外观
 
 新建base.user.css文件
-添加代码1234567891011121314151617181920212223242526272829...</p>
+添加代码/**************************************
+* Header ...</p>
         </a>
       
       

@@ -503,12 +503,52 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </li>
 </ul>
 <p><a target="_blank" rel="noopener" href="https://imgchr.com/i/BBJroF"><img src="https://s1.ax1x.com/2020/11/02/BBJroF.png" class="lazyload" data-srcset="https://s1.ax1x.com/2020/11/02/BBJroF.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="BBJroF.png"></a></p>
-<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><h3 id="MyBatis下载"><a href="#MyBatis下载" class="headerlink" title="MyBatis下载"></a><a target="_blank" rel="noopener" href="https://github.com/mybatis/mybatis-3/releases">MyBatis下载</a></h3><h3 id="MyBatis官网"><a href="#MyBatis官网" class="headerlink" title="MyBatis官网"></a><a target="_blank" rel="noopener" href="https://mybatis.org/mybatis-3/index.html">MyBatis官网</a></h3><h2 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h2><h3 id="在MySQl数据库中创建mybatis数据库，然后为其创建一张表"><a href="#在MySQl数据库中创建mybatis数据库，然后为其创建一张表" class="headerlink" title="在MySQl数据库中创建mybatis数据库，然后为其创建一张表"></a>在MySQl数据库中创建mybatis数据库，然后为其创建一张表</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> myemployees(</span><br><span class="line">	id <span class="type">int</span>(<span class="number">11</span>) <span class="keyword">PRIMARY</span> KEY AUTO_INCREMENT,</span><br><span class="line">	`name` <span class="type">VARCHAR</span>(<span class="number">255</span>),</span><br><span class="line">	gender <span class="type">CHAR</span>(<span class="number">1</span>),</span><br><span class="line">	email <span class="type">VARCHAR</span>(<span class="number">255</span>)</span><br><span class="line">	</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><h3 id="MyBatis下载"><a href="#MyBatis下载" class="headerlink" title="MyBatis下载"></a><a target="_blank" rel="noopener" href="https://github.com/mybatis/mybatis-3/releases">MyBatis下载</a></h3><h3 id="MyBatis官网"><a href="#MyBatis官网" class="headerlink" title="MyBatis官网"></a><a target="_blank" rel="noopener" href="https://mybatis.org/mybatis-3/index.html">MyBatis官网</a></h3><h2 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h2><h3 id="在MySQl数据库中创建mybatis数据库，然后为其创建一张表"><a href="#在MySQl数据库中创建mybatis数据库，然后为其创建一张表" class="headerlink" title="在MySQl数据库中创建mybatis数据库，然后为其创建一张表"></a>在MySQl数据库中创建mybatis数据库，然后为其创建一张表</h3><pre><code class="sql">create table myemployees(
+    id int(11) PRIMARY KEY AUTO_INCREMENT,
+    `name` VARCHAR(255),
+    gender CHAR(1),
+    email VARCHAR(255)
+    
+);
+</code></pre>
+<h3 id="插入测试数据"><a href="#插入测试数据" class="headerlink" title="插入测试数据"></a>插入测试数据</h3><h3 id="创建Maven工程，添加MaBatis相关依赖"><a href="#创建Maven工程，添加MaBatis相关依赖" class="headerlink" title="创建Maven工程，添加MaBatis相关依赖"></a>创建Maven工程，添加MaBatis相关依赖</h3><pre><code class="xml">&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+        &lt;artifactId&gt;mybatis&lt;/artifactId&gt;
+        &lt;version&gt;3.5.3&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;mysql&lt;/groupId&gt;
+        &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+        &lt;version&gt;8.0.20&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+            &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+            &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+            &lt;version&gt;1.18.12&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;log4j&lt;/groupId&gt;
+            &lt;artifactId&gt;log4j&lt;/artifactId&gt;
+            &lt;version&gt;1.2.17&lt;/version&gt;
+        &lt;/dependency&gt;
+</code></pre>
+<h3 id="创建javaBean"><a href="#创建javaBean" class="headerlink" title="创建javaBean"></a>创建javaBean</h3><pre><code class="java">package com.study.bean;
 
-<h3 id="插入测试数据"><a href="#插入测试数据" class="headerlink" title="插入测试数据"></a>插入测试数据</h3><h3 id="创建Maven工程，添加MaBatis相关依赖"><a href="#创建Maven工程，添加MaBatis相关依赖" class="headerlink" title="创建Maven工程，添加MaBatis相关依赖"></a>创建Maven工程，添加MaBatis相关依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.5.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>8.0.20<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.18.12<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.17<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
-<h3 id="创建javaBean"><a href="#创建javaBean" class="headerlink" title="创建javaBean"></a>创建javaBean</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.study.bean;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.Getter;</span><br><span class="line"><span class="keyword">import</span> lombok.Setter;</span><br><span class="line"><span class="keyword">import</span> lombok.ToString;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@Setter</span></span><br><span class="line"><span class="meta">@ToString</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Employee</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String email;</span><br><span class="line">    <span class="keyword">private</span> String gender;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+@Getter
+@Setter
+@ToString
+public class Employee &#123;
+    private Integer id;
+    private String name;
+    private String email;
+    private String gender;
+&#125;
+</code></pre>
 <h3 id="创建mybatis配置文件，sql映射文件"><a href="#创建mybatis配置文件，sql映射文件" class="headerlink" title="创建mybatis配置文件，sql映射文件"></a>创建mybatis配置文件，sql映射文件</h3><ul>
 <li>MyBatis 的全局配置文件包含了影响 MyBatis 行为甚深的设置（ settings）和属性（ properties）信息、如数据库连接池信息等。指导着MyBatis进行工作。我们可以参照官方文件的配置示例。</li>
 <li>映射文件的作用就相当于是定义Dao接口的实现类如何工作。这也是<strong>我们使用MyBatis时编写的最多的文件</strong>。</li>
@@ -564,7 +604,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>730 words</p>
+      <p>731 words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -647,10 +687,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/blog/2021/07/27/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/P7/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>JAVA</p>
-          <p class='content'>一、ES篇
-Elasticsearch可以实现秒级的搜索，cluster是一种分布式的部署，极易扩展(scale )这样很容易使它处理PB级的数据库容量。最重要的是Elasticsearch是它...</p>
+        <a class='prev' href='/blog/2021/07/27/07%20DevOps/1%20Git/git%E8%BF%9B%E9%98%B6%E5%91%BD%E4%BB%A4/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>git进阶命令</p>
+          <p class='content'>git常用命令改动添加到暂存区git stash save
+
+使用场景：切换分支时或者拉取远程代码时可以将本地的所有改动暂存到 stash 中
+
+读出暂存器内容git stash pop
+
+创建...</p>
         </a>
       
       

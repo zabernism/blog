@@ -549,22 +549,33 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </tr>
 </tbody></table>
 <h1 id="迭代器（Iterator）"><a href="#迭代器（Iterator）" class="headerlink" title="迭代器（Iterator）"></a>迭代器（Iterator）</h1><p>Collection 的 iterator 方法返回一个迭代器对象。可以使用这 iterator 依次访问集合中的元素。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Iterator</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function">E <span class="title">next</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">public interface Iterator&lt;E&gt; &#123;
+    boolean hasNext();
+    E next();
+    void remove();
+&#125;
+</code></pre>
 <h2 id="Iterator-中的循环"><a href="#Iterator-中的循环" class="headerlink" title="Iterator 中的循环"></a>Iterator 中的循环</h2><p>先 hasNext()，再 next() 取用一个对象。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Collection&lt;String&gt; c = ...;</span><br><span class="line">Iterator&lt;String&gt; iter = c.iterator();</span><br><span class="line"><span class="keyword">while</span>(iter.hasNext())&#123;</span><br><span class="line">    String element =iter.next();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">Collection&lt;String&gt; c = ...;
+Iterator&lt;String&gt; iter = c.iterator();
+while(iter.hasNext())&#123;
+    String element =iter.next();
+&#125;
+</code></pre>
 <p>JDK 1.5 开始，提供增强“for each”循环支持 Iterable 接口。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(String element : c)&#123;&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">for(String element : c)&#123;&#125;
+</code></pre>
 <p>Collection接口扩展了Iterable接口，任何集合都可以使用增强for循环。</p>
 <h2 id="Iterator-中的-remove-方法"><a href="#Iterator-中的-remove-方法" class="headerlink" title="Iterator 中的 remove 方法"></a>Iterator 中的 remove 方法</h2><p>Iterator.next 类似 InputStream.read，调用、读取、消耗。</p>
 <p>next 方法和 remove 方法具有相互依赖型，调用 remove 之前没有调用 next 是不合法的。</p>
 <p>remove 是指删除最后遍历的元素</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">it.next();</span><br><span class="line">it.remove();<span class="comment">//OK</span></span><br><span class="line"></span><br><span class="line">it.next();</span><br><span class="line">it.remove();</span><br><span class="line">it.remove();<span class="comment">//IllegalStateException</span></span><br></pre></td></tr></table></figure>
+<pre><code class="java">it.next();
+it.remove();//OK
 
+it.next();
+it.remove();
+it.remove();//IllegalStateException
+</code></pre>
 
   
   
@@ -616,7 +627,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>804 words</p>
+      <p>805 words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -699,12 +710,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/04%20linkedList/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>LinkedList</p>
-          <p class='content'>现在栈或者队列的首选是ArrayDeque。
-总体介绍LinkedList同时实现了List接口和Deque接口，允许null元素。
+        <a class='prev' href='/blog/2021/07/27/01java/07%20%E5%B9%B6%E5%8F%91/01%20JUC%E6%A6%82%E8%BF%B0/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>JUC概述</p>
+          <p class='content'>什么是JUC
+JUC其实就是java.util.concurrent下面的类包，专门用来多线程的开发
 
-LinkedList底层通过双向链表实现。节点用内部类No...</p>
+并发与并行的区别串行模式
+串行表示所有任务都一一按先后顺序进行。串行意味着必须先装完一车柴...</p>
         </a>
       
       

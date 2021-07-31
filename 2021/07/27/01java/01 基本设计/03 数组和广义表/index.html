@@ -466,52 +466,52 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   
   <h1 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h1><h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><p>一旦创建了数组就不能改变它的大小。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line"><span class="keyword">int</span> a[] = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">int[] a = new int[n];
+int a[] = new int[n];
+</code></pre>
 <h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>数字数组初始化为 0。boolean 数组初始化 false。对象数组初始化 null。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] a = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125; ;</span><br><span class="line"><span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">int[] a = &#123;1,2,3&#125; ;
+new int[]&#123;1,2,3&#125;;
+</code></pre>
 <h1 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h1><p>java 实际上没有多维数组，只有一维数组，多维数组被解释成“数组的数组”</p>
-<h2 id="声明-1"><a href="#声明-1" class="headerlink" title="声明"></a>声明</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[][] a = <span class="keyword">new</span> <span class="keyword">int</span>[n][]</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="初始化-1"><a href="#初始化-1" class="headerlink" title="初始化"></a>初始化</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[][] A = &#123;</span><br><span class="line">    &#123;&#125;,</span><br><span class="line">    &#123;&#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="Arrays-类"><a href="#Arrays-类" class="headerlink" title="Arrays 类"></a>Arrays 类</h1><h2 id="填充-fill"><a href="#填充-fill" class="headerlink" title="填充 fill()"></a>填充 <code>fill()</code></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Arrays.fill(type[] a,type v);</span><br></pre></td></tr></table></figure>
-
+<h2 id="声明-1"><a href="#声明-1" class="headerlink" title="声明"></a>声明</h2><pre><code class="java">int[][] a = new int[n][]
+</code></pre>
+<h2 id="初始化-1"><a href="#初始化-1" class="headerlink" title="初始化"></a>初始化</h2><pre><code class="java">int[][] A = &#123;
+    &#123;&#125;,
+    &#123;&#125;
+    ...
+&#125;
+</code></pre>
+<h1 id="Arrays-类"><a href="#Arrays-类" class="headerlink" title="Arrays 类"></a>Arrays 类</h1><h2 id="填充-fill"><a href="#填充-fill" class="headerlink" title="填充 fill()"></a>填充 <code>fill()</code></h2><pre><code class="java">Arrays.fill(type[] a,type v);
+</code></pre>
 <h2 id="排序-sort"><a href="#排序-sort" class="headerlink" title="排序 sort()"></a>排序 <code>sort()</code></h2><p>优化的快排</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//升序排序 </span></span><br><span class="line">Arrays.sort(type[] a);</span><br><span class="line"><span class="comment">//给开始位到结束位排序</span></span><br><span class="line">Arrays.sort(type[] a,<span class="keyword">int</span> start,<span class="keyword">int</span> end);</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">//升序排序 
+Arrays.sort(type[] a);
+//给开始位到结束位排序
+Arrays.sort(type[] a,int start,int end);
+</code></pre>
 <h2 id="比较-equals"><a href="#比较-equals" class="headerlink" title="比较 equals()"></a>比较 <code>equals()</code></h2><p>比较元素是否相等</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Arrays.equals(type[] a,type[] b);</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">Arrays.equals(type[] a,type[] b);
+</code></pre>
 <h2 id="查找binarySearch"><a href="#查找binarySearch" class="headerlink" title="查找binarySearch()"></a>查找<code>binarySearch()</code></h2><p>二分查找，数组一定要是先排好序，返回最后一个找到的位置</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Arrays.binarySearch(type[] a,type v);</span><br><span class="line"><span class="comment">//范围查找</span></span><br><span class="line">Arrays.binarySearch(type[] a,type v,<span class="keyword">int</span> start,<span class="keyword">int</span> end);</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">Arrays.binarySearch(type[] a,type v);
+//范围查找
+Arrays.binarySearch(type[] a,type v,int start,int end);
+</code></pre>
 <h2 id="拷贝-copyOf"><a href="#拷贝-copyOf" class="headerlink" title="拷贝 copyOf()"></a>拷贝 <code>copyOf()</code></h2><p>使用 Arrays 类的 copyOf 方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//深度拷贝</span></span><br><span class="line"><span class="keyword">int</span>[] a = Arrays.copyOf(b,b.length);</span><br><span class="line"><span class="comment">//扩展</span></span><br><span class="line"><span class="keyword">int</span>[] a = Arrays.copyOf(b,b.length*<span class="number">2</span>);</span><br><span class="line"><span class="comment">//部分拷贝</span></span><br><span class="line">Arrays.copyOfRange(a,<span class="number">0</span>,<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="转字符串-toString"><a href="#转字符串-toString" class="headerlink" title="转字符串 toString()"></a>转字符串 <code>toString()</code></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Arrays.toString(a)</span><br><span class="line"><span class="comment">//打印多维数组</span></span><br><span class="line">Arrays.deepToString()</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="转列表-asList"><a href="#转列表-asList" class="headerlink" title="转列表 asList()"></a>转列表 <code>asList()</code></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; stooges = Arrays.asList(<span class="string">&quot;Larry&quot;</span>, <span class="string">&quot;Moe&quot;</span>, <span class="string">&quot;Curly&quot;</span>);</span><br></pre></td></tr></table></figure>
-
+<pre><code class="java">//深度拷贝
+int[] a = Arrays.copyOf(b,b.length);
+//扩展
+int[] a = Arrays.copyOf(b,b.length*2);
+//部分拷贝
+Arrays.copyOfRange(a,0,5)
+</code></pre>
+<h2 id="转字符串-toString"><a href="#转字符串-toString" class="headerlink" title="转字符串 toString()"></a>转字符串 <code>toString()</code></h2><pre><code class="java">Arrays.toString(a)
+//打印多维数组
+Arrays.deepToString()
+</code></pre>
+<h2 id="转列表-asList"><a href="#转列表-asList" class="headerlink" title="转列表 asList()"></a>转列表 <code>asList()</code></h2><pre><code class="java">List&lt;String&gt; stooges = Arrays.asList(&quot;Larry&quot;, &quot;Moe&quot;, &quot;Curly&quot;);
+</code></pre>
 
   
   
@@ -563,7 +563,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>313 words</p>
+      <p>311 words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -646,18 +646,30 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/04%20%E4%BB%A3%E7%90%86/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>代理</p>
-          <p class='content'>代理模式：就是为其他对象提供一种代理以控制对这个对象的访问。
-代理可以在不改动目标对象的基础上，增加其他额外的功能（扩展功能）。
-静态代理代理对象和目标对象实现了相同的接口。
-目标对象作为代理对...</p>
+        <a class='prev' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/05%20%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>文档注释</p>
+          <p class='content'>注释方法三种注释方法，注释不会出现在可执行文件中
+
+//
+/* */
+/** */自动生成文档
+
+注释的插入javadoc 从下面几个特性中抽取信息：
+
+包
+公有类与接口
+公有的和受保护的构造器...</p>
         </a>
       
       
-        <a class='next' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/05%20%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/'>
-          <p class='title'>输入输出<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>读取输入Scanner 类文件输入12// 如果是 win 系统，使用双反斜杠，&quot;c:\\mydirectory\\myfile.txt&quot; ，每个 \ 需要额外的一个 \。S...</p>
+        <a class='next' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/04%20%E8%BF%90%E7%AE%97%E7%AC%A6/'>
+          <p class='title'>运算符<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>数学函数与常量
+Math.sqrt(x)：平方根
+Math.pow(x, y)：幂运算，x 的 y 次幂
+Math.floorMod(x, y)：求余
+
+自增与自减运算符建议不要在表达式中使用 ...</p>
         </a>
       
     </div>

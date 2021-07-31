@@ -524,8 +524,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>6）、rm:  删除一个文件, rm index.js 就会把index.js文件删除。</p>
 <p>7）、mkdir:  新建一个目录,就是新建一个文件夹。</p>
 <p>8）、rm -r :  删除一个文件夹, rm -r src 删除src目录</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf / 切勿在Linux中尝试！删除电脑中全部文件！</span><br></pre></td></tr></table></figure>
-
+<pre><code>rm -rf / 切勿在Linux中尝试！删除电脑中全部文件！
+</code></pre>
 <p>9）、mv 移动文件, mv index.html src index.html 是我们要移动的文件, src 是目标文件夹,当然, 这样写,必须保证文件和目标文件夹在同一目录下。</p>
 <p>10）、reset 重新初始化终端/清屏。</p>
 <p>11）、clear 清屏。</p>
@@ -534,13 +534,18 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>14）、exit 退出。</p>
 <p>15）、#表示注释</p>
 <h2 id="git配置"><a href="#git配置" class="headerlink" title="git配置"></a>git配置</h2><h3 id="查看配置-git-config-l"><a href="#查看配置-git-config-l" class="headerlink" title="查看配置 git config -l"></a>查看配置 git config -l</h3><p><img src="https://s1.ax1x.com/2020/10/16/07jUEt.png" class="lazyload" data-srcset="https://s1.ax1x.com/2020/10/16/07jUEt.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="07jUEt.png"></p>
-<h3 id="查看不同级别的配置文件："><a href="#查看不同级别的配置文件：" class="headerlink" title="查看不同级别的配置文件："></a>查看不同级别的配置文件：</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#查看系统config</span><br><span class="line">git config --system --list</span><br><span class="line">　　</span><br><span class="line">#查看当前用户（global）配置</span><br><span class="line">git config --global  --list</span><br></pre></td></tr></table></figure>
-
+<h3 id="查看不同级别的配置文件："><a href="#查看不同级别的配置文件：" class="headerlink" title="查看不同级别的配置文件："></a>查看不同级别的配置文件：</h3><pre><code class="xml">#查看系统config
+git config --system --list
+　　
+#查看当前用户（global）配置
+git config --global  --list
+</code></pre>
 <h3 id="Git相关的配置文件："><a href="#Git相关的配置文件：" class="headerlink" title="Git相关的配置文件："></a><strong>Git相关的配置文件：</strong></h3><p>1）、Git\etc\gitconfig  ：Git 安装目录下的 gitconfig   –system 系统级</p>
 <p>2）、C:\Users\Administrator\ .gitconfig   只适用于当前登录用户的配置  –global 全局</p>
 <h3 id="设置用户名与邮箱（用户标识，必要）"><a href="#设置用户名与邮箱（用户标识，必要）" class="headerlink" title="设置用户名与邮箱（用户标识，必要）"></a>设置用户名与邮箱（用户标识，必要）</h3><p>当你安装Git后首先要做的事情是设置你的用户名称和e-mail地址。这是非常重要的，因为每次Git提交都会使用该信息。它被永远的嵌入到了你的提交中：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;kuangshen&quot;  #名称</span><br><span class="line">git config --global user.email 24736743@qq.com   #邮箱</span><br></pre></td></tr></table></figure>
-
+<pre><code class="xml">git config --global user.name &quot;kuangshen&quot;  #名称
+git config --global user.email 24736743@qq.com   #邮箱
+</code></pre>
 <p>只需要做一次这个设置，如果你传递了–global 选项，因为Git将总是会使用该信息来处理你在系统中所做的一切操作。如果你希望在一个特定的项目中使用不同的名称或e-mail地址，你可以在该项目中运行该命令而不要–global选项。总之–global为全局配置，不加为某个项目的特定配置。</p>
 <h1 id="Git基本理论（核心）"><a href="#Git基本理论（核心）" class="headerlink" title="Git基本理论（核心）"></a>Git基本理论（核心）</h1><h2 id="git本地有三个工作区域"><a href="#git本地有三个工作区域" class="headerlink" title="git本地有三个工作区域"></a>git本地有三个工作区域</h2><p>Git本地有三个工作区域：工作目录（Working Directory）、暂存区(Stage/Index)、资源库(Repository或Git Directory)。如果在加上远程的git仓库(Remote Directory)就可以分为四个工作区域。文件在这四个区域之间的转换关系如下：</p>
 <p><a target="_blank" rel="noopener" href="https://imgchr.com/i/07vurj"><img src="https://s1.ax1x.com/2020/10/16/07vurj.png" class="lazyload" data-srcset="https://s1.ax1x.com/2020/10/16/07vurj.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="07vurj.png"></a></p>
@@ -570,11 +575,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>日常使用只要记住下图6个命令：</p>
 <p><img src="https://s1.ax1x.com/2020/10/16/0Hpbhq.png" class="lazyload" data-srcset="https://s1.ax1x.com/2020/10/16/0Hpbhq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="0Hpbhq.png"></p>
 <h2 id="本地仓库搭建"><a href="#本地仓库搭建" class="headerlink" title="本地仓库搭建"></a>本地仓库搭建</h2><p>创建本地仓库的方法有两种：一种是创建全新的仓库，另一种是克隆远程仓库。</p>
-<h3 id="创建全新的仓库"><a href="#创建全新的仓库" class="headerlink" title="创建全新的仓库"></a>创建全新的仓库</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 在当前目录新建一个Git代码库</span><br><span class="line">$ git init</span><br></pre></td></tr></table></figure>
-
+<h3 id="创建全新的仓库"><a href="#创建全新的仓库" class="headerlink" title="创建全新的仓库"></a>创建全新的仓库</h3><pre><code class="xml"># 在当前目录新建一个Git代码库
+$ git init
+</code></pre>
 <p>执行后可以看到，仅仅在项目目录多出了一个.git目录，关于版本等的所有信息都在这个目录里面。</p>
-<h3 id="克隆远程仓库"><a href="#克隆远程仓库" class="headerlink" title="克隆远程仓库"></a>克隆远程仓库</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 克隆一个项目和它的整个代码历史(版本信息)</span><br><span class="line">$ git clone [url]  # https://gitee.com/kuangstudy/openclass.git</span><br></pre></td></tr></table></figure>
-
+<h3 id="克隆远程仓库"><a href="#克隆远程仓库" class="headerlink" title="克隆远程仓库"></a>克隆远程仓库</h3><pre><code class="xml"># 克隆一个项目和它的整个代码历史(版本信息)
+$ git clone [url]  # https://gitee.com/kuangstudy/openclass.git
+</code></pre>
 <p>是将远程服务器上的仓库完全镜像一份至本地！</p>
 <h1 id="Git文件操作"><a href="#Git文件操作" class="headerlink" title="Git文件操作"></a>Git文件操作</h1><h2 id="文件的四种状态"><a href="#文件的四种状态" class="headerlink" title="文件的四种状态"></a>文件的四种状态</h2><p>版本控制就是对文件的版本控制，要对文件进行修改、提交等操作，首先要知道文件当前在什么状态，不然可能会提交了现在还不想提交的文件，或者要提交的文件没提交上。</p>
 <ul>
@@ -584,8 +591,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>Staged: 暂存状态. 执行git commit则将修改同步到库中, 这时库中的文件和本地文件又变为一致, 文件为Unmodify状态. 执行git reset HEAD filename取消暂存, 文件状态为Modified</li>
 </ul>
 <h2 id="查看文件状态"><a href="#查看文件状态" class="headerlink" title="查看文件状态"></a>查看文件状态</h2><p>上面说文件有4种状态，通过如下命令可以查看到文件的状态：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#查看指定文件状态</span><br><span class="line">git status [filename]</span><br><span class="line"></span><br><span class="line">#查看所有文件状态</span><br><span class="line">git status</span><br><span class="line"></span><br><span class="line"># git add .                  添加所有文件到暂存区</span><br><span class="line"># git commit -m &quot;消息内容&quot;    提交暂存区中的内容到本地仓库 -m 提交信息</span><br></pre></td></tr></table></figure>
+<pre><code class="xml">#查看指定文件状态
+git status [filename]
 
+#查看所有文件状态
+git status
+
+# git add .                  添加所有文件到暂存区
+# git commit -m &quot;消息内容&quot;    提交暂存区中的内容到本地仓库 -m 提交信息
+</code></pre>
 <h2 id="忽略文件"><a href="#忽略文件" class="headerlink" title="忽略文件"></a>忽略文件</h2><p>有些时候我们不想把某些文件纳入版本控制中，比如数据库文件，临时文件，设计文件等</p>
 <p>在主目录下建立”.gitignore”文件，此文件有如下规则：</p>
 <ol>
@@ -595,8 +609,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>如果名称的最前面是一个路径分隔符（/），表示要忽略的文件在此目录下，而子目录中的文件不忽略。</li>
 <li>如果名称的最后面是一个路径分隔符（/），表示要忽略的是此目录下该名称的子目录，而非文件（默认文件或目录都忽略）。</li>
 </ol>
- <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#为注释</span><br><span class="line">*.txt        #忽略所有 .txt结尾的文件,这样的话上传就不会被选中！</span><br><span class="line">!lib.txt     #但lib.txt除外</span><br><span class="line">/temp        #仅忽略项目根目录下的TODO文件,不包括其它目录temp</span><br><span class="line">build/       #忽略build/目录下的所有文件</span><br><span class="line">doc/*.txt    #会忽略 doc/notes.txt 但不包括 doc/server/arch.txt</span><br></pre></td></tr></table></figure>
-
+<pre><code class="xml">#为注释
+*.txt        #忽略所有 .txt结尾的文件,这样的话上传就不会被选中！
+!lib.txt     #但lib.txt除外
+/temp        #仅忽略项目根目录下的TODO文件,不包括其它目录temp
+build/       #忽略build/目录下的所有文件
+doc/*.txt    #会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
+</code></pre>
 <h1 id="码云的使用"><a href="#码云的使用" class="headerlink" title="码云的使用"></a>码云的使用</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1FE411P7B3?p=10">参考视频</a></p>
 <h1 id="git分支"><a href="#git分支" class="headerlink" title="git分支"></a>git分支</h1>
   
@@ -743,13 +762,12 @@ MyBatis 避免了几乎所有的 JDBC 代码和手...</p>
         </a>
       
       
-        <a class='next' href='/blog/2021/07/27/07%20DevOps/1%20Git/git%E8%BF%9B%E9%98%B6%E5%91%BD%E4%BB%A4/'>
-          <p class='title'>git进阶命令<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>git常用命令改动添加到暂存区123git stash save使用场景：切换分支时或者拉取远程代码时可以将本地的所有改动暂存到 stash 中
+        <a class='next' href='/blog/2021/07/27/03%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/02%20%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/'>
+          <p class='title'>单例模式<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>单例设计模式
+在有些系统中，为了节省内存资源、保证数据内容的一致性，对某些类要求只能创建一个实例，这就是所谓的单例模式。
 
-读出暂存器内容1git stash pop
-
-...</p>
+定义与特点单例（Singleton）模式的定义：指一个类只有一个实例，...</p>
         </a>
       
     </div>
