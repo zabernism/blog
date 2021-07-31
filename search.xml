@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>hexo使用主题之后分类不显示</title>
+      <link href="/blog/2021/07/31/%E9%9A%8F%E7%AC%94/hexo%E5%88%86%E7%B1%BB%E4%B8%8D%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
+      <url>/blog/2021/07/31/%E9%9A%8F%E7%AC%94/hexo%E5%88%86%E7%B1%BB%E4%B8%8D%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</url>
+      
+        <content type="html"><![CDATA[<h1 id="检查站点文件的-config-yml"><a href="#检查站点文件的-config-yml" class="headerlink" title="检查站点文件的_config.yml"></a>检查站点文件的<code>_config.yml</code></h1><pre><code class="yml"># Directorysource_dir: sourcepublic_dir: publictag_dir: tagsarchive_dir: archivescategory_dir: categories</code></pre><p>观看<code>tag_dir</code> 等文件设置是否正确，只有设置正确，才能被hexo加载</p><h1 id="创建新的页面"><a href="#创建新的页面" class="headerlink" title="创建新的页面"></a>创建新的页面</h1><p>创建新的页面可以在博客的根目录使用命令：<code>hexo new page &#39;&#39;</code> 此时根目录的source文件夹下会相应创建一个文件夹，并且其中包含一个<code>index.md</code>文件（这个过程可以手动创建）；例如，我创建一个tags页面，那么source文件夹下就会出现一个tags文件夹，在tags文件夹下应该有一个<code>index.md</code> </p><h1 id="最关键的一步"><a href="#最关键的一步" class="headerlink" title="最关键的一步"></a>最关键的一步</h1><p>使用命令创建文件夹的话，index.md是没有指定类型的应当是</p><pre><code class="markdown">---title: 标签date: 2021-07-31 15:28:39---</code></pre><p>此时需要手动添加tpye与layout</p><p>需要注意的是：type对应的是站点配置文件中的名字tags，layout则是对应的主题的layout文件夹下的ejs类型的文件。例如我的主题文件夹如下：</p><p><img src="https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731182140.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731182140.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210731182139242"></p><p>明显可以看出我的主题的layout文件下是没有tags.ejs文件的，换成了tag.ejs文件，所以我的主题配置文件如下</p><pre><code class="markdown">---type: tagslayout: tag---</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随笔 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 随笔 </tag>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>typora设置自动编号</title>
       <link href="/blog/2021/07/27/%E9%9A%8F%E7%AC%94/typora%E8%AE%BE%E7%BD%AE%E6%A0%87%E9%A2%98%E8%87%AA%E5%8A%A8%E7%BC%96%E5%8F%B7/"/>
       <url>/blog/2021/07/27/%E9%9A%8F%E7%AC%94/typora%E8%AE%BE%E7%BD%AE%E6%A0%87%E9%A2%98%E8%87%AA%E5%8A%A8%E7%BC%96%E5%8F%B7/</url>

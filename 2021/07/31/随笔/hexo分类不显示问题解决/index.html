@@ -22,9 +22,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>typora设置自动编号 - 灵魂有香气a</title>
+  <title>hexo使用主题之后分类不显示 - 灵魂有香气a</title>
   
-    <meta name="keywords" content="随笔">
+    <meta name="keywords" content="随笔,hexo">
   
 
   
@@ -405,7 +405,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title">
-        typora设置自动编号
+        hexo使用主题之后分类不显示
       </h1>
       <div class='new-meta-box'>
         
@@ -436,7 +436,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Jul 27, 2021</p>
+    <p>发布于：Jul 31, 2021</p>
   </a>
 </div>
 
@@ -447,7 +447,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="typora设置自动编号" data-path="/blog/2021/07/27/%E9%9A%8F%E7%AC%94/typora%E8%AE%BE%E7%BD%AE%E6%A0%87%E9%A2%98%E8%87%AA%E5%8A%A8%E7%BC%96%E5%8F%B7/">
+      <div id="lc-pv" data-title="hexo使用主题之后分类不显示" data-path="/blog/2021/07/31/%E9%9A%8F%E7%AC%94/hexo%E5%88%86%E7%B1%BB%E4%B8%8D%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -465,252 +465,30 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
-  <h1 id="找到主题文件"><a href="#找到主题文件" class="headerlink" title="找到主题文件"></a>找到主题文件</h1><p>文件-&gt;偏好设置-&gt;外观</p>
-<p><img src="https://s1.ax1x.com/2020/10/14/052zV0.png" class="lazyload" data-srcset="https://s1.ax1x.com/2020/10/14/052zV0.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="052zV0.png"></p>
-<h1 id="新建base-user-css文件"><a href="#新建base-user-css文件" class="headerlink" title="新建base.user.css文件"></a>新建base.user.css文件</h1><p><img src="https://s1.ax1x.com/2020/10/14/05WMT0.png" class="lazyload" data-srcset="https://s1.ax1x.com/2020/10/14/05WMT0.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="05WMT0.png"></p>
-<h1 id="添加代码"><a href="#添加代码" class="headerlink" title="添加代码"></a>添加代码</h1><pre><code class="css">/**************************************
-* Header Counters in TOC
-**************************************/
- 
-/* No link underlines in TOC */
-.md-toc-inner &#123;
-text-decoration: none;
-&#125;
- 
-.md-toc-content &#123;
-counter-reset: h1toc
-&#125;
- 
-.md-toc-h1 &#123;
-margin-left: 0;
-font-size: 1.5rem;
-counter-reset: h2toc
-&#125;
- 
-.md-toc-h2 &#123;
-font-size: 1.1rem;
-margin-left: 2rem;
-counter-reset: h3toc
-&#125;
- 
-.md-toc-h3 &#123;
-margin-left: 3rem;
-font-size: .9rem;
-counter-reset: h4toc
-&#125;
- 
-.md-toc-h4 &#123;
-margin-left: 4rem;
-font-size: .85rem;
-counter-reset: h5toc
-&#125;
- 
-.md-toc-h5 &#123;
-margin-left: 5rem;
-font-size: .8rem;
-counter-reset: h6toc
-&#125;
- 
-.md-toc-h6 &#123;
-margin-left: 6rem;
-font-size: .75rem;
-&#125;
- 
-.md-toc-h1:before &#123;
-color: black;
-counter-increment: h1toc;
-content: counter(h1toc) &quot;. &quot;
-&#125;
- 
-.md-toc-h1 .md-toc-inner &#123;
-margin-left: 0;
-&#125;
- 
-.md-toc-h2:before &#123;
-color: black;
-counter-increment: h2toc;
-content: counter(h1toc) &quot;. &quot; counter(h2toc) &quot;. &quot;
-&#125;
- 
-.md-toc-h2 .md-toc-inner &#123;
-margin-left: 0;
-&#125;
- 
-.md-toc-h3:before &#123;
-color: black;
-counter-increment: h3toc;
-content: counter(h1toc) &quot;. &quot; counter(h2toc) &quot;. &quot; counter(h3toc) &quot;. &quot;
-&#125;
- 
-.md-toc-h3 .md-toc-inner &#123;
-margin-left: 0;
-&#125;
- 
-.md-toc-h4:before &#123;
-color: black;
-counter-increment: h4toc;
-content: counter(h1toc) &quot;. &quot; counter(h2toc) &quot;. &quot; counter(h3toc) &quot;. &quot; counter(h4toc) &quot;. &quot;
-&#125;
- 
-.md-toc-h4 .md-toc-inner &#123;
-margin-left: 0;
-&#125;
- 
-.md-toc-h5:before &#123;
-color: black;
-counter-increment: h5toc;
-content: counter(h1toc) &quot;. &quot; counter(h2toc) &quot;. &quot; counter(h3toc) &quot;. &quot; counter(h4toc) &quot;. &quot; counter(h5toc) &quot;. &quot;
-&#125;
- 
-.md-toc-h5 .md-toc-inner &#123;
-margin-left: 0;
-&#125;
- 
-.md-toc-h6:before &#123;
-color: black;
-counter-increment: h6toc;
-content: counter(h1toc) &quot;. &quot; counter(h2toc) &quot;. &quot; counter(h3toc) &quot;. &quot; counter(h4toc) &quot;. &quot; counter(h5toc) &quot;. &quot; counter(h6toc) &quot;. &quot;
-&#125;
- 
-.md-toc-h6 .md-toc-inner &#123;
-margin-left: 0;
-&#125;
- 
-/**************************************
-* Header Counters in Content
-**************************************/
- 
-/** initialize css counter */
-#write &#123;
-counter-reset: h1
-&#125;
- 
-h1 &#123;
-counter-reset: h2
-&#125;
- 
-h2 &#123;
-counter-reset: h3
-&#125;
- 
-h3 &#123;
-counter-reset: h4
-&#125;
- 
-h4 &#123;
-counter-reset: h5
-&#125;
- 
-h5 &#123;
-counter-reset: h6
-&#125;
- 
-/** put counter result into headings */
-#write h1:before &#123;
-counter-increment: h1;
-content: counter(h1) &quot;. &quot;
-&#125;
- 
-#write h2:before &#123;
-counter-increment: h2;
-content: counter(h1) &quot;.&quot; counter(h2) &quot;. &quot;
-&#125;
- 
-#write h3:before, h3.md-focus.md-heading:before &#123; /*override the default style for focused headings */
-counter-increment: h3;
-content: counter(h1) &quot;.&quot; counter(h2) &quot;.&quot; counter(h3) &quot;. &quot;
-&#125;
- 
-#write h4:before, h4.md-focus.md-heading:before &#123;
-counter-increment: h4;
-content: counter(h1) &quot;.&quot; counter(h2) &quot;.&quot; counter(h3) &quot;.&quot; counter(h4) &quot;. &quot;
-&#125;
- 
-#write h5:before, h5.md-focus.md-heading:before &#123;
-counter-increment: h5;
-content: counter(h1) &quot;.&quot; counter(h2) &quot;.&quot; counter(h3) &quot;.&quot; counter(h4) &quot;.&quot; counter(h5) &quot;. &quot;
-&#125;
- 
-#write h6:before, h6.md-focus.md-heading:before &#123;
-counter-increment: h6;
-content: counter(h1) &quot;.&quot; counter(h2) &quot;.&quot; counter(h3) &quot;.&quot; counter(h4) &quot;.&quot; counter(h5) &quot;.&quot; counter(h6) &quot;. &quot;
-&#125;
- 
-/** override the default style for focused headings */
-#write&gt;h3.md-focus:before, #write&gt;h4.md-focus:before, #write&gt;h5.md-focus:before, #write&gt;h6.md-focus:before, h3.md-focus:before, h4.md-focus:before, h5.md-focus:before, h6.md-focus:before &#123;
-color: inherit;
-border: inherit;
-border-radius: inherit;
-position: inherit;
-left: initial;
-float: none;
-top: initial;
-font-size: inherit;
-padding-left: inherit;
-padding-right: inherit;
-vertical-align: inherit;
-font-weight: inherit;
-line-height: inherit;
-&#125;
- 
-/**************************************
-* Header Counters in sidebar
-**************************************/
-.sidebar-content &#123;
-counter-reset: h1
-&#125;
- 
-.outline-h1 &#123;
-counter-reset: h2
-&#125;
- 
-.outline-h2 &#123;
-counter-reset: h3
-&#125;
- 
-.outline-h3 &#123;
-counter-reset: h4
-&#125;
- 
-.outline-h4 &#123;
-counter-reset: h5
-&#125;
- 
-.outline-h5 &#123;
-counter-reset: h6
-&#125;
- 
-.outline-h1&gt;.outline-item&gt;.outline-label:before &#123;
-counter-increment: h1;
-content: counter(h1) &quot;. &quot;
-&#125;
- 
-.outline-h2&gt;.outline-item&gt;.outline-label:before &#123;
-counter-increment: h2;
-content: counter(h1) &quot;.&quot; counter(h2) &quot;. &quot;
-&#125;
- 
-.outline-h3&gt;.outline-item&gt;.outline-label:before &#123;
-counter-increment: h3;
-content: counter(h1) &quot;.&quot; counter(h2) &quot;.&quot; counter(h3) &quot;. &quot;
-&#125;
- 
-.outline-h4&gt;.outline-item&gt;.outline-label:before &#123;
-counter-increment: h4;
-content: counter(h1) &quot;.&quot; counter(h2) &quot;.&quot; counter(h3) &quot;.&quot; counter(h4) &quot;. &quot;
-&#125;
- 
-.outline-h5&gt;.outline-item&gt;.outline-label:before &#123;
-counter-increment: h5;
-content: counter(h1) &quot;.&quot; counter(h2) &quot;.&quot; counter(h3) &quot;.&quot; counter(h4) &quot;.&quot; counter(h5) &quot;. &quot;
-&#125;
- 
-.outline-h6&gt;.outline-item&gt;.outline-label:before &#123;
-counter-increment: h6;
-content: counter(h1) &quot;.&quot; counter(h2) &quot;.&quot; counter(h3) &quot;.&quot; counter(h4) &quot;.&quot; counter(h5) &quot;.&quot; counter(h6) &quot;. &quot;
-&#125;
+  <h1 id="检查站点文件的-config-yml"><a href="#检查站点文件的-config-yml" class="headerlink" title="检查站点文件的_config.yml"></a>检查站点文件的<code>_config.yml</code></h1><pre><code class="yml"># Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
 </code></pre>
-<h1 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h1><p><strong>参考文章</strong>：<a target="_blank" rel="noopener" href="https://blog.csdn.net/zhongqi2513/article/details/105123345/?utm_medium=distribute.pc_relevant.none-task-blog-title-6">https://blog.csdn.net/zhongqi2513/article/details/105123345/?utm_medium=distribute.pc_relevant.none-task-blog-title-6</a></p>
+<p>观看<code>tag_dir</code> 等文件设置是否正确，只有设置正确，才能被hexo加载</p>
+<h1 id="创建新的页面"><a href="#创建新的页面" class="headerlink" title="创建新的页面"></a>创建新的页面</h1><p>创建新的页面可以在博客的根目录使用命令：<code>hexo new page &#39;&#39;</code> 此时根目录的source文件夹下会相应创建一个文件夹，并且其中包含一个<code>index.md</code>文件（这个过程可以手动创建）；例如，我创建一个tags页面，那么source文件夹下就会出现一个tags文件夹，在tags文件夹下应该有一个<code>index.md</code> </p>
+<h1 id="最关键的一步"><a href="#最关键的一步" class="headerlink" title="最关键的一步"></a>最关键的一步</h1><p>使用命令创建文件夹的话，index.md是没有指定类型的应当是</p>
+<pre><code class="markdown">---
+title: 标签
+date: 2021-07-31 15:28:39
+---
+</code></pre>
+<p>此时需要手动添加tpye与layout</p>
+<p>需要注意的是：type对应的是站点配置文件中的名字tags，layout则是对应的主题的layout文件夹下的ejs类型的文件。例如我的主题文件夹如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731182140.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731182140.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210731182139242"></p>
+<p>明显可以看出我的主题的layout文件下是没有tags.ejs文件的，换成了tag.ejs文件，所以我的主题配置文件如下</p>
+<pre><code class="markdown">---
+type: tags
+layout: tag
+---
+</code></pre>
 
   
   
@@ -740,7 +518,7 @@ content: counter(h1) &quot;.&quot; counter(h2) &quot;.&quot; counter(h3) &quot;.
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-31T17:03:39+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-31T18:23:01+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Jul 31, 2021</p>
@@ -752,7 +530,7 @@ content: counter(h1) &quot;.&quot; counter(h2) &quot;.&quot; counter(h3) &quot;.
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/blog/tags/%E9%9A%8F%E7%AC%94/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>随笔</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/blog/tags/%E9%9A%8F%E7%AC%94/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>随笔</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/blog/tags/hexo/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>hexo</p></a></div>
 
 
         
@@ -762,13 +540,13 @@ content: counter(h1) &quot;.&quot; counter(h2) &quot;.&quot; counter(h3) &quot;.
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>898 words</p>
+      <p>301 words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>5 min</p>
+      <p>1 min</p>
     </a>
   </div>
 
@@ -783,7 +561,7 @@ content: counter(h1) &quot;.&quot; counter(h2) &quot;.&quot; counter(h3) &quot;.
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://code-xiaozhuang.github.io/blog/2021/07/27/%E9%9A%8F%E7%AC%94/typora%E8%AE%BE%E7%BD%AE%E6%A0%87%E9%A2%98%E8%87%AA%E5%8A%A8%E7%BC%96%E5%8F%B7/&title=typora设置自动编号 - 灵魂有香气a&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://code-xiaozhuang.github.io/blog/2021/07/31/%E9%9A%8F%E7%AC%94/hexo%E5%88%86%E7%B1%BB%E4%B8%8D%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/&title=hexo使用主题之后分类不显示 - 灵魂有香气a&summary="
           
           >
           
@@ -795,7 +573,7 @@ content: counter(h1) &quot;.&quot; counter(h2) &quot;.&quot; counter(h3) &quot;.
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://code-xiaozhuang.github.io/blog/2021/07/27/%E9%9A%8F%E7%AC%94/typora%E8%AE%BE%E7%BD%AE%E6%A0%87%E9%A2%98%E8%87%AA%E5%8A%A8%E7%BC%96%E5%8F%B7/&title=typora设置自动编号 - 灵魂有香气a&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://code-xiaozhuang.github.io/blog/2021/07/31/%E9%9A%8F%E7%AC%94/hexo%E5%88%86%E7%B1%BB%E4%B8%8D%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/&title=hexo使用主题之后分类不显示 - 灵魂有香气a&summary="
           
           >
           
@@ -807,7 +585,7 @@ content: counter(h1) &quot;.&quot; counter(h2) &quot;.&quot; counter(h3) &quot;.
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://code-xiaozhuang.github.io/blog/2021/07/27/%E9%9A%8F%E7%AC%94/typora%E8%AE%BE%E7%BD%AE%E6%A0%87%E9%A2%98%E8%87%AA%E5%8A%A8%E7%BC%96%E5%8F%B7/&title=typora设置自动编号 - 灵魂有香气a&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://code-xiaozhuang.github.io/blog/2021/07/31/%E9%9A%8F%E7%AC%94/hexo%E5%88%86%E7%B1%BB%E4%B8%8D%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/&title=hexo使用主题之后分类不显示 - 灵魂有香气a&summary="
           
           >
           
@@ -821,7 +599,7 @@ content: counter(h1) &quot;.&quot; counter(h2) &quot;.&quot; counter(h3) &quot;.
         <div class='hoverbox'>
           <a class='share'><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a>
           <div class='target'>
-            <img src="data:image/png;base64,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">
+            <img src="data:image/png;base64,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">
           </div>
         </div>
       
@@ -845,22 +623,14 @@ content: counter(h1) &quot;.&quot; counter(h2) &quot;.&quot; counter(h3) &quot;.
   
     <div class="prev-next">
       
-        <a class='prev' href='/blog/2021/07/31/%E9%9A%8F%E7%AC%94/hexo%E5%88%86%E7%B1%BB%E4%B8%8D%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>hexo使用主题之后分类不显示</p>
-          <p class='content'>检查站点文件的_config.yml# Directory
-source_dir: source
-public_dir: public
-tag_dir: tags
-archive_dir: ar...</p>
-        </a>
       
-      
-        <a class='next' href='/blog/2021/07/27/05%20Spring/%E5%85%B6%E4%BB%96/Spring%E6%B3%A8%E8%A7%A3/'>
-          <p class='title'>Spring注解<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>注解@JsonProperty
-@JsonProperty 此注解用于属性上，作用是把该属性的名称序列化为另外一个名称，如把trueName属性序列化为name
+        <a class='next' href='/blog/2021/07/27/%E9%9A%8F%E7%AC%94/typora%E8%AE%BE%E7%BD%AE%E6%A0%87%E9%A2%98%E8%87%AA%E5%8A%A8%E7%BC%96%E5%8F%B7/'>
+          <p class='title'>typora设置自动编号<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>找到主题文件文件-&gt;偏好设置-&gt;外观
 
-@JsonProperty(&...</p>
+新建base.user.css文件
+添加代码/**************************************
+* Header ...</p>
         </a>
       
     </div>
@@ -922,7 +692,7 @@ archive_dir: ar...</p>
 <script>
   window.pdata={}
   pdata.ispage=true;
-  pdata.postTitle="typora设置自动编号";
+  pdata.postTitle="hexo使用主题之后分类不显示";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
