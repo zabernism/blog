@@ -354,12 +354,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div id="l_body">
       <div id="l_cover">
   
-    
-        <div id="half" class='cover-wrapper post search' style="display: ;">
-          
-            <div id='cover-backstretch'></div>
-          
-          <div class='cover-body'>
+      
+        
+          <div class="cover-wrapper post search" id='half'>
+            
+              <div id='cover-backstretch'></div>
+            
+            <div class='cover-body'>
   <div class='top'>
     
     
@@ -384,9 +385,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   </div>
 </div>
 
-          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
-        </div>
-    
+          </div>
+        
+      
   
   </div>
 
@@ -482,7 +483,7 @@ date: 2021-07-31 15:28:39
 </code></pre>
 <p>此时需要手动添加tpye与layout</p>
 <p>需要注意的是：type对应的是站点配置文件中的名字tags，layout则是对应的主题的layout文件夹下的ejs类型的文件。例如我的主题文件夹如下：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731182140.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731182140.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210731182139242"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731182140.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731182140.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210731182139242"></p>
 <p>明显可以看出我的主题的layout文件下是没有tags.ejs文件的，换成了tag.ejs文件，所以我的主题配置文件如下</p>
 <pre><code class="markdown">---
 type: tags
@@ -565,7 +566,7 @@ layout: tag
           
           >
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg">
           
         </a>
       
@@ -577,7 +578,7 @@ layout: tag
           
           >
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg">
           
         </a>
       
@@ -589,7 +590,7 @@ layout: tag
           
           >
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg">
           
         </a>
       
@@ -597,7 +598,7 @@ layout: tag
       
         
         <div class='hoverbox'>
-          <a class='share'><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a>
+          <a class='share'><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg"></a>
           <div class='target'>
             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbgAAAG4CAAAAAASoa1vAAAG40lEQVR42u3aQXLjOBAEQP//0977OBxEVzVmx2biJlkiQSR8KJQ+Po0fOT4sATgDnAEOnAHOAPd6uI9wfLngw99P75d+7rvX0/tvz6e9/5frgwMHDhw4cODAgQMHDtzDjb67cfu5dGHS652+v/VcTxs8XW9w4MCBAwcOHDhw4MCBO13Apxu3AXy6sOkCpc87vd/2/cGBAwcOHDhw4MCBAwduG24KOy1E08B8+4BgCggOHDhw4MCBAwcOHDhw/xrcreKxHe1BQfr+jwng4MCBAwcOHDhw4MCB+7FwU4itCW8F5RR+WoC2RXK83uDAgQMHDhw4cODAgQO3FGi97orT4/UGB85rcODAgQMHzmtwr4fbGqfB8mlip8F9K6CnwXtaiK6tMzhw4MCBAwcOHDhw4F4Pl07s9PvTv9/6gezpAp9eZ/oc7Q+LwYEDBw4cOHDgwIEDB+52gJ1ObDsot4DpRp6ux/g64MCBAwcOHDhw4MCBez1cuiDtgrUPcPq9rQ0YB+bwB8XfPi84cODAgQMHDhw4cODALU0wDebT19uQ00I33ZDTjQ4OHDhw4MCBAwcOHDhwT3BtEN4K6G1BOoVKgdMf4Lb/KODAgQMHDhw4cODAgQO39WBbQf002N4K+uNAPAze14tUcODAgQMHDhw4cODA/Xq4NlC2E08L0tvBdyvgtxv8y3XAgQMHDhw4cODAgQP3erg2UG4BbAf70/unYGmhO4UGBw4cOHDgwIEDBw4cuKcidatYnQbl6QbZKnqnBwzpfafPMW7AwYEDBw4cOHDgwIED93q4aSGZBu72vtON0xa+6XNvHXSAAwcOHDhw4MCBAwcOXBqw06C7vZAtWBrA4wBdHkCAAwcOHDhw4MCBAwcO3PaCpgXq9gO3gT4thNPPHRey4MCBAwcOHDhw4MCBA7cUbNvisIVpDwpuFb3pBgAHDhw4cODAgQMHDhy4U7jt4nIaONvvTeFPYW5trLUADg4cOHDgwIEDBw4cuNfApQF2CtA+wBSoLT6nG3AL7nG9wIEDBw4cOHDgwIED93q40wJ0q1Ccgm6DbBWztwvjb68DDhw4cODAgQMHDhw4cGVhOi0YTx94+rnT+bVF6fb36gAODhw4cODAgQMHDhy418GlQXAroLeFajq/Wxtge/3AgQMHDhw4cODAgQMH7gmuDZhT0DRgTwP/VpHaPn9dKIMDBw4cOHDgwIEDB+71cFsB8nShtwrVtgjeCvZbBxjHGwUcOHDgwIEDBw4cOHCvh5sG8Wkg3gZP55seNKTvp+s3LlLBgQMHDhw4cODAgQMHbhig24A8LV7b4nJakLYb5DMcawEcHDhw4MCBAwcOHDhwvw4unfi0UGwLymkx226YthBOAz84cODAgQMHDhw4cODAncKtBcS0ICwLxmlQbzdoWhR/lgMcOHDgwIEDBw4cOHDgtgP0NFBvBeP2h6fpRtxar+PADw4cOHDgwIEDBw4cOHCHgXVagLYLfbqw0wVLA3ZaAG8dTIADBw4cOHDgwIEDBw5cGhin0G1Buv29dN7tRtkqXMGBAwcOHDhw4MCBAwfuVgA9DaIpTLvg6cJvb/S4SAUHDhw4cODAgQMHDtxr4bYKwrQYbANtW9RuHShsFc6P6wcOHDhw4MCBAwcOHLjXw20XfmmQTgPyreJ1CnFa2E7/Ib68Dw4cOHDgwIEDBw4cuNfDpcXi1g9KTwNwuiD1Qi0F7/ZgARw4cODAgQMHDhw4cODS4J3CnsJtBfZ0Aacbug364+cFBw4cOHDgwIEDBw4cuPIHolsT3dogaaDfBkwPNB4PGMCBAwcOHDhw4MCBA/d6uDagTicyLTDbAL+9YVrwtMgFBw4cOHDgwIEDBw4cuDTITn/o2l5vK8hvB//0+vX3wYEDBw4cOHDgwIED93q4tCC9FdinCzctUtvgP92g7QYDBw4cOHDgwIEDBw4cuLZITRcqXfj0/mlx2460WD6ePzhw4MCBAwcOHDhw4MCV4xRiCnMakNMCNj1o+FsHE3EABwcOHDhw4MCBAwcO3K+HuxU020C9BXm7MN3a2McHGODAgQMHDhw4cODAgQM3DKJbgbotOLcCeDuv7QD+uJ7gwIEDBw4cOHDgwIED9z8tVFvItgcItw4Ebh1sgAMHDhw4cODAgQMHDtyt4nIaMKcLePr59kDh9Prp88ffBwcOHDhw4MCBAwcOHLilAD4NoqfBfRr0p8813SDtBj9dj2/vCw4cOHDgwIEDBw4cOHDTL5bF4a0NMw2y6by3itK4OAYHDhw4cODAgQMHDhy45QlM378VdG8DpQcC0wMGcODAgQMHDhw4cODAgfsTzvhZAxw4A5wBDpwBzgD32vEf/dj8eIfq9XQAAAAASUVORK5CYII=">
           </div>
@@ -700,13 +701,6 @@ layout: tag
   
   l_header.classList.remove("show");
   
-  
-    // cover
-    var cover_wrapper=document.querySelector('.cover-wrapper');
-    
-    cover_wrapper.id="half";
-    cover_wrapper.style.display="";
-    
   
 </script>
 
@@ -999,6 +993,198 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 
+  
+  
+
+  <div id="rightmenu-wrapper">
+    <ul class="list-v rightmenu" id="rightmenu-content">
+      <li class='option'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-text' onclick="document.execCommand('copy')"><i class='fa fa-copy fa-fw'></i>Copy Text</a>
+        <hr id='hr-text'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-href'><i class='fa fa-link fa-fw'></i>Copy Link</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-open-href'><i class='fa fa-external-link-square-alt fa-fw'></i>Open Link in New Tab</a>
+        <hr id='hr-href'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-src'><i class='fa fa-image fa-fw'></i>Copy Image Link</a>
+        <hr id='hr-src'>
+      </li>
+      
+        <li class='navigation'>
+          <a class='nav icon-only fix-cursor-default' onclick='history.back()'><i class='fa fa-arrow-left fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' onclick='history.forward()'><i class='fa fa-arrow-right fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' onclick='window.location.reload()'><i class='fa fa-redo fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' href='/'><i class='fa fa-home fa-fw'></i></a>
+        </li>
+      
+      <hr>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          <hr>
+        
+      
+        
+      
+        
+      
+        
+          <hr>
+        
+      
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default toggle-mode-btn' 
+        
+        
+        
+        >
+        <i class='fas fa-moon fa-fw'></i> Dark mode
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+      
+    </ul>
+  </div>
+
+  <script>
+    window.document.oncontextmenu = function (event) {
+      if (event.ctrlKey) return true;
+      if (/Android|webOS|BlackBerry/i.test(navigator.userAgent)) return true;
+      return popMenu(event);
+    };
+    document.addEventListener("click", function (event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      mymenu.style.display = "none";
+    });
+    function popMenu(event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      var menuContent = document.getElementById('rightmenu-content');
+      var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      mymenu.style.left = event.clientX + "px"; // 获取鼠标位置
+      mymenu.style.top = event.clientY + "px";
+      mymenu.style.display = 'block';
+      if (event.clientX * 2 > screenWidth) {
+        menuContent.classList.add('left');
+      } else {
+        menuContent.classList.remove('left');
+      }
+      if (event.clientY * 2 > screenHeight) {
+        menuContent.classList.add('top');
+      } else {
+        menuContent.classList.remove('top');
+      }
+
+      let hrText = document.getElementById('hr-text');
+      let hrSrc = document.getElementById('hr-src');
+      let hrHref = document.getElementById('hr-href');
+
+      // 选中图片
+      let copySrc = document.getElementById('menu-copy-src');
+      if (copySrc != undefined) {
+        if (event.target.currentSrc) {
+          copySrc.style.display = 'block';
+          copySrc.addEventListener("click", function (e) {
+            copyString(event.target.currentSrc);
+          },{once: true});
+          hrSrc.style.display = 'block';
+        } else {
+          copySrc.style.display = 'none';
+          hrSrc.style.display = 'none';
+        }
+      }
+
+      // 选中按钮
+      // 判断是不是按钮
+      let href = '';
+      if (event.path) {
+        for (i = 0; i < event.path.length; i++) {
+          if (event.path[i].href != undefined && event.path[i].href.length > 0) {
+            href = event.path[i].href;
+          }
+        }
+      }
+
+      let copyText = document.getElementById('menu-copy-text');
+      copyText.style.display = 'none';
+      hrText.style.display = 'none';
+      if (href.length == 0) {
+        // 选中文本
+        if (window.getSelection().toString()) {
+          if ('true' == 'true') {
+            copyText.style.display = 'block';
+            hrText.style.display = 'block';
+          }
+        }
+      }
+
+      // 在新标签页打开
+      let openHref = document.getElementById('menu-open-href');
+      if (openHref != undefined) {
+        if (href.length > 0) {
+          openHref.style.display = 'block';
+          openHref.addEventListener("click", function (e) {
+            window.open(href);
+          },{once: true});
+          hrHref.style.display = 'block';
+        } else {
+          openHref.style.display = 'none';
+          hrHref.style.display = 'none';
+        }
+      }
+      // 复制链接
+      let copyHref = document.getElementById('menu-copy-href');
+      if (copyHref != undefined) {
+        if (href.length > 0) {
+          copyHref.style.display = 'block';
+          copyHref.addEventListener("click", function (e) {
+            copyString(href);
+          },{once: true});
+        } else {
+          copyHref.style.display = 'none';
+        }
+      }
+      // 有音乐播放器 see: layout/_third-party/aplayer/script.ejs
+      
+      return false; // 该行代码确保系统自带的右键菜单不会被调出
+    }
+    function hideMenu() {
+      document.getElementById('rightmenu-wrapper').style.display = 'none';
+    }
+    function copyString(str) {
+      const input = document.createElement('input');
+      input.setAttribute('readonly', 'readonly');
+      document.body.appendChild(input);
+      input.setAttribute('value', str);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+    }
+    document.execCommand('click');
+  </script>
+
+
+
 
 <script>
   function loadIssuesJS() {
@@ -1183,7 +1369,7 @@ var loadCSS = function( href, before, media, attributes ){
       path = defaultPath || decodeURI(window.location.pathname);
     }
     var valine = new Valine();
-    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":null,"appKey":null,"meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false}, {
+    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"guoPbSVxNyamQ4PE6FgwlKTi-gzGzoHsz","appKey":"t8qr51J6QUbHNGA5lA54Jodr","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false}, {
       el: '#valine_container',
       path: path,
       placeholder: pagePlaceholder,
@@ -1664,84 +1850,6 @@ document.addEventListener("pjax:success", listennSidebarTOC);
 
 <!-- more -->
 
- 
-	   
-	    
-
-
-<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
-
-
-<script>
-    var pjax;
-    document.addEventListener('DOMContentLoaded', function () {
-      pjax = new Pjax({
-        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
-        selectors: [
-          "title",
-          
-          "#pjax-container",
-          "#pjax-header-nav-list"
-        ],
-        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
-        timeout: 5000
-      });
-    });
-
-    document.addEventListener('pjax:send', function (e) {
-      //window.stop(); // 相当于点击了浏览器的停止按钮
-
-      try {
-        var currentUrl = window.location.pathname;
-        var targetUrl = e.triggerElement.href;
-        var banUrl = [""];
-        if (banUrl[0] != "") {
-          banUrl.forEach(item => {
-            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
-              window.location.href = targetUrl;
-            }
-          });
-        }
-      } catch (error) {}
-
-      window.subData = null; // 移除标题（用于一二级导航栏切换处）
-
-      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
-      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
-      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
-
-      // 解绑事件 避免重复监听
-      volantis.$topBtn.unbind('click');
-      $('.menu a').unbind('click');
-      $(window).unbind('resize');
-      $(window).unbind('scroll');
-      $(document).unbind('scroll');
-      $(document).unbind('click');
-      $('body').unbind('click');
-	  // 使用 volantis.pjax.send 方法传入pjax:send回调函数 参见layout/_partial/scripts/global.ejs
-	  volantis.pjax.method.send.start();
-    });
-
-    document.addEventListener('pjax:complete', function () {
-      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
-      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
-      $('script[data-pjax], .pjax-reload script').each(function () {
-        $(this).parent().append($(this).remove());
-      });
-      try{
-		// 使用 volantis.pjax.push 方法传入重载函数 参见layout/_partial/scripts/global.ejs
-		volantis.pjax.method.complete.start();
-      } catch (e) {
-        console.log(e);
-      }
-    });
-
-    document.addEventListener('pjax:error', function (e) {
-	  // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
-	  volantis.pjax.method.error.start();
-      window.location.href = e.triggerElement.href;
-    });
-</script>
  
 	  
     </div>

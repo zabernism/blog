@@ -354,12 +354,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div id="l_body">
       <div id="l_cover">
   
-    
-        <div id="half" class='cover-wrapper post search' style="display: ;">
-          
-            <div id='cover-backstretch'></div>
-          
-          <div class='cover-body'>
+      
+        
+          <div class="cover-wrapper post search" id='half'>
+            
+              <div id='cover-backstretch'></div>
+            
+            <div class='cover-body'>
   <div class='top'>
     
     
@@ -384,9 +385,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   </div>
 </div>
 
-          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
-        </div>
-    
+          </div>
+        
+      
   
   </div>
 
@@ -548,7 +549,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </li>
 </ul>
 <h4 id="6、TCP、UDP报文格式"><a href="#6、TCP、UDP报文格式" class="headerlink" title="6、TCP、UDP报文格式"></a><strong>6、TCP、UDP报文格式</strong></h4><p>​    <strong>TCP报文格式：</strong></p>
-<p>​        <img src="https://farm1.staticflickr.com/792/27194088468_4cb0141fc8_b.jpg" class="lazyload" data-srcset="https://farm1.staticflickr.com/792/27194088468_4cb0141fc8_b.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" style="zoom: 67%;" /></p>
+<p>​        <img src="https://farm1.staticflickr.com/792/27194088468_4cb0141fc8_b.jpg" class="lazyload placeholder" data-srcset="https://farm1.staticflickr.com/792/27194088468_4cb0141fc8_b.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" style="zoom: 67%;" /></p>
 <p>​    <strong>源端口号和目的端口号</strong>：</p>
 <p>​        用于寻找发端和收端应用进程。这两个值加上ip首部源端ip地址和目的端ip地址唯一确定一个tcp连接。</p>
 <p>​    <strong>序号字段：</strong></p>
@@ -568,7 +569,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>​    <strong>选项</strong>：</p>
 <p>​        最常见的可选字段是最长报文大小，又称为 MSS (Maximum Segment Size)。每个连接方通常都在通信的第一个报文段（为建立连接而设置 S Y N标志的那个段）中指明这个选项。它指明本端所能接收的最大长度的报文段。</p>
 <p>​    <strong>UDP报文格式：</strong></p>
-<p>​    <img src="https://appwk.baidu.com/naapi/doc/view?ih=482&o=png_6_0_0_176_917_504_247_892.979_1262.879&iw=986&ix=0&iy=0&aimw=986&rn=1&doc_id=182d935c3186bceb18e8bb77&pn=1&sign=b88bda03b9954e506622f97b8b2ae438&type=1&app_ver=2.9.8.2&ua=bd_800_800_IncredibleS_2.9.8.2_2.3.7&bid=1&app_ua=IncredibleS&uid=&cuid=&fr=3&Bdi_bear=WIFI&from=3_10000&bduss=&pid=1&screen=800_800&sys_ver=2.3.7" class="lazyload" data-srcset="https://appwk.baidu.com/naapi/doc/view?ih=482&o=png_6_0_0_176_917_504_247_892.979_1262.879&iw=986&ix=0&iy=0&aimw=986&rn=1&doc_id=182d935c3186bceb18e8bb77&pn=1&sign=b88bda03b9954e506622f97b8b2ae438&type=1&app_ver=2.9.8.2&ua=bd_800_800_IncredibleS_2.9.8.2_2.3.7&bid=1&app_ua=IncredibleS&uid=&cuid=&fr=3&Bdi_bear=WIFI&from=3_10000&bduss=&pid=1&screen=800_800&sys_ver=2.3.7" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" style="zoom:50%;" /></p>
+<p>​    <img src="https://appwk.baidu.com/naapi/doc/view?ih=482&o=png_6_0_0_176_917_504_247_892.979_1262.879&iw=986&ix=0&iy=0&aimw=986&rn=1&doc_id=182d935c3186bceb18e8bb77&pn=1&sign=b88bda03b9954e506622f97b8b2ae438&type=1&app_ver=2.9.8.2&ua=bd_800_800_IncredibleS_2.9.8.2_2.3.7&bid=1&app_ua=IncredibleS&uid=&cuid=&fr=3&Bdi_bear=WIFI&from=3_10000&bduss=&pid=1&screen=800_800&sys_ver=2.3.7" class="lazyload placeholder" data-srcset="https://appwk.baidu.com/naapi/doc/view?ih=482&o=png_6_0_0_176_917_504_247_892.979_1262.879&iw=986&ix=0&iy=0&aimw=986&rn=1&doc_id=182d935c3186bceb18e8bb77&pn=1&sign=b88bda03b9954e506622f97b8b2ae438&type=1&app_ver=2.9.8.2&ua=bd_800_800_IncredibleS_2.9.8.2_2.3.7&bid=1&app_ua=IncredibleS&uid=&cuid=&fr=3&Bdi_bear=WIFI&from=3_10000&bduss=&pid=1&screen=800_800&sys_ver=2.3.7" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" style="zoom:50%;" /></p>
 <p>​    <strong>端口号</strong>：</p>
 <p>​        用来表示发送和接受进程。由于 I P层已经把I P数据报分配给T C P或U D P（根据I P首部中协议字段值），因此T C P端口号由T C P来查看，而 U D P端口号由UDP来查看。T C P端口号与UDP端口号是相互独立的。</p>
 <p>​    <strong>长度</strong>：</p>
@@ -576,7 +577,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>​    <strong>检验和</strong>：</p>
 <p>​        UDP检验和是一个端到端的检验和。它由发送端计算，然后由接收端验证。其目的是为了发现UDP首部和数据在发送端到接收端之间发生的任何改动。</p>
 <p>​    <strong>IP报文格式：</strong>普通的IP首部长为20个字节，除非含有可选项字段。</p>
-<p>​                <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1614312792,1954581760&fm=26&gp=0.jpg" class="lazyload" data-srcset="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1614312792,1954581760&fm=26&gp=0.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" style="zoom:67%;" /></p>
+<p>​                <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1614312792,1954581760&fm=26&gp=0.jpg" class="lazyload placeholder" data-srcset="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1614312792,1954581760&fm=26&gp=0.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" style="zoom:67%;" /></p>
 <p>​    <strong>4位版本</strong>：</p>
 <p>​        目前协议版本号是4，因此IP有时也称作IPV4.</p>
 <p>​    <strong>4位首部长度</strong>：</p>
@@ -592,7 +593,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>​    <strong>首部检验和</strong>：</p>
 <p>​        首部检验和字段是根据 I P首部计算的检验和码。它不对首部后面的数据进行计算。 ICMP、IGMP、UDP和TCP在它们各自的首部中均含有同时覆盖首部和数据检验和码。</p>
 <p>​    <strong>以太网报文格式：</strong></p>
-<p><img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2733576797,55677727&fm=26&gp=0.jpg" class="lazyload" data-srcset="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2733576797,55677727&fm=26&gp=0.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p><img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2733576797,55677727&fm=26&gp=0.jpg" class="lazyload placeholder" data-srcset="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2733576797,55677727&fm=26&gp=0.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg"></p>
 <p>​    <strong>目的地址和源地址：</strong></p>
 <p>​        是指网卡的硬件地址（也叫MAC 地址），长度是48 位，是在网卡出厂时固化的。</p>
 <p>​    <strong>数据：</strong></p>
@@ -971,7 +972,7 @@ class LRUCache &#123;
 <li><p><strong>自定义注解</strong> - 注解本身仅仅是起到标记作用，它需要利用反射机制，根据注解标记去调用注解解释器，执行行为。</p>
 </li>
 </ul>
-<h4 id="7、Java异常体系"><a href="#7、Java异常体系" class="headerlink" title="7、Java异常体系"></a><strong>7、Java异常体系</strong></h4><p>​                <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3137389296,1222888772&fm=26&gp=0.jpg" class="lazyload" data-srcset="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3137389296,1222888772&fm=26&gp=0.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" style="zoom:67%;" /></p>
+<h4 id="7、Java异常体系"><a href="#7、Java异常体系" class="headerlink" title="7、Java异常体系"></a><strong>7、Java异常体系</strong></h4><p>​                <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3137389296,1222888772&fm=26&gp=0.jpg" class="lazyload placeholder" data-srcset="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3137389296,1222888772&fm=26&gp=0.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" style="zoom:67%;" /></p>
 <p>Throwable 是 Java 语言中所有错误或异常的超类。下一层分为 Error 和 Exception</p>
 <p><strong>Error ：</strong></p>
 <p>​        是指 java 运行时系统的内部错误和资源耗尽错误。应用程序不会抛出该类对象。如果出现了这样的错误，除了告知用户，剩下的就是尽力使程序安全的终止。</p>
@@ -984,7 +985,7 @@ class LRUCache &#123;
 <p>​     如 NullPointerException 、 ClassCastException ； </p>
 <p><strong>CheckedException：</strong>受检异常，程序使用trycatch进行捕捉处理</p>
 <p>​        如IOException、SQLException、NotFoundException；</p>
-<h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1goe17hajvzj316d0lhju3.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1goe17hajvzj316d0lhju3.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="JavaCollection"></p>
+<h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1goe17hajvzj316d0lhju3.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1goe17hajvzj316d0lhju3.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="JavaCollection"></p>
 <h4 id="1、ArrayList和LinkedList"><a href="#1、ArrayList和LinkedList" class="headerlink" title="1、ArrayList和LinkedList"></a><strong>1、ArrayList和LinkedList</strong></h4><p><strong>ArrayList：</strong></p>
 <p>​        底层基于数组实现，支持对元素进行快速随机访问，适合随机查找和遍历，不适合插入和删除。（提一句实际上）<br>​        默认初始大小为10，当数组容量不够时，会触发扩容机制（扩大到当前的1.5倍），需要将原来数组的数据复制到新的数组中；当从 ArrayList 的中间位置插入或者删除元素时，需要对数组进行复制、移动、代价比较高。</p>
 <p><strong>LinkedList：</strong></p>
@@ -1032,7 +1033,7 @@ while(it.hasNext())&#123;
 <p>​        【1】创建一个长度为原来数组长度<strong>两倍的新数组</strong>。</p>
 <p>​        【2】1.7采用Entry的重新hash运算，1.8采用高于与运算。</p>
 <p><strong>put操作步骤：</strong></p>
-<p>​                <img src="https://s0.lgstatic.com/i/image3/M01/73/D9/CgpOIF5rDYmATP43AAB3coc0R64799.png" class="lazyload" data-srcset="https://s0.lgstatic.com/i/image3/M01/73/D9/CgpOIF5rDYmATP43AAB3coc0R64799.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img" style="zoom:67%;" /></p>
+<p>​                <img src="https://s0.lgstatic.com/i/image3/M01/73/D9/CgpOIF5rDYmATP43AAB3coc0R64799.png" class="lazyload placeholder" data-srcset="https://s0.lgstatic.com/i/image3/M01/73/D9/CgpOIF5rDYmATP43AAB3coc0R64799.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="img" style="zoom:67%;" /></p>
 <p>​    1、判断数组是否为空，为空进行初始化;</p>
 <p>​    2、不为空，则计算 key 的 hash 值，通过(n - 1) &amp; hash计算应当存放在数组中的下标 index;</p>
 <p>​    3、查看 table[index] 是否存在数据，没有数据就构造一个Node节点存放在 table[index] 中；</p>
@@ -1052,7 +1053,7 @@ while(it.hasNext())&#123;
 <h4 id="4、ConcurrentHashMap"><a href="#4、ConcurrentHashMap" class="headerlink" title="**4、ConcurrentHashMap **"></a>**4、ConcurrentHashMap **</h4><p>​        可以通过<strong>ConcurrentHashMap</strong> 和 <strong>Hashtable</strong>来实现线程安全；Hashtable 是原始API类，通过synchronize同步修饰，效率低下；ConcurrentHashMap 通过分段锁实现，效率较比Hashtable要好；</p>
 <p><strong>ConcurrentHashMap的底层实现：</strong></p>
 <p>​        <strong>JDK1.7的 ConcurrentHashMap</strong> 底层采⽤ 分段的数组+链表 实现；采用 <strong>分段锁</strong>（Sagment） 对整个桶数组进⾏了分割分段(Segment默认16个)，每⼀把锁只锁容器其中⼀部分数据，多线程访问容器⾥不同数据段的数据，就不会存在锁竞争，提⾼并发访问率。</p>
-<p><img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1035283471,1167301443&fm=26&gp=0.jpg" class="lazyload" data-srcset="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1035283471,1167301443&fm=26&gp=0.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p><img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1035283471,1167301443&fm=26&gp=0.jpg" class="lazyload placeholder" data-srcset="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1035283471,1167301443&fm=26&gp=0.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg"></p>
 <p>​        <strong>JDK1.8的 ConcurrentHashMap</strong> 采⽤的数据结构跟HashMap1.8的结构⼀样，数组+链表/红⿊树；摒弃了Segment的概念，⽽是直接⽤ Node 数组+链表+红⿊树的数据结构来实现，通过并发控制 <strong>synchronized 和CAS</strong>来操作保证线程的安全。</p>
 <h4 id="5、序列化和反序列化"><a href="#5、序列化和反序列化" class="headerlink" title="5、序列化和反序列化"></a><strong>5、序列化和反序列化</strong></h4><p>​        序列化的意思就是将对象的状态转化成字节流，以后可以通过这些值再生成相同状态的对象。对象序列化是对象持久化的一种实现方法，它是将对象的属性和方法转化为一种序列化的形式用于存储和传输。反序列化就是根据这些保存的信息重建对象的过程。</p>
 <p><strong>序列化：</strong>将java对象转化为字节序列的过程。</p>
@@ -1096,7 +1097,7 @@ while(it.hasNext())&#123;
 <p><strong>clone</strong>           深拷贝，类需实现cloneable的接口</p>
 <p><strong>getClass</strong>     反射获取对象元数据，包括类名、方法、</p>
 <p><strong>notify、wait</strong>   用于线程通知和唤醒</p>
-<h3 id="基本数据类型和包装类"><a href="#基本数据类型和包装类" class="headerlink" title="基本数据类型和包装类"></a>基本数据类型和包装类</h3><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1goe1gq2yipj318s0ruwj4.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1goe1gq2yipj318s0ruwj4.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210309224910999"></p>
+<h3 id="基本数据类型和包装类"><a href="#基本数据类型和包装类" class="headerlink" title="基本数据类型和包装类"></a>基本数据类型和包装类</h3><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1goe1gq2yipj318s0ruwj4.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1goe1gq2yipj318s0ruwj4.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210309224910999"></p>
 <table>
 <thead>
 <tr>
@@ -1118,7 +1119,7 @@ while(it.hasNext())&#123;
 </tr>
 </tbody></table>
 <h1 id="二、JVM篇"><a href="#二、JVM篇" class="headerlink" title="二、JVM篇"></a>二、JVM篇</h1><h3 id="JVM内存划分"><a href="#JVM内存划分" class="headerlink" title="JVM内存划分"></a><strong>JVM内存划分</strong></h3><h4 id="1、JVM运行时数据区域"><a href="#1、JVM运行时数据区域" class="headerlink" title="1、JVM运行时数据区域"></a><strong>1、JVM运行时数据区域</strong></h4><p>​        堆、方法区（元空间）、虚拟机栈、本地方法栈、程序计数器</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gobgnw8m8uj30l10bejs4.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gobgnw8m8uj30l10bejs4.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="xxx"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gobgnw8m8uj30l10bejs4.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gobgnw8m8uj30l10bejs4.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="xxx"></p>
 <p><strong>Heap(堆)：</strong></p>
 <p>​        对象的实例以及数组的内存都是要在堆上进行分配的，堆是线程共享的一块区域，用来存放对象实例，也是垃圾回收（GC）的主要区域；开启逃逸分析后，某些未逃逸的对象可以通过标量替换的方式在栈中分配</p>
 <p>​        堆细分：新生代、老年代，对于新生代又分为：<strong>Eden区</strong>和<strong>Surviver1</strong>和<strong>Surviver2</strong>区；</p>
@@ -1143,7 +1144,7 @@ while(it.hasNext())&#123;
 <p>​        本地方法栈和虚拟机栈类似，不同的是虚拟机栈服务的是Java方法，而<strong>本地方法栈服务的是Native方法</strong>。在HotSpot虚拟机实现中是把本地方法栈和虚拟机栈合二为一的，同理它也会抛出<strong>StackOverflowError</strong>和<strong>OOM</strong>异常。</p>
 <p><strong>PC程序计数器：</strong></p>
 <p>​        PC，指的是存放下一条指令的位置的一个指针。它是一块较小的内存空间，且是<strong>线程私有</strong>的。由于线程的切换，CPU在执行的过程中，需要记住原线程的下一条指令的位置，所以每一个线程都需要有自己的PC。</p>
-<h4 id="2、堆内存分配策略"><a href="#2、堆内存分配策略" class="headerlink" title="2、堆内存分配策略"></a><strong>2、堆内存分配策略</strong></h4><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gobnjl5glvj30l10h9jrt.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gobnjl5glvj30l10h9jrt.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<h4 id="2、堆内存分配策略"><a href="#2、堆内存分配策略" class="headerlink" title="2、堆内存分配策略"></a><strong>2、堆内存分配策略</strong></h4><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gobnjl5glvj30l10h9jrt.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gobnjl5glvj30l10h9jrt.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="img"></p>
 <ul>
 <li><p>对象优先分配在Eden区，如果Eden区没有足够的空间进行分配时，虚拟机执行一次MinorGC。而那些无需回收的存活对象，将会进到 Survivor 的 From 区（From 区内存不足时，直接进入 Old 区）。</p>
 </li>
@@ -1171,7 +1172,7 @@ while(it.hasNext())&#123;
 <p><strong>弱引用</strong>对象相比软引用来说，要更加无用一些，它拥有更短的生命周期，当 JVM 进行垃圾回收时，<strong>无论内存是否充足</strong>，都会回收被弱引用关联的对象。</p>
 <p><strong>虚引用</strong>是一种形同虚设的引用，在现实场景中用的不是很多，它主要用来<strong>跟踪对象被垃圾回收</strong>的活动。</p>
 <h3 id="JVM类加载过程"><a href="#JVM类加载过程" class="headerlink" title="JVM类加载过程"></a><strong>JVM类加载过程</strong></h3><p><strong>过程：加载、验证、准备、解析、初始化</strong></p>
-<img src="https://tva1.sinaimg.cn/large/008eGmZEly1gobnnbem87j30eq0cogmj.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gobnnbem87j30eq0cogmj.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img" style="zoom:50%;" />
+<img src="https://tva1.sinaimg.cn/large/008eGmZEly1gobnnbem87j30eq0cogmj.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gobnnbem87j30eq0cogmj.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="img" style="zoom:50%;" />
 
 <p><strong>加载阶段：</strong></p>
 <p>​        1.通过一个类的全限定名来获取定义此类的二进制字节流。</p>
@@ -1191,7 +1192,7 @@ while(it.hasNext())&#123;
 <p><strong>初始化阶段：</strong></p>
 <p>​        初始化阶段时加载过程的最后一步，而这一阶段也是真正意义上开始执行类中定义的Java程序代码。</p>
 <h4 id="1、双亲委派机制"><a href="#1、双亲委派机制" class="headerlink" title="1、双亲委派机制"></a><strong>1、双亲委派机制</strong></h4><p>​        每⼀个类都有⼀个对应它的类加载器。系统中的 ClassLoder 在协同⼯作的时候会默认使⽤ 双亲委派模型 。即在类加载的时候，系统会⾸先判断当前类是否被加载过。已经被加载的类会直接返回，否则才会尝试加载。加载的时候，⾸先会把该请求委派该⽗类加载器的  loadClass() 处理，因此所有的请求最终都应该传送到顶层的启动类加载器  BootstrapClassLoader 中。当⽗类加载器⽆法处理时，才由⾃⼰来处理。当⽗类加载器为null时，会使⽤启动类加载器  BootstrapClassLoader 作为⽗类加载器。</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gobn5lh4f6j30hk08rjso.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gobn5lh4f6j30hk08rjso.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gobn5lh4f6j30hk08rjso.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gobn5lh4f6j30hk08rjso.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="img"></p>
 <p><strong>使用好处：</strong></p>
 <p>​        此机制保证JDK核心类的优先加载；使得Java程序的稳定运⾏，可以避免类的重复加载，也保证了 Java 的核⼼ API 不被篡改。如果不⽤没有使⽤双亲委派模型，⽽是每个类加载器加载⾃⼰的话就会出现⼀些问题，⽐如我们编写⼀个称为  java.lang.Object 类的话，那么程序运⾏的时候，系统就会出现多个不同的Object 类。</p>
 <p><strong>破坏双亲委派机制：</strong></p>
@@ -1236,7 +1237,7 @@ while(it.hasNext())&#123;
 <p>​        新生代采用复制算法，新生代每次垃圾回收都要回收大部分对象，存活对象较少，即要复制的操作比较少，一般将新生代划分为一块较大的 Eden 空间和两个较小的 Survivor 空间(From Space, To Space)，每次使用Eden 空间和其中的一块 Survivor 空间，当进行回收时，将该两块空间中还存活的对象复制到另一块 Survivor 空间中。</p>
 <p>​        老年代的对象存活⼏率是⽐较⾼的，⽽且没有额外的空间对它进⾏分配担保，所以我们必须选择“标记-清除”或“标记-整理”算法进⾏垃圾收集。</p>
 <p><strong>Safepoint</strong> 当发生 GC 时，用户线程必须全部停下来，才可以进行垃圾回收，这个状态我们可以认为 JVM 是安全的（safe），整个堆的状态是稳定的。如果在 GC 前，有线程迟迟进入不了 safepoint，那么整个 JVM 都在等待这个阻塞的线程，造成了整体 GC 的时间变长</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gobnmip32vj30l109q0t3.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gobnmip32vj30l109q0t3.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gobnmip32vj30l109q0t3.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gobnmip32vj30l109q0t3.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="img"></p>
 <h5 id="MinorGC、MajorGC、FullGC"><a href="#MinorGC、MajorGC、FullGC" class="headerlink" title="MinorGC、MajorGC、FullGC"></a><strong>MinorGC、MajorGC、FullGC</strong></h5><p><strong>MinorGC</strong> 在年轻代空间不足的时候发生，</p>
 <p><strong>MajorGC</strong> 指的是老年代的 GC，出现 MajorGC 一般经常伴有 MinorGC。</p>
 <p><strong>FullGC</strong> 1、当老年代无法再分配内存的时候；2、元空间不足的时候；3、显示调用 System.gc 的时候。另外，像 CMS 一类的垃圾回收器，在 MinorGC 出现 promotion failure 的时候也会发生 FullGC。</p>
@@ -1245,7 +1246,7 @@ while(it.hasNext())&#123;
 <p><strong>长期存活的对象进入老年代</strong><br>    虚拟机给每个对象定义了年龄计数器，对象在 Eden 区出生之后，如果经过一次 Minor GC 之后，将进入 Survivor 区，同时对象年龄变为 1，增加到一定阈值时则进入老年代（阈值默认为 15）</p>
 <p><strong>动态对象年龄判定</strong><br>    为了能更好地适应不同程序的内存状况，虚拟机并不总是要求对象的年龄必须达到阈值才能进入老年代。如果在 Survivor 区中相同年龄的所有对象的空间总和大于 Survivor 区空间的一半，则年龄大于或等于该年龄的对象直接进入老年代。</p>
 <p><strong>空间分配担保</strong><br>    在发生 Minor GC 之前，虚拟机会先检查老年代最大可用的连续空间是否大于新生代所有对象的空间总和，如果这个条件成立，那么 Minor GC 可以确保是安全的。如果不成立则进行 Full GC。</p>
-<h4 id="3、垃圾收集器"><a href="#3、垃圾收集器" class="headerlink" title="3、垃圾收集器"></a><strong>3、垃圾收集器</strong></h4><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gobnjx3zcej30l10ctaat.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gobnjx3zcej30l10ctaat.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<h4 id="3、垃圾收集器"><a href="#3、垃圾收集器" class="headerlink" title="3、垃圾收集器"></a><strong>3、垃圾收集器</strong></h4><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gobnjx3zcej30l10ctaat.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gobnjx3zcej30l10ctaat.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="img"></p>
 <p>​    <strong>JDK3：Serial Parnew 关注效率</strong></p>
 <p><strong>Serial：</strong></p>
 <p>​        Serial 是一个单线程的收集器，它不但只会使用一个 CPU 或一条线程去完成垃圾收集工作，并且在进行垃圾收集的同时，必须暂停其他所有的工作线程，直到垃圾收集结束。适合用于客户端垃圾收集器。</p>
@@ -1369,7 +1370,7 @@ IntStream.iterate(1, i -&gt; i &lt; 100, i -&gt; i + 1).forEach(System.out::prin
 <p>就是把你的这台机器从请求列表里摘除，比如把 nginx 相关的权重设成零。</p>
 <p><strong>现场保留</strong></p>
 <p><strong>瞬时态和历史态</strong></p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gobnwy22d2j30l10cpt9d.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gobnwy22d2j30l10cpt9d.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gobnwy22d2j30l10cpt9d.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gobnwy22d2j30l10cpt9d.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="img"></p>
 <p>查看比如 CPU、系统内存等，通过历史状态可以体现一个趋势性问题，而这些信息的获取一般依靠监控系统的协作。           </p>
 <p><strong>保留信息</strong></p>
 <p>（1）<strong>系统当前网络连接</strong></p>
@@ -1468,7 +1469,7 @@ jhsdb jmap  --binaryheap --pid  37340
 <p>3、限制报表导入文件大小，同时拆分用户超大范围查询导出请求。</p>
 <p>每一步操作都使得JVM使用变得更加可用，一系列优化以后，机器相同压测数据性能提升了数倍。</p>
 <h4 id="3、大屏异常-JUC调优"><a href="#3、大屏异常-JUC调优" class="headerlink" title="3、大屏异常 | JUC调优"></a>3、大屏异常 | JUC调优</h4><p>有些数据需要使用 HttpClient 来获取进行补全。提供数据的服务提供商有的响应时间可能会很长，也有可能会造成服务整体的阻塞。</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gobr4whjzwj30l1058dfx.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gobr4whjzwj30l1058dfx.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gobr4whjzwj30l1058dfx.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gobr4whjzwj30l1058dfx.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="img"></p>
 <p>接口 A 通过 HttpClient 访问服务 2，响应 100ms 后返回；接口 B 访问服务 3，耗时 2 秒。HttpClient 本身是有一个最大连接数限制的，如果服务 3 迟迟不返回，就会造成 HttpClient 的连接数达到上限，<strong>概括来讲，就是同一服务，由于一个耗时非常长的接口，进而引起了整体的服务不可用</strong></p>
 <p>这个时候，通过 jstack 打印栈信息，会发现大多数竟然阻塞在了接口 A 上，而不是耗时更长的接口 B，这个现象起初十分具有迷惑性，不过经过分析后，我们猜想其实是因为接口 A 的速度比较快，在问题发生点进入了更多的请求，它们全部都阻塞住的同时被打印出来了。</p>
 <p>为了验证这个问题，我搭建了一个demo 工程，模拟了两个使用同一个 HttpClient 的接口。fast 接口用来访问百度，很快就能返回；slow 接口访问谷歌，由于众所周知的原因，会阻塞直到超时，大约 10 s。 利用ab对两个接口进行压测，同时使用 jstack 工具 dump 堆栈。首先使用 jps 命令找到进程号，然后把结果重定向到文件（可以参考 10271.jstack 文件）。</p>
@@ -1538,7 +1539,7 @@ public static void main(String[] args) &#123;
 <p>可以看到问题发生的根源，是我们的堆已经满了，但是又没有发生 OOM，于是 GC 进程就一直在那里回收，回收的效果又非常一般，造成 CPU 升高应用假死。接下来的具体问题排查，就需要把内存 dump 一份下来，使用 MAT 等工具分析具体原因了。</p>
 <h1 id="三、多线程篇"><a href="#三、多线程篇" class="headerlink" title="三、多线程篇"></a>三、多线程篇</h1><h3 id="线程调度"><a href="#线程调度" class="headerlink" title="线程调度"></a>线程调度</h3><h4 id="1、线程状态"><a href="#1、线程状态" class="headerlink" title="1、线程状态"></a><strong>1、线程状态</strong></h4><p>​        线程是cpu任务调度的最小执行单位，每个线程拥有自己独立的程序计数器、虚拟机栈、本地方法栈</p>
 <p><strong>线程状态：创建、就绪、运行、阻塞、死亡</strong></p>
-<img src="https://s0.lgstatic.com/i/image3/M01/77/29/Cgq2xl5xxGKAKBpeAAEw9Ifr07Y662.png" class="lazyload" data-srcset="https://s0.lgstatic.com/i/image3/M01/77/29/Cgq2xl5xxGKAKBpeAAEw9Ifr07Y662.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img" style="zoom: 40%;" />
+<img src="https://s0.lgstatic.com/i/image3/M01/77/29/Cgq2xl5xxGKAKBpeAAEw9Ifr07Y662.png" class="lazyload placeholder" data-srcset="https://s0.lgstatic.com/i/image3/M01/77/29/Cgq2xl5xxGKAKBpeAAEw9Ifr07Y662.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="img" style="zoom: 40%;" />
 
 
 
@@ -1591,7 +1592,7 @@ public static void main(String[] args) &#123;
 <td>用线程对象调用</td>
 </tr>
 </tbody></table>
-<img src="https://s0.lgstatic.com/i/image/M00/80/24/Ciqc1F_Qfy2ACkrLAAD2DLkc2qw212.png" class="lazyload" data-srcset="https://s0.lgstatic.com/i/image/M00/80/24/Ciqc1F_Qfy2ACkrLAAD2DLkc2qw212.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img" style="zoom:67%;" />
+<img src="https://s0.lgstatic.com/i/image/M00/80/24/Ciqc1F_Qfy2ACkrLAAD2DLkc2qw212.png" class="lazyload placeholder" data-srcset="https://s0.lgstatic.com/i/image/M00/80/24/Ciqc1F_Qfy2ACkrLAAD2DLkc2qw212.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="img" style="zoom:67%;" />
 
 <h4 id="3、阻塞唤醒过程"><a href="#3、阻塞唤醒过程" class="headerlink" title="3、阻塞唤醒过程"></a><strong>3、阻塞唤醒过程</strong></h4><p><strong>阻塞：</strong></p>
 <p>​        这三个方法的调用都会使当前线程阻塞。该线程将会被放置到对该Object的请求等待队列中，然后让出当前对Object所拥有的所有的同步请求。线程会一直暂停所有线程调度，直到下面其中一种情况发生：</p>
@@ -1689,7 +1690,7 @@ public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTim
 <td>拒绝策略。当提交任务数超过 maxmumPoolSize+workQueue 之和时，任务会交给RejectedExecutionHandler 来处理</td>
 </tr>
 </tbody></table>
-<h4 id="2、线程处理任务过程："><a href="#2、线程处理任务过程：" class="headerlink" title="2、线程处理任务过程："></a><strong>2、线程处理任务过程：</strong></h4><img src="https://s0.lgstatic.com/i/image3/M01/78/50/Cgq2xl5zjxGAXOA-AABF0Dv8GMI518.png" class="lazyload" data-srcset="https://s0.lgstatic.com/i/image3/M01/78/50/Cgq2xl5zjxGAXOA-AABF0Dv8GMI518.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img" style="zoom: 67%;" />
+<h4 id="2、线程处理任务过程："><a href="#2、线程处理任务过程：" class="headerlink" title="2、线程处理任务过程："></a><strong>2、线程处理任务过程：</strong></h4><img src="https://s0.lgstatic.com/i/image3/M01/78/50/Cgq2xl5zjxGAXOA-AABF0Dv8GMI518.png" class="lazyload placeholder" data-srcset="https://s0.lgstatic.com/i/image3/M01/78/50/Cgq2xl5zjxGAXOA-AABF0Dv8GMI518.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="img" style="zoom: 67%;" />
 
 <ol>
 <li>当线程池小于corePoolSize，新提交任务将创建一个新线程执行任务，即使此时线程池中存在空闲线程。</li>
@@ -1705,7 +1706,7 @@ public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTim
 <p>​                不会造成任务丢失，同时减缓提交任务的速度，给执行任务缓冲时间。</p>
 <p>​        <strong>DiscardOldestPolicy ：</strong>丢弃最老的一个请求，也就是即将被执行的任务，并尝试再次提交当前任务。</p>
 <p>​        <strong>DiscardPolicy ：</strong>该策略默默地丢弃无法处理的任务，不予任何处理。如果允许任务丢失，这是最好的一种方案。</p>
-<h4 id="4、Execuors类实现线程池"><a href="#4、Execuors类实现线程池" class="headerlink" title="4、Execuors类实现线程池"></a><strong>4、Execuors类实现线程池</strong></h4><img src="https://s0.lgstatic.com/i/image3/M01/63/5A/CgpOIF4z1EiAFjNQAAAtVe5xjgQ999.png" class="lazyload" data-srcset="https://s0.lgstatic.com/i/image3/M01/63/5A/CgpOIF4z1EiAFjNQAAAtVe5xjgQ999.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img" style="zoom: 50%;" />
+<h4 id="4、Execuors类实现线程池"><a href="#4、Execuors类实现线程池" class="headerlink" title="4、Execuors类实现线程池"></a><strong>4、Execuors类实现线程池</strong></h4><img src="https://s0.lgstatic.com/i/image3/M01/63/5A/CgpOIF4z1EiAFjNQAAAtVe5xjgQ999.png" class="lazyload placeholder" data-srcset="https://s0.lgstatic.com/i/image3/M01/63/5A/CgpOIF4z1EiAFjNQAAAtVe5xjgQ999.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="img" style="zoom: 50%;" />
 
 <ul>
 <li><strong>newSingleThreadExecutor()：</strong>只有一个线程的线程池，任务是顺序执行，适用于一个一个任务执行的场景</li>
@@ -1714,7 +1715,7 @@ public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTim
 <li><strong>newScheduledThreadPool()：</strong>用来调度即将执行的任务的线程池</li>
 <li>**newWorkStealingPool()**：底层采用forkjoin的Deque，采用独立的任务队列可以减少竞争同时加快任务处理</li>
 <li></li>
-<li><img src="https://s0.lgstatic.com/i/image2/M01/AF/80/CgoB5l3kzomAckv5AAAxf6FCPco696.png" class="lazyload" data-srcset="https://s0.lgstatic.com/i/image2/M01/AF/80/CgoB5l3kzomAckv5AAAxf6FCPco696.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img" style="zoom:50%;" /></li>
+<li><img src="https://s0.lgstatic.com/i/image2/M01/AF/80/CgoB5l3kzomAckv5AAAxf6FCPco696.png" class="lazyload placeholder" data-srcset="https://s0.lgstatic.com/i/image2/M01/AF/80/CgoB5l3kzomAckv5AAAxf6FCPco696.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="img" style="zoom:50%;" /></li>
 </ul>
 <p><strong>因为以上方式都存在弊端：</strong></p>
 <p>​        FixedThreadPool 和 SingleThreadExecutor ： 允许请求的<strong>队列⻓度</strong>为 Integer.MAX_VALUE，会导致OOM。<br>​        CachedThreadPool 和 ScheduledThreadPool ： 允许创建的<strong>线程数量</strong>为 Integer.MAX_VALUE，会导致OOM。</p>
@@ -1769,7 +1770,7 @@ public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTim
 <p>​        多个线程去获取锁的时候，会直接去尝试获取，获取不到，再去进入等待队列，如果能获取到，就直接获取到锁。</p>
 <p>​        <strong>优点：</strong>可以减少CPU唤醒线程的开销，整体的吞吐效率会高点，CPU也不必取唤醒所有线程，会减少唤起线程的数量。</p>
 <p>​        <strong>缺点：</strong>你们可能也发现了，这样可能导致队列中间的线程一直获取不到锁或者长时间获取不到锁</p>
-<img src="https://s0.lgstatic.com/i/image3/M01/02/7D/Ciqah157DAiAK_DJAAC0JawhGp4730.png" class="lazyload" data-srcset="https://s0.lgstatic.com/i/image3/M01/02/7D/Ciqah157DAiAK_DJAAC0JawhGp4730.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img" style="zoom:67%;" />
+<img src="https://s0.lgstatic.com/i/image3/M01/02/7D/Ciqah157DAiAK_DJAAC0JawhGp4730.png" class="lazyload placeholder" data-srcset="https://s0.lgstatic.com/i/image3/M01/02/7D/Ciqah157DAiAK_DJAAC0JawhGp4730.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="img" style="zoom:67%;" />
 
 <p><strong>公平锁效率低原因：</strong></p>
 <p>​        公平锁要维护一个队列，后来的线程要加锁，即使锁空闲，也要先检查有没有其他线程在 wait，如果有自己要挂起，加到队列后面，然后唤醒队列最前面线程。这种情况下相比较非公平锁多了一次<strong>挂起和唤醒</strong>。</p>
@@ -1813,7 +1814,7 @@ public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTim
 <p><strong>ThreadLocal内存泄漏的场景</strong> </p>
 <p>​        实际上 ThreadLocalMap 中使用的 key 为 ThreadLocal 的弱引用，⽽ value 是强引⽤。弱引用的特点是，如果这个对象持有弱引用，那么在下一次垃圾回收的时候必然会被清理掉。</p>
 <p>​        所以如果 ThreadLocal 没有被外部强引用的情况下，在垃圾回收的时候会被清理掉的，这样一来 ThreadLocalMap中使用这个 ThreadLocal 的 key 也会被清理掉。但是，value 是强引用，不会被清理，这样一来就会出现 key 为 null 的 value。 假如我们不做任何措施的话，value 永远⽆法被GC 回收，如果线程长时间不被销毁，可能会产⽣内存泄露。</p>
-<img src="https://s0.lgstatic.com/i/image3/M01/68/C4/Cgq2xl5Pld-AHFhJAADLtGXmSxc833.png" class="lazyload" data-srcset="https://s0.lgstatic.com/i/image3/M01/68/C4/Cgq2xl5Pld-AHFhJAADLtGXmSxc833.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img" style="zoom:67%;" />
+<img src="https://s0.lgstatic.com/i/image3/M01/68/C4/Cgq2xl5Pld-AHFhJAADLtGXmSxc833.png" class="lazyload placeholder" data-srcset="https://s0.lgstatic.com/i/image3/M01/68/C4/Cgq2xl5Pld-AHFhJAADLtGXmSxc833.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="img" style="zoom:67%;" />
 
 <p>​        ThreadLocalMap实现中已经考虑了这种情况，在调用 set()、get()、remove() 方法的时候，会清理掉 key 为 null 的记录。如果说会出现内存泄漏，那只有在出现了 key 为 null 的记录后，没有手动调用 remove() 方法，并且之后也不再调用 get()、set()、remove() 方法的情况下。因此使⽤完ThreadLocal ⽅法后，<strong>最好⼿动调⽤ remove() ⽅法</strong>。</p>
 <h4 id="8、HashMap线程安全"><a href="#8、HashMap线程安全" class="headerlink" title="8、HashMap线程安全"></a><strong>8、HashMap线程安全</strong></h4><p>​    <strong>死循环造成 CPU 100%</strong></p>
@@ -1830,7 +1831,7 @@ public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTim
 </li>
 </ol>
 <h3 id="内存模型"><a href="#内存模型" class="headerlink" title="内存模型"></a>内存模型</h3><p>​        Java 内存模型（Java Memory Model，JMM）就是一种符合内存模型规范的，屏蔽了各种硬件和操作系统的访问差异的，保证了 Java 程序在各种平台下对内存的访问都能保证效果一致的机制及规范。</p>
-<p><img src="https://s0.lgstatic.com/i/image3/M01/7A/05/Cgq2xl54fTKALhevAAB_l3axT_o532.png" class="lazyload" data-srcset="https://s0.lgstatic.com/i/image3/M01/7A/05/Cgq2xl54fTKALhevAAB_l3axT_o532.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<p><img src="https://s0.lgstatic.com/i/image3/M01/7A/05/Cgq2xl54fTKALhevAAB_l3axT_o532.png" class="lazyload placeholder" data-srcset="https://s0.lgstatic.com/i/image3/M01/7A/05/Cgq2xl54fTKALhevAAB_l3axT_o532.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="img"></p>
 <p>​        JMM 是一种规范，是解决由于多线程通过共享内存进行通信时，存在的本地内存数据不一致、编译器会对代码指令重排序、处理器会对代码乱序执行等带来的问题。目的是保证并发编程场景中的原子性、可见性和有序性。</p>
 <p><strong>原子性：</strong></p>
 <p>​        在 Java 中，为了保证原子性，提供了两个高级的字节码指令 Monitorenter 和 Monitorexit。这两个字节码，在 Java 中对应的关键字就是 Synchronized。因此，在 Java 中可以使用 Synchronized 来保证方法和代码块内的操作是原子性的。</p>
@@ -1932,7 +1933,7 @@ public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTim
 </tr>
 </tbody></table>
 <p>​    Aerospike作为一个大容量的NoSql解决方案，适合对<strong>容量要求比较大，QPS相对低</strong>一些的场景，主要用在广告行业，<strong>个性化推荐厂告</strong>是建立在了和掌握消费者独特的偏好和习性的基础之上，对消费者的购买需求做出准确的预测或引导，在合适的位置、合适的时间，以合适的形式向消费者呈现与其需求高度吻合的广告，以此来促进用户的消费行为。</p>
-<img src="https://tva1.sinaimg.cn/large/0081Kckwly1gmam43b44bj30d90d4aa7.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1gmam43b44bj30d90d4aa7.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210103170039711" style="zoom:50%;" />
+<img src="https://tva1.sinaimg.cn/large/0081Kckwly1gmam43b44bj30d90d4aa7.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1gmam43b44bj30d90d4aa7.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210103170039711" style="zoom:50%;" />
 
 <p>​    （ETL数据仓库技术）抽取（extract）、转换（transform）、加载（load）</p>
 <ul>
@@ -1987,7 +1988,7 @@ public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTim
 <p>互联网、大数据的背景下，谷歌、百度、搜狗等搜索引擎纷纷基于该背景，创建自己的知识图<strong>Knowledge Graph（谷歌</strong>）、<strong>知心（百度）</strong>和<strong>知立方（搜狗）</strong>，主要用于改进搜索质量。</p>
 <p>自己项目主要用作好友推荐，图数据库(Graph database)指的是以图数据结构的形式来存储和查询数据的数据库。关系图谱中，关系的组织形式采用的就是图结构，所以非常适合用图库进行存储。</p>
 <ul>
-<li><p><img src="https://tva1.sinaimg.cn/large/0081Kckwly1gmaq0j9otdj30pz0en0vm.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1gmaq0j9otdj30pz0en0vm.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210103191540372"></p>
+<li><p><img src="https://tva1.sinaimg.cn/large/0081Kckwly1gmaq0j9otdj30pz0en0vm.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1gmaq0j9otdj30pz0en0vm.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210103191540372"></p>
 <p>优势总结:</p>
 </li>
 <li><p>性能上，使用cql查询，对长程关系的查询速度快</p>
@@ -1995,7 +1996,7 @@ public ThreadPoolExecutor(int corePoolSize,int maximumPoolSize,long keepAliveTim
 <li><p>擅于发现隐藏的关系，例如通过判断图上两点之间有没有走的通的路径，就可以发现事物间的关联</p>
 </li>
 </ul>
-<p><img src="https://tva1.sinaimg.cn/large/0081Kckwly1gmaqc75y6bj30wc0d60u4.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1gmaqc75y6bj30wc0d60u4.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210103192653004"></p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwly1gmaqc75y6bj30wc0d60u4.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1gmaqc75y6bj30wc0d60u4.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210103192653004"></p>
 <pre><code class="java">// 查询三层级关系节点如下：with可以将前面查询结果作为后面查询条件
 match (na:Person)-[re]-(nb:Person) where na.name=&quot;林婉儿&quot; WITH na,re,nb match (nb:Person)- [re2:Friends]-&gt;(nc:Person) return na,re,nb,re2,nc
 // 直接拼接关系节点查询
@@ -2007,7 +2008,7 @@ match data=(na:Person&#123;name:&quot;范闲&quot;&#125;)-[*1..2]-(nb:Person) re
 <h4 id="文档MongoDB"><a href="#文档MongoDB" class="headerlink" title="文档MongoDB"></a><strong>文档MongoDB</strong></h4><blockquote>
 <p>MongoDB 是一个基于分布式文件存储的数据库，是非关系数据库中功能最丰富、最像关系数据库的。在高负载的情况下，通过添加更多的节点，可以保证服务器性能。由 C++ 编写，可以为 WEB 应用提供可扩展、高性能、易部署的数据存储解决方案。</p>
 </blockquote>
-<img src="https://tva1.sinaimg.cn/large/0081Kckwly1gmaqyp75qsj312q0i8q5f.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1gmaqyp75qsj312q0i8q5f.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210103194830654" style="zoom:80%;" />
+<img src="https://tva1.sinaimg.cn/large/0081Kckwly1gmaqyp75qsj312q0i8q5f.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1gmaqyp75qsj312q0i8q5f.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210103194830654" style="zoom:80%;" />
 
 <p><strong>什么是BSON</strong></p>
 <blockquote>
@@ -2085,7 +2086,7 @@ db.collection.remove(&#123;where&#125;, &#123;justOne: &lt;boolean&gt;, writeCon
 <p><strong>扩展能力:</strong> 支持水平扩展，可以动态扩容；</p>
 <p><strong>高可用性:</strong> 一是整个文件系统的可用性，二是数据的完整和一致性；</p>
 <p><strong>弹性存储:</strong> 可以根据业务需要灵活地增删存储池中的资源，而不需要中断系统运行。</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmfhjkvo59j30zu0b4dib.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gmfhjkvo59j30zu0b4dib.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210107221022658"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmfhjkvo59j30zu0b4dib.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gmfhjkvo59j30zu0b4dib.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210107221022658"></p>
 <p>特性</p>
 <ul>
 <li>和流行的web server无缝衔接，FastDFS已提供apache和nginx扩展模块</li>
@@ -2111,10 +2112,10 @@ db.collection.remove(&#123;where&#125;, &#123;justOne: &lt;boolean&gt;, writeCon
 </li>
 </ul>
 <p><strong>上传</strong></p>
-<img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmfhvk0wwzj30ue0h4dlw.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gmfhvk0wwzj30ue0h4dlw.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210107222155291" style="zoom:50%;" />
+<img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmfhvk0wwzj30ue0h4dlw.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gmfhvk0wwzj30ue0h4dlw.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210107222155291" style="zoom:50%;" />
 
 <p><strong>下载</strong></p>
-<img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmfhww8zmfj30uw0g6n37.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gmfhww8zmfj30uw0g6n37.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210107222312338" style="zoom:50%;" />
+<img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmfhww8zmfj30uw0g6n37.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gmfhww8zmfj30uw0g6n37.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210107222312338" style="zoom:50%;" />
 
 <p><strong>断点续传</strong></p>
 <p>​    续传涉及到的文件大小MD5不会改变。续传流程与文件上传类似，先<strong>定位到源storage</strong>，完成完整或部分上传，再<strong>通过binlog进行同group内server文件同步</strong>。</p>
@@ -2309,7 +2310,7 @@ INDEX和KEY:用于指定字段为索引，两者选择其中之一就可以了�
 <h3 id="SQL查询"><a href="#SQL查询" class="headerlink" title="SQL查询"></a>SQL查询</h3><h4 id="1、SQL语句的执行过程"><a href="#1、SQL语句的执行过程" class="headerlink" title="1、SQL语句的执行过程"></a><strong>1、SQL语句的执行过程</strong></h4><p><strong>查询语句：</strong></p>
 <pre><code class="mysql">select * from student  A where A.age=&#39;18&#39; and A.name=&#39;张三&#39;;
 </code></pre>
-<img src="http://s0.lgstatic.com/i/image2/M01/8B/0F/CgotOV14ySKAMxohAAH2VHcAzkE612.png" class="lazyload" data-srcset="http://s0.lgstatic.com/i/image2/M01/8B/0F/CgotOV14ySKAMxohAAH2VHcAzkE612.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img" style="zoom: 67%;" />
+<img src="http://s0.lgstatic.com/i/image2/M01/8B/0F/CgotOV14ySKAMxohAAH2VHcAzkE612.png" class="lazyload placeholder" data-srcset="http://s0.lgstatic.com/i/image2/M01/8B/0F/CgotOV14ySKAMxohAAH2VHcAzkE612.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="img" style="zoom: 67%;" />
 
 <p>结合上面的说明，我们分析下这个语句的执行流程：</p>
 <p>①通过客户端/服务器通信协议与 MySQL 建立连接。并查询是否有权限</p>
@@ -2363,7 +2364,7 @@ select * from mytbl inner ori join (select id from mytbl order by id limit 10000
 <p>​    ③第三范式（3NF）属性不依赖于其它非主属性 [ 消除传递依赖 ]</p>
 <p><strong>配置优化：</strong></p>
 <p>​    配置连接数、禁用Swap、增加内存、升级SSD硬盘</p>
-<h4 id="4、JOIN查询"><a href="#4、JOIN查询" class="headerlink" title="4、JOIN查询"></a>4、JOIN查询</h4><img src="https://image-static.segmentfault.com/276/780/2767807589-5c122586a23c4_articlex" class="lazyload" data-srcset="https://image-static.segmentfault.com/276/780/2767807589-5c122586a23c4_articlex" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" style="align:left;zoom: 60%;" />
+<h4 id="4、JOIN查询"><a href="#4、JOIN查询" class="headerlink" title="4、JOIN查询"></a>4、JOIN查询</h4><img src="https://image-static.segmentfault.com/276/780/2767807589-5c122586a23c4_articlex" class="lazyload placeholder" data-srcset="https://image-static.segmentfault.com/276/780/2767807589-5c122586a23c4_articlex" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" style="align:left;zoom: 60%;" />
 
 <p><strong>left join(左联接)</strong> 返回包括左表中的所有记录和右表中关联字段相等的记录 </p>
 <p><strong>right join(右联接)</strong> 返回包括右表中的所有记录和左表中关联字段相等的记录</p>
@@ -2391,10 +2392,10 @@ select * from mytbl inner ori join (select id from mytbl order by id limit 10000
 <p>​        指当主库执行完一个事务，所有的从库都执行了该事务才返回给客户端。因为需要等待所有从库执行完该事务才能返回，所以全同步复制的<strong>性能必然会收到严重的影响</strong>。</p>
 <h4 id="3、集群架构"><a href="#3、集群架构" class="headerlink" title="3、集群架构"></a>3、集群架构</h4><p> <strong>Keepalived + VIP + MySQL 主从/双主</strong></p>
 <p>​        当写节点 Master db1 出现故障时，由 MMM Monitor 或 Keepalived 触发切换脚本，将 VIP 漂移到可用的 Master db2 上。当出现网络抖动或网络分区时，MMM Monitor 会误判，严重时来回切换写 VIP 导致集群双写，当数据复制延迟时，应用程序会出现数据错乱或数据冲突的故障。有效避免单点失效的架构就是采用共享存储，单点故障切换可以通过分布式哨兵系统监控。</p>
-<img src="http://s0.lgstatic.com/i/image2/M01/89/48/CgoB5l12KuGALf-cAAGuHVmMkHs743.png" class="lazyload" data-srcset="http://s0.lgstatic.com/i/image2/M01/89/48/CgoB5l12KuGALf-cAAGuHVmMkHs743.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img" style="zoom: 67%;" />
+<img src="http://s0.lgstatic.com/i/image2/M01/89/48/CgoB5l12KuGALf-cAAGuHVmMkHs743.png" class="lazyload placeholder" data-srcset="http://s0.lgstatic.com/i/image2/M01/89/48/CgoB5l12KuGALf-cAAGuHVmMkHs743.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="img" style="zoom: 67%;" />
 
 <p> <strong>架构选型：</strong>MMM 集群  -&gt; MHA集群 -&gt; MHA+Arksentinel。</p>
-<img src="http://s0.lgstatic.com/i/image2/M01/89/68/CgotOV12KuKAe_HOAABl-wRATa0772.png" class="lazyload" data-srcset="http://s0.lgstatic.com/i/image2/M01/89/68/CgotOV12KuKAe_HOAABl-wRATa0772.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"  />
+<img src="http://s0.lgstatic.com/i/image2/M01/89/68/CgotOV12KuKAe_HOAABl-wRATa0772.png" class="lazyload placeholder" data-srcset="http://s0.lgstatic.com/i/image2/M01/89/68/CgotOV12KuKAe_HOAABl-wRATa0772.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="img"  />
 
 
 
@@ -2520,7 +2521,7 @@ select * from mytbl inner ori join (select id from mytbl order by id limit 10000
 </code></pre>
 <p>数据库中的所有记录，都会被查询出来，载入到 JVM 的内存中。由于数据库记录实在太多，直接把内存给撑爆了。由于这种原因引起的内存溢出，发生的频率非常高，比如导入Excel文件时。</p>
 <p>通常的解决方式是<strong>强行加入分页功能</strong>，或者对一些<strong>必填的参数进行校验</strong></p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gobovqjvijj30zd0lctbp.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gobovqjvijj30zd0lctbp.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gobovqjvijj30zd0lctbp.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gobovqjvijj30zd0lctbp.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="img"></p>
 <p><strong>Controller 层</strong></p>
 <p>现在很多项目都采用前后端分离架构，所以 Controller 层的方法，一般使用 @ResponseBody 注解，把查询的结果，解析成 JSON 数据返回。这在数据集非常大的情况下，会占用很多内存资源。假如结果集在解析成 JSON 之前，占用的内存是 10MB，那么在解析过程中，有可能会使用 20M 或者更多的内存</p>
 <p>因此，保持结果集的精简，是非常有必要的，这也是 DTO（Data Transfer Object）存在的必要。互联网环境不怕小结果集的高并发请求，却非常恐惧大结果集的耗时请求，这是其中一方面的原因。</p>
@@ -2689,7 +2690,7 @@ select * from mytbl inner ori join (select id from mytbl order by id limit 10000
 <p>V：Volatile：数据可以在任何时候消失</p>
 <p>EVCache典型地适合对强一致性没有必须要求的场合</p>
 <p>典型用例：Netflflix向用户推荐用户感兴趣的电影</p>
-<img src="https://tva1.sinaimg.cn/large/0081Kckwly1gmapdnh0yaj30ku0aigmc.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1gmapdnh0yaj30ku0aigmc.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210103185340548" style="zoom:50%;" />
+<img src="https://tva1.sinaimg.cn/large/0081Kckwly1gmapdnh0yaj30ku0aigmc.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1gmapdnh0yaj30ku0aigmc.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210103185340548" style="zoom:50%;" />
 
 <p><strong>EVCache集群</strong>在峰值每秒可以处理<strong>200kb</strong>的请求，</p>
 <p>Netflflix生产系统中部署的EVCache经常要处理超过<strong>每秒3000万个</strong>请求，存储数十亿个对象，</p>
@@ -2698,7 +2699,7 @@ select * from mytbl inner ori join (select id from mytbl order by id limit 10000
 <p>EVCache集群的缓存命中率在99%左右。</p>
 <p><strong>典型部署</strong></p>
 <p>EVCache 是线性扩展的，可以在一分钟之内完成扩容，在几分钟之内完成负载均衡和缓存预热。</p>
-<img src="https://tva1.sinaimg.cn/large/0081Kckwly1gmapg99q8lj30ix0f3jrw.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1gmapg99q8lj30ix0f3jrw.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210103185611516" style="zoom:50%;" />
+<img src="https://tva1.sinaimg.cn/large/0081Kckwly1gmapg99q8lj30ix0f3jrw.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1gmapg99q8lj30ix0f3jrw.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210103185611516" style="zoom:50%;" />
 
 <p>1、集群启动时，EVCache向服务注册中心（Zookeeper、Eureka）注册各个实例</p>
 <p>2、在web应用启动时，查询命名服务中的EVCache服务器列表，并建立连接。</p>
@@ -2930,9 +2931,9 @@ select * from mytbl inner ori join (select id from mytbl order by id limit 10000
 <p>​    <strong>定时扫描清除：</strong>定时100ms随机20个检查过期的字典，若存在25%以上则继续循环删除。</p>
 <h4 id="4、redis读写模式"><a href="#4、redis读写模式" class="headerlink" title="4、redis读写模式"></a>4、redis读写模式</h4><p>​    <strong>CacheAside旁路缓存</strong></p>
 <p>写请求更新数据库后删除缓存数据。读请求不命中查询数据库，查询完成写入缓存</p>
-<img src="https://img-blog.csdnimg.cn/20200806194316539.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6eF92aWN0b3J5,size_16,color_FFFFFF,t_70" class="lazyload" data-srcset="https://img-blog.csdnimg.cn/20200806194316539.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6eF92aWN0b3J5,size_16,color_FFFFFF,t_70" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="在这里插入图片描述" style="zoom: 15%;" />
+<img src="https://img-blog.csdnimg.cn/20200806194316539.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6eF92aWN0b3J5,size_16,color_FFFFFF,t_70" class="lazyload placeholder" data-srcset="https://img-blog.csdnimg.cn/20200806194316539.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6eF92aWN0b3J5,size_16,color_FFFFFF,t_70" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="在这里插入图片描述" style="zoom: 15%;" />
 
-<img src="https://img-blog.csdnimg.cn/20200806194300826.png" class="lazyload" data-srcset="https://img-blog.csdnimg.cn/20200806194300826.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" style="zoom: 15%;" />
+<img src="https://img-blog.csdnimg.cn/20200806194300826.png" class="lazyload placeholder" data-srcset="https://img-blog.csdnimg.cn/20200806194300826.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" style="zoom: 15%;" />
 
 <p>​    业务端处理所有数据访问细节，同时利用 <strong>Lazy 计算</strong>的思想，更新 DB 后，直接删除 cache 并通过 DB 更新，确保数据以 DB 结果为准，则可以大幅降低 cache 和 DB 中数据不一致的概率</p>
 <p>​    如果没有专门的存储服务，同时是对<strong>数据一致性要求比较高的业务，或者是缓存数据更新比较复杂的业务</strong>，适合使用 Cache Aside 模式。如微博发展初期，不少业务采用这种模式</p>
@@ -2953,15 +2954,15 @@ public void write(String key,Object data)&#123;
 </ul>
 <p>​    <strong>Read/Write Though</strong>（读写穿透）</p>
 <p>​        <strong>先查询</strong>缓存中数据是否存在,如果存在则直接返回,如果<strong>不存在</strong>,则由<strong>缓存组件负责从数据库中同步加载数据.</strong></p>
-<p>​    <img src="https://img-blog.csdnimg.cn/20200806194334623.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6eF92aWN0b3J5,size_16,color_FFFFFF,t_70" class="lazyload" data-srcset="https://img-blog.csdnimg.cn/20200806194334623.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6eF92aWN0b3J5,size_16,color_FFFFFF,t_70" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="在这里插入图片描述" style="zoom: 50%;" /></p>
+<p>​    <img src="https://img-blog.csdnimg.cn/20200806194334623.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6eF92aWN0b3J5,size_16,color_FFFFFF,t_70" class="lazyload placeholder" data-srcset="https://img-blog.csdnimg.cn/20200806194334623.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6eF92aWN0b3J5,size_16,color_FFFFFF,t_70" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="在这里插入图片描述" style="zoom: 50%;" /></p>
 <p>​    先查询要<strong>写入的数据在缓存中</strong>是否已经存在,如果已经存在,则<strong>更新缓存中的数据</strong>，并且由<strong>缓存组件同步更新</strong>到数据库中。</p>
-<p>​    <img src="https://img-blog.csdnimg.cn/20200806194346642.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6eF92aWN0b3J5,size_16,color_FFFFFF,t_70" class="lazyload" data-srcset="https://img-blog.csdnimg.cn/20200806194346642.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6eF92aWN0b3J5,size_16,color_FFFFFF,t_70" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="在这里插入图片描述" style="zoom: 50%" /></p>
+<p>​    <img src="https://img-blog.csdnimg.cn/20200806194346642.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6eF92aWN0b3J5,size_16,color_FFFFFF,t_70" class="lazyload placeholder" data-srcset="https://img-blog.csdnimg.cn/20200806194346642.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6eF92aWN0b3J5,size_16,color_FFFFFF,t_70" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="在这里插入图片描述" style="zoom: 50%" /></p>
 <p>​    用户<strong>读操作</strong>较多.相较于Cache aside而言更适合缓存一致的场景。使用简单屏蔽了<strong>底层数据库的操作</strong>,只是操作缓存.</p>
 <p><strong>场景：</strong></p>
 <p>微博 Feed 的 Outbox Vector（即用户最新微博列表）就采用这种模式。一些粉丝较少且不活跃的用户发表微博后，Vector 服务会首先查询 Vector Cache，如果 cache 中没有该用户的 Outbox 记录，则不写该用户的 cache 数据，直接更新 DB 后就返回，只有 cache 中存在才会通过 CAS 指令进行更新。</p>
 <p>​    </p>
 <p><strong>Write Behind Caching（异步缓存写入）</strong></p>
-<img src="https://tva1.sinaimg.cn/large/008eGmZEly1gorlsg74i6j31950e3dhs.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gorlsg74i6j31950e3dhs.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img" style="zoom:35%;" />
+<img src="https://tva1.sinaimg.cn/large/008eGmZEly1gorlsg74i6j31950e3dhs.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gorlsg74i6j31950e3dhs.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="img" style="zoom:35%;" />
 
 <p>比如对一些计数业务，一条 <strong>Feed 被点赞</strong> 1万 次，如果更新 1万 次 DB 代价很大，而合并成一次请求直接加 1万，则是一个非常轻量的操作。但这种模型有个显著的缺点，即数据的一致性变差，甚至在一些极端场景下可能会丢失数据。</p>
 <h4 id="5、多级缓存"><a href="#5、多级缓存" class="headerlink" title="5、多级缓存"></a>5、多级缓存</h4><p><strong>浏览器本地内存缓存：</strong>专题活动，一旦上线，在活动期间是不会随意变更的。</p>
@@ -3054,7 +3055,7 @@ public void write(String key,Object data)&#123;
 <p><strong>RedisCluster</strong></p>
 <p>​        Redis-cluster把所有的物理节点映射到[0-16383]个<strong>slot</strong>上,对key采用crc16算法得到hash值后对16384取模，基本上采用平均分配和连续分配的方式。</p>
 <h4 id="2、主从模式-简单"><a href="#2、主从模式-简单" class="headerlink" title="2、主从模式=简单"></a><strong>2、主从模式=简单</strong></h4><p>​    主从模式最大的优点是<strong>部署简单</strong>，最少<strong>两个节点便可以构成主从模式</strong>，并且可以通过<strong>读写分离避免读和写同时不可用</strong>。不过，一旦 Master 节点出现故障，主从节点就<strong>无法自动切换</strong>，直接导致 SLA 下降。所以，主从模式一般<strong>适合业务发展初期，并发量低，运维成本低</strong>的情况</p>
-<img src="https://s0.lgstatic.com/i/image/M00/80/25/Ciqc1F_QgPOAaL8TAAC5EiNlvo4795.png" class="lazyload" data-srcset="https://s0.lgstatic.com/i/image/M00/80/25/Ciqc1F_QgPOAaL8TAAC5EiNlvo4795.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Drawing 1.png" style="zoom:50%;" />
+<img src="https://s0.lgstatic.com/i/image/M00/80/25/Ciqc1F_QgPOAaL8TAAC5EiNlvo4795.png" class="lazyload placeholder" data-srcset="https://s0.lgstatic.com/i/image/M00/80/25/Ciqc1F_QgPOAaL8TAAC5EiNlvo4795.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="Drawing 1.png" style="zoom:50%;" />
 
 
 
@@ -3067,7 +3068,7 @@ public void write(String key,Object data)&#123;
 <p><strong>缺点</strong></p>
 <p>​    所有的slave节点数据的复制和同步都由master节点来处理，会照成master节点压力太大，使用主从从结构来解决，redis4.0中引入psync2 解决了slave重启后仍然可以增量同步。</p>
 <h4 id="3、哨兵模式-读多"><a href="#3、哨兵模式-读多" class="headerlink" title="3、哨兵模式=读多"></a>3、<strong>哨兵模式</strong>=读多</h4><p>​    由一个或多个sentinel实例组成sentinel集群可以监视一个或多个主服务器和多个从服务器。<strong>哨兵模式适合读请求远多于写请求的业务场景，比如在秒杀系统</strong>中用来缓存活动信息。 如果写请求较多，当集群 Slave 节点数量多了后，Master 节点同步数据的压力会非常大。</p>
-<img src="https://tva1.sinaimg.cn/large/0081Kckwly1gluq6vlvglj30nw0e076f.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1gluq6vlvglj30nw0e076f.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20201220231241725" style="zoom:50%;" />
+<img src="https://tva1.sinaimg.cn/large/0081Kckwly1gluq6vlvglj30nw0e076f.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1gluq6vlvglj30nw0e076f.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20201220231241725" style="zoom:50%;" />
 
 <p>当主服务器进入下线状态时，sentinel可以将该主服务器下的某一从服务器升级为主服务器继续提供服务，从而保证redis的高可用性。</p>
 <p><strong>检测主观下线状态</strong></p>
@@ -3150,7 +3151,7 @@ Object result = jedis.eval(lua, Collections.singletonList(lockKey),
 </ul>
 <p><strong>Redission生产环境的分布式锁</strong></p>
 <p>​    Redisson是基于NIO的Netty框架上的一个Java驻内存数据网格(In-Memory Data Grid)分布式锁开源组件。 </p>
-<img src="https://tva1.sinaimg.cn/large/0081Kckwly1glurlfrrp4j30qk0g876c.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1glurlfrrp4j30qk0g876c.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20201221000119586" style="zoom:67%;" />
+<img src="https://tva1.sinaimg.cn/large/0081Kckwly1glurlfrrp4j30qk0g876c.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1glurlfrrp4j30qk0g876c.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20201221000119586" style="zoom:67%;" />
 
 <p>但当业务必须要数据的强一致性，即不允许重复获得锁，比如金融场景(重复下单，重复转账)，<strong>请不要使用redis分布式锁</strong>。可以使用CP模型实现，比如:<strong>zookeeper和etcd。</strong></p>
 <table>
@@ -3198,7 +3199,7 @@ min-slaves-max-lag 10 (min-replicas-max-lag 10)
 <p>​        上面的配置表示:从服务器的数量少于3个，或者三个从服务器的延迟(lag)值都大于或等于10 秒时，主服务器将拒绝执行写命令。</p>
 <p>​    3、检测命令丢失，增加重传机制</p>
 <p>​        如果因为网络故障，主服务器传播给从服务器的写命令在半路丢失，那么当从服务器向主服务器发 送REPLCONF ACK命令时，主服务器将发觉从服务器当前的复制偏移量少于自己的复制偏移量， 然后主服务器就会根据从服务器提交的复制偏移量，在复制积压缓冲区里面找到从服务器缺少的数据，并将这些数据重新发送给从服务器。</p>
-<h3 id="Redis实战"><a href="#Redis实战" class="headerlink" title="Redis实战"></a>Redis实战</h3><h4 id="1、Redis优化"><a href="#1、Redis优化" class="headerlink" title="1、Redis优化"></a>1、Redis优化</h4><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gorm5m7b4gj30uy0hjwfp.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gorm5m7b4gj30uy0hjwfp.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<h3 id="Redis实战"><a href="#Redis实战" class="headerlink" title="Redis实战"></a>Redis实战</h3><h4 id="1、Redis优化"><a href="#1、Redis优化" class="headerlink" title="1、Redis优化"></a>1、Redis优化</h4><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gorm5m7b4gj30uy0hjwfp.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gorm5m7b4gj30uy0hjwfp.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="img"></p>
 <p><strong>读写方式</strong><br>    简单来说就是不用<strong>keys</strong>等，用<strong>range、contains</strong>之类。比如，用户粉丝数，大 V 的粉丝更是高达几千万甚至过亿，因此，获取粉丝列表只能部分获取。另外在判断某用户是否关注了另外一个用户时，也只需要关注列表上进行检查判断，然后返回 True/False 或 0/1 的方式更为高效。</p>
 <p><strong>KV size</strong><br>    如果单个业务的 KV size 过大，需要分拆成多个 KV 来缓存。拆分时应<strong>考虑访问频率</strong></p>
 <p><strong>key 的数量</strong><br>    如果数据量巨大，则在缓存中尽可能只保留频繁访问的热数据，对于冷数据直接访问 DB。</p>
@@ -3216,7 +3217,7 @@ min-slaves-max-lag 10 (min-replicas-max-lag 10)
 <h1 id="六、Kafka篇"><a href="#六、Kafka篇" class="headerlink" title="六、Kafka篇"></a>六、Kafka篇</h1><h3 id="Why-kafka"><a href="#Why-kafka" class="headerlink" title="Why kafka"></a>Why kafka</h3><p>消息队列的作用：<strong>异步、削峰填谷、解耦</strong></p>
 <p><strong>中小型公司</strong>，技术实力较为一般，技术挑战不是特别高，用 <strong>RabbitMQ</strong> （开源、社区活跃）是不错的选择；<strong>大型公司</strong>，基础架构研发实力较强，用 <strong>RocketMQ</strong>（Java二次开发） 是很好的选择。</p>
 <p>如果是<strong>大数据领域</strong>的实时计算、日志采集等场景，用 <strong>Kafka</strong> 是业内标准的，绝对没问题，社区活跃度很高，绝对不会黄，何况几乎是全世界这个领域的事实性规范。</p>
-<img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmfiyienm0j30zu0hago7.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gmfiyienm0j30zu0hago7.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210107225921930" style="zoom:50%;" />
+<img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmfiyienm0j30zu0hago7.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gmfiyienm0j30zu0hago7.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210107225921930" style="zoom:50%;" />
 
 
 
@@ -3228,7 +3229,7 @@ min-slaves-max-lag 10 (min-replicas-max-lag 10)
 <li>支持灵活的路由配置。RabbitMQ中，在生产者和队列之间有一个交换器模块。根据配置的路由规则，生产者发送的消息可以发送到不同的队列中。路由规则很灵活，还可以自己实现。</li>
 <li>RabbitMQ的客户端支持大多数的编程语言，支持<strong>AMQP</strong>协议。</li>
 </ul>
-<img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmfjicxzb2j30u80hx0uw.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gmfjicxzb2j30u80hx0uw.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210107231826261" style="zoom:40%;" />
+<img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmfjicxzb2j30u80hx0uw.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gmfjicxzb2j30u80hx0uw.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210107231826261" style="zoom:40%;" />
 
 <p><strong>缺点：</strong></p>
 <ul>
@@ -3262,7 +3263,7 @@ min-slaves-max-lag 10 (min-replicas-max-lag 10)
 <li>Consumer API：允许应用程序订阅一个或多个主题并处理为其生成的记录流。</li>
 <li>Streams API：允许应用程序充当流处理器，将输入流转换为输出流。</li>
 </ul>
-<img src="https://tva1.sinaimg.cn/large/008eGmZEly1gme95cirjfj31000kb41j.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gme95cirjfj31000kb41j.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210106203420526" style="zoom: 40%;" />
+<img src="https://tva1.sinaimg.cn/large/008eGmZEly1gme95cirjfj31000kb41j.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gme95cirjfj31000kb41j.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210106203420526" style="zoom: 40%;" />
 
 
 
@@ -3328,7 +3329,7 @@ min-slaves-max-lag 10 (min-replicas-max-lag 10)
 <li><strong>消息系统：</strong>解耦生产者和消费者、缓存消息等；</li>
 <li><strong>用户活动跟踪：</strong>Kafka经常被用来记录Web用户或者App用户的各种活动，如浏览网页、搜索、点击等活动，这些活动信息被各个服务器发布到Kafka的Topic中，然后消费者通过订阅这些Topic来做<strong>运营数据</strong>的实时的监控分析，也可保存到数据库；</li>
 </ul>
-<h3 id="生产消费基本流程"><a href="#生产消费基本流程" class="headerlink" title="生产消费基本流程"></a><strong>生产消费基本流程</strong></h3><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmeb1cw09gj313m0kgwgb.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gmeb1cw09gj313m0kgwgb.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210106213944461" style="zoom:40%;" />
+<h3 id="生产消费基本流程"><a href="#生产消费基本流程" class="headerlink" title="生产消费基本流程"></a><strong>生产消费基本流程</strong></h3><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmeb1cw09gj313m0kgwgb.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gmeb1cw09gj313m0kgwgb.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210106213944461" style="zoom:40%;" />
 
 <ol>
 <li><p>Producer创建时，会创建一个Sender线程并设置为守护线程。</p>
@@ -3399,7 +3400,7 @@ kafka-topics.sh --zookeeper localhost:2181/myKafka --describe --topic topic_x
 </code></pre>
 <p><strong>如何查看偏移量为23的消息？</strong></p>
 <p>通过查询跳跃表<code>ConcurrentSkipListMap</code>，定位到在00000000000000000000.index ，通过二分法在偏移量索引文件中找到不大于 23 的<strong>最大索引项</strong>，即offset 20 那栏，然后从日志分段文件中的物理位置为320 开始顺序查找偏移量为 23 的消息。</p>
-<img src="https://img-blog.csdnimg.cn/20191230225447849.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwMjMzNzA2,size_16,color_FFFFFF,t_70" class="lazyload" data-srcset="https://img-blog.csdnimg.cn/20191230225447849.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwMjMzNzA2,size_16,color_FFFFFF,t_70" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img" style="zoom:50%;" />
+<img src="https://img-blog.csdnimg.cn/20191230225447849.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwMjMzNzA2,size_16,color_FFFFFF,t_70" class="lazyload placeholder" data-srcset="https://img-blog.csdnimg.cn/20191230225447849.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwMjMzNzA2,size_16,color_FFFFFF,t_70" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="img" style="zoom:50%;" />
 
 
 
@@ -3415,13 +3416,13 @@ kafka-topics.sh --zookeeper localhost:2181/myKafka --describe --topic topic_x
 <h3 id="一致性"><a href="#一致性" class="headerlink" title="一致性"></a>一致性</h3><p><strong>幂等性</strong></p>
 <p>保证在消息重发的时候，消费者不会重复处理。即使在<strong>消费者收到重复消息的时候，重复处理</strong>，也</p>
 <p>要<strong>保证最终结果的一致性</strong>。所谓幂等性，数学概念就是： f(f(x)) = f(x) </p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmefdeas1vj315i0bgmya.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gmefdeas1vj315i0bgmya.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210107000942286"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmefdeas1vj315i0bgmya.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gmefdeas1vj315i0bgmya.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210107000942286"></p>
 <p><strong>如何实现？</strong></p>
 <p>​    添加唯一ID，类似于数据库的主键，用于唯一标记一个消息。</p>
 <pre><code class="bash">ProducerID：#在每个新的Producer初始化时，会被分配一个唯一的PID
 SequenceNumber：#对于每个PID发送数据的每个Topic都对应一个从0开始单调递增的SN值
 </code></pre>
-<img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmefjpeet8j317e0cgmyp.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gmefjpeet8j317e0cgmyp.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210107001546404" style="zoom:80%;" />
+<img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmefjpeet8j317e0cgmyp.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gmefjpeet8j317e0cgmyp.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210107001546404" style="zoom:80%;" />
 
 <p><strong>如何选举</strong></p>
 <ol>
@@ -3446,7 +3447,7 @@ SequenceNumber：#对于每个PID发送数据的每个Topic都对应一个从0�
 </li>
 <li><p>订阅主题的分区数发生变化</p>
 <p><strong>组成员崩溃和组成员主动离开是两个不同的场景。</strong>因为在崩溃时成员并不会主动地告知coordinator此事，coordinator有可能需要一个完整的session.timeout周期(心跳周期)才能检测到这种崩溃，这必然会造成consumer的滞后。可以说离开组是主动地发起rebalance；而崩溃则是被动地发起rebalance。</p>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gooe9o07fvj30p00btju1.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gooe9o07fvj30p00btju1.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gooe9o07fvj30p00btju1.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gooe9o07fvj30p00btju1.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="img"></p>
 </li>
 </ul>
 <p>解决方案：</p>
@@ -3529,7 +3530,7 @@ return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
 <p>出生：使用对象时spring框架为我们创建            </p>
 <p>活着：对象只要是在使用过程中就一直活着            </p>
 <p>死亡：当对象长时间不用且没有其它对象引用时，由java的垃圾回收机制回收</p>
-<img src="https://s0.lgstatic.com/i/image3/M01/89/0C/Cgq2xl6WvHqAdmt4AABGAn2eSiI631.png" class="lazyload" data-srcset="https://s0.lgstatic.com/i/image3/M01/89/0C/Cgq2xl6WvHqAdmt4AABGAn2eSiI631.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img" style="zoom:67%;" />
+<img src="https://s0.lgstatic.com/i/image3/M01/89/0C/Cgq2xl6WvHqAdmt4AABGAn2eSiI631.png" class="lazyload placeholder" data-srcset="https://s0.lgstatic.com/i/image3/M01/89/0C/Cgq2xl6WvHqAdmt4AABGAn2eSiI631.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="img" style="zoom:67%;" />
 
 <p>IOC容器初始化加载Bean流程：</p>
 <pre><code class="java">@Override
@@ -3649,7 +3650,7 @@ public void refresh() throws BeansException, IllegalStateException &#123; synchr
 <p><strong>懒加载@Lazy解决循环依赖问题</strong></p>
 <p>​    Spring 启动的时候会把所有bean信息(包括XML和注解)解析转化成Spring能够识别的BeanDefinition并存到Hashmap里供下面的初始化时用，然后对每个 BeanDefinition 进行处理。普通 Bean 的初始化是在容器启动初始化阶段执行的，而被lazy-init=true修饰的 bean 则是在从容器里第一次进行<strong>context.getBean() 时进行触发</strong>。</p>
 <p><strong>三级缓存解决循环依赖问题</strong></p>
-<img src="https://tva1.sinaimg.cn/large/0081Kckwly1glv7ivru2lj31980qcn13.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1glv7ivru2lj31980qcn13.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="循环依赖问题" style="zoom: 33%;" />
+<img src="https://tva1.sinaimg.cn/large/0081Kckwly1glv7ivru2lj31980qcn13.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1glv7ivru2lj31980qcn13.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="循环依赖问题" style="zoom: 33%;" />
 
 <ol>
 <li><p>Spring容器初始化ClassA通过构造器初始化对象后提前暴露到Spring容器中的singletonFactorys（三级缓存中）。</p>
@@ -3704,7 +3705,7 @@ public @interface EnableAutoConfiguration
 @RequestMapping(&quot;/hello/&#123;name&#125;&quot;)申明的路径，将注解放在参数中前，即可获取该值，通常作为Restful的接口实现方法。
 </code></pre>
 <p><strong>SpringMVC原理</strong> </p>
-<img src="https://img-blog.csdn.net/20181022224058617?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2F3YWtlX2xxaA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" class="lazyload" data-srcset="https://img-blog.csdn.net/20181022224058617?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2F3YWtlX2xxaA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" style="zoom: 50%;" />
+<img src="https://img-blog.csdn.net/20181022224058617?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2F3YWtlX2xxaA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" class="lazyload placeholder" data-srcset="https://img-blog.csdn.net/20181022224058617?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2F3YWtlX2xxaA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" style="zoom: 50%;" />
 
 <ol>
 <li>客户端（浏览器）发送请求，直接请求到  DispatcherServlet 。</li>
@@ -3806,7 +3807,7 @@ public @interface EnableAutoConfiguration
 <li>RPC：基于TCP协议，序列化和传输效率提升明显</li>
 <li>MQ：异步解耦微服务之间的调用</li>
 </ul>
-<img src="https://tva1.sinaimg.cn/large/0081Kckwly1gmawejgpgwj30ht0bnt9d.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1gmawejgpgwj30ht0bnt9d.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img" style="zoom:67%;" />
+<img src="https://tva1.sinaimg.cn/large/0081Kckwly1gmawejgpgwj30ht0bnt9d.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1gmawejgpgwj30ht0bnt9d.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="img" style="zoom:67%;" />
 
 <h4 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h4><blockquote>
 <p>Spring Boot 通过<strong>简单的步骤</strong>就可以创建一个 Spring 应用。</p>
@@ -3872,13 +3873,13 @@ spring-boot-starter-data-jpa     //用于操作 MySQL。
 <p>请求前<code>post</code>类型的过滤器：做<strong>响应内容</strong>、<strong>响应头</strong>的修改、<strong>⽇志的输出</strong>、<strong>流量监控</strong>等。</p>
 </li>
 </ul>
-<img src="https://tva1.sinaimg.cn/large/0081Kckwly1gmc49l9babj31do0n7n13.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1gmc49l9babj31do0n7n13.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210105001419761" style="zoom: 50%;" />
+<img src="https://tva1.sinaimg.cn/large/0081Kckwly1gmc49l9babj31do0n7n13.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1gmc49l9babj31do0n7n13.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210105001419761" style="zoom: 50%;" />
 
 <p><strong>GateWayFilter</strong> 应⽤到单个路由路由上 、<strong>GlobalFilter</strong> 应⽤到所有的路由上</p>
 <h4 id="Eureka-Zookeeper"><a href="#Eureka-Zookeeper" class="headerlink" title="Eureka / Zookeeper"></a>Eureka / Zookeeper</h4><blockquote>
 <p>服务注册中⼼本质上是为了解耦服务提供者和服务消费者，为了⽀持弹性扩缩容特性，⼀个微服务的提供者的数量和分布往往是动态变化的。</p>
 </blockquote>
-<img src="https://tva1.sinaimg.cn/large/0081Kckwly1gmawwm3k7bj30o80ecq3u.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1gmawwm3k7bj30o80ecq3u.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210103231405882" style="zoom: 50%;" />
+<img src="https://tva1.sinaimg.cn/large/0081Kckwly1gmawwm3k7bj30o80ecq3u.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1gmawwm3k7bj30o80ecq3u.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210103231405882" style="zoom: 50%;" />
 
 <table>
 <thead>
@@ -3921,7 +3922,7 @@ spring-boot-starter-data-jpa     //用于操作 MySQL。
 </tr>
 </tbody></table>
 <p><strong>Eureka</strong>通过<strong>⼼跳检测</strong>、<strong>健康检查</strong>和<strong>客户端缓存</strong>等机制，提⾼系统的灵活性、可伸缩性和可⽤性。</p>
-<img src="https://tva1.sinaimg.cn/large/0081Kckwly1gmaxc493qyj30ji0a6mxx.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1gmaxc493qyj30ji0a6mxx.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210103232900353" style="zoom:67%;" />
+<img src="https://tva1.sinaimg.cn/large/0081Kckwly1gmaxc493qyj30ji0a6mxx.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1gmaxc493qyj30ji0a6mxx.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210103232900353" style="zoom:67%;" />
 
 <ol>
 <li>us-east-1c、us-east-1d，us-east-1e代表不同的机房，<strong>每⼀个Eureka Server都是⼀个集群</strong>。</li>
@@ -3934,7 +3935,7 @@ spring-boot-starter-data-jpa     //用于操作 MySQL。
 <blockquote>
 <p>新服务上线后，服务消费者<strong>不能立即访问</strong>到刚上线的新服务，需要过⼀段时间后才能访问？或是将服务下线后，服务还是会被调⽤到，⼀段时候后<strong>才彻底停⽌服务</strong>，访问前期会导致频繁报错！</p>
 </blockquote>
-<img src="https://tva1.sinaimg.cn/large/0081Kckwly1gmaxmk97q0j30vw0j6gmu.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1gmaxmk97q0j30vw0j6gmu.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210103233902439" style="zoom:50%;" />
+<img src="https://tva1.sinaimg.cn/large/0081Kckwly1gmaxmk97q0j30vw0j6gmu.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1gmaxmk97q0j30vw0j6gmu.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210103233902439" style="zoom:50%;" />
 
 <p>​    服务注册到注册中⼼后，服务实例信息是<strong>存储在Registry表</strong>中的，也就是内存中。但Eureka为了提⾼响应速度，在内部做了优化，加⼊了两层的缓存结构，将Client需要的实例信息，直接缓存起来，获取的时候直接从缓存中拿数据然后响应给 Client。 </p>
 <ul>
@@ -3968,7 +3969,7 @@ spring-boot-starter-data-jpa     //用于操作 MySQL。
 <li>Feign 可以与 Hystrix 组合使用，支持熔断回退</li>
 <li>Feign 可以与ProtoBuf实现快速的RPC调用</li>
 </ul>
-<img src="https://tva1.sinaimg.cn/large/0081Kckwly1gmbxsh2rfnj30uo0fgmxz.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1gmbxsh2rfnj30uo0fgmxz.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img" style="zoom:80%;" />
+<img src="https://tva1.sinaimg.cn/large/0081Kckwly1gmbxsh2rfnj30uo0fgmxz.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1gmbxsh2rfnj30uo0fgmxz.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="img" style="zoom:80%;" />
 
 <ul>
 <li><p><strong>InvocationHandlerFactory 代理</strong></p>
@@ -4013,7 +4014,7 @@ spring-boot-starter-data-jpa     //用于操作 MySQL。
 </li>
 </ul>
 <p><strong>Ribbon</strong></p>
-<img src="http://s0.lgstatic.com/i/image2/M01/93/96/CgotOV2Nux-AO2PcAAEcl4M1Zi4629.png" class="lazyload" data-srcset="http://s0.lgstatic.com/i/image2/M01/93/96/CgotOV2Nux-AO2PcAAEcl4M1Zi4629.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img" style="zoom: 50%;" />
+<img src="http://s0.lgstatic.com/i/image2/M01/93/96/CgotOV2Nux-AO2PcAAEcl4M1Zi4629.png" class="lazyload placeholder" data-srcset="http://s0.lgstatic.com/i/image2/M01/93/96/CgotOV2Nux-AO2PcAAEcl4M1Zi4629.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="img" style="zoom: 50%;" />
 
 
 
@@ -4024,7 +4025,7 @@ spring-boot-starter-data-jpa     //用于操作 MySQL。
 <li><p><strong>Ribbon + RestTemplate</strong>，整合Spring Cloud 后，可以基于 RestTemplate 提供负载均衡的服务</p>
 </li>
 <li><p><strong>Ribbon + Feign</strong></p>
-<img src="http://s0.lgstatic.com/i/image2/M01/93/76/CgoB5l2NuyCALoefAAAdV1DlSHY088.png" class="lazyload" data-srcset="http://s0.lgstatic.com/i/image2/M01/93/76/CgoB5l2NuyCALoefAAAdV1DlSHY088.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img" style="zoom: 67%;" /></li>
+<img src="http://s0.lgstatic.com/i/image2/M01/93/76/CgoB5l2NuyCALoefAAAdV1DlSHY088.png" class="lazyload placeholder" data-srcset="http://s0.lgstatic.com/i/image2/M01/93/76/CgoB5l2NuyCALoefAAAdV1DlSHY088.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="img" style="zoom: 67%;" /></li>
 </ul>
 <p><strong>负载均衡算法</strong></p>
 <ul>
@@ -4057,7 +4058,7 @@ spring-boot-starter-data-jpa     //用于操作 MySQL。
 <p><strong>解决方案</strong></p>
 <p>服务方：扩容、限流，排查代码问题，增加硬件监控</p>
 <p>消费方：使用Hystrix资源隔离，熔断降级，快速失败</p>
-<img src="https://tva1.sinaimg.cn/large/0081Kckwly1gmby7y9ykzj30wr0ehac5.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1gmby7y9ykzj30wr0ehac5.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img" style="zoom:150%;" />
+<img src="https://tva1.sinaimg.cn/large/0081Kckwly1gmby7y9ykzj30wr0ehac5.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1gmby7y9ykzj30wr0ehac5.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="img" style="zoom:150%;" />
 
 <p><strong>Hystrix断路保护器的作用</strong></p>
 <ul>
@@ -4099,7 +4100,7 @@ spring-boot-starter-data-jpa     //用于操作 MySQL。
 <li>独⽴可部署Dashboard（基于 Spring Boot 开发）控制台组件</li>
 <li>不依赖任何框架/库，减少代码开发，通过UI界⾯配置即可完成细粒度控制</li>
 </ul>
-<img src="https://tva1.sinaimg.cn/large/0081Kckwly1gmbza4zixbj30kl09sq4p.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1gmbza4zixbj30kl09sq4p.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210104212151598" style="zoom:80%;" />
+<img src="https://tva1.sinaimg.cn/large/0081Kckwly1gmbza4zixbj30kl09sq4p.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1gmbza4zixbj30kl09sq4p.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210104212151598" style="zoom:80%;" />
 
 <p><strong>丰富的应⽤场景</strong>：Sentinel 承接了阿⾥巴巴近 10 年的双⼗⼀⼤促流量的核⼼场景，例如秒杀、消息削峰填⾕、集群流量控制、实时熔断下游不可⽤应⽤等。</p>
 <p><strong>完备的实时监控</strong>：可以看到500 台以下规模的集群的汇总也可以看到单机的秒级数据。</p>
@@ -4189,7 +4190,7 @@ spring-boot-starter-data-jpa     //用于操作 MySQL。
 <p>本质：屏蔽掉了底层不同<strong>MQ</strong>消息中间件之间的差异，统⼀了<strong>MQ</strong>的编程模型，降低了学习、开发、维护<strong>MQ</strong>的成本，⽬前⽀持Rabbit、Kafka两种消息</p>
 </blockquote>
 <h4 id="Sleuth-Zipkin"><a href="#Sleuth-Zipkin" class="headerlink" title="Sleuth / Zipkin"></a><strong>Sleuth / Zipkin</strong></h4><p><strong>全链路追踪</strong></p>
-<img src="https://tva1.sinaimg.cn/large/0081Kckwly1gmc3avezqrj30xb0lw76z.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1gmc3avezqrj30xb0lw76z.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210104234058218" style="zoom:67%;" />
+<img src="https://tva1.sinaimg.cn/large/0081Kckwly1gmc3avezqrj30xb0lw76z.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/0081Kckwly1gmc3avezqrj30xb0lw76z.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210104234058218" style="zoom:67%;" />
 
 <p><strong>Trace ID</strong>：当请求发送到分布式系统的⼊⼝端点时，Sleuth为该请求创建⼀个唯⼀的跟踪标识Trace ID，在分布式系统内部流转的时候，框架始终保持该唯⼀标识，直到返回给请求⽅</p>
 <p><strong>Span ID</strong>：为了统计各处理单元的时间延迟，当请求到达各个服务组件时，也是通过⼀个唯⼀标识SpanID来标记它的开始，具体过程以及结束。</p>
@@ -4213,7 +4214,7 @@ spring-boot-starter-data-jpa     //用于操作 MySQL。
 <blockquote>
 <p>JWT（JSON Web Token）用户提供用户名和密码给认证服务器，服务器验证用户提交信息的合法性；如果验证成功，会产生并返回一个 Token，用户可以使用这个 Token 访问服务器上受保护的资源。</p>
 </blockquote>
-<img src="http://s0.lgstatic.com/i/image2/M01/AB/87/CgotOV3WUG2ARl98AAD_xcd-ElM857.png" class="lazyload" data-srcset="http://s0.lgstatic.com/i/image2/M01/AB/87/CgotOV3WUG2ARl98AAD_xcd-ElM857.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img" style="zoom:70%;" />
+<img src="http://s0.lgstatic.com/i/image2/M01/AB/87/CgotOV3WUG2ARl98AAD_xcd-ElM857.png" class="lazyload placeholder" data-srcset="http://s0.lgstatic.com/i/image2/M01/AB/87/CgotOV3WUG2ARl98AAD_xcd-ElM857.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="img" style="zoom:70%;" />
 
 <ol>
 <li>认证服务提供认证的 API，校验用户信息，返回认证结果</li>
@@ -4257,7 +4258,7 @@ spring-boot-starter-data-jpa     //用于操作 MySQL。
 <blockquote>
 <p>基于Discovery 服务注册发现、Ribbon 负载均衡、Feign 和 RestTemplate 调用等组件的企业级微服务开源解决方案，包括灰度发布、灰度路由、服务隔离等功能</p>
 </blockquote>
-<img src="https://s0.lgstatic.com/i/image3/M01/54/41/CgpOIF3nXSaAB9bRAAE8rktrUyY037.png" class="lazyload" data-srcset="https://s0.lgstatic.com/i/image3/M01/54/41/CgpOIF3nXSaAB9bRAAE8rktrUyY037.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img" style="zoom:50%;" />
+<img src="https://s0.lgstatic.com/i/image3/M01/54/41/CgpOIF3nXSaAB9bRAAE8rktrUyY037.png" class="lazyload placeholder" data-srcset="https://s0.lgstatic.com/i/image3/M01/54/41/CgpOIF3nXSaAB9bRAAE8rktrUyY037.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="img" style="zoom:50%;" />
 
 <ol>
 <li><p>首先将需要发布的服务从转发过程中移除，等流量剔除之后再发布。</p>
@@ -4269,7 +4270,7 @@ spring-boot-starter-data-jpa     //用于操作 MySQL。
 </ol>
 <pre><code class="java">grayVersions = &#123;&quot;discovery-article-service&quot;:[&quot;1.01&quot;]&#125;
 </code></pre>
-<h3 id="多版本隔离"><a href="#多版本隔离" class="headerlink" title="多版本隔离"></a>多版本隔离</h3><img src="https://s0.lgstatic.com/i/image3/M01/54/41/Cgq2xl3nXSeAZMTOAAE2sCaIhPE668.png" class="lazyload" data-srcset="https://s0.lgstatic.com/i/image3/M01/54/41/Cgq2xl3nXSeAZMTOAAE2sCaIhPE668.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img" style="zoom:50%;" />
+<h3 id="多版本隔离"><a href="#多版本隔离" class="headerlink" title="多版本隔离"></a>多版本隔离</h3><img src="https://s0.lgstatic.com/i/image3/M01/54/41/Cgq2xl3nXSeAZMTOAAE2sCaIhPE668.png" class="lazyload placeholder" data-srcset="https://s0.lgstatic.com/i/image3/M01/54/41/Cgq2xl3nXSeAZMTOAAE2sCaIhPE668.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="img" style="zoom:50%;" />
 
 
 
@@ -4397,7 +4398,7 @@ P2b:如果某个v的提案被accept，那么从Proposal提出编号更高的提�
   S中接受的提案都大于Mid
   S中接受的提案若小于Mid，编号最大的那个值为Vid
 </code></pre>
-<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmlato63bnj319m0u0wmi.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gmlato63bnj319m0u0wmi.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210112225118095"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmlato63bnj319m0u0wmi.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gmlato63bnj319m0u0wmi.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210112225118095"></p>
 <p>面试题：如何保证Paxos算法活性</p>
 <p>​    假设存在这样一种极端情况，有两个Proposer依次提出了一系列编号递增的提案，导致最终陷入死循环，没有value被选定</p>
 <ul>
@@ -4412,13 +4413,13 @@ P2b:如果某个v的提案被accept，那么从Proposal提出编号更高的提�
 <p><strong>Follower异常：</strong>恢复后直接同步至Leader当前状态</p>
 <p><strong>多个Candidate：</strong>选举时失败，失败后超时继续选举</p>
 <h4 id="数据库和Redis的一致性"><a href="#数据库和Redis的一致性" class="headerlink" title="数据库和Redis的一致性"></a>数据库和Redis的一致性</h4><p><strong>全量缓存保证高效读取</strong></p>
-<img src="/Users/suhongliu/Library/Application Support/typora-user-images/image-20210418185425386.png" class="lazyload" data-srcset="/Users/suhongliu/Library/Application Support/typora-user-images/image-20210418185425386.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210418185425386" style="zoom:50%;" />
+<img src="/Users/suhongliu/Library/Application Support/typora-user-images/image-20210418185425386.png" class="lazyload placeholder" data-srcset="/Users/suhongliu/Library/Application Support/typora-user-images/image-20210418185425386.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210418185425386" style="zoom:50%;" />
 
 <p>所有数据都存储在缓存里，读服务在查询时不会再降级到数据库里，所有的请求都完全依赖缓存。此时，因降级到数据库导致的毛刺问题就解决了。但全量缓存并<strong>没有解决更新时的分布式事务</strong>问题，反而把问题放大了。因为全量缓存<strong>对数据更新要求更加严格</strong>，要求所有数据库<strong>已有数据和实时更新</strong>的数据必须完全同步至缓存，不能有遗漏。对于此问题，一种有效的方案是采用<strong>订阅数据库的 Binlog</strong> 实现数据同步</p>
-<img src="/Users/suhongliu/Library/Application Support/typora-user-images/image-20210418185457610.png" class="lazyload" data-srcset="/Users/suhongliu/Library/Application Support/typora-user-images/image-20210418185457610.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210418185457610" style="zoom:50%;" />
+<img src="/Users/suhongliu/Library/Application Support/typora-user-images/image-20210418185457610.png" class="lazyload placeholder" data-srcset="/Users/suhongliu/Library/Application Support/typora-user-images/image-20210418185457610.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210418185457610" style="zoom:50%;" />
 
 <p>​    现在很多开源工具（如<strong>阿里的 Canal</strong>等）可以模拟主从复制的协议。通过模拟协议读取主数据库的 Binlog 文件，从而获取主库的所有变更。对于这些变更，它们开放了各种接口供业务服务获取数据。</p>
-<img src="/Users/suhongliu/Library/Application Support/typora-user-images/image-20210418185516743.png" class="lazyload" data-srcset="/Users/suhongliu/Library/Application Support/typora-user-images/image-20210418185516743.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210418185516743" style="zoom:50%;" />
+<img src="/Users/suhongliu/Library/Application Support/typora-user-images/image-20210418185516743.png" class="lazyload placeholder" data-srcset="/Users/suhongliu/Library/Application Support/typora-user-images/image-20210418185516743.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210418185516743" style="zoom:50%;" />
 
 <p>​    将 Binlog 的中间件挂载至目标数据库上，就可以<strong>实时获取该数据库的所有变更数据</strong>。对这些变更数据解析后，便可<strong>直接写入缓存里</strong>。优点还有：</p>
 <ul>
@@ -4429,7 +4430,7 @@ P2b:如果某个v的提案被accept，那么从Proposal提出编号更高的提�
 </li>
 </ul>
 <p><strong>缺点</strong>不可避免：1、增加复杂度 2、消耗缓存资源 3、需要筛选和压缩数据 4、极端情况数据丢失</p>
-<img src="/Users/suhongliu/Library/Application Support/typora-user-images/image-20210418185549520.png" class="lazyload" data-srcset="/Users/suhongliu/Library/Application Support/typora-user-images/image-20210418185549520.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210418185549520" style="zoom:50%;" />
+<img src="/Users/suhongliu/Library/Application Support/typora-user-images/image-20210418185549520.png" class="lazyload placeholder" data-srcset="/Users/suhongliu/Library/Application Support/typora-user-images/image-20210418185549520.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210418185549520" style="zoom:50%;" />
 
 <p>可以通过异步校准方案进行补齐，但是会损耗数据库性能。但是此方案会隐藏中间件使用错误的细节，线上环境前期更重要的是记录日志排查在做后续优化，不能本末倒置。</p>
 <h3 id="可用性-1"><a href="#可用性-1" class="headerlink" title="可用性"></a>可用性</h3><h4 id="心跳检测"><a href="#心跳检测" class="headerlink" title="心跳检测"></a><strong>心跳检测</strong></h4><blockquote>
@@ -4437,7 +4438,7 @@ P2b:如果某个v的提案被accept，那么从Proposal提出编号更高的提�
 </blockquote>
 <p><strong>周期检测心跳机制</strong>：超时未返回</p>
 <p><strong>累计失效检测机制</strong>：重试超次数</p>
-<h4 id="多机房实时热备"><a href="#多机房实时热备" class="headerlink" title="多机房实时热备"></a><strong>多机房实时热备</strong></h4><img src="/Users/suhongliu/Library/Application Support/typora-user-images/image-20210418185610597.png" class="lazyload" data-srcset="/Users/suhongliu/Library/Application Support/typora-user-images/image-20210418185610597.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="6.png" style="zoom:50%;" />
+<h4 id="多机房实时热备"><a href="#多机房实时热备" class="headerlink" title="多机房实时热备"></a><strong>多机房实时热备</strong></h4><img src="/Users/suhongliu/Library/Application Support/typora-user-images/image-20210418185610597.png" class="lazyload placeholder" data-srcset="/Users/suhongliu/Library/Application Support/typora-user-images/image-20210418185610597.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="6.png" style="zoom:50%;" />
 
 <p>两套缓存集群可以分别部署到不同城市的机房。读服务也相应地部署到不同城市或不同分区。在承接请求时，不同机房或分区的读服务只依赖同样属性的缓存集群。此方案有两个好处。</p>
 <ol>
@@ -4449,7 +4450,7 @@ P2b:如果某个v的提案被accept，那么从Proposal提出编号更高的提�
 <p>分布式系统对于错误包容的能力</p>
 </blockquote>
 <p>通过限流、降级、兜底、重试、负载均衡等方式增强系统的健壮性</p>
-<h4 id="日志复制"><a href="#日志复制" class="headerlink" title="日志复制"></a>日志复制</h4><p><img src="https://i.loli.net/2021/01/14/fmYEJy9N7Zjp2Xd.png" class="lazyload" data-srcset="https://i.loli.net/2021/01/14/fmYEJy9N7Zjp2Xd.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210114154435003"></p>
+<h4 id="日志复制"><a href="#日志复制" class="headerlink" title="日志复制"></a>日志复制</h4><p><img src="https://i.loli.net/2021/01/14/fmYEJy9N7Zjp2Xd.png" class="lazyload placeholder" data-srcset="https://i.loli.net/2021/01/14/fmYEJy9N7Zjp2Xd.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210114154435003"></p>
 <ol>
 <li><strong>Leader</strong>把指令添加到日志中，发起 RPC 给其他的服务器，让他们复制这条信息</li>
 <li><strong>Leader</strong>会不断的重试，直到所有的 Follower响应了ACK并复制了所有的日志条目</li>
@@ -4477,7 +4478,7 @@ P2b:如果某个v的提案被accept，那么从Proposal提出编号更高的提�
 <ul>
 <li>流程<strong>长</strong>、流程<strong>多</strong>、调用第三方业务</li>
 </ul>
-<h4 id="本地消息表（eBay）"><a href="#本地消息表（eBay）" class="headerlink" title="本地消息表（eBay）"></a><strong>本地消息表（eBay）</strong></h4><h4 id="MQ最终一致性"><a href="#MQ最终一致性" class="headerlink" title="MQ最终一致性"></a><strong>MQ最终一致性</strong></h4><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmr1k3dfbxj31h00pkjy8.jpg" class="lazyload" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gmr1k3dfbxj31h00pkjy8.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="image-20210117220405706" style="zoom:50%;" />
+<h4 id="本地消息表（eBay）"><a href="#本地消息表（eBay）" class="headerlink" title="本地消息表（eBay）"></a><strong>本地消息表（eBay）</strong></h4><h4 id="MQ最终一致性"><a href="#MQ最终一致性" class="headerlink" title="MQ最终一致性"></a><strong>MQ最终一致性</strong></h4><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmr1k3dfbxj31h00pkjy8.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gmr1k3dfbxj31h00pkjy8.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210117220405706" style="zoom:50%;" />
 
 <p>比如阿里的 RocketMQ 就支持消息事务（核心：<strong>双端确认，重试幂等</strong>）</p>
 <ol>
@@ -4576,7 +4577,7 @@ P2b:如果某个v的提案被accept，那么从Proposal提出编号更高的提�
           
           >
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg">
           
         </a>
       
@@ -4588,7 +4589,7 @@ P2b:如果某个v的提案被accept，那么从Proposal提出编号更高的提�
           
           >
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg">
           
         </a>
       
@@ -4600,7 +4601,7 @@ P2b:如果某个v的提案被accept，那么从Proposal提出编号更高的提�
           
           >
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg">
           
         </a>
       
@@ -4608,7 +4609,7 @@ P2b:如果某个v的提案被accept，那么从Proposal提出编号更高的提�
       
         
         <div class='hoverbox'>
-          <a class='share'><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a>
+          <a class='share'><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg"></a>
           <div class='target'>
             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXgAAAF4CAAAAAB79r16AAAFKElEQVR42u3aQW4cMQwEwP3/p50HBMaI7NZ6DZduiXc0UnEuDfL1Zf3IeiEAD94CD94CD94qwL+W67vnn/b97yAP///0/NNzrf1qXuDBgwcPHjx48ODBF+GPA8DD71PgpwufFii91/Qex/uCBw8ePHjw4MGDB38B/jQwTQ++DV5b4Fbg2gYq8ODBgwcPHjx48OA/GT5toKTBa1rYaRDc3h88ePDgwYMHDx48+N8A3xoMmjY60n2mAQ08ePDgwYMHDx48+E+ETwd/pg2ObQC6FZzSga63TZKBBw8ePHjw4MGDBx8ElL/677UXePDgwYMHDx48ePAF+HSlDYxpI2IboNLz1LzAgwcPHjx48ODBgy/ApxdrDQDdKuD0va3CxR0o8ODBgwcPHjx48OALczVPhZkeIB0YmgKlA1DbxsdjgAIPHjx48ODBgwcPfgG/PcA2mEz3nYJuobcf2LiQ4MGDBw8ePHjw4MFfhD+9QOvg28KnDZdpgafnAg8ePHjw4MGDBw/+JnxrwOn097cKPg04aYGmjuDBgwcPHjx48ODBN+G3QSJtnKSBq3WP2w0Q8ODBgwcPHjx48ODfCZ/+bnvhdACpBTl9bt2BAg8ePHjw4MGDBw9+AD89QNoASQsxbdBsA106yPTYCAEPHjx48ODBgwcPvgCfNjhSgGlD4bQAW+Br9wcPHjx48ODBgwcPvgjfGvQ5vcD2oung1bsGqsbJFTx48ODBgwcPHjz4Bfy0ATBtfLQgpo2JdmBKGzzgwYMHDx48ePDgwTfgt8GmHahuAd0q6Pr84MGDBw8ePHjw4MEX4F+l1Qbcnm+7T/v93+4HHjx48ODBgwcPHnwBPg1Q7cZIGlxaQas1+HQtuYIHDx48ePDgwYMH/7UfCDq94LbA7w5o2/evO1DgwYMHDx48ePDgwQfw08GkdOCpHeBOLz4NQGmAO26EgAcPHjx48ODBgwe/gH+V17pR8EPnSAeZjgsNHjx48ODBgwcPHvwF+GmDYNsoaO23bdy0Gj7jBg148ODBgwcPHjx48AX49oVvB5/1INGwYOn7wYMHDx48ePDgwYN/J/zTAaaFaQGNGw7D4PY1XGs38ODBgwcPHjx48OAL8OnFT1/YhpmeJy3sNFAeDzSBBw8ePHjw4MGDBx/ATwGnwWML1IZLA1NaCPDgwYMHDx48ePDgG/DtgHL6/BaotW8a8LaFBA8ePHjw4MGDBw++AT8NDq2DTtdpcJkGoHYj5fGDBg8ePHjw4MGDBw++AD8dUEqDSmswKG1kbAu3HXgCDx48ePDgwYMHD74JPw0O7WA1vcC0EZI+lxbgMbmCBw8ePHjw4MGDBx/Apw2EWw2UKVDaYEk/kMfnwIMHDx48ePDgwYMvwp8eMD3IdpBoC7QNYq0PBTx48ODBgwcPHjz4G/BtoGnASRshtwveDmLgwYMHDx48ePDgwTfg03UK3QpaafDbDkLV3g8ePHjw4MGDBw8efAH+tVztBsgUavp8Gry2hQMPHjx48ODBgwcP/ib8NjBN/94KIttC3BpwOr4nePDgwYMHDx48ePAX4NPA1B5USgPeFrr1XvDgwYMHDx48ePDgPxG+vc9pQJk2VraNmGnD4/EDAA8ePHjw4MGDBw/+A+HTxsVpEJq+vx0E10EOPHjw4MGDBw8ePPgL8OlAUxq00qDUgtsOYv3YJBl48ODBgwcPHjz4Pwm/DQbTg7fg0wZFrbExDW7gwYMHDx48ePDgwRfgrfcu8ODBW+DBW+DBW8H6B8xprjAzocVyAAAAAElFTkSuQmCC">
           </div>
@@ -4721,13 +4722,6 @@ P2b:如果某个v的提案被accept，那么从Proposal提出编号更高的提�
   
   l_header.classList.remove("show");
   
-  
-    // cover
-    var cover_wrapper=document.querySelector('.cover-wrapper');
-    
-    cover_wrapper.id="half";
-    cover_wrapper.style.display="";
-    
   
 </script>
 
@@ -5020,6 +5014,198 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 
+  
+  
+
+  <div id="rightmenu-wrapper">
+    <ul class="list-v rightmenu" id="rightmenu-content">
+      <li class='option'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-text' onclick="document.execCommand('copy')"><i class='fa fa-copy fa-fw'></i>Copy Text</a>
+        <hr id='hr-text'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-href'><i class='fa fa-link fa-fw'></i>Copy Link</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-open-href'><i class='fa fa-external-link-square-alt fa-fw'></i>Open Link in New Tab</a>
+        <hr id='hr-href'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-src'><i class='fa fa-image fa-fw'></i>Copy Image Link</a>
+        <hr id='hr-src'>
+      </li>
+      
+        <li class='navigation'>
+          <a class='nav icon-only fix-cursor-default' onclick='history.back()'><i class='fa fa-arrow-left fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' onclick='history.forward()'><i class='fa fa-arrow-right fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' onclick='window.location.reload()'><i class='fa fa-redo fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' href='/'><i class='fa fa-home fa-fw'></i></a>
+        </li>
+      
+      <hr>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          <hr>
+        
+      
+        
+      
+        
+      
+        
+          <hr>
+        
+      
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default toggle-mode-btn' 
+        
+        
+        
+        >
+        <i class='fas fa-moon fa-fw'></i> Dark mode
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+      
+    </ul>
+  </div>
+
+  <script>
+    window.document.oncontextmenu = function (event) {
+      if (event.ctrlKey) return true;
+      if (/Android|webOS|BlackBerry/i.test(navigator.userAgent)) return true;
+      return popMenu(event);
+    };
+    document.addEventListener("click", function (event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      mymenu.style.display = "none";
+    });
+    function popMenu(event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      var menuContent = document.getElementById('rightmenu-content');
+      var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      mymenu.style.left = event.clientX + "px"; // 获取鼠标位置
+      mymenu.style.top = event.clientY + "px";
+      mymenu.style.display = 'block';
+      if (event.clientX * 2 > screenWidth) {
+        menuContent.classList.add('left');
+      } else {
+        menuContent.classList.remove('left');
+      }
+      if (event.clientY * 2 > screenHeight) {
+        menuContent.classList.add('top');
+      } else {
+        menuContent.classList.remove('top');
+      }
+
+      let hrText = document.getElementById('hr-text');
+      let hrSrc = document.getElementById('hr-src');
+      let hrHref = document.getElementById('hr-href');
+
+      // 选中图片
+      let copySrc = document.getElementById('menu-copy-src');
+      if (copySrc != undefined) {
+        if (event.target.currentSrc) {
+          copySrc.style.display = 'block';
+          copySrc.addEventListener("click", function (e) {
+            copyString(event.target.currentSrc);
+          },{once: true});
+          hrSrc.style.display = 'block';
+        } else {
+          copySrc.style.display = 'none';
+          hrSrc.style.display = 'none';
+        }
+      }
+
+      // 选中按钮
+      // 判断是不是按钮
+      let href = '';
+      if (event.path) {
+        for (i = 0; i < event.path.length; i++) {
+          if (event.path[i].href != undefined && event.path[i].href.length > 0) {
+            href = event.path[i].href;
+          }
+        }
+      }
+
+      let copyText = document.getElementById('menu-copy-text');
+      copyText.style.display = 'none';
+      hrText.style.display = 'none';
+      if (href.length == 0) {
+        // 选中文本
+        if (window.getSelection().toString()) {
+          if ('true' == 'true') {
+            copyText.style.display = 'block';
+            hrText.style.display = 'block';
+          }
+        }
+      }
+
+      // 在新标签页打开
+      let openHref = document.getElementById('menu-open-href');
+      if (openHref != undefined) {
+        if (href.length > 0) {
+          openHref.style.display = 'block';
+          openHref.addEventListener("click", function (e) {
+            window.open(href);
+          },{once: true});
+          hrHref.style.display = 'block';
+        } else {
+          openHref.style.display = 'none';
+          hrHref.style.display = 'none';
+        }
+      }
+      // 复制链接
+      let copyHref = document.getElementById('menu-copy-href');
+      if (copyHref != undefined) {
+        if (href.length > 0) {
+          copyHref.style.display = 'block';
+          copyHref.addEventListener("click", function (e) {
+            copyString(href);
+          },{once: true});
+        } else {
+          copyHref.style.display = 'none';
+        }
+      }
+      // 有音乐播放器 see: layout/_third-party/aplayer/script.ejs
+      
+      return false; // 该行代码确保系统自带的右键菜单不会被调出
+    }
+    function hideMenu() {
+      document.getElementById('rightmenu-wrapper').style.display = 'none';
+    }
+    function copyString(str) {
+      const input = document.createElement('input');
+      input.setAttribute('readonly', 'readonly');
+      document.body.appendChild(input);
+      input.setAttribute('value', str);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+    }
+    document.execCommand('click');
+  </script>
+
+
+
 
 <script>
   function loadIssuesJS() {
@@ -5204,7 +5390,7 @@ var loadCSS = function( href, before, media, attributes ){
       path = defaultPath || decodeURI(window.location.pathname);
     }
     var valine = new Valine();
-    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":null,"appKey":null,"meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false}, {
+    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"guoPbSVxNyamQ4PE6FgwlKTi-gzGzoHsz","appKey":"t8qr51J6QUbHNGA5lA54Jodr","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false}, {
       el: '#valine_container',
       path: path,
       placeholder: pagePlaceholder,
@@ -5685,84 +5871,6 @@ document.addEventListener("pjax:success", listennSidebarTOC);
 
 <!-- more -->
 
- 
-	   
-	    
-
-
-<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
-
-
-<script>
-    var pjax;
-    document.addEventListener('DOMContentLoaded', function () {
-      pjax = new Pjax({
-        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
-        selectors: [
-          "title",
-          
-          "#pjax-container",
-          "#pjax-header-nav-list"
-        ],
-        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
-        timeout: 5000
-      });
-    });
-
-    document.addEventListener('pjax:send', function (e) {
-      //window.stop(); // 相当于点击了浏览器的停止按钮
-
-      try {
-        var currentUrl = window.location.pathname;
-        var targetUrl = e.triggerElement.href;
-        var banUrl = [""];
-        if (banUrl[0] != "") {
-          banUrl.forEach(item => {
-            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
-              window.location.href = targetUrl;
-            }
-          });
-        }
-      } catch (error) {}
-
-      window.subData = null; // 移除标题（用于一二级导航栏切换处）
-
-      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
-      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
-      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
-
-      // 解绑事件 避免重复监听
-      volantis.$topBtn.unbind('click');
-      $('.menu a').unbind('click');
-      $(window).unbind('resize');
-      $(window).unbind('scroll');
-      $(document).unbind('scroll');
-      $(document).unbind('click');
-      $('body').unbind('click');
-	  // 使用 volantis.pjax.send 方法传入pjax:send回调函数 参见layout/_partial/scripts/global.ejs
-	  volantis.pjax.method.send.start();
-    });
-
-    document.addEventListener('pjax:complete', function () {
-      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
-      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
-      $('script[data-pjax], .pjax-reload script').each(function () {
-        $(this).parent().append($(this).remove());
-      });
-      try{
-		// 使用 volantis.pjax.push 方法传入重载函数 参见layout/_partial/scripts/global.ejs
-		volantis.pjax.method.complete.start();
-      } catch (e) {
-        console.log(e);
-      }
-    });
-
-    document.addEventListener('pjax:error', function (e) {
-	  // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
-	  volantis.pjax.method.error.start();
-      window.location.href = e.triggerElement.href;
-    });
-</script>
  
 	  
     </div>

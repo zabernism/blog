@@ -354,12 +354,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div id="l_body">
       <div id="l_cover">
   
-    
-        <div id="half" class='cover-wrapper post search' style="display: ;">
-          
-            <div id='cover-backstretch'></div>
-          
-          <div class='cover-body'>
+      
+        
+          <div class="cover-wrapper post search" id='half'>
+            
+              <div id='cover-backstretch'></div>
+            
+            <div class='cover-body'>
   <div class='top'>
     
     
@@ -384,9 +385,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   </div>
 </div>
 
-          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
-        </div>
-    
+          </div>
+        
+      
   
   </div>
 
@@ -469,7 +470,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p><code>TreeMap</code>和<code>TreeSet</code>根据对象的 compareTo 方法判断对象是否是同一个对象，若自定义了排序 Comparator，以自定义为准，顺序相同的只能存在一个。</p>
 <h1 id="TreeMap"><a href="#TreeMap" class="headerlink" title="TreeMap"></a>TreeMap</h1><h2 id="总体介绍"><a href="#总体介绍" class="headerlink" title="总体介绍"></a>总体介绍</h2><p><code>TreeMap</code>实现了<code>SortedMap</code>接口，有序。非同步。</p>
 <p><strong>底层通过红黑树实现</strong>，也就意味着<code>containsKey()</code>, <code>get()</code>, <code>put()</code>, <code>remove()</code>都有着<code>lg(n)</code>的时间复杂度。</p>
-<p><a target="_blank" rel="noopener" href="https://wujun234.github.io/images/1545011837223.png"><img src="https://wujun234.github.io/images/1545011837223.png" class="lazyload" data-srcset="https://wujun234.github.io/images/1545011837223.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="TreeMap_base.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://wujun234.github.io/images/1545011837223.png"><img src="https://wujun234.github.io/images/1545011837223.png" class="lazyload placeholder" data-srcset="https://wujun234.github.io/images/1545011837223.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="TreeMap_base.png"></a></p>
 <h2 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h2><p><strong>红黑树是一种近似平衡的二叉查找树，它能够确保任何一个节点的左右子树的高度差不会超过二者中较低那个的一倍</strong>。满足如下条件：</p>
 <ol>
 <li>每个节点要么是红色，要么是黑色。</li>
@@ -495,7 +496,7 @@ static final class Entry&lt;K,V&gt; implements Map.Entry&lt;K,V&gt; &#123;
 <li><strong>结构调整</strong>：改变检索树的结构关系<br>结构调整过程包含两个基本操作：左旋，右旋。</li>
 </ul>
 <h4 id="左旋"><a href="#左旋" class="headerlink" title="左旋"></a>左旋</h4><p>左旋的过程是将<code>x</code>的右子树绕<code>x</code>逆时针旋转，使得<code>x</code>的右子树成为<code>x</code>的父亲，同时修改相关节点的引用。旋转之后，二叉查找树的属性仍然满足。</p>
-<p><a target="_blank" rel="noopener" href="https://wujun234.github.io/images/1545011837498.png"><img src="https://wujun234.github.io/images/1545011837498.png" class="lazyload" data-srcset="https://wujun234.github.io/images/1545011837498.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="TreeMap_rotateLeft.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://wujun234.github.io/images/1545011837498.png"><img src="https://wujun234.github.io/images/1545011837498.png" class="lazyload placeholder" data-srcset="https://wujun234.github.io/images/1545011837498.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="TreeMap_rotateLeft.png"></a></p>
 <pre><code class="java">private void rotateLeft(Entry&lt;K,V&gt; p) &#123;
     if (p != null) &#123;
         Entry&lt;K,V&gt; r = p.right;
@@ -515,7 +516,7 @@ static final class Entry&lt;K,V&gt; implements Map.Entry&lt;K,V&gt; &#123;
 &#125;
 </code></pre>
 <h4 id="右旋"><a href="#右旋" class="headerlink" title="右旋"></a>右旋</h4><p>右旋的过程是将<code>x</code>的左子树绕<code>x</code>顺时针旋转，使得<code>x</code>的左子树成为<code>x</code>的父亲，同时修改相关节点的引用。旋转之后，二叉查找树的属性仍然满足。</p>
-<p><a target="_blank" rel="noopener" href="https://wujun234.github.io/images/1545011837851.png"><img src="https://wujun234.github.io/images/1545011837851.png" class="lazyload" data-srcset="https://wujun234.github.io/images/1545011837851.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="TreeMap_rotateRight.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://wujun234.github.io/images/1545011837851.png"><img src="https://wujun234.github.io/images/1545011837851.png" class="lazyload placeholder" data-srcset="https://wujun234.github.io/images/1545011837851.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="TreeMap_rotateRight.png"></a></p>
 <pre><code class="java">private void rotateRight(Entry&lt;K,V&gt; p) &#123;
     if (p != null) &#123;
         Entry&lt;K,V&gt; l = p.left;
@@ -538,7 +539,7 @@ static final class Entry&lt;K,V&gt; implements Map.Entry&lt;K,V&gt; &#123;
 <li>t 的右孩子为空，则 t 的后继是其第一个向左走的祖先。</li>
 </ol>
 <p>后继节点在红黑树的删除操作中将会用到。</p>
-<p><a target="_blank" rel="noopener" href="https://wujun234.github.io/images/1545011838124.png"><img src="https://wujun234.github.io/images/1545011838124.png" class="lazyload" data-srcset="https://wujun234.github.io/images/1545011838124.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="TreeMap_successor.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://wujun234.github.io/images/1545011838124.png"><img src="https://wujun234.github.io/images/1545011838124.png" class="lazyload placeholder" data-srcset="https://wujun234.github.io/images/1545011838124.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="TreeMap_successor.png"></a></p>
 <pre><code class="java">static &lt;K,V&gt; TreeMap.Entry&lt;K,V&gt; successor(Entry&lt;K,V&gt; t) &#123;
     if (t == null)
         return null;
@@ -559,7 +560,7 @@ static final class Entry&lt;K,V&gt; implements Map.Entry&lt;K,V&gt; &#123;
 &#125;
 </code></pre>
 <h2 id="方法剖析"><a href="#方法剖析" class="headerlink" title="方法剖析"></a>方法剖析</h2><h3 id="get"><a href="#get" class="headerlink" title="get()"></a>get()</h3><p><code>get(Object key)</code>调用了<code>getEntry(Object key)</code>得到相应的<code>entry</code>，然后返回<code>entry.value</code>。<br><code>getEntry()</code>根据<code>key</code>的顺序对二叉查找树进行查找，直到找到满足<code>k.compareTo(p.key) == 0</code>的<code>entry</code>。</p>
-<p><a target="_blank" rel="noopener" href="https://wujun234.github.io/images/1545011838400.png"><img src="https://wujun234.github.io/images/1545011838400.png" class="lazyload" data-srcset="https://wujun234.github.io/images/1545011838400.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="TreeMap_getEntry.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://wujun234.github.io/images/1545011838400.png"><img src="https://wujun234.github.io/images/1545011838400.png" class="lazyload placeholder" data-srcset="https://wujun234.github.io/images/1545011838400.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="TreeMap_getEntry.png"></a></p>
 <pre><code class="java">final Entry&lt;K,V&gt; getEntry(Object key) &#123;
     ......
     if (key == null)//不允许key值为null
@@ -635,7 +636,7 @@ static final class Entry&lt;K,V&gt; implements Map.Entry&lt;K,V&gt; &#123;
 </code></pre>
 <p><strong>插入调整</strong></p>
 <p>调整函数<code>fixAfterInsertion()</code></p>
-<p><a target="_blank" rel="noopener" href="https://wujun234.github.io/images/1545011838682.png"><img src="https://wujun234.github.io/images/1545011838682.png" class="lazyload" data-srcset="https://wujun234.github.io/images/1545011838682.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="TreeMap_put.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://wujun234.github.io/images/1545011838682.png"><img src="https://wujun234.github.io/images/1545011838682.png" class="lazyload placeholder" data-srcset="https://wujun234.github.io/images/1545011838682.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="TreeMap_put.png"></a></p>
 <pre><code class="java">private void fixAfterInsertion(Entry&lt;K,V&gt; x) &#123;
     x.color = RED;
     while (x != null &amp;&amp; x != root &amp;&amp; x.parent.color == RED) &#123;
@@ -722,7 +723,7 @@ static final class Entry&lt;K,V&gt; implements Map.Entry&lt;K,V&gt; &#123;
 <p><strong>删除调整</strong></p>
 <p>调整函数<code>fixAfterDeletion()</code></p>
 <p><strong>只有删除点是BLACK的时候，才会触发调整函数</strong>，因为删除 RED 节点不会破坏红黑树的任何约束，而删除 BLACK 节点会破坏规则 4。</p>
-<p><a target="_blank" rel="noopener" href="https://wujun234.github.io/images/1545011839131.png"><img src="https://wujun234.github.io/images/1545011839131.png" class="lazyload" data-srcset="https://wujun234.github.io/images/1545011839131.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="TreeMap_fixAfterDeletion.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://wujun234.github.io/images/1545011839131.png"><img src="https://wujun234.github.io/images/1545011839131.png" class="lazyload placeholder" data-srcset="https://wujun234.github.io/images/1545011839131.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="TreeMap_fixAfterDeletion.png"></a></p>
 <p>上述图解的总体思想是：将情况 1 首先转换成情况 2，或者转换成情况 3 和情况 4。</p>
 <pre><code class="java">private void fixAfterDeletion(Entry&lt;K,V&gt; x) &#123;
     while (x != root &amp;&amp; colorOf(x) == BLACK) &#123;
@@ -874,7 +875,7 @@ static final class Entry&lt;K,V&gt; implements Map.Entry&lt;K,V&gt; &#123;
           
           >
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg">
           
         </a>
       
@@ -886,7 +887,7 @@ static final class Entry&lt;K,V&gt; implements Map.Entry&lt;K,V&gt; &#123;
           
           >
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg">
           
         </a>
       
@@ -898,7 +899,7 @@ static final class Entry&lt;K,V&gt; implements Map.Entry&lt;K,V&gt; &#123;
           
           >
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg">
           
         </a>
       
@@ -906,7 +907,7 @@ static final class Entry&lt;K,V&gt; implements Map.Entry&lt;K,V&gt; &#123;
       
         
         <div class='hoverbox'>
-          <a class='share'><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></a>
+          <a class='share'><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg"></a>
           <div class='target'>
             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXgAAAF4CAAAAAB79r16AAAFJUlEQVR42u3cUa5TMQwE0O5/048FoOrG40lfESd/hZImx/kZ2eL1Y/3KeiEAD94CD94CD94qwL/C9Xbj0j7v9j39+3efn753um96T/DgwYMHDx48ePDgm/BbgOlFn/ZJ9zu9z+k5pg/g0QU8ePDgwYMHDx48+AvwjwEgDCbbi26DTitYrb3AgwcPHjx48ODBg/9C+G2Q2n5uF7J1f/DgwYMHDx48ePDg/4UANR102g5GTRsgn3544MGDBw8ePHjw4MHfhN8ePP3eNAi1GyBp4X5tkgw8ePDgwYMHDx48+EVQ+V8/x17gwYMHDx48ePDgwRfgt2t6sOm+2wCVwqWB6fFe4MGDBw8ePHjw4MEX4LcH2zYgbgWVaSOjPWgFHjx48ODBgwcPHvxN+O0Az/TCp/ulQWgbsNL71xsh4MGDBw8ePHjw4MEHA01biO1F04JuCxAPKh02UMCDBw8ePHjw4MGDb8BPGxRT6J9Laxu0Wuc89QIPHjx48ODBgwcPvgnfHgiafu/bGxtp4+ftecGDBw8ePHjw4MGDv/gffrYbFu3glAabaZBKHwB48ODBgwcPHjx48Dfh04AzbVCkDY324FGrkRL7gAcPHjx48ODBgwdfgE83egwKZai0sKdBKx3cGgdP8ODBgwcPHjx48OCL8GmguHWh08KmAXC6/3ZQCjx48ODBgwcPHjz4G/BbwOlg0fZ7Kdz2z6dOf30GDx48ePDgwYMHD/4CfBqgtgVIGyXt86WFWA80gQcPHjx48ODBgwc/gJ82EtKDpGBTqG3DY9zYmAY58ODBgwcPHjx48OAL8GmwSKGmBU2Bpw9hW9jrA03gwYMHDx48ePDgwR80QtIGxzZApQNTaQHTBxPfEzx48ODBgwcPHjz4Inx7gGjbWEgLdvo70wA3/f23Dwk8ePDgwYMHDx48+AJ8O0D8DNf0oq0AdQxVbhSBBw8ePHjw4MGDB38Tvj7IE36v9futB7EtKHjw4MGDBw8ePHjwN+CPNzgE2AaQbcNm2yiZBrZHT/DgwYMHDx48ePDgC/BTuDbktMBpAEsbMaf7HhcCPHjw4MGDBw8ePPgPwKeNjDTYtAeRtg9gOwAVByjw4MGDBw8ePHjw4AeNkHQwqd3QSAPXtIGRNm7ic4AHDx48ePDgwYMHX4RPB5PaAWxa0PQhnO7TCpLgwYMHDx48ePDgwTfhX8uVBo00MLUbL1vYcQADDx48ePDgwYMHD74Av20ApAHp04U5LdRpwcCDBw8ePHjw4MGD/034WwFjepH0POnDSO+xDVTgwYMHDx48ePDgwTfgpxtNA0oKdRqsPhXIWoUCDx48ePDgwYMHD/4mfOtCaQMibTykhZ+ecxoUwYMHDx48ePDgwYO/Ab+FbAekW8EqLcD03uDBgwcPHjx48ODB34RPf/jW5ynwdsBqW+DxAwQPHjx48ODBgwcPvgC/XdNGyXb/6d+nBZw2VI4fKnjw4MGDBw8ePHjwBfhXuG5dsBXAWudMz3PcCAEPHjx48ODBgwcPfgHfDkzbRsS00NuHdCtAgQcPHjx48ODBgwf/Cfh2gNg2RNL9xsGmtJ5+Dzx48ODBgwcPHjz4b4KfgowPfCm4tYLj8f3AgwcPHjx48ODBg/8i+PSip78zDTy3gtP23uDBgwcPHjx48ODB34BPA0i7kTANSi3w9N8fFwQ8ePDgwYMHDx48+CJ8K0hsA8i2sTEtUPvc4wAFHjx48ODBgwcPHnwAb312gQcP3gIP3gIP3lqsP7tZK93/boF1AAAAAElFTkSuQmCC">
           </div>
@@ -932,19 +933,25 @@ static final class Entry&lt;K,V&gt; implements Map.Entry&lt;K,V&gt; &#123;
   
     <div class="prev-next">
       
-        <a class='prev' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/05%20ArrayDeque/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>ArrayDeque</p>
-          <p class='content'>栈Stack已过时，队列LinkedList效率不高，栈和队列首选ArrayDeque。
-总体介绍Deque 接口ArrayDeque实现了Deque接口，Deque继承Queue实现了Stac...</p>
-        </a>
-      
-      
-        <a class='next' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/04%20linkedList/'>
-          <p class='title'>LinkedList<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+        <a class='prev' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/04%20linkedList/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>LinkedList</p>
           <p class='content'>现在栈或者队列的首选是ArrayDeque。
 总体介绍LinkedList同时实现了List接口和Deque接口，允许null元素。
 
 LinkedList底层通过双向链表实现。节点用内部类No...</p>
+        </a>
+      
+      
+        <a class='next' href='/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/01%20%E5%BC%82%E5%B8%B8/'>
+          <p class='title'>异常<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>异常分类
+Throwable
+Error
+表示 JVM 无法处理的错误，如 OutOfMemoryError, StackOverflowError。
+
+
+Exception
+未检查异常（Run...</p>
         </a>
       
     </div>
@@ -1014,13 +1021,6 @@ LinkedList底层通过双向链表实现。节点用内部类No...</p>
   
   l_header.classList.remove("show");
   
-  
-    // cover
-    var cover_wrapper=document.querySelector('.cover-wrapper');
-    
-    cover_wrapper.id="half";
-    cover_wrapper.style.display="";
-    
   
 </script>
 
@@ -1313,6 +1313,198 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 
+  
+  
+
+  <div id="rightmenu-wrapper">
+    <ul class="list-v rightmenu" id="rightmenu-content">
+      <li class='option'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-text' onclick="document.execCommand('copy')"><i class='fa fa-copy fa-fw'></i>Copy Text</a>
+        <hr id='hr-text'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-href'><i class='fa fa-link fa-fw'></i>Copy Link</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-open-href'><i class='fa fa-external-link-square-alt fa-fw'></i>Open Link in New Tab</a>
+        <hr id='hr-href'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-src'><i class='fa fa-image fa-fw'></i>Copy Image Link</a>
+        <hr id='hr-src'>
+      </li>
+      
+        <li class='navigation'>
+          <a class='nav icon-only fix-cursor-default' onclick='history.back()'><i class='fa fa-arrow-left fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' onclick='history.forward()'><i class='fa fa-arrow-right fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' onclick='window.location.reload()'><i class='fa fa-redo fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' href='/'><i class='fa fa-home fa-fw'></i></a>
+        </li>
+      
+      <hr>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          <hr>
+        
+      
+        
+      
+        
+      
+        
+          <hr>
+        
+      
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default toggle-mode-btn' 
+        
+        
+        
+        >
+        <i class='fas fa-moon fa-fw'></i> Dark mode
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+      
+    </ul>
+  </div>
+
+  <script>
+    window.document.oncontextmenu = function (event) {
+      if (event.ctrlKey) return true;
+      if (/Android|webOS|BlackBerry/i.test(navigator.userAgent)) return true;
+      return popMenu(event);
+    };
+    document.addEventListener("click", function (event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      mymenu.style.display = "none";
+    });
+    function popMenu(event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      var menuContent = document.getElementById('rightmenu-content');
+      var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      mymenu.style.left = event.clientX + "px"; // 获取鼠标位置
+      mymenu.style.top = event.clientY + "px";
+      mymenu.style.display = 'block';
+      if (event.clientX * 2 > screenWidth) {
+        menuContent.classList.add('left');
+      } else {
+        menuContent.classList.remove('left');
+      }
+      if (event.clientY * 2 > screenHeight) {
+        menuContent.classList.add('top');
+      } else {
+        menuContent.classList.remove('top');
+      }
+
+      let hrText = document.getElementById('hr-text');
+      let hrSrc = document.getElementById('hr-src');
+      let hrHref = document.getElementById('hr-href');
+
+      // 选中图片
+      let copySrc = document.getElementById('menu-copy-src');
+      if (copySrc != undefined) {
+        if (event.target.currentSrc) {
+          copySrc.style.display = 'block';
+          copySrc.addEventListener("click", function (e) {
+            copyString(event.target.currentSrc);
+          },{once: true});
+          hrSrc.style.display = 'block';
+        } else {
+          copySrc.style.display = 'none';
+          hrSrc.style.display = 'none';
+        }
+      }
+
+      // 选中按钮
+      // 判断是不是按钮
+      let href = '';
+      if (event.path) {
+        for (i = 0; i < event.path.length; i++) {
+          if (event.path[i].href != undefined && event.path[i].href.length > 0) {
+            href = event.path[i].href;
+          }
+        }
+      }
+
+      let copyText = document.getElementById('menu-copy-text');
+      copyText.style.display = 'none';
+      hrText.style.display = 'none';
+      if (href.length == 0) {
+        // 选中文本
+        if (window.getSelection().toString()) {
+          if ('true' == 'true') {
+            copyText.style.display = 'block';
+            hrText.style.display = 'block';
+          }
+        }
+      }
+
+      // 在新标签页打开
+      let openHref = document.getElementById('menu-open-href');
+      if (openHref != undefined) {
+        if (href.length > 0) {
+          openHref.style.display = 'block';
+          openHref.addEventListener("click", function (e) {
+            window.open(href);
+          },{once: true});
+          hrHref.style.display = 'block';
+        } else {
+          openHref.style.display = 'none';
+          hrHref.style.display = 'none';
+        }
+      }
+      // 复制链接
+      let copyHref = document.getElementById('menu-copy-href');
+      if (copyHref != undefined) {
+        if (href.length > 0) {
+          copyHref.style.display = 'block';
+          copyHref.addEventListener("click", function (e) {
+            copyString(href);
+          },{once: true});
+        } else {
+          copyHref.style.display = 'none';
+        }
+      }
+      // 有音乐播放器 see: layout/_third-party/aplayer/script.ejs
+      
+      return false; // 该行代码确保系统自带的右键菜单不会被调出
+    }
+    function hideMenu() {
+      document.getElementById('rightmenu-wrapper').style.display = 'none';
+    }
+    function copyString(str) {
+      const input = document.createElement('input');
+      input.setAttribute('readonly', 'readonly');
+      document.body.appendChild(input);
+      input.setAttribute('value', str);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+    }
+    document.execCommand('click');
+  </script>
+
+
+
 
 <script>
   function loadIssuesJS() {
@@ -1497,7 +1689,7 @@ var loadCSS = function( href, before, media, attributes ){
       path = defaultPath || decodeURI(window.location.pathname);
     }
     var valine = new Valine();
-    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":null,"appKey":null,"meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false}, {
+    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"guoPbSVxNyamQ4PE6FgwlKTi-gzGzoHsz","appKey":"t8qr51J6QUbHNGA5lA54Jodr","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false}, {
       el: '#valine_container',
       path: path,
       placeholder: pagePlaceholder,
@@ -1978,84 +2170,6 @@ document.addEventListener("pjax:success", listennSidebarTOC);
 
 <!-- more -->
 
- 
-	   
-	    
-
-
-<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
-
-
-<script>
-    var pjax;
-    document.addEventListener('DOMContentLoaded', function () {
-      pjax = new Pjax({
-        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
-        selectors: [
-          "title",
-          
-          "#pjax-container",
-          "#pjax-header-nav-list"
-        ],
-        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
-        timeout: 5000
-      });
-    });
-
-    document.addEventListener('pjax:send', function (e) {
-      //window.stop(); // 相当于点击了浏览器的停止按钮
-
-      try {
-        var currentUrl = window.location.pathname;
-        var targetUrl = e.triggerElement.href;
-        var banUrl = [""];
-        if (banUrl[0] != "") {
-          banUrl.forEach(item => {
-            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
-              window.location.href = targetUrl;
-            }
-          });
-        }
-      } catch (error) {}
-
-      window.subData = null; // 移除标题（用于一二级导航栏切换处）
-
-      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
-      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
-      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
-
-      // 解绑事件 避免重复监听
-      volantis.$topBtn.unbind('click');
-      $('.menu a').unbind('click');
-      $(window).unbind('resize');
-      $(window).unbind('scroll');
-      $(document).unbind('scroll');
-      $(document).unbind('click');
-      $('body').unbind('click');
-	  // 使用 volantis.pjax.send 方法传入pjax:send回调函数 参见layout/_partial/scripts/global.ejs
-	  volantis.pjax.method.send.start();
-    });
-
-    document.addEventListener('pjax:complete', function () {
-      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
-      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
-      $('script[data-pjax], .pjax-reload script').each(function () {
-        $(this).parent().append($(this).remove());
-      });
-      try{
-		// 使用 volantis.pjax.push 方法传入重载函数 参见layout/_partial/scripts/global.ejs
-		volantis.pjax.method.complete.start();
-      } catch (e) {
-        console.log(e);
-      }
-    });
-
-    document.addEventListener('pjax:error', function (e) {
-	  // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
-	  volantis.pjax.method.error.start();
-      window.location.href = e.triggerElement.href;
-    });
-</script>
  
 	  
     </div>
