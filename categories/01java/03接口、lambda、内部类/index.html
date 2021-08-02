@@ -424,112 +424,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/01%20%E6%8E%A5%E5%8F%A3/">
-        接口
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        概念与特性
-成员默认 public
-常量必须赋初值，内部类自动成为 static 类。
-不能含有实例域，不能实现方法。（JDK 8 之后允许提供静态方法、默认方法）
-可以声明接口变量，不能使用 new 实例化一个接口。
-
-接口与抽象类接口与抽象类的区别
-从设计层面上看，抽象类提供了一种 IS-A 关系，需要满足里式替换原则，即子类对象必须能够替换掉所有父类对象。而接口更像是一种 LIKE-A...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/03%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/">03接口、lambda、内部类</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/01%20%E6%8E%A5%E5%8F%A3/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/02%20lambda/">
-        lambda
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        
-@since 1.8
-
-语法参数，箭头（-&gt;）以及一个表达式。
-(String first, String second) -&gt;first.length() - second.length()
-
-没有参数也要提供空括号，就像无参数方法一样。
-() -&gt; &#123; for (int i = 100; i &gt;= 0; i--) System.out.println(...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/03%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/">03接口、lambda、内部类</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/02%20lambda/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
       <a href="/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/04%20%E4%BB%A3%E7%90%86/">
         代理
       </a>
@@ -629,6 +523,112 @@ OuterClass.this
           </div>
         
       
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/01%20%E6%8E%A5%E5%8F%A3/">
+        接口
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        概念与特性
+成员默认 public
+常量必须赋初值，内部类自动成为 static 类。
+不能含有实例域，不能实现方法。（JDK 8 之后允许提供静态方法、默认方法）
+可以声明接口变量，不能使用 new 实例化一个接口。
+
+接口与抽象类接口与抽象类的区别
+从设计层面上看，抽象类提供了一种 IS-A 关系，需要满足里式替换原则，即子类对象必须能够替换掉所有父类对象。而接口更像是一种 LIKE-A...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/03%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/">03接口、lambda、内部类</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/01%20%E6%8E%A5%E5%8F%A3/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/02%20lambda/">
+        lambda
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        
+@since 1.8
+
+语法参数，箭头（-&gt;）以及一个表达式。
+(String first, String second) -&gt;first.length() - second.length()
+
+没有参数也要提供空括号，就像无参数方法一样。
+() -&gt; &#123; for (int i = 100; i &gt;= 0; i--) System.out.println(...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/03%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/">03接口、lambda、内部类</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/02%20lambda/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
     
   </section>
   
@@ -686,7 +686,7 @@ OuterClass.this
           
         
           
-            <a href="https://github.com/code-xiaozhuang/"
+            <a href="https://github.com/zabernism/"
               class="social fab fa-github flat-btn"
               target="_blank"
               rel="external nofollow noopener noreferrer">

@@ -426,6 +426,58 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/">
+        对象与类
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        反射可以提供运行时的类信息，并且这个类可以在运行时才加载进来，甚至在编译时期该类的 .class 不存在也可以加载进来。
+反射允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。
+反射的核心是 JVM 在运行时才动态加载类或调用方法/访问属性，它不需要事先知道运行对象是谁。
+反射的作用反射机制可以用来：
+
+在运行时判断任意一个对象所属的类；
+在运行时构造任意一个类的对...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/02%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/">02对象与类</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
       <a href="/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/05%20%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/">
         文档注释
       </a>
@@ -543,21 +595,29 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/">
-        对象与类
+      <a href="/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/02%20%E4%BF%AE%E9%A5%B0%E7%AC%A6/">
+        修饰符
       </a>
     </h2>
   
   <div class='md'>
     
       
-        反射可以提供运行时的类信息，并且这个类可以在运行时才加载进来，甚至在编译时期该类的 .class 不存在也可以加载进来。
-反射允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。
-反射的核心是 JVM 在运行时才动态加载类或调用方法/访问属性，它不需要事先知道运行对象是谁。
-反射的作用反射机制可以用来：
+        访问修饰符
+private：仅对本类可见
+public：对所有类可见
+接口里方法默认 public
 
-在运行时判断任意一个对象所属的类；
-在运行时构造任意一个类的对...
+
+protected：对本包和所有子类可见
+default：对本包可见
+
+一个方法可以访问所属类的所有对象的私有对象
+非访问修饰符final
+final 域（常量）
+final 域必须显式指定初始值，赋值后，不能被重新赋值。
+基本类型：final 使数值不变
+引用类型：final 使引用不变...
       
     
   </div>
@@ -573,7 +633,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       </div>
       
         <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/'>
+          <a class='readmore' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/02%20%E4%BF%AE%E9%A5%B0%E7%AC%A6/'>
             Read More
           </a>
         </div>
@@ -628,66 +688,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <div>
           <a class='readmore' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/01%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/02%20%E4%BF%AE%E9%A5%B0%E7%AC%A6/">
-        修饰符
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        访问修饰符
-private：仅对本类可见
-public：对所有类可见
-接口里方法默认 public
-
-
-protected：对本包和所有子类可见
-default：对本包可见
-
-一个方法可以访问所属类的所有对象的私有对象
-非访问修饰符final
-final 域（常量）
-final 域必须显式指定初始值，赋值后，不能被重新赋值。
-基本类型：final 使数值不变
-引用类型：final 使引用不变...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/02%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/">02对象与类</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/02%20%E4%BF%AE%E9%A5%B0%E7%AC%A6/'>
             Read More
           </a>
         </div>
@@ -757,7 +757,7 @@ final 域必须显式指定初始值，赋值后，不能被重新赋值。
           
         
           
-            <a href="https://github.com/code-xiaozhuang/"
+            <a href="https://github.com/zabernism/"
               class="social fab fa-github flat-btn"
               target="_blank"
               rel="external nofollow noopener noreferrer">
