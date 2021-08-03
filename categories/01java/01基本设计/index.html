@@ -526,35 +526,18 @@ new int[]&#123;1,2,3&#125;;
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/04%20%E8%BF%90%E7%AE%97%E7%AC%A6/">
-        运算符
+      <a href="/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/05%20%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/">
+        输入输出
       </a>
     </h2>
   
   <div class='md'>
     
       
-        数学函数与常量
-Math.sqrt(x)：平方根
-Math.pow(x, y)：幂运算，x 的 y 次幂
-Math.floorMod(x, y)：求余
+        读取输入Scanner 类文件输入// 如果是 win 系统，使用双反斜杠，&quot;c:\\mydirectory\\myfile.txt&quot; ，每个 \ 需要额外的一个 \。
+Scanner scan = new Scanner(Paths.get(&quot;myfile.txt&quot;)，&quot;UTF-8&quot;);
 
-自增与自减运算符建议不要在表达式中使用 ++，容易带来疑惑和 bug
-关系和 boolean 运算符
-==
-!=
-&lt;
-&gt;
-&lt;=
-&gt;=
-&amp;&amp;（短路）
-||（短路）
-?:
-
-位运算符
-逻辑
-整型
-| (或...
+标准输入Scanner in = new...
       
     
   </div>
@@ -570,7 +553,7 @@ Math.floorMod(x, y)：求余
       </div>
       
         <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/04%20%E8%BF%90%E7%AE%97%E7%AC%A6/'>
+          <a class='readmore' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/05%20%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/'>
             Read More
           </a>
         </div>
@@ -648,18 +631,35 @@ do while
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/05%20%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/">
-        输入输出
+      <a href="/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/04%20%E8%BF%90%E7%AE%97%E7%AC%A6/">
+        运算符
       </a>
     </h2>
   
   <div class='md'>
     
       
-        读取输入Scanner 类文件输入// 如果是 win 系统，使用双反斜杠，&quot;c:\\mydirectory\\myfile.txt&quot; ，每个 \ 需要额外的一个 \。
-Scanner scan = new Scanner(Paths.get(&quot;myfile.txt&quot;)，&quot;UTF-8&quot;);
+        数学函数与常量
+Math.sqrt(x)：平方根
+Math.pow(x, y)：幂运算，x 的 y 次幂
+Math.floorMod(x, y)：求余
 
-标准输入Scanner in = new...
+自增与自减运算符建议不要在表达式中使用 ++，容易带来疑惑和 bug
+关系和 boolean 运算符
+==
+!=
+&lt;
+&gt;
+&lt;=
+&gt;=
+&amp;&amp;（短路）
+||（短路）
+?:
+
+位运算符
+逻辑
+整型
+| (或...
       
     
   </div>
@@ -675,7 +675,59 @@ Scanner scan = new Scanner(Paths.get(&quot;myfile.txt&quot;)，&quot;UTF-8&quot;
       </div>
       
         <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/05%20%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/'>
+          <a class='readmore' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/04%20%E8%BF%90%E7%AE%97%E7%AC%A6/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/02%20%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+        字符串
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        String底层实现
+String被声明为final，因此它不可被继承。底层是char或byte类型的value数组，value数组也被声明为final，这意味着数组初始化之后就不能再引用其他数组。并且String内部没有改变value数组的办法，因此可以保障String不可变
+
+java 8 -char数组
+在java8中，String内部使用char数组存储数据。
+
+public fin...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/01%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/">01基本设计</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/02%20%E5%AD%97%E7%AC%A6%E4%B8%B2/'>
             Read More
           </a>
         </div>
@@ -746,58 +798,6 @@ Long
       
         <div>
           <a class='readmore' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/01%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/02%20%E5%AD%97%E7%AC%A6%E4%B8%B2/">
-        字符串
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        String底层实现
-String被声明为final，因此它不可被继承。底层是char或byte类型的value数组，value数组也被声明为final，这意味着数组初始化之后就不能再引用其他数组。并且String内部没有改变value数组的办法，因此可以保障String不可变
-
-java 8 -char数组
-在java8中，String内部使用char数组存储数据。
-
-public fin...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/01%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/">01基本设计</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/02%20%E5%AD%97%E7%AC%A6%E4%B8%B2/'>
             Read More
           </a>
         </div>
@@ -1123,7 +1123,7 @@ public fin...
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Tue Aug 03 2021 20:27:39 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Tue Aug 03 2021 20:38:03 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2021-08-03 日</div>
           
         </div>
