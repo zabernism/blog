@@ -2248,18 +2248,17 @@ div.fancybox .image-caption:empty {
 }
 .aplayer-container {
   display: flex;
-  justify-content: left;
-  min-height: 80px;
+  justify-content: center;
+  min-height: 100px;
 }
 .aplayer-container meting-js {
-  max-width: 80%;
+  max-width: 100%;
 }
 .aplayer {
-  max-width: 300px;
+  max-width: 500px;
   border-radius: 4px;
   color: var(--color-text);
   font-family: UbuntuMono, "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Menlo, Monaco, monospace, sans-serif;
-  display: none !important;
 }
 .aplayer .aplayer-list {
   text-align: left;
@@ -2270,7 +2269,7 @@ div.fancybox .image-caption:empty {
   }
 }
 .l_header .aplayer-volume-wrap {
-  display: inline;
+  display: none !important;
 }
 .highlight {
   position: relative;
