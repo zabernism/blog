@@ -511,7 +511,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
-  <h1 id="访问修饰符"><a href="#访问修饰符" class="headerlink" title="访问修饰符"></a>访问修饰符</h1><ul>
+  <h1 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h1><h2 id="访问修饰符"><a href="#访问修饰符" class="headerlink" title="访问修饰符"></a>访问修饰符</h2><ul>
 <li>private：仅对本类可见</li>
 <li>public：对所有类可见<ul>
 <li>接口里方法默认 public</li>
@@ -521,7 +521,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>default：对本包可见</li>
 </ul>
 <p>一个方法可以访问所属类的所有对象的私有对象</p>
-<h1 id="非访问修饰符"><a href="#非访问修饰符" class="headerlink" title="非访问修饰符"></a>非访问修饰符</h1><h2 id="final"><a href="#final" class="headerlink" title="final"></a>final</h2><ul>
+<h2 id="非访问修饰符"><a href="#非访问修饰符" class="headerlink" title="非访问修饰符"></a>非访问修饰符</h2><h3 id="final"><a href="#final" class="headerlink" title="final"></a>final</h3><ul>
 <li>final 域（常量）<ul>
 <li>final 域必须显式指定初始值，赋值后，不能被重新赋值。</li>
 <li>基本类型：final 使数值不变</li>
@@ -538,7 +538,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ul>
 </li>
 </ul>
-<h2 id="static"><a href="#static" class="headerlink" title="static"></a>static</h2><ul>
+<h3 id="static"><a href="#static" class="headerlink" title="static"></a>static</h3><ul>
 <li>静态域（变量）<ul>
 <li>类变量，多实例也只有一份拷贝</li>
 </ul>
@@ -571,7 +571,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <blockquote>
 <p>父类（静态变量、静态语句块）<br>子类（静态变量、静态语句块）<br>父类（实例变量、普通语句块）<br>父类（构造函数）<br>子类（实例变量、普通语句块）<br>子类（构造函数）</p>
 </blockquote>
-<h2 id="abstract"><a href="#abstract" class="headerlink" title="abstract"></a>abstract</h2><ul>
+<h3 id="abstract"><a href="#abstract" class="headerlink" title="abstract"></a>abstract</h3><ul>
 <li>抽象类<ul>
 <li>抽象类不能实例化，唯一目的是为了对该类进行扩充。</li>
 <li>抽象类可以不包含抽象方法。</li>
@@ -584,20 +584,20 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ul>
 </li>
 </ul>
-<h2 id="synchronized"><a href="#synchronized" class="headerlink" title="synchronized"></a>synchronized</h2><ul>
+<h3 id="synchronized"><a href="#synchronized" class="headerlink" title="synchronized"></a>synchronized</h3><ul>
 <li>方法</li>
 <li>代码块<ul>
 <li>synchronized 声明的方法同一时间只能被一个线程访问。</li>
 </ul>
 </li>
 </ul>
-<h2 id="transient"><a href="#transient" class="headerlink" title="transient"></a>transient</h2><ul>
+<h3 id="transient"><a href="#transient" class="headerlink" title="transient"></a>transient</h3><ul>
 <li>transient 变量<ul>
 <li>序列化时被跳过</li>
 </ul>
 </li>
 </ul>
-<h2 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a>volatile</h2><p>volatile 同步变量</p>
+<h3 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a>volatile</h3><p>volatile 同步变量</p>
 <ul>
 <li>原子性：不保证</li>
 <li>可见性：保证，读写立刻与主内存交换</li>
@@ -622,10 +622,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-31T16:42:10+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-03T21:38:14+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jul 31, 2021</p>
+    <p>更新于：Aug 3, 2021</p>
   </a>
 </div>
 
@@ -644,7 +644,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>689 words</p>
+      <p>692 words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -739,19 +739,18 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/01%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/'>
           <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>面向对象</p>
-          <p class='content'>抽象抽象是将一类对象的共同特征总结出来构造类的过程，包括数据抽象和行为抽象两方面。抽象只关注对象有哪些属性和行为，并不关注这些行为的细节是什么。
-封装把数据和行为隐藏，只能通过暴露的接口访问数据...</p>
+          <p class='content'>面向对象抽象抽象是将一类对象的共同特征总结出来构造类的过程，包括数据抽象和行为抽象两方面。抽象只关注对象有哪些属性和行为，并不关注这些行为的细节是什么。
+封装把数据和行为隐藏，只能通过暴露的接口...</p>
         </a>
       
       
-        <a class='next' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/01%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/'>
-          <p class='title'>数据类型<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>
-数据类型分为基本类型和对象类型
+        <a class='next' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/03%20%E6%95%B0%E7%BB%84%E5%92%8C%E5%B9%BF%E4%B9%89%E8%A1%A8/'>
+          <p class='title'>数组和广义表<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>数组和广义表一维数组声明一旦创建了数组就不能改变它的大小。
+int[] a = new int[n];
+int a[] = new int[n];
 
-基本类型java中的基本类型有8种，其中4种整型、2种浮点型、char和boolean。还有void和reference类型
-
-1、java的基本类型值存储在...</p>
+初始化数字数组初始化为 0。boolean ...</p>
         </a>
       
     </div>
@@ -794,7 +793,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#final"><span class="toc-text">final</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#static"><span class="toc-text">static</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#abstract"><span class="toc-text">abstract</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#synchronized"><span class="toc-text">synchronized</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#transient"><span class="toc-text">transient</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#volatile"><span class="toc-text">volatile</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-text">访问修饰符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%9E%E8%AE%BF%E9%97%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-text">非访问修饰符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#final"><span class="toc-text">final</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#static"><span class="toc-text">static</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#abstract"><span class="toc-text">abstract</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#synchronized"><span class="toc-text">synchronized</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#transient"><span class="toc-text">transient</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#volatile"><span class="toc-text">volatile</span></a></li></ol></li></ol>
     </div>
   </section>
 

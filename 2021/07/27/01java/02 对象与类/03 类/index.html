@@ -511,26 +511,26 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
-  <h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><p>类是构造对象的模板。</p>
+  <h1 id="类与对象"><a href="#类与对象" class="headerlink" title="类与对象"></a>类与对象</h1><h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><p>类是构造对象的模板。</p>
 <p>由类构造对象的过程称为创建类的实例。</p>
 <p>一个源文件中，只能有一个公共类，类名必须与文件名相同。</p>
-<h2 id="类之间的关系"><a href="#类之间的关系" class="headerlink" title="类之间的关系"></a>类之间的关系</h2><p>最常见的关系有：</p>
+<h3 id="类之间的关系"><a href="#类之间的关系" class="headerlink" title="类之间的关系"></a>类之间的关系</h3><p>最常见的关系有：</p>
 <ol>
 <li>依赖（uses-a）：一个类的方法需要操纵另一个类的对象</li>
 <li>聚合（has-a）：类 A 的对象包含着类 B 的对象</li>
 <li>继承（is-a）：继承是一种用于表示特殊与一般的关系，父类更一般</li>
 </ol>
 <p>应该尽可能地将相互依赖的类减至最少。</p>
-<h2 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h2><ol>
+<h3 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h3><ol>
 <li>构造器和类名同名，参数不限，没有返回值。</li>
 <li>构造器中的局部变量会覆盖同名实例域。</li>
 <li>若未手动编写构造器，会默认提供一个无参构造器，设默认值。手动提供构造器后，不会自动提供无参构造器。</li>
 <li>构造器不能被继承，因此不能被重写，但可以被重载。</li>
 <li>父类与子类的构造函数调用次序：若子类构造器没有显式调用父类构造器，不管子类构造器有无参数，都默认调用父类无参构造器。</li>
 </ol>
-<h2 id="finalize-方法"><a href="#finalize-方法" class="headerlink" title="finalize 方法"></a>finalize 方法</h2><p>可以为任何一个类添加 finalize 方法，将在垃圾回收器清除对象之前调用。不要依赖，不能保证被调用。</p>
-<h2 id="Object：所有类的超类"><a href="#Object：所有类的超类" class="headerlink" title="Object：所有类的超类"></a>Object：所有类的超类</h2><p>如果重新定义 equals 方法，就必须重新定义 hashCode 方法。eauals 与 hashCode 的定义必须一致：如果 x.eauals(y) 返回 true，那么 x.hashCode() 必须与 y.hashCode() 具有相同的值。</p>
-<h3 id="equals-方法"><a href="#equals-方法" class="headerlink" title="equals()方法"></a>equals()方法</h3><h4 id="等价关系"><a href="#等价关系" class="headerlink" title="等价关系"></a><strong>等价关系</strong></h4><p>两个对象具有等价关系，需要满足以下五个条件：</p>
+<h3 id="finalize-方法"><a href="#finalize-方法" class="headerlink" title="finalize 方法"></a>finalize 方法</h3><p>可以为任何一个类添加 finalize 方法，将在垃圾回收器清除对象之前调用。不要依赖，不能保证被调用。</p>
+<h3 id="Object：所有类的超类"><a href="#Object：所有类的超类" class="headerlink" title="Object：所有类的超类"></a>Object：所有类的超类</h3><p>如果重新定义 equals 方法，就必须重新定义 hashCode 方法。eauals 与 hashCode 的定义必须一致：如果 x.eauals(y) 返回 true，那么 x.hashCode() 必须与 y.hashCode() 具有相同的值。</p>
+<h4 id="equals-方法"><a href="#equals-方法" class="headerlink" title="equals()方法"></a>equals()方法</h4><h5 id="等价关系"><a href="#等价关系" class="headerlink" title="等价关系"></a><strong>等价关系</strong></h5><p>两个对象具有等价关系，需要满足以下五个条件：</p>
 <ul>
 <li><p>自反性</p>
 <pre><code class="java">x.equals(x); // true
@@ -560,55 +560,55 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </code></pre>
 </li>
 </ul>
-<h4 id="等价与相等"><a href="#等价与相等" class="headerlink" title="等价与相等"></a>等价与相等</h4><ul>
+<h5 id="等价与相等"><a href="#等价与相等" class="headerlink" title="等价与相等"></a>等价与相等</h5><ul>
 <li>对于基本类型，== 判断两个值是否相等，基本类型没有 equals() 方法。</li>
 <li>对于引用类型，== 判断两个变量是否引用同一个对象，而 equals() 判断引用的对象是否等价。</li>
 </ul>
-<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><ul>
+<h5 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h5><ul>
 <li>检查是否为同一个对象的引用，如果是直接返回 true；</li>
 <li>检查是否是同一个类型，如果不是，直接返回 false；</li>
 <li>将 Object 对象进行转型；</li>
 <li>判断每个关键域是否相等。</li>
 </ul>
-<h3 id="hashCode"><a href="#hashCode" class="headerlink" title="hashCode()"></a>hashCode()</h3><p>hashCode() 返回哈希值，而 equals() 是用来判断两个对象是否等价。等价的两个对象散列值一定相同，但是散列值相同的两个对象不一定等价，这是因为计算哈希值具有随机性，两个值不同的对象可能计算出相同的哈希值。</p>
+<h4 id="hashCode"><a href="#hashCode" class="headerlink" title="hashCode()"></a>hashCode()</h4><p>hashCode() 返回哈希值，而 equals() 是用来判断两个对象是否等价。等价的两个对象散列值一定相同，但是散列值相同的两个对象不一定等价，这是因为计算哈希值具有随机性，两个值不同的对象可能计算出相同的哈希值。</p>
 <p>在覆盖 equals() 方法时应当总是覆盖 hashCode() 方法，保证等价的两个对象哈希值也相等。</p>
 <p>HashSet 和 HashMap 等集合类使用了 hashCode() 方法来计算对象应该存储的位置，因此要将对象添加到这些集合类中，需要让对应的类实现 hashCode() 方法。</p>
-<h3 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString()"></a>toString()</h3><p>默认返回 ClassName@4554617c 这种形式，其中 @ 后面的数值为散列码的无符号十六进制表示。</p>
-<h3 id="clone"><a href="#clone" class="headerlink" title="clone()"></a>clone()</h3><p>clone() 是 Object 的 protected 方法，它不是 public，一个类不显式去重写 clone()，其它类就不能直接去调用该类实例的 clone() 方法。</p>
+<h4 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString()"></a>toString()</h4><p>默认返回 ClassName@4554617c 这种形式，其中 @ 后面的数值为散列码的无符号十六进制表示。</p>
+<h4 id="clone"><a href="#clone" class="headerlink" title="clone()"></a>clone()</h4><p>clone() 是 Object 的 protected 方法，它不是 public，一个类不显式去重写 clone()，其它类就不能直接去调用该类实例的 clone() 方法。</p>
 <p>clone() 方法并不是 Cloneable 接口的方法，Cloneable 接口只是规定，如果一个类没有实现 Cloneable 接口又调用了 clone() 方法，就会抛出 CloneNotSupportedException。</p>
 <p>使用 clone() 方法来拷贝一个对象即复杂又有风险，它会抛出异常，并且还需要类型转换。Effective Java 书上讲到，最好不要去使用 clone()，可以使用拷贝构造函数或者拷贝工厂来拷贝一个对象。</p>
 <ul>
 <li>浅拷贝：对基本数据类型进行值传递，对引用数据类型进行引用传递般的拷贝。</li>
 <li>深拷贝：对基本数据类型进行值传递，对引用数据类型，创建一个新的对象，并复制其内容。</li>
 </ul>
-<h2 id="枚举类"><a href="#枚举类" class="headerlink" title="枚举类"></a>枚举类</h2><p>枚举类定义的是一个类，有着指定的几个实例。<br>比较两个枚举类型的值时，不需要调用 equals 方法，而直接使用”==”就可以了。</p>
-<h1 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h1><h2 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h2><ol>
+<h3 id="枚举类"><a href="#枚举类" class="headerlink" title="枚举类"></a>枚举类</h3><p>枚举类定义的是一个类，有着指定的几个实例。<br>比较两个枚举类型的值时，不需要调用 equals 方法，而直接使用”==”就可以了。</p>
+<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><h3 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h3><ol>
 <li>用 new 语句创建对象</li>
 <li>运用反射</li>
 <li>调用对象的 clone() 方法</li>
 <li>运用反序列化手段，调用 java.io.ObjectInputStream 对象的 readObject() 方法</li>
 </ol>
 <p>(1) 和 (2) 都会明确的显式的调用构造函数；(3) 是在内存上对已有对象的影印，所以不会调用构造函数；(4) 是从文件中还原类的对象，也不会调用构造函数。</p>
-<h2 id="对象克隆"><a href="#对象克隆" class="headerlink" title="对象克隆"></a>对象克隆</h2><p>有两种方式：</p>
+<h3 id="对象克隆"><a href="#对象克隆" class="headerlink" title="对象克隆"></a>对象克隆</h3><p>有两种方式：</p>
 <ul>
 <li>实现 Cloneable 接口并重写 Object 类中的 clone() 方法；</li>
 <li>实现 Serializable 接口，通过对象的序列化和反序列化实现克隆，可以实现真正的深度克隆。</li>
 </ul>
-<h2 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h2><ul>
+<h3 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h3><ul>
 <li>对象序列化（Serializable）是指将对象转换为字节序列的过程，而反序列化则是根据字节序列恢复对象的过程。只有实现了 Serializable 和 Externalizable 接口的类的对象才能被序列化。</li>
 <li>java.io.ObjectOutputStream 代表对象输出流，它的 writeObject(Objectobj) 方法可对参数指定的obj对象进行序列化，把得到的字节序列写到一个目标输出流中。</li>
 <li>java.io.ObjectInputStream 代表对象输入流，它的 readObject() 方法从一个源输入流中读取字节序列，再把它们反序列化为一个对象，并将其返回。</li>
 </ul>
-<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><h2 id="方法签名"><a href="#方法签名" class="headerlink" title="方法签名"></a>方法签名</h2><p>方法签名只有<strong>方法名</strong>和<strong>参数</strong>，没有返回值。也就是说，不能有两个名字相同、参数也相同而返回值不同的方法。</p>
-<h2 id="隐式参数与显式参数"><a href="#隐式参数与显式参数" class="headerlink" title="隐式参数与显式参数"></a>隐式参数与显式参数</h2><p>隐式参数是出现在方法名前的类对象（this），显式参数位于方法名后面的括号中。</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="方法签名"><a href="#方法签名" class="headerlink" title="方法签名"></a>方法签名</h3><p>方法签名只有<strong>方法名</strong>和<strong>参数</strong>，没有返回值。也就是说，不能有两个名字相同、参数也相同而返回值不同的方法。</p>
+<h3 id="隐式参数与显式参数"><a href="#隐式参数与显式参数" class="headerlink" title="隐式参数与显式参数"></a>隐式参数与显式参数</h3><p>隐式参数是出现在方法名前的类对象（this），显式参数位于方法名后面的括号中。</p>
 <p>使用 this 可以区分开隐式参数的类对象的实例域和局部变量</p>
-<h2 id="方法参数"><a href="#方法参数" class="headerlink" title="方法参数"></a>方法参数</h2><p>Java 方法参数是<strong>值传递</strong>，不是引用传递。</p>
+<h3 id="方法参数"><a href="#方法参数" class="headerlink" title="方法参数"></a>方法参数</h3><p>Java 方法参数是<strong>值传递</strong>，不是引用传递。</p>
 <p>方法在执行时，先定义了局部变量，这些局部变量指向，传入参数的指向。对局部变量重新指向时，完全不影响原本传入参数的那些指向。</p>
 <ul>
 <li>值传递：方法接收的是调用者提供的值。</li>
 <li>引用传递：方法接受的是调用所对应的变量地址。</li>
 </ul>
-<h2 id="参数变量可变的方法"><a href="#参数变量可变的方法" class="headerlink" title="参数变量可变的方法"></a>参数变量可变的方法</h2><p>Object… 参数类型与 Object[] 完全一样，省略号表明这个方法可以接收任意数量的的对象。</p>
+<h3 id="参数变量可变的方法"><a href="#参数变量可变的方法" class="headerlink" title="参数变量可变的方法"></a>参数变量可变的方法</h3><p>Object… 参数类型与 Object[] 完全一样，省略号表明这个方法可以接收任意数量的的对象。</p>
 
   
   
@@ -628,10 +628,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-31T16:42:14+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-03T21:39:23+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jul 31, 2021</p>
+    <p>更新于：Aug 3, 2021</p>
   </a>
 </div>
 
@@ -744,19 +744,25 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class="prev-next">
       
         <a class='prev' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>对象与类</p>
-          <p class='content'>反射可以提供运行时的类信息，并且这个类可以在运行时才加载进来，甚至在编译时期该类的 .class 不存在也可以加载进来。
-反射允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内...</p>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>反射</p>
+          <p class='content'>反射反射可以提供运行时的类信息，并且这个类可以在运行时才加载进来，甚至在编译时期该类的 .class 不存在也可以加载进来。
+反射允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象...</p>
         </a>
       
       
-        <a class='next' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/03%20%E6%95%B0%E7%BB%84%E5%92%8C%E5%B9%BF%E4%B9%89%E8%A1%A8/'>
-          <p class='title'>数组和广义表<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>一维数组声明一旦创建了数组就不能改变它的大小。
-int[] a = new int[n];
-int a[] = new int[n];
+        <a class='next' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/05%20%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/'>
+          <p class='title'>文档注释<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>注释方法三种注释方法，注释不会出现在可执行文件中
 
-初始化数字数组初始化为 0。boolean 数组初始化 ...</p>
+//
+/* */
+/** */自动生成文档
+
+注释的插入javadoc 从下面几个特性中抽取信息：
+
+包
+公有类与接口
+公有的和受保护的构造器...</p>
         </a>
       
     </div>
@@ -799,7 +805,7 @@ int a[] = new int[n];
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">类之间的关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%99%A8"><span class="toc-text">构造器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#finalize-%E6%96%B9%E6%B3%95"><span class="toc-text">finalize 方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Object%EF%BC%9A%E6%89%80%E6%9C%89%E7%B1%BB%E7%9A%84%E8%B6%85%E7%B1%BB"><span class="toc-text">Object：所有类的超类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#equals-%E6%96%B9%E6%B3%95"><span class="toc-text">equals()方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AD%89%E4%BB%B7%E5%85%B3%E7%B3%BB"><span class="toc-text">等价关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AD%89%E4%BB%B7%E4%B8%8E%E7%9B%B8%E7%AD%89"><span class="toc-text">等价与相等</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hashCode"><span class="toc-text">hashCode()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#toString-NaN"><span class="toc-text">toString()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#clone"><span class="toc-text">clone()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE%E7%B1%BB"><span class="toc-text">枚举类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1"><span class="toc-text">创建对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E5%85%8B%E9%9A%86"><span class="toc-text">对象克隆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text">序列化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E7%AD%BE%E5%90%8D"><span class="toc-text">方法签名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%90%E5%BC%8F%E5%8F%82%E6%95%B0%E4%B8%8E%E6%98%BE%E5%BC%8F%E5%8F%82%E6%95%B0"><span class="toc-text">隐式参数与显式参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E5%8F%82%E6%95%B0"><span class="toc-text">方法参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E5%8F%98%E9%87%8F%E5%8F%AF%E5%8F%98%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">参数变量可变的方法</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB"><span class="toc-text">类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">类之间的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%99%A8"><span class="toc-text">构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#finalize-%E6%96%B9%E6%B3%95"><span class="toc-text">finalize 方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object%EF%BC%9A%E6%89%80%E6%9C%89%E7%B1%BB%E7%9A%84%E8%B6%85%E7%B1%BB"><span class="toc-text">Object：所有类的超类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#equals-%E6%96%B9%E6%B3%95"><span class="toc-text">equals()方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AD%89%E4%BB%B7%E5%85%B3%E7%B3%BB"><span class="toc-text">等价关系</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%AD%89%E4%BB%B7%E4%B8%8E%E7%9B%B8%E7%AD%89"><span class="toc-text">等价与相等</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hashCode"><span class="toc-text">hashCode()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#toString-NaN"><span class="toc-text">toString()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#clone"><span class="toc-text">clone()</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE%E7%B1%BB"><span class="toc-text">枚举类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1"><span class="toc-text">对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1"><span class="toc-text">创建对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E5%85%8B%E9%9A%86"><span class="toc-text">对象克隆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text">序列化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-text">方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E7%AD%BE%E5%90%8D"><span class="toc-text">方法签名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%90%E5%BC%8F%E5%8F%82%E6%95%B0%E4%B8%8E%E6%98%BE%E5%BC%8F%E5%8F%82%E6%95%B0"><span class="toc-text">隐式参数与显式参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E5%8F%82%E6%95%B0"><span class="toc-text">方法参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E5%8F%98%E9%87%8F%E5%8F%AF%E5%8F%98%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">参数变量可变的方法</span></a></li></ol></li></ol>
     </div>
   </section>
 

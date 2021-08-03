@@ -511,40 +511,40 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
-  <h1 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h1><h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><p>一旦创建了数组就不能改变它的大小。</p>
+  <h1 id="数组和广义表"><a href="#数组和广义表" class="headerlink" title="数组和广义表"></a>数组和广义表</h1><h2 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h2><h3 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h3><p>一旦创建了数组就不能改变它的大小。</p>
 <pre><code class="java">int[] a = new int[n];
 int a[] = new int[n];
 </code></pre>
-<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>数字数组初始化为 0。boolean 数组初始化 false。对象数组初始化 null。</p>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>数字数组初始化为 0。boolean 数组初始化 false。对象数组初始化 null。</p>
 <pre><code class="java">int[] a = &#123;1,2,3&#125; ;
 new int[]&#123;1,2,3&#125;;
 </code></pre>
-<h1 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h1><p>java 实际上没有多维数组，只有一维数组，多维数组被解释成“数组的数组”</p>
-<h2 id="声明-1"><a href="#声明-1" class="headerlink" title="声明"></a>声明</h2><pre><code class="java">int[][] a = new int[n][]
+<h2 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h2><p>java 实际上没有多维数组，只有一维数组，多维数组被解释成“数组的数组”</p>
+<h3 id="声明-1"><a href="#声明-1" class="headerlink" title="声明"></a>声明</h3><pre><code class="java">int[][] a = new int[n][]
 </code></pre>
-<h2 id="初始化-1"><a href="#初始化-1" class="headerlink" title="初始化"></a>初始化</h2><pre><code class="java">int[][] A = &#123;
+<h3 id="初始化-1"><a href="#初始化-1" class="headerlink" title="初始化"></a>初始化</h3><pre><code class="java">int[][] A = &#123;
     &#123;&#125;,
     &#123;&#125;
     ...
 &#125;
 </code></pre>
-<h1 id="Arrays-类"><a href="#Arrays-类" class="headerlink" title="Arrays 类"></a>Arrays 类</h1><h2 id="填充-fill"><a href="#填充-fill" class="headerlink" title="填充 fill()"></a>填充 <code>fill()</code></h2><pre><code class="java">Arrays.fill(type[] a,type v);
+<h2 id="Arrays-类"><a href="#Arrays-类" class="headerlink" title="Arrays 类"></a>Arrays 类</h2><h3 id="填充-fill"><a href="#填充-fill" class="headerlink" title="填充 fill()"></a>填充 <code>fill()</code></h3><pre><code class="java">Arrays.fill(type[] a,type v);
 </code></pre>
-<h2 id="排序-sort"><a href="#排序-sort" class="headerlink" title="排序 sort()"></a>排序 <code>sort()</code></h2><p>优化的快排</p>
+<h3 id="排序-sort"><a href="#排序-sort" class="headerlink" title="排序 sort()"></a>排序 <code>sort()</code></h3><p>优化的快排</p>
 <pre><code class="java">//升序排序 
 Arrays.sort(type[] a);
 //给开始位到结束位排序
 Arrays.sort(type[] a,int start,int end);
 </code></pre>
-<h2 id="比较-equals"><a href="#比较-equals" class="headerlink" title="比较 equals()"></a>比较 <code>equals()</code></h2><p>比较元素是否相等</p>
+<h3 id="比较-equals"><a href="#比较-equals" class="headerlink" title="比较 equals()"></a>比较 <code>equals()</code></h3><p>比较元素是否相等</p>
 <pre><code class="java">Arrays.equals(type[] a,type[] b);
 </code></pre>
-<h2 id="查找binarySearch"><a href="#查找binarySearch" class="headerlink" title="查找binarySearch()"></a>查找<code>binarySearch()</code></h2><p>二分查找，数组一定要是先排好序，返回最后一个找到的位置</p>
+<h3 id="查找binarySearch"><a href="#查找binarySearch" class="headerlink" title="查找binarySearch()"></a>查找<code>binarySearch()</code></h3><p>二分查找，数组一定要是先排好序，返回最后一个找到的位置</p>
 <pre><code class="java">Arrays.binarySearch(type[] a,type v);
 //范围查找
 Arrays.binarySearch(type[] a,type v,int start,int end);
 </code></pre>
-<h2 id="拷贝-copyOf"><a href="#拷贝-copyOf" class="headerlink" title="拷贝 copyOf()"></a>拷贝 <code>copyOf()</code></h2><p>使用 Arrays 类的 copyOf 方法</p>
+<h3 id="拷贝-copyOf"><a href="#拷贝-copyOf" class="headerlink" title="拷贝 copyOf()"></a>拷贝 <code>copyOf()</code></h3><p>使用 Arrays 类的 copyOf 方法</p>
 <pre><code class="java">//深度拷贝
 int[] a = Arrays.copyOf(b,b.length);
 //扩展
@@ -552,11 +552,11 @@ int[] a = Arrays.copyOf(b,b.length*2);
 //部分拷贝
 Arrays.copyOfRange(a,0,5)
 </code></pre>
-<h2 id="转字符串-toString"><a href="#转字符串-toString" class="headerlink" title="转字符串 toString()"></a>转字符串 <code>toString()</code></h2><pre><code class="java">Arrays.toString(a)
+<h3 id="转字符串-toString"><a href="#转字符串-toString" class="headerlink" title="转字符串 toString()"></a>转字符串 <code>toString()</code></h3><pre><code class="java">Arrays.toString(a)
 //打印多维数组
 Arrays.deepToString()
 </code></pre>
-<h2 id="转列表-asList"><a href="#转列表-asList" class="headerlink" title="转列表 asList()"></a>转列表 <code>asList()</code></h2><pre><code class="java">List&lt;String&gt; stooges = Arrays.asList(&quot;Larry&quot;, &quot;Moe&quot;, &quot;Curly&quot;);
+<h3 id="转列表-asList"><a href="#转列表-asList" class="headerlink" title="转列表 asList()"></a>转列表 <code>asList()</code></h3><pre><code class="java">List&lt;String&gt; stooges = Arrays.asList(&quot;Larry&quot;, &quot;Moe&quot;, &quot;Curly&quot;);
 </code></pre>
 
   
@@ -577,10 +577,10 @@ Arrays.deepToString()
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-31T16:41:41+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-03T21:35:00+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jul 31, 2021</p>
+    <p>更新于：Aug 3, 2021</p>
   </a>
 </div>
 
@@ -599,7 +599,7 @@ Arrays.deepToString()
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>311 words</p>
+      <p>317 words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -692,25 +692,24 @@ Arrays.deepToString()
   
     <div class="prev-next">
       
-        <a class='prev' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/03%20%E7%B1%BB/'>
+        <a class='prev' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/02%20%E4%BF%AE%E9%A5%B0%E7%AC%A6/'>
           <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>修饰符</p>
-          <p class='content'>类类是构造对象的模板。
-由类构造对象的过程称为创建类的实例。
-一个源文件中，只能有一个公共类，类名必须与文件名相同。
-类之间的关系最常见的关系有：
+          <p class='content'>修饰符访问修饰符
+private：仅对本类可见
+public：对所有类可见
+接口里方法默认 public
 
-依赖（uses-a）：一个类的方法需要操纵另...</p>
+
+protected：对本包和所有子类可见
+default：对本包可见
+
+一个方法可以...</p>
         </a>
       
       
-        <a class='next' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/04%20%E8%BF%90%E7%AE%97%E7%AC%A6/'>
-          <p class='title'>运算符<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>数学函数与常量
-Math.sqrt(x)：平方根
-Math.pow(x, y)：幂运算，x 的 y 次幂
-Math.floorMod(x, y)：求余
-
-自增与自减运算符建议不要在表达式中使用 ...</p>
+        <a class='next' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/05%20%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/'>
+          <p class='title'>输入输出<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>输入输出读取输入Scanner 类文件输入// 如果是 win 系统，使用双反斜杠，&quot;c:\\mydirectory\\myfile.txt&quot; ，每个 \ 需要额外的一个 \...</p>
         </a>
       
     </div>
@@ -753,7 +752,7 @@ Math.floorMod(x, y)：求余
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E"><span class="toc-text">声明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E-1"><span class="toc-text">声明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96-1"><span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A1%AB%E5%85%85-fill"><span class="toc-text">填充 fill()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F-sort"><span class="toc-text">排序 sort()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AF%94%E8%BE%83-equals"><span class="toc-text">比较 equals()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E6%89%BEbinarySearch"><span class="toc-text">查找binarySearch()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%B7%E8%B4%9D-copyOf"><span class="toc-text">拷贝 copyOf()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2-toString"><span class="toc-text">转字符串 toString()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AC%E5%88%97%E8%A1%A8-asList"><span class="toc-text">转列表 asList()</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-text">一维数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E"><span class="toc-text">声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">初始化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-text">多维数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E-1"><span class="toc-text">声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96-1"><span class="toc-text">初始化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Arrays-%E7%B1%BB"><span class="toc-text">Arrays 类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A1%AB%E5%85%85-fill"><span class="toc-text">填充 fill()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F-sort"><span class="toc-text">排序 sort()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83-equals"><span class="toc-text">比较 equals()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E6%89%BEbinarySearch"><span class="toc-text">查找binarySearch()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%B7%E8%B4%9D-copyOf"><span class="toc-text">拷贝 copyOf()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2-toString"><span class="toc-text">转字符串 toString()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AC%E5%88%97%E8%A1%A8-asList"><span class="toc-text">转列表 asList()</span></a></li></ol></li></ol>
     </div>
   </section>
 

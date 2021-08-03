@@ -511,16 +511,16 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
-  <blockquote>
+  <h1 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h1><blockquote>
 <p>java.util.logging.Logger</p>
 </blockquote>
-<h1 id="日志记录器"><a href="#日志记录器" class="headerlink" title="日志记录器"></a>日志记录器</h1><h2 id="全局日志记录器"><a href="#全局日志记录器" class="headerlink" title="全局日志记录器"></a>全局日志记录器</h2><p>Logger.getGlobal()</p>
+<h2 id="日志记录器"><a href="#日志记录器" class="headerlink" title="日志记录器"></a>日志记录器</h2><h3 id="全局日志记录器"><a href="#全局日志记录器" class="headerlink" title="全局日志记录器"></a>全局日志记录器</h3><p>Logger.getGlobal()</p>
 <pre><code class="java">Logger.getGlobal().info(&quot;&quot;);
 </code></pre>
-<h2 id="自定义日志记录器"><a href="#自定义日志记录器" class="headerlink" title="自定义日志记录器"></a>自定义日志记录器</h2><p>Logger.getLogger()</p>
+<h3 id="自定义日志记录器"><a href="#自定义日志记录器" class="headerlink" title="自定义日志记录器"></a>自定义日志记录器</h3><p>Logger.getLogger()</p>
 <pre><code class="java">Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
 </code></pre>
-<h1 id="日志级别"><a href="#日志级别" class="headerlink" title="日志级别"></a>日志级别</h1><h2 id="日志级别-1"><a href="#日志级别-1" class="headerlink" title="日志级别"></a>日志级别</h2><ul>
+<h2 id="日志级别"><a href="#日志级别" class="headerlink" title="日志级别"></a>日志级别</h2><h3 id="日志级别-1"><a href="#日志级别-1" class="headerlink" title="日志级别"></a>日志级别</h3><ul>
 <li>SEVERE</li>
 <li>WARNING</li>
 <li>INFO</li>
@@ -529,13 +529,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>FINER</li>
 <li>FINEST</li>
 </ul>
-<h2 id="设置日志级别"><a href="#设置日志级别" class="headerlink" title="设置日志级别"></a>设置日志级别</h2><p>.setLevel()</p>
+<h3 id="设置日志级别"><a href="#设置日志级别" class="headerlink" title="设置日志级别"></a>设置日志级别</h3><p>.setLevel()</p>
 <ul>
 <li>logger.setLevel(Level.WARNING)</li>
 <li>.setLevel(Level.OFF) 关闭所有</li>
 <li>.setLevel(Level.ALL) 开启所有</li>
 </ul>
-<h1 id="修改日志管理器配置"><a href="#修改日志管理器配置" class="headerlink" title="修改日志管理器配置"></a>修改日志管理器配置</h1><ul>
+<h2 id="修改日志管理器配置"><a href="#修改日志管理器配置" class="headerlink" title="修改日志管理器配置"></a>修改日志管理器配置</h2><ul>
 <li>默认情况，配置文件存在于：jre/lib/logging.properties</li>
 <li>自定义配置文件存储位置：java -Djava.util.logging.config.file = configFile MainClass</li>
 <li>修改日志记录级别：com.mycompany.myapp.level = FINE</li>
@@ -560,10 +560,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-31T16:43:54+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-03T21:46:21+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jul 31, 2021</p>
+    <p>更新于：Aug 3, 2021</p>
   </a>
 </div>
 
@@ -582,7 +582,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>152 words</p>
+      <p>154 words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -677,21 +677,17 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/02%20%E6%96%AD%E8%A8%80/'>
           <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>断言</p>
-          <p class='content'>断言用在开发、测试期间。
+          <p class='content'>断言断言用在开发、测试期间。
 当代码发布时，这些插入的检测语句将会被自动地移走。
 表达形式assert 条件assert x &gt;= 0;
 
-assert 条件:表达式assert x &gt;...</p>
+assert 条件:表达式assert x &g...</p>
         </a>
       
       
-        <a class='next' href='/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/01%20%E6%8E%A5%E5%8F%A3/'>
-          <p class='title'>接口<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>概念与特性
-成员默认 public
-常量必须赋初值，内部类自动成为 static 类。
-不能含有实例域，不能实现方法。（JDK 8 之后允许提供静态方法、默认方法）
-可以声明接口变量，不能使用 ...</p>
+        <a class='next' href='/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/01%20%E6%B3%9B%E5%9E%8B/'>
+          <p class='title'>泛型<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>为什么要使用泛型泛型程序设计意味着编写的代码可以被很多不同的类型的的对象所重用。在java中增加泛型之前，泛型的程序设计是用继承实现的。ArrayList 类只维护一个Object 引用的数组。...</p>
         </a>
       
     </div>
@@ -734,7 +730,7 @@ assert 条件:表达式assert x &gt;...</p>
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E6%97%A5%E5%BF%97%E8%AE%B0%E5%BD%95%E5%99%A8"><span class="toc-text">全局日志记录器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%A5%E5%BF%97%E8%AE%B0%E5%BD%95%E5%99%A8"><span class="toc-text">自定义日志记录器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A5%E5%BF%97%E7%BA%A7%E5%88%AB-1"><span class="toc-text">日志级别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E6%97%A5%E5%BF%97%E7%BA%A7%E5%88%AB"><span class="toc-text">设置日志级别</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A5%E5%BF%97%E8%AE%B0%E5%BD%95%E5%99%A8"><span class="toc-text">日志记录器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E6%97%A5%E5%BF%97%E8%AE%B0%E5%BD%95%E5%99%A8"><span class="toc-text">全局日志记录器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%A5%E5%BF%97%E8%AE%B0%E5%BD%95%E5%99%A8"><span class="toc-text">自定义日志记录器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A5%E5%BF%97%E7%BA%A7%E5%88%AB"><span class="toc-text">日志级别</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A5%E5%BF%97%E7%BA%A7%E5%88%AB-1"><span class="toc-text">日志级别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E6%97%A5%E5%BF%97%E7%BA%A7%E5%88%AB"><span class="toc-text">设置日志级别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86%E5%99%A8%E9%85%8D%E7%BD%AE"><span class="toc-text">修改日志管理器配置</span></a></li></ol>
     </div>
   </section>
 

@@ -511,10 +511,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
-  <h1 id="String底层实现"><a href="#String底层实现" class="headerlink" title="String底层实现"></a>String底层实现</h1><blockquote>
+  <h1 id="String字符串"><a href="#String字符串" class="headerlink" title="String字符串"></a>String字符串</h1><h2 id="String底层实现"><a href="#String底层实现" class="headerlink" title="String底层实现"></a>String底层实现</h2><blockquote>
 <p>String被声明为final，因此它不可被继承。底层是char或byte类型的value数组，value数组也被声明为final，这意味着数组初始化之后就不能再引用其他数组。并且String内部没有改变value数组的办法，因此可以保障String不可变</p>
 </blockquote>
-<h2 id="java-8-char数组"><a href="#java-8-char数组" class="headerlink" title="java 8 -char数组"></a>java 8 -char数组</h2><blockquote>
+<h3 id="java-8-char数组"><a href="#java-8-char数组" class="headerlink" title="java 8 -char数组"></a>java 8 -char数组</h3><blockquote>
 <p>在java8中，String内部使用char数组存储数据。</p>
 </blockquote>
 <pre><code class="java">public final class String
@@ -523,7 +523,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     private final char value[];
 &#125;
 </code></pre>
-<h2 id="java-9-byte数组"><a href="#java-9-byte数组" class="headerlink" title="java 9 - byte数组"></a>java 9 - byte数组</h2><blockquote>
+<h3 id="java-9-byte数组"><a href="#java-9-byte数组" class="headerlink" title="java 9 - byte数组"></a>java 9 - byte数组</h3><blockquote>
 <p>在java 9之后，String类的实现改用byte数组存储字符串，同时使用<code>coder</code>来标识使用了那种编码</p>
 </blockquote>
 <pre><code class="java">public final class String
@@ -535,7 +535,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     private final byte coder;
 &#125;
 </code></pre>
-<h2 id="不可变的好处"><a href="#不可变的好处" class="headerlink" title="不可变的好处"></a>不可变的好处</h2><ol>
+<h3 id="不可变的好处"><a href="#不可变的好处" class="headerlink" title="不可变的好处"></a>不可变的好处</h3><ol>
 <li>可以缓存hash值</li>
 </ol>
 <blockquote>
@@ -559,12 +559,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <blockquote>
 <p>String不可变性天生具备线程安全，可以在多个线程中安全的使用</p>
 </blockquote>
-<h1 id="StringBuilder和StringBuffer"><a href="#StringBuilder和StringBuffer" class="headerlink" title="StringBuilder和StringBuffer"></a>StringBuilder和StringBuffer</h1><h2 id="可变性与线程安全"><a href="#可变性与线程安全" class="headerlink" title="可变性与线程安全"></a>可变性与线程安全</h2><ul>
+<h2 id="StringBuilder和StringBuffer"><a href="#StringBuilder和StringBuffer" class="headerlink" title="StringBuilder和StringBuffer"></a>StringBuilder和StringBuffer</h2><h3 id="可变性与线程安全"><a href="#可变性与线程安全" class="headerlink" title="可变性与线程安全"></a>可变性与线程安全</h3><ul>
 <li>String 不可变，因此是线程安全的</li>
 <li>StringBuilder 可变，不是线程安全的，效率比 StringBuffer 高</li>
 <li>StringBuffer 可变，是线程安全的，内部使用 synchronized 进行同步</li>
 </ul>
-<h2 id="底层实现"><a href="#底层实现" class="headerlink" title="底层实现"></a>底层实现</h2><blockquote>
+<h3 id="底层实现"><a href="#底层实现" class="headerlink" title="底层实现"></a>底层实现</h3><blockquote>
 <p>StringBuilder 和 StringBuffer 继承了 AbstractStringBuilder，AbstractStringBuilder 的 char 数组没有 final 关键字修饰，字符数组长度可变,所以StringBuilder 和 StringBuffer 也是可变的</p>
 </blockquote>
 <ul>
@@ -588,7 +588,7 @@ public StringBuilder(String str) &#123;
     append(str);
 &#125;
 </code></pre>
-<h1 id="String-Pool与引用"><a href="#String-Pool与引用" class="headerlink" title="String Pool与引用"></a>String Pool与引用</h1><p>字符串常量池（String Pool）保存着所有字符串字面量（literal strings），这些字面量在编译时期就确定。</p>
+<h2 id="String-Pool与引用"><a href="#String-Pool与引用" class="headerlink" title="String Pool与引用"></a>String Pool与引用</h2><p>字符串常量池（String Pool）保存着所有字符串字面量（literal strings），这些字面量在编译时期就确定。</p>
 <p>在 Java 7 之前，String Pool 被放在运行时常量池中，它属于永久代。而在 Java 7，String Pool 被移到堆中。这是因为永久代的空间有限，在大量使用字符串的场景下会导致 OutOfMemoryError 错误。</p>
 <ul>
 <li>new String()：会在堆新建对象</li>
@@ -608,39 +608,39 @@ System.out.println(s1 == s6.intern());//true
 System.out.println(s2 == s2.intern());//false
 </code></pre>
 <p><strong>注：</strong> intern() 方法返回字符串对象的规范化表示形式。它遵循以下规则：对于任意两个字符串 s 和 t，当且仅当 s.equals(t) 为 true 时，s.intern() == t.intern() 才为 true。</p>
-<h1 id="String常用方法"><a href="#String常用方法" class="headerlink" title="String常用方法"></a>String常用方法</h1><h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><h3 id="使用字符串常量直接初始化"><a href="#使用字符串常量直接初始化" class="headerlink" title="使用字符串常量直接初始化"></a>使用字符串常量直接初始化</h3><pre><code class="java">String s = &quot;hello!&quot;;
+<h2 id="String常用方法"><a href="#String常用方法" class="headerlink" title="String常用方法"></a>String常用方法</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><h4 id="使用字符串常量直接初始化"><a href="#使用字符串常量直接初始化" class="headerlink" title="使用字符串常量直接初始化"></a>使用字符串常量直接初始化</h4><pre><code class="java">String s = &quot;hello!&quot;;
 </code></pre>
-<h3 id="使用构造方法创建并初始化"><a href="#使用构造方法创建并初始化" class="headerlink" title="使用构造方法创建并初始化"></a>使用构造方法创建并初始化</h3><pre><code class="java">String s = new String(Object);
+<h4 id="使用构造方法创建并初始化"><a href="#使用构造方法创建并初始化" class="headerlink" title="使用构造方法创建并初始化"></a>使用构造方法创建并初始化</h4><pre><code class="java">String s = new String(Object);
 </code></pre>
-<h3 id="初始化源码"><a href="#初始化源码" class="headerlink" title="初始化源码"></a>初始化源码</h3><pre><code class="java">private final char value[];
+<h4 id="初始化源码"><a href="#初始化源码" class="headerlink" title="初始化源码"></a>初始化源码</h4><pre><code class="java">private final char value[];
 // 本质是字符数组常量，所以不可变
 public String() &#123;
     this.value = &quot;&quot;.value;
 &#125;
 </code></pre>
-<h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><h3 id="截取字符串"><a href="#截取字符串" class="headerlink" title="截取字符串"></a>截取字符串</h3><ul>
+<h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><h4 id="截取字符串"><a href="#截取字符串" class="headerlink" title="截取字符串"></a>截取字符串</h4><ul>
 <li>单点截取：subString(开始下标)</li>
 <li>双点截取：subString(开始下标，结束下标)</li>
 </ul>
-<h3 id="拼接字符串"><a href="#拼接字符串" class="headerlink" title="拼接字符串"></a>拼接字符串</h3><ul>
+<h4 id="拼接字符串"><a href="#拼接字符串" class="headerlink" title="拼接字符串"></a>拼接字符串</h4><ul>
 <li>+ 号</li>
 <li>join：用一个定界符分割，String.join(“定界符”,“待合并字符串”…)</li>
 </ul>
 <p>字符串的 + 操作其本质是创建了 StringBuilder 对象进行 append 操作，然后将拼接后的 StringBuilder 对象用 toString 方法处理成 String 对象</p>
 <p>一般情况进行字符串拼接用 + 就可以，但是如果是循环拼接，则需要用 StringBuilder 的 append 来实现。</p>
 <p>若不使用 StringBuilder 的 append 方法而使用 + 来进行连接。那么每次在循环体内都将会在 Heap 中创造一个新的 String 对象，造成资源浪费。</p>
-<h3 id="获取信息"><a href="#获取信息" class="headerlink" title="获取信息"></a>获取信息</h3><ul>
+<h4 id="获取信息"><a href="#获取信息" class="headerlink" title="获取信息"></a>获取信息</h4><ul>
 <li>下标：indexOf(子字符)，lastIndexOf(子字符)</li>
 <li>字符：charAt(下标)</li>
 <li>字节数组：getBytes()</li>
 <li>字符数组：toCharArray()</li>
 <li>长度：length()</li>
 </ul>
-<h3 id="替换字符串"><a href="#替换字符串" class="headerlink" title="替换字符串"></a>替换字符串</h3><ul>
+<h4 id="替换字符串"><a href="#替换字符串" class="headerlink" title="替换字符串"></a>替换字符串</h4><ul>
 <li>去掉前后空格：trim()</li>
 <li>子字符串：split(字符串)，StringTokenizer()</li>
 </ul>
-<h3 id="判断字符串"><a href="#判断字符串" class="headerlink" title="判断字符串"></a>判断字符串</h3><ul>
+<h4 id="判断字符串"><a href="#判断字符串" class="headerlink" title="判断字符串"></a>判断字符串</h4><ul>
 <li>是否相等：.equals()</li>
 <li>不区分大小写：.equalsIgnoreCase()</li>
 <li>是否为空串：.length()==0 或 .equals(“”)</li>
@@ -649,7 +649,7 @@ public String() &#123;
 <li>后缀：endsWith(后缀)</li>
 <li>大小：compareTo()</li>
 </ul>
-<h3 id="字符串转换"><a href="#字符串转换" class="headerlink" title="字符串转换"></a>字符串转换</h3><ul>
+<h4 id="字符串转换"><a href="#字符串转换" class="headerlink" title="字符串转换"></a>字符串转换</h4><ul>
 <li>大/小写：<ul>
 <li>大写：toLowerCase()</li>
 <li>小写：toUpperCase()</li>
@@ -685,10 +685,10 @@ public String() &#123;
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-31T16:41:38+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-03T21:33:35+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jul 31, 2021</p>
+    <p>更新于：Aug 3, 2021</p>
   </a>
 </div>
 
@@ -802,12 +802,12 @@ public String() &#123;
       
         <a class='prev' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/01%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/'>
           <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>数据类型</p>
-          <p class='content'>
+          <p class='content'>数据类型
 数据类型分为基本类型和对象类型
 
 基本类型java中的基本类型有8种，其中4种整型、2种浮点型、char和boolean。还有void和reference类型
 
-1、java的基本类型值存储在...</p>
+1、java的基本类型...</p>
         </a>
       
       
@@ -851,7 +851,7 @@ public String() &#123;
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#java-8-char%E6%95%B0%E7%BB%84"><span class="toc-text">java 8 -char数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java-9-byte%E6%95%B0%E7%BB%84"><span class="toc-text">java 9 - byte数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="toc-text">不可变的好处</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E5%8F%98%E6%80%A7%E4%B8%8E%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8"><span class="toc-text">可变性与线程安全</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0"><span class="toc-text">底层实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E9%87%8F%E7%9B%B4%E6%8E%A5%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">使用字符串常量直接初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E5%88%9B%E5%BB%BA%E5%B9%B6%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">使用构造方法创建并初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E6%BA%90%E7%A0%81"><span class="toc-text">初始化源码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C"><span class="toc-text">操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%AA%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">截取字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">拼接字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF"><span class="toc-text">获取信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%BF%E6%8D%A2%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">替换字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">判断字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2"><span class="toc-text">字符串转换</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#String%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0"><span class="toc-text">String底层实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#java-8-char%E6%95%B0%E7%BB%84"><span class="toc-text">java 8 -char数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-9-byte%E6%95%B0%E7%BB%84"><span class="toc-text">java 9 - byte数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="toc-text">不可变的好处</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#StringBuilder%E5%92%8CStringBuffer"><span class="toc-text">StringBuilder和StringBuffer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E5%8F%98%E6%80%A7%E4%B8%8E%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8"><span class="toc-text">可变性与线程安全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0"><span class="toc-text">底层实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String-Pool%E4%B8%8E%E5%BC%95%E7%94%A8"><span class="toc-text">String Pool与引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">String常用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E9%87%8F%E7%9B%B4%E6%8E%A5%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">使用字符串常量直接初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E5%88%9B%E5%BB%BA%E5%B9%B6%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">使用构造方法创建并初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E6%BA%90%E7%A0%81"><span class="toc-text">初始化源码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C"><span class="toc-text">操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%88%AA%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">截取字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">拼接字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E4%BF%A1%E6%81%AF"><span class="toc-text">获取信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%BF%E6%8D%A2%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">替换字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">判断字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2"><span class="toc-text">字符串转换</span></a></li></ol></li></ol></li></ol>
     </div>
   </section>
 

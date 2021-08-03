@@ -511,14 +511,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
-  <p>内部类（ inner class）是定义在另一个类中的类。<br>为什么需要使用内部类：</p>
+  <h1 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h1><p>内部类（ inner class）是定义在另一个类中的类。<br>为什么需要使用内部类：</p>
 <ol>
 <li>内部类方法可以访问该类定义所在的作用域中的数据，包括私有数据</li>
 <li>内部类可以对同一个包中的其他类隐藏起来</li>
 <li>当想要定义一个回调函数而不想写大量代码时，使用匿名内部类比较便捷</li>
 </ol>
-<h1 id="访问状态"><a href="#访问状态" class="headerlink" title="访问状态"></a>访问状态</h1><p>内部类的构造器具有外部类的隐式引用 outer。<br>只有内部类可以是私有类。</p>
-<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><p>引用外围类</p>
+<h2 id="访问状态"><a href="#访问状态" class="headerlink" title="访问状态"></a>访问状态</h2><p>内部类的构造器具有外部类的隐式引用 outer。<br>只有内部类可以是私有类。</p>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>引用外围类</p>
 <pre><code class="java">OuterClass.this
 </code></pre>
 <p>编写内部类构造器</p>
@@ -527,14 +527,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>在外围类的作用域之外引用内部类</p>
 <pre><code class="java">OuterClass.InnerClass
 </code></pre>
-<h1 id="局部内部类"><a href="#局部内部类" class="headerlink" title="局部内部类"></a>局部内部类</h1><p>可以在一个方法中定义局部类，作用域被限定在声明这个局部类的块中。<br>对外部世界完全隐藏，除了定义它的方法外，没有任何方法知道它的存在。<br>可以访问包含它们的外部类，和 final 局部变量</p>
-<h1 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h1><p>假如只创建一个这个类的对象，就不必命名了，这种类被称为匿名内部类<br>匿名类不能有构造器，需要将参数传递给超类构造器；内部类实现接口时不能有任何构造参数。<br>SuperType 可以是接口，内部类就要实现这个接口；也可以是一个类，内部类就要扩展它。</p>
+<h2 id="局部内部类"><a href="#局部内部类" class="headerlink" title="局部内部类"></a>局部内部类</h2><p>可以在一个方法中定义局部类，作用域被限定在声明这个局部类的块中。<br>对外部世界完全隐藏，除了定义它的方法外，没有任何方法知道它的存在。<br>可以访问包含它们的外部类，和 final 局部变量</p>
+<h2 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h2><p>假如只创建一个这个类的对象，就不必命名了，这种类被称为匿名内部类<br>匿名类不能有构造器，需要将参数传递给超类构造器；内部类实现接口时不能有任何构造参数。<br>SuperType 可以是接口，内部类就要实现这个接口；也可以是一个类，内部类就要扩展它。</p>
 <pre><code class="java">new SuperType(construction parameters)&#123;
     inner class methods and data
 &#125;
 </code></pre>
 <p>主要用在回调，如今推荐用 lambda</p>
-<h1 id="静态内部类"><a href="#静态内部类" class="headerlink" title="静态内部类"></a>静态内部类</h1><p>有时候使用内部类仅为了把一个类隐藏在另一个类的内部，并不需要内部类引用外围类对象。为此可以将内部类声明为static，以便取消产生的引用。<br>只有内部类可以声明为static。静态内部类的对象除了没有对生成它的外围类对象的引用特权外，与其他所有内部类完全一样。<br>静态内部类的对象可以直接生成：</p>
+<h2 id="静态内部类"><a href="#静态内部类" class="headerlink" title="静态内部类"></a>静态内部类</h2><p>有时候使用内部类仅为了把一个类隐藏在另一个类的内部，并不需要内部类引用外围类对象。为此可以将内部类声明为static，以便取消产生的引用。<br>只有内部类可以声明为static。静态内部类的对象除了没有对生成它的外围类对象的引用特权外，与其他所有内部类完全一样。<br>静态内部类的对象可以直接生成：</p>
 <pre><code class="java">Outer.Inner in=new Outer.Inner()；
 </code></pre>
 
@@ -556,10 +556,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-31T16:42:37+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-03T21:44:11+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jul 31, 2021</p>
+    <p>更新于：Aug 3, 2021</p>
   </a>
 </div>
 
@@ -578,7 +578,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>527 words</p>
+      <p>530 words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -673,20 +673,21 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/02%20lambda/'>
           <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>lambda</p>
-          <p class='content'>
+          <p class='content'>lambda表达式
 @since 1.8
 
 语法参数，箭头（-&gt;）以及一个表达式。
-(String first, String second) -&gt;first.length() - second.le...</p>
+(String first, String second) -&gt;first.length() - ...</p>
         </a>
       
       
-        <a class='next' href='/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/04%20%E4%BB%A3%E7%90%86/'>
-          <p class='title'>代理<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>代理模式：就是为其他对象提供一种代理以控制对这个对象的访问。
-代理可以在不改动目标对象的基础上，增加其他额外的功能（扩展功能）。
-静态代理代理对象和目标对象实现了相同的接口。
-目标对象作为代理对...</p>
+        <a class='next' href='/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/01%20%E6%8E%A5%E5%8F%A3/'>
+          <p class='title'>接口<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>概念与特性
+成员默认 public
+常量必须赋初值，内部类自动成为 static 类。
+不能含有实例域，不能实现方法。（JDK 8 之后允许提供静态方法、默认方法）
+可以声明接口变量，不能使用 ...</p>
         </a>
       
     </div>
@@ -729,7 +730,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E7%8A%B6%E6%80%81"><span class="toc-text">访问状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">使用方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%80%E9%83%A8%E5%86%85%E9%83%A8%E7%B1%BB"><span class="toc-text">局部内部类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%BF%E5%90%8D%E5%86%85%E9%83%A8%E7%B1%BB"><span class="toc-text">匿名内部类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E5%86%85%E9%83%A8%E7%B1%BB"><span class="toc-text">静态内部类</span></a></li></ol>
     </div>
   </section>
 

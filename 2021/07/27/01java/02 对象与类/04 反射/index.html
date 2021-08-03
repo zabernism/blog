@@ -22,7 +22,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>对象与类 - 灵魂有香气a</title>
+  <title>反射 - 灵魂有香气a</title>
   
     <meta name="keywords" content="java">
   
@@ -451,7 +451,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title">
-        对象与类
+        反射
       </h1>
       <div class='new-meta-box'>
         
@@ -493,7 +493,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="对象与类" data-path="/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/">
+      <div id="lc-pv" data-title="反射" data-path="/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -511,46 +511,46 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
-  <p>反射可以提供运行时的类信息，并且这个类可以在运行时才加载进来，甚至在编译时期该类的 .class 不存在也可以加载进来。</p>
+  <h1 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h1><p>反射可以提供运行时的类信息，并且这个类可以在运行时才加载进来，甚至在编译时期该类的 .class 不存在也可以加载进来。</p>
 <p>反射允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。</p>
 <p>反射的核心是 JVM 在运行时才动态加载类或调用方法/访问属性，它不需要事先知道运行对象是谁。</p>
-<h1 id="反射的作用"><a href="#反射的作用" class="headerlink" title="反射的作用"></a>反射的作用</h1><p>反射机制可以用来：</p>
+<h2 id="反射的作用"><a href="#反射的作用" class="headerlink" title="反射的作用"></a>反射的作用</h2><p>反射机制可以用来：</p>
 <ul>
 <li>在运行时判断任意一个对象所属的类；</li>
 <li>在运行时构造任意一个类的对象；</li>
 <li>在运行时判断任意一个类所具有的成员变量和方法（通过反射甚至可以调用private方法）；</li>
 <li>在运行时调用任意一个对象的方法</li>
 </ul>
-<h1 id="反射的优缺点"><a href="#反射的优缺点" class="headerlink" title="反射的优缺点"></a>反射的优缺点</h1><h2 id="反射的优点"><a href="#反射的优点" class="headerlink" title="反射的优点"></a>反射的优点</h2><ul>
+<h2 id="反射的优缺点"><a href="#反射的优缺点" class="headerlink" title="反射的优缺点"></a>反射的优缺点</h2><h3 id="反射的优点"><a href="#反射的优点" class="headerlink" title="反射的优点"></a>反射的优点</h3><ul>
 <li>可扩展性：应用程序可以利用全限定名创建可扩展对象的实例，来使用来自外部的用户自定义类。</li>
 <li>类浏览器和可视化开发环境：一个类浏览器需要可以枚举类的成员。可视化开发环境（如 IDE）可以从利用反射中可用的类型信息中受益，以帮助程序员编写正确的代码。</li>
 <li>调试器和测试工具：调试器需要能够检查一个类里的私有成员。测试工具可以利用反射来自动地调用类里定义的可被发现的 API 定义，以确保一组测试中有较高的代码覆盖率。</li>
 </ul>
-<h2 id="反射的缺点"><a href="#反射的缺点" class="headerlink" title="反射的缺点"></a>反射的缺点</h2><p>反射机制对于编写系统程序来说极其实用，但是通常不适于编写应用程序。</p>
+<h3 id="反射的缺点"><a href="#反射的缺点" class="headerlink" title="反射的缺点"></a>反射的缺点</h3><p>反射机制对于编写系统程序来说极其实用，但是通常不适于编写应用程序。</p>
 <p>反射是很脆弱的，即编译器很难帮助人们发现程序中的错误。任何错误只能在运行时才被发现，并导致异常。</p>
 <ul>
 <li>性能开销：反射涉及了动态类型的解析，所以 JVM 无法对这些代码进行优化。因此，反射操作的效率要比那些非反射操作低得多。我们应该避免在经常被执行的代码或对性能要求很高的程序中使用反射。</li>
 <li>安全限制：使用反射技术要求程序必须在一个没有安全限制的环境中运行。如果一个程序必须在有安全限制的环境中运行，如 Applet，那么这就是个问题了。</li>
 <li>内部暴露：反射调用方法时可以忽略权限检查，因此可能会破坏封装性而导致安全问题。</li>
 </ul>
-<h1 id="基本运用"><a href="#基本运用" class="headerlink" title="基本运用"></a>基本运用</h1><p>反射相关的类一般都在 java.lang.relfect 包里，java.lang.reflect 类库主要包含了以下三个类：</p>
+<h2 id="基本运用"><a href="#基本运用" class="headerlink" title="基本运用"></a>基本运用</h2><p>反射相关的类一般都在 java.lang.relfect 包里，java.lang.reflect 类库主要包含了以下三个类：</p>
 <ul>
 <li>Field：可以使用 get() 和 set() 方法读取和修改 Field 对象关联的字段；</li>
 <li>Method：可以使用 invoke() 方法调用与 Method 对象关联的方法；</li>
 <li>Constructor：可以用 Constructor 的 newInstance() 创建新的对象。</li>
 </ul>
-<h2 id="获得-Class-对象"><a href="#获得-Class-对象" class="headerlink" title="获得 Class 对象"></a>获得 Class 对象</h2><p>获得类对象的方式有三种：</p>
+<h3 id="获得-Class-对象"><a href="#获得-Class-对象" class="headerlink" title="获得 Class 对象"></a>获得 Class 对象</h3><p>获得类对象的方式有三种：</p>
 <ol>
 <li>类型.class<br>例如：Class&lt;?&gt; class = String.class</li>
 <li>调用对象getClass()<br>例如：Class&lt;?&gt; class = “hello”.getClass()</li>
 <li>Class.forName()<br>例如：Class&lt;?&gt; class = Class.forName(“java.lang.String”)</li>
 </ol>
 <p>虚拟机为每个类管理一个 Class 对象。因此，可以利用 == 运算符实现两个类对象比较的操作。</p>
-<h2 id="判断是否为某个类的实例"><a href="#判断是否为某个类的实例" class="headerlink" title="判断是否为某个类的实例"></a>判断是否为某个类的实例</h2><ol>
+<h3 id="判断是否为某个类的实例"><a href="#判断是否为某个类的实例" class="headerlink" title="判断是否为某个类的实例"></a>判断是否为某个类的实例</h3><ol>
 <li>一般用 instanceof 关键字来判断是否为某个类的实例。</li>
 <li>同时也可用反射中 Class 对象的 isInstance() 方法来判断：class.isInstance(obj);</li>
 </ol>
-<h2 id="创建实例"><a href="#创建实例" class="headerlink" title="创建实例"></a>创建实例</h2><ol>
+<h3 id="创建实例"><a href="#创建实例" class="headerlink" title="创建实例"></a>创建实例</h3><ol>
 <li>调用 Class 类的 newInstance()</li>
 </ol>
 <pre><code class="java">Class&lt;?&gt; c = String.class;
@@ -567,7 +567,7 @@ Constructor constructor = c.getConstructor(String.class);
 Object obj = constructor.newInstance(&quot;23333&quot;);
 System.out.println(obj);
 </code></pre>
-<h2 id="获取方法"><a href="#获取方法" class="headerlink" title="获取方法"></a>获取方法</h2><p>获取某个 Class 对象的方法集合</p>
+<h3 id="获取方法"><a href="#获取方法" class="headerlink" title="获取方法"></a>获取方法</h3><p>获取某个 Class 对象的方法集合</p>
 <ul>
 <li><code>getDeclaredMethods</code><br>返回类或接口声明的所有方法，包括公共、保护、默认（包）访问和私有方法，但不包括继承的方法。</li>
 <li><code>getMethods</code><br>返回某个类的所有公用方法，包括超类的公用方法。</li>
@@ -575,23 +575,23 @@ System.out.println(obj);
 </ul>
 <pre><code class="java">public Method getMethod(String name, Class&lt;?&gt;... parameterTypes)
 </code></pre>
-<h2 id="获取构造器信息"><a href="#获取构造器信息" class="headerlink" title="获取构造器信息"></a>获取构造器信息</h2><p>获取某个 Class 对象的构造器集合,与获取方法用法相似</p>
+<h3 id="获取构造器信息"><a href="#获取构造器信息" class="headerlink" title="获取构造器信息"></a>获取构造器信息</h3><p>获取某个 Class 对象的构造器集合,与获取方法用法相似</p>
 <ul>
 <li><code>getDeclaredConstructors</code></li>
 <li><code>getConstructors </code>返回public构造器，包括超类的公有构造器</li>
 <li><code>getConstructor</code></li>
 </ul>
-<h2 id="获取类的域"><a href="#获取类的域" class="headerlink" title="获取类的域"></a>获取类的域</h2><ul>
+<h3 id="获取类的域"><a href="#获取类的域" class="headerlink" title="获取类的域"></a>获取类的域</h3><ul>
 <li><code>getFiled</code>、<code>getFileds</code><br>返回 <code>public </code>域，包括超类的公有域</li>
 <li><code>getDeclaredField</code>、<code>getDeclaredFields</code><br>所有已声明的全部域，包括私有和受保护域，但不包括超类的域</li>
 </ul>
-<h2 id="调用方法"><a href="#调用方法" class="headerlink" title="调用方法"></a>调用方法</h2><p>利用 Method 类中的 invoke 方法，调用任意方法。</p>
+<h3 id="调用方法"><a href="#调用方法" class="headerlink" title="调用方法"></a>调用方法</h3><p>利用 Method 类中的 invoke 方法，调用任意方法。</p>
 <pre><code class="java">public Object invoke(Object obj, Object... args)
         throws IllegalAccessException, IllegalArgumentException,
            InvocationTargetException
 </code></pre>
-<h2 id="获取修饰符"><a href="#获取修饰符" class="headerlink" title="获取修饰符"></a>获取修饰符</h2><p><code>Modifier </code>类的静态方法分析 <code>getModifiers </code>返回的整型数值，<code>isPublish</code>、<code>isPrivate </code>或 <code>isFinal </code>判断方法或构造器是否是 <code>public</code>、<code>private </code>或 <code>final</code>。</p>
-<h2 id="利用反射创建数组"><a href="#利用反射创建数组" class="headerlink" title="利用反射创建数组"></a>利用反射创建数组</h2><p>java.lang.reflect 包中的 Array 类允许动态地创建数组。</p>
+<h3 id="获取修饰符"><a href="#获取修饰符" class="headerlink" title="获取修饰符"></a>获取修饰符</h3><p><code>Modifier </code>类的静态方法分析 <code>getModifiers </code>返回的整型数值，<code>isPublish</code>、<code>isPrivate </code>或 <code>isFinal </code>判断方法或构造器是否是 <code>public</code>、<code>private </code>或 <code>final</code>。</p>
+<h3 id="利用反射创建数组"><a href="#利用反射创建数组" class="headerlink" title="利用反射创建数组"></a>利用反射创建数组</h3><p>java.lang.reflect 包中的 Array 类允许动态地创建数组。</p>
 <pre><code class="java">public static void testArray() throws ClassNotFoundException &#123;
     Class&lt;?&gt; cls = Class.forName(&quot;java.lang.String&quot;);
     Object array = Array.newInstance(cls,25);
@@ -621,10 +621,10 @@ System.out.println(obj);
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-31T16:42:17+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-03T21:41:33+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jul 31, 2021</p>
+    <p>更新于：Aug 3, 2021</p>
   </a>
 </div>
 
@@ -664,7 +664,7 @@ System.out.println(obj);
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://zabernism.github.io/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/&title=对象与类 - 灵魂有香气a&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://zabernism.github.io/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/&title=反射 - 灵魂有香气a&summary="
           
           >
           
@@ -676,7 +676,7 @@ System.out.println(obj);
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://zabernism.github.io/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/&title=对象与类 - 灵魂有香气a&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://zabernism.github.io/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/&title=反射 - 灵魂有香气a&summary="
           
           >
           
@@ -688,7 +688,7 @@ System.out.println(obj);
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://zabernism.github.io/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/&title=对象与类 - 灵魂有香气a&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://zabernism.github.io/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/&title=反射 - 灵魂有香气a&summary="
           
           >
           
@@ -710,7 +710,7 @@ System.out.println(obj);
       
         <a class="-mob-share-telegram" title="" rel="external nofollow noopener noreferrer noopener"
           
-            target="_blank" href="https://t.me/share/url?url=https://zabernism.github.io/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/&text=对象与类 - 灵魂有香气a"
+            target="_blank" href="https://t.me/share/url?url=https://zabernism.github.io/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/&text=反射 - 灵魂有香气a"
           
           >
           
@@ -736,30 +736,25 @@ System.out.println(obj);
   
     <div class="prev-next">
       
-        <a class='prev' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/05%20%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>文档注释</p>
-          <p class='content'>注释方法三种注释方法，注释不会出现在可执行文件中
+        <a class='prev' href='/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/02%20%E6%B3%9B%E5%9E%8B%E4%B8%8E%E5%BA%8F%E5%88%97%E5%8C%96/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>泛型与序列化</p>
+          <p class='content'>java介绍
 
-//
-/* */
-/** */自动生成文档
 
-注释的插入javadoc 从下面几个特性中抽取信息：
-
-包
-公有类与接口
-公有的和受保护的构造器...</p>
+java泛型
+Java泛型方法和泛型类支持程序员使用一个方法指定一组相关方法，或者使用一个类指定一组相关的类型。
+Java泛型（generics）是JDK 5中引入的一个新特性...</p>
         </a>
       
       
         <a class='next' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/03%20%E7%B1%BB/'>
           <p class='title'>修饰符<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>类类是构造对象的模板。
+          <p class='content'>类与对象类类是构造对象的模板。
 由类构造对象的过程称为创建类的实例。
 一个源文件中，只能有一个公共类，类名必须与文件名相同。
 类之间的关系最常见的关系有：
 
-依赖（uses-a）：一个类的方法需要操纵另...</p>
+依赖（uses-a）：一个类的方法需...</p>
         </a>
       
     </div>
@@ -802,7 +797,7 @@ System.out.println(obj);
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E7%9A%84%E4%BC%98%E7%82%B9"><span class="toc-text">反射的优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="toc-text">反射的缺点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%BE%97-Class-%E5%AF%B9%E8%B1%A1"><span class="toc-text">获得 Class 对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E4%B8%BA%E6%9F%90%E4%B8%AA%E7%B1%BB%E7%9A%84%E5%AE%9E%E4%BE%8B"><span class="toc-text">判断是否为某个类的实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%AE%9E%E4%BE%8B"><span class="toc-text">创建实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%96%B9%E6%B3%95"><span class="toc-text">获取方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%9E%84%E9%80%A0%E5%99%A8%E4%BF%A1%E6%81%AF"><span class="toc-text">获取构造器信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%B1%BB%E7%9A%84%E5%9F%9F"><span class="toc-text">获取类的域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">调用方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-text">获取修饰符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A9%E7%94%A8%E5%8F%8D%E5%B0%84%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84"><span class="toc-text">利用反射创建数组</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-text">反射的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-text">反射的优缺点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E7%9A%84%E4%BC%98%E7%82%B9"><span class="toc-text">反射的优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="toc-text">反射的缺点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%94%A8"><span class="toc-text">基本运用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%BE%97-Class-%E5%AF%B9%E8%B1%A1"><span class="toc-text">获得 Class 对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E4%B8%BA%E6%9F%90%E4%B8%AA%E7%B1%BB%E7%9A%84%E5%AE%9E%E4%BE%8B"><span class="toc-text">判断是否为某个类的实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%AE%9E%E4%BE%8B"><span class="toc-text">创建实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%96%B9%E6%B3%95"><span class="toc-text">获取方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%9E%84%E9%80%A0%E5%99%A8%E4%BF%A1%E6%81%AF"><span class="toc-text">获取构造器信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%B1%BB%E7%9A%84%E5%9F%9F"><span class="toc-text">获取类的域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">调用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-text">获取修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8%E5%8F%8D%E5%B0%84%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84"><span class="toc-text">利用反射创建数组</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -821,7 +816,7 @@ System.out.println(obj);
 <script>
   window.pdata={}
   pdata.ispage=true;
-  pdata.postTitle="对象与类";
+  pdata.postTitle="反射";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要

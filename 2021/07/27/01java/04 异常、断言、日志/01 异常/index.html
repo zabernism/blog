@@ -511,7 +511,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
-  <h1 id="异常分类"><a href="#异常分类" class="headerlink" title="异常分类"></a>异常分类</h1><ul>
+  <h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1><h2 id="异常分类"><a href="#异常分类" class="headerlink" title="异常分类"></a>异常分类</h2><ul>
 <li>Throwable<ul>
 <li>Error<ul>
 <li>表示 JVM 无法处理的错误，如 OutOfMemoryError, StackOverflowError。</li>
@@ -533,11 +533,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ul>
 </li>
 </ul>
-<h1 id="声明异常"><a href="#声明异常" class="headerlink" title="声明异常"></a>声明异常</h1><p><code>已检查异常</code>需要声明，或被捕获。如有多个需要在方法首部列出所有，逗号隔开。</p>
+<h2 id="声明异常"><a href="#声明异常" class="headerlink" title="声明异常"></a>声明异常</h2><p><code>已检查异常</code>需要声明，或被捕获。如有多个需要在方法首部列出所有，逗号隔开。</p>
 <p>Errors 和 <code>未检查异常</code>不需要声明。因为这类错误本身就是 bug，应该被修复，出现此类错误时程序就应该立即停止执行。</p>
-<h1 id="抛出异常"><a href="#抛出异常" class="headerlink" title="抛出异常"></a>抛出异常</h1><pre><code class="java">throw new Exception();
+<h2 id="抛出异常"><a href="#抛出异常" class="headerlink" title="抛出异常"></a>抛出异常</h2><pre><code class="java">throw new Exception();
 </code></pre>
-<h1 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h1><ul>
+<h2 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h2><ul>
 <li>创建一个派生于 <code>Exception </code>的类 ，或者派生于 <code>Exception </code>子类的类。</li>
 <li>一般需要定义两个构造器，一个是默认的，另一个是带有详细描述信息的构造器</li>
 </ul>
@@ -548,42 +548,42 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     &#125;
 &#125;
 </code></pre>
-<h1 id="捕获异常"><a href="#捕获异常" class="headerlink" title="捕获异常"></a>捕获异常</h1><ul>
+<h2 id="捕获异常"><a href="#捕获异常" class="headerlink" title="捕获异常"></a>捕获异常</h2><ul>
 <li>如果异常没有被捕获，程序将会停止运行</li>
 <li><code>try/catch </code>捕获异常</li>
 <li>如不捕获异常，可 <code>throws </code>声明异常，将异常传递给调用者</li>
 <li>子类覆盖超类的方法中，只能 <code>throws </code>超类方法的异常，其他只能自己捕获处理</li>
 </ul>
-<h2 id="捕获多个异常"><a href="#捕获多个异常" class="headerlink" title="捕获多个异常"></a>捕获多个异常</h2><h3 id="基本语句"><a href="#基本语句" class="headerlink" title="基本语句"></a>基本语句</h3><pre><code class="java">try&#123;
+<h3 id="捕获多个异常"><a href="#捕获多个异常" class="headerlink" title="捕获多个异常"></a>捕获多个异常</h3><h4 id="基本语句"><a href="#基本语句" class="headerlink" title="基本语句"></a>基本语句</h4><pre><code class="java">try&#123;
 &#125;catch (FileNotFoundException e)&#123;
 &#125;catch (UnknownHostException e)&#123;
 &#125;
 </code></pre>
-<h3 id="合并catch语句"><a href="#合并catch语句" class="headerlink" title="合并catch语句"></a>合并catch语句</h3><pre><code class="java">try&#123;
+<h4 id="合并catch语句"><a href="#合并catch语句" class="headerlink" title="合并catch语句"></a>合并catch语句</h4><pre><code class="java">try&#123;
 &#125;catch (FileNotFoundException | UnknownHostException e)&#123;
 &#125;
 </code></pre>
-<h2 id="再次抛出异常"><a href="#再次抛出异常" class="headerlink" title="再次抛出异常"></a>再次抛出异常</h2><h3 id="基本方法"><a href="#基本方法" class="headerlink" title="基本方法"></a>基本方法</h3><pre><code class="java">try&#123;
+<h3 id="再次抛出异常"><a href="#再次抛出异常" class="headerlink" title="再次抛出异常"></a>再次抛出异常</h3><h4 id="基本方法"><a href="#基本方法" class="headerlink" title="基本方法"></a>基本方法</h4><pre><code class="java">try&#123;
 &#125;catch (SQLException e)&#123;
     throw new ServletException(&quot;database error: &quot;+e.getMessage());
 &#125;
 </code></pre>
-<h3 id="保留原始异常"><a href="#保留原始异常" class="headerlink" title="保留原始异常"></a>保留原始异常</h3><pre><code class="java">try&#123;
+<h4 id="保留原始异常"><a href="#保留原始异常" class="headerlink" title="保留原始异常"></a>保留原始异常</h4><pre><code class="java">try&#123;
 &#125;catch (SQLException e)&#123;
     Throwable se=new ServletException(&quot;database error&quot;);
     se.initCause(e);
     throw se;
 &#125;
 </code></pre>
-<h3 id="获取原始异常"><a href="#获取原始异常" class="headerlink" title="获取原始异常"></a>获取原始异常</h3><pre><code class="java">Throwable e = se.getCause();
+<h4 id="获取原始异常"><a href="#获取原始异常" class="headerlink" title="获取原始异常"></a>获取原始异常</h4><pre><code class="java">Throwable e = se.getCause();
 </code></pre>
-<h2 id="finally-子句"><a href="#finally-子句" class="headerlink" title="finally 子句"></a>finally 子句</h2><h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><pre><code class="java">try&#123;
+<h3 id="finally-子句"><a href="#finally-子句" class="headerlink" title="finally 子句"></a>finally 子句</h3><h4 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h4><pre><code class="java">try&#123;
 &#125;catch(Exception e)&#123;
 &#125;finally&#123;
     in.close();
 &#125;
 </code></pre>
-<h3 id="建议使用"><a href="#建议使用" class="headerlink" title="建议使用"></a>建议使用</h3><p>强烈建议独立使用 try/catch 和 try/finally 语句块，提高代码的清晰度。</p>
+<h4 id="建议使用"><a href="#建议使用" class="headerlink" title="建议使用"></a>建议使用</h4><p>强烈建议独立使用 try/catch 和 try/finally 语句块，提高代码的清晰度。</p>
 <pre><code class="java">InputStream in= ... ;
 try&#123;
     try&#123;
@@ -599,25 +599,25 @@ try&#123;
 <li>注意：当 finally 和 catch 包含 return 语句，会执行 finally 的 return。</li>
 <li>注意：finally 也可能抛出异常，而导致本来要 catch 抛出的异常被覆盖</li>
 </ul>
-<h2 id="带资源的-try-语句"><a href="#带资源的-try-语句" class="headerlink" title="带资源的 try 语句"></a>带资源的 try 语句</h2><h3 id="基本语法-1"><a href="#基本语法-1" class="headerlink" title="基本语法"></a>基本语法</h3><p>假如资源实现了 AutoCloseable/Closeable 接口。可以利用带资源的 try 语句，try 退出时，会自动调用 res.close()。</p>
+<h3 id="带资源的-try-语句"><a href="#带资源的-try-语句" class="headerlink" title="带资源的 try 语句"></a>带资源的 try 语句</h3><h4 id="基本语法-1"><a href="#基本语法-1" class="headerlink" title="基本语法"></a>基本语法</h4><p>假如资源实现了 AutoCloseable/Closeable 接口。可以利用带资源的 try 语句，try 退出时，会自动调用 res.close()。</p>
 <pre><code class="java">try(Resource res=...)&#123;
     work with res
 &#125;
 </code></pre>
-<h3 id="指定多个资源"><a href="#指定多个资源" class="headerlink" title="指定多个资源"></a>指定多个资源</h3><pre><code class="java">try (Resource res1=...,Resource res2=...)&#123;
+<h4 id="指定多个资源"><a href="#指定多个资源" class="headerlink" title="指定多个资源"></a>指定多个资源</h4><pre><code class="java">try (Resource res1=...,Resource res2=...)&#123;
     work with res
 &#125;
 </code></pre>
 <p>如果 .close() 也抛出了异常，不会覆盖原来该抛出的异常，而是被抑制，可以通过 getSuppressed 方法获取被抑制的异常。</p>
-<h2 id="分析堆栈跟踪"><a href="#分析堆栈跟踪" class="headerlink" title="分析堆栈跟踪"></a>分析堆栈跟踪</h2><p>堆栈跟踪（stack trace）是一个方法调用过程的列表。</p>
-<h3 id="getStackTrace"><a href="#getStackTrace" class="headerlink" title="getStackTrace()"></a>getStackTrace()</h3><p>得到 StackTraceElement 对象的一个数组。</p>
+<h3 id="分析堆栈跟踪"><a href="#分析堆栈跟踪" class="headerlink" title="分析堆栈跟踪"></a>分析堆栈跟踪</h3><p>堆栈跟踪（stack trace）是一个方法调用过程的列表。</p>
+<h4 id="getStackTrace"><a href="#getStackTrace" class="headerlink" title="getStackTrace()"></a>getStackTrace()</h4><p>得到 StackTraceElement 对象的一个数组。</p>
 <p>能获得文件名，类名，当前执行的代码行号</p>
 <pre><code class="java">Throwable t = new Throwable();
 StackTraceElement[] frames = t.getStackTrace();
 for(StackTraceElement f : frames)
     System.out.println(f);
 </code></pre>
-<h3 id="Thread-getAllStackTrace"><a href="#Thread-getAllStackTrace" class="headerlink" title="Thread.getAllStackTrace"></a>Thread.getAllStackTrace</h3><p>获得所有线程的堆栈跟踪</p>
+<h4 id="Thread-getAllStackTrace"><a href="#Thread-getAllStackTrace" class="headerlink" title="Thread.getAllStackTrace"></a>Thread.getAllStackTrace</h4><p>获得所有线程的堆栈跟踪</p>
 <pre><code class="java">Map&lt;Thread,StackTraceElement[]&gt; map = Thread.getAllStackTraces();
 for(Thread t : map.keySet())&#123;
     StackTraceElement[] frames=map.get(t);
@@ -644,10 +644,10 @@ for(Thread t : map.keySet())&#123;
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-31T16:43:45+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-03T21:45:32+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jul 31, 2021</p>
+    <p>更新于：Aug 3, 2021</p>
   </a>
 </div>
 
@@ -666,7 +666,7 @@ for(Thread t : map.keySet())&#123;
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>775 words</p>
+      <p>777 words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -759,24 +759,20 @@ for(Thread t : map.keySet())&#123;
   
     <div class="prev-next">
       
-        <a class='prev' href='/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/02%20%E6%B3%9B%E5%9E%8B%E4%B8%8E%E5%BA%8F%E5%88%97%E5%8C%96/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>泛型与序列化</p>
-          <p class='content'>java介绍
-
-
-java泛型
-Java泛型方法和泛型类支持程序员使用一个方法指定一组相关方法，或者使用一个类指定一组相关的类型。
-Java泛型（generics）是JDK 5中引入的一个新特性...</p>
+        <a class='prev' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/06%20TreeMap%E3%80%81TreeSet/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>TreeMap、TreeSet</p>
+          <p class='content'>TreeSet仅对TreeMap做了一层包装，实现相同。TreeSet里面有一个TreeMap（适配器模式）。
+TreeMap和TreeSet根据对象的 compareTo 方法判断对象是否是同...</p>
         </a>
       
       
         <a class='next' href='/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/02%20%E6%96%AD%E8%A8%80/'>
           <p class='title'>断言<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>断言用在开发、测试期间。
+          <p class='content'>断言断言用在开发、测试期间。
 当代码发布时，这些插入的检测语句将会被自动地移走。
 表达形式assert 条件assert x &gt;= 0;
 
-assert 条件:表达式assert x &gt;...</p>
+assert 条件:表达式assert x &g...</p>
         </a>
       
     </div>
@@ -819,7 +815,7 @@ assert 条件:表达式assert x &gt;...</p>
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8D%95%E8%8E%B7%E5%A4%9A%E4%B8%AA%E5%BC%82%E5%B8%B8"><span class="toc-text">捕获多个异常</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E5%8F%A5"><span class="toc-text">基本语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%88%E5%B9%B6catch%E8%AF%AD%E5%8F%A5"><span class="toc-text">合并catch语句</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%8D%E6%AC%A1%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8"><span class="toc-text">再次抛出异常</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%96%B9%E6%B3%95"><span class="toc-text">基本方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%9D%E7%95%99%E5%8E%9F%E5%A7%8B%E5%BC%82%E5%B8%B8"><span class="toc-text">保留原始异常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%8E%9F%E5%A7%8B%E5%BC%82%E5%B8%B8"><span class="toc-text">获取原始异常</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#finally-%E5%AD%90%E5%8F%A5"><span class="toc-text">finally 子句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-text">基本语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E8%AE%AE%E4%BD%BF%E7%94%A8"><span class="toc-text">建议使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%A6%E8%B5%84%E6%BA%90%E7%9A%84-try-%E8%AF%AD%E5%8F%A5"><span class="toc-text">带资源的 try 语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95-1"><span class="toc-text">基本语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E5%AE%9A%E5%A4%9A%E4%B8%AA%E8%B5%84%E6%BA%90"><span class="toc-text">指定多个资源</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%9E%90%E5%A0%86%E6%A0%88%E8%B7%9F%E8%B8%AA"><span class="toc-text">分析堆栈跟踪</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#getStackTrace"><span class="toc-text">getStackTrace()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Thread-getAllStackTrace"><span class="toc-text">Thread.getAllStackTrace</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E5%88%86%E7%B1%BB"><span class="toc-text">异常分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E%E5%BC%82%E5%B8%B8"><span class="toc-text">声明异常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8"><span class="toc-text">抛出异常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8"><span class="toc-text">自定义异常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8D%95%E8%8E%B7%E5%BC%82%E5%B8%B8"><span class="toc-text">捕获异常</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8D%95%E8%8E%B7%E5%A4%9A%E4%B8%AA%E5%BC%82%E5%B8%B8"><span class="toc-text">捕获多个异常</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E5%8F%A5"><span class="toc-text">基本语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%88%E5%B9%B6catch%E8%AF%AD%E5%8F%A5"><span class="toc-text">合并catch语句</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%8D%E6%AC%A1%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8"><span class="toc-text">再次抛出异常</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%96%B9%E6%B3%95"><span class="toc-text">基本方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%9D%E7%95%99%E5%8E%9F%E5%A7%8B%E5%BC%82%E5%B8%B8"><span class="toc-text">保留原始异常</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%8E%9F%E5%A7%8B%E5%BC%82%E5%B8%B8"><span class="toc-text">获取原始异常</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#finally-%E5%AD%90%E5%8F%A5"><span class="toc-text">finally 子句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-text">基本语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BB%BA%E8%AE%AE%E4%BD%BF%E7%94%A8"><span class="toc-text">建议使用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%A6%E8%B5%84%E6%BA%90%E7%9A%84-try-%E8%AF%AD%E5%8F%A5"><span class="toc-text">带资源的 try 语句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95-1"><span class="toc-text">基本语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E5%AE%9A%E5%A4%9A%E4%B8%AA%E8%B5%84%E6%BA%90"><span class="toc-text">指定多个资源</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%9E%90%E5%A0%86%E6%A0%88%E8%B7%9F%E8%B8%AA"><span class="toc-text">分析堆栈跟踪</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#getStackTrace"><span class="toc-text">getStackTrace()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Thread-getAllStackTrace"><span class="toc-text">Thread.getAllStackTrace</span></a></li></ol></li></ol></li></ol>
     </div>
   </section>
 

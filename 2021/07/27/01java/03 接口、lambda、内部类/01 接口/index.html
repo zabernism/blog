@@ -511,30 +511,30 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
-  <h1 id="概念与特性"><a href="#概念与特性" class="headerlink" title="概念与特性"></a>概念与特性</h1><ul>
+  <h2 id="概念与特性"><a href="#概念与特性" class="headerlink" title="概念与特性"></a>概念与特性</h2><ul>
 <li>成员默认 public</li>
 <li>常量必须赋初值，内部类自动成为 static 类。</li>
 <li>不能含有实例域，不能实现方法。（JDK 8 之后允许提供静态方法、默认方法）</li>
 <li>可以声明接口变量，不能使用 new 实例化一个接口。</li>
 </ul>
-<h1 id="接口与抽象类"><a href="#接口与抽象类" class="headerlink" title="接口与抽象类"></a>接口与抽象类</h1><h2 id="接口与抽象类的区别"><a href="#接口与抽象类的区别" class="headerlink" title="接口与抽象类的区别"></a>接口与抽象类的区别</h2><ul>
+<h2 id="接口与抽象类"><a href="#接口与抽象类" class="headerlink" title="接口与抽象类"></a>接口与抽象类</h2><h3 id="接口与抽象类的区别"><a href="#接口与抽象类的区别" class="headerlink" title="接口与抽象类的区别"></a>接口与抽象类的区别</h3><ul>
 <li>从设计层面上看，抽象类提供了一种 IS-A 关系，需要满足里式替换原则，即子类对象必须能够替换掉所有父类对象。而接口更像是一种 LIKE-A 关系，它只是提供一种方法实现契约，并不要求接口和实现接口的类具有 IS-A 关系。</li>
 <li>从使用上来看，一个类可以实现多个接口，但是不能继承多个抽象类。</li>
 <li>接口的字段只能是 static 和 final 类型的，而抽象类的字段没有这种限制。</li>
 <li>接口的成员只能是 public 的，而抽象类的成员可以有多种访问权限。</li>
 </ul>
-<h2 id="使用选择"><a href="#使用选择" class="headerlink" title="使用选择"></a>使用选择</h2><h3 id="使用接口"><a href="#使用接口" class="headerlink" title="使用接口"></a>使用接口</h3><ul>
+<h3 id="使用选择"><a href="#使用选择" class="headerlink" title="使用选择"></a>使用选择</h3><h4 id="使用接口"><a href="#使用接口" class="headerlink" title="使用接口"></a>使用接口</h4><ul>
 <li>需要让不相关的类都实现一个方法，例如不相关的类都可以实现 Compareable 接口中的 compareTo() 方法；</li>
 <li>需要使用多重继承。</li>
 </ul>
-<h3 id="使用抽象类"><a href="#使用抽象类" class="headerlink" title="使用抽象类"></a>使用抽象类</h3><ul>
+<h4 id="使用抽象类"><a href="#使用抽象类" class="headerlink" title="使用抽象类"></a>使用抽象类</h4><ul>
 <li>需要在几个相关的类中共享代码。</li>
 <li>需要能控制继承来的成员的访问权限，而不是都为 public。</li>
 <li>需要继承非静态和非常量字段。</li>
 </ul>
 <p>在很多情况下，接口优先于抽象类。因为接口没有抽象类严格的类层次结构要求，可以灵活地为一个类添加行为。并且从 Java 8 开始，接口也可以有默认的方法实现，使得修改接口的成本也变的很低。</p>
-<h1 id="Java-8-新特性"><a href="#Java-8-新特性" class="headerlink" title="Java 8 新特性"></a>Java 8 新特性</h1><h2 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h2><p>Java SE 8 中，允许接口中增加静态方法。</p>
-<h2 id="默认方法"><a href="#默认方法" class="headerlink" title="默认方法"></a>默认方法</h2><p>Java SE 8 中，可以为接口方法提供一个默认实现。必须用 default 标记。<br>一个重要用法是“接口演化”，接口中新增的方法有了默认方法就不会影响以前实现这个接口的类。<br>Java SE 8 之后就不需要伴随类了。</p>
+<h2 id="Java-8-新特性"><a href="#Java-8-新特性" class="headerlink" title="Java 8 新特性"></a>Java 8 新特性</h2><h3 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h3><p>Java SE 8 中，允许接口中增加静态方法。</p>
+<h3 id="默认方法"><a href="#默认方法" class="headerlink" title="默认方法"></a>默认方法</h3><p>Java SE 8 中，可以为接口方法提供一个默认实现。必须用 default 标记。<br>一个重要用法是“接口演化”，接口中新增的方法有了默认方法就不会影响以前实现这个接口的类。<br>Java SE 8 之后就不需要伴随类了。</p>
 <p><strong>默认方法冲突</strong></p>
 <p>如果现在接口中将一个方法定义为默认方法，然后又在超类或另一个接口定义了同样方法。规则如下：</p>
 <ol>
@@ -560,10 +560,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-31T16:42:30+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-03T21:43:11+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jul 31, 2021</p>
+    <p>更新于：Aug 3, 2021</p>
   </a>
 </div>
 
@@ -675,24 +675,22 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/03%20%E6%97%A5%E5%BF%97/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>日志</p>
-          <p class='content'>
-java.util.logging.Logger
+        <a class='prev' href='/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/03%20%E5%86%85%E9%83%A8%E7%B1%BB/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>内部类</p>
+          <p class='content'>内部类内部类（ inner class）是定义在另一个类中的类。为什么需要使用内部类：
 
-日志记录器全局日志记录器Logger.getGlobal()
-Logger.getGlobal().info(&quot;&quot;);
-...</p>
+内部类方法可以访问该类定义所在的作用域中的数据，包括私有数据
+内部类可以对同一个包中的其他类隐藏起来
+当...</p>
         </a>
       
       
-        <a class='next' href='/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/02%20lambda/'>
-          <p class='title'>lambda<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>
-@since 1.8
-
-语法参数，箭头（-&gt;）以及一个表达式。
-(String first, String second) -&gt;first.length() - second.le...</p>
+        <a class='next' href='/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/04%20%E4%BB%A3%E7%90%86/'>
+          <p class='title'>代理<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>代理代理模式：就是为其他对象提供一种代理以控制对这个对象的访问。
+代理可以在不改动目标对象的基础上，增加其他额外的功能（扩展功能）。
+静态代理代理对象和目标对象实现了相同的接口。
+目标对象作为代...</p>
         </a>
       
     </div>
@@ -735,7 +733,7 @@ Logger.getGlobal().info(&quot;&quot;);
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">接口与抽象类的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E9%80%89%E6%8B%A9"><span class="toc-text">使用选择</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%8E%A5%E5%8F%A3"><span class="toc-text">使用接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%8A%BD%E8%B1%A1%E7%B1%BB"><span class="toc-text">使用抽象类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95"><span class="toc-text">静态方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E6%96%B9%E6%B3%95"><span class="toc-text">默认方法</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5%E4%B8%8E%E7%89%B9%E6%80%A7"><span class="toc-text">概念与特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%8A%BD%E8%B1%A1%E7%B1%BB"><span class="toc-text">接口与抽象类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">接口与抽象类的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E9%80%89%E6%8B%A9"><span class="toc-text">使用选择</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%8E%A5%E5%8F%A3"><span class="toc-text">使用接口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%8A%BD%E8%B1%A1%E7%B1%BB"><span class="toc-text">使用抽象类</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-8-%E6%96%B0%E7%89%B9%E6%80%A7"><span class="toc-text">Java 8 新特性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95"><span class="toc-text">静态方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E6%96%B9%E6%B3%95"><span class="toc-text">默认方法</span></a></li></ol></li></ol>
     </div>
   </section>
 
