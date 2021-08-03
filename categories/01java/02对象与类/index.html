@@ -479,29 +479,21 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/05%20%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/">
-        文档注释
+      <a href="/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/">
+        对象与类
       </a>
     </h2>
   
   <div class='md'>
     
       
-        注释方法三种注释方法，注释不会出现在可执行文件中
+        反射可以提供运行时的类信息，并且这个类可以在运行时才加载进来，甚至在编译时期该类的 .class 不存在也可以加载进来。
+反射允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。
+反射的核心是 JVM 在运行时才动态加载类或调用方法/访问属性，它不需要事先知道运行对象是谁。
+反射的作用反射机制可以用来：
 
-//
-/* */
-/** */自动生成文档
-
-注释的插入javadoc 从下面几个特性中抽取信息：
-
-包
-公有类与接口
-公有的和受保护的构造器和方法
-公有的和受保护的域
-
-类注释类注释必须在 import 语句之后，在类定义之前。
-方法注释方法注释必须放在方法之前，除了通用标记之外，还可以使用 @param ，@return ，@throw...
+在运行时判断任意一个对象所属的类；
+在运行时构造任意一个类的对...
       
     
   </div>
@@ -517,7 +509,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       </div>
       
         <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/05%20%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/'>
+          <a class='readmore' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/'>
             Read More
           </a>
         </div>
@@ -596,21 +588,29 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/">
-        对象与类
+      <a href="/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/05%20%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/">
+        文档注释
       </a>
     </h2>
   
   <div class='md'>
     
       
-        反射可以提供运行时的类信息，并且这个类可以在运行时才加载进来，甚至在编译时期该类的 .class 不存在也可以加载进来。
-反射允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。
-反射的核心是 JVM 在运行时才动态加载类或调用方法/访问属性，它不需要事先知道运行对象是谁。
-反射的作用反射机制可以用来：
+        注释方法三种注释方法，注释不会出现在可执行文件中
 
-在运行时判断任意一个对象所属的类；
-在运行时构造任意一个类的对...
+//
+/* */
+/** */自动生成文档
+
+注释的插入javadoc 从下面几个特性中抽取信息：
+
+包
+公有类与接口
+公有的和受保护的构造器和方法
+公有的和受保护的域
+
+类注释类注释必须在 import 语句之后，在类定义之前。
+方法注释方法注释必须放在方法之前，除了通用标记之外，还可以使用 @param ，@return ，@throw...
       
     
   </div>
@@ -626,61 +626,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       </div>
       
         <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/01%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
-        面向对象
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        抽象抽象是将一类对象的共同特征总结出来构造类的过程，包括数据抽象和行为抽象两方面。抽象只关注对象有哪些属性和行为，并不关注这些行为的细节是什么。
-封装把数据和行为隐藏，只能通过暴露的接口访问数据。
-继承通过扩展一个类来建立另一个新的类。
-慎用继承
-将公共操作和域放在超类。
-不要使用受保护的域。
-使用继承实现”is-a”。
-除非所有继承的方法都有意义，否则不要使用继承。
-在覆盖方法时，不要改变...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/02%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/">02对象与类</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/01%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/'>
+          <a class='readmore' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/05%20%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/'>
             Read More
           </a>
         </div>
@@ -741,6 +687,60 @@ final 域必须显式指定初始值，赋值后，不能被重新赋值。
       
         <div>
           <a class='readmore' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/02%20%E4%BF%AE%E9%A5%B0%E7%AC%A6/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/01%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+        面向对象
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        抽象抽象是将一类对象的共同特征总结出来构造类的过程，包括数据抽象和行为抽象两方面。抽象只关注对象有哪些属性和行为，并不关注这些行为的细节是什么。
+封装把数据和行为隐藏，只能通过暴露的接口访问数据。
+继承通过扩展一个类来建立另一个新的类。
+慎用继承
+将公共操作和域放在超类。
+不要使用受保护的域。
+使用继承实现”is-a”。
+除非所有继承的方法都有意义，否则不要使用继承。
+在覆盖方法时，不要改变...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/02%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/">02对象与类</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/01%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/'>
             Read More
           </a>
         </div>
@@ -854,7 +854,7 @@ final 域必须显式指定初始值，赋值后，不能被重新赋值。
           <li><a class="flat-box"
             title="/blog/categories/01java/" href="/blog/categories/01java/"
             id="blogcategories01java"
-            ><div class='name'>01java</div><div class='badge'>(27)</div></a></li>
+            ><div class='name'>01java</div><div class='badge'>(28)</div></a></li>
         
           <li><a class="flat-box child"
             title="/blog/categories/01java/01%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/" href="/blog/categories/01java/01%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/"
@@ -890,6 +890,11 @@ final 域必须显式指定初始值，赋值后，不能被重新赋值。
             title="/blog/categories/01java/07%E5%B9%B6%E5%8F%91/" href="/blog/categories/01java/07%E5%B9%B6%E5%8F%91/"
             id="blogcategories01java07E5B9B6E58F91"
             ><div class='name'>07并发</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/blog/categories/01java/08Stream/" href="/blog/categories/01java/08Stream/"
+            id="blogcategories01java08Stream"
+            ><div class='name'>08Stream</div><div class='badge'>(1)</div></a></li>
         
           <li><a class="flat-box"
             title="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" href="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"
@@ -947,6 +952,11 @@ final 域必须显式指定初始值，赋值后，不能被重新赋值。
             ><div class='name'>01git</div><div class='badge'>(2)</div></a></li>
         
           <li><a class="flat-box"
+            title="/blog/categories/08%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" href="/blog/categories/08%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"
+            id="blogcategories08E8AEA1E7AE97E69CBAE7BD91E7BB9C"
+            ><div class='name'>08计算机网络</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
             title="/blog/categories/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/" href="/blog/categories/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/"
             id="blogcategoriesjavaE59FBAE7A180E99DA2E8AF95E9A298"
             ><div class='name'>java基础面试题</div><div class='badge'>(1)</div></a></li>
@@ -983,7 +993,7 @@ final 域必须显式指定初始值，赋值后，不能被重新赋值。
 
 
     <div class='content'>
-      <a href="/blog/tags/MyBatis/" style="font-size: 17.33px; color: #828282">MyBatis</a> <a href="/blog/tags/MySql/" style="font-size: 14px; color: #999">MySql</a> <a href="/blog/tags/git/" style="font-size: 17.33px; color: #828282">git</a> <a href="/blog/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/blog/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/blog/tags/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java基础面试题</a> <a href="/blog/tags/java%E6%A1%86%E6%9E%B6%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java框架面试题</a> <a href="/blog/tags/lombok/" style="font-size: 14px; color: #999">lombok</a> <a href="/blog/tags/oracle/" style="font-size: 20.67px; color: #6c6c6c">oracle</a> <a href="/blog/tags/spring/" style="font-size: 14px; color: #999">spring</a> <a href="/blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 20.67px; color: #6c6c6c">数据结构</a> <a href="/blog/tags/%E6%B3%A8%E8%A7%A3/" style="font-size: 14px; color: #999">注解</a> <a href="/blog/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 17.33px; color: #828282">设计模式</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 17.33px; color: #828282">随笔</a>
+      <a href="/blog/tags/MyBatis/" style="font-size: 17.33px; color: #828282">MyBatis</a> <a href="/blog/tags/MySql/" style="font-size: 14px; color: #999">MySql</a> <a href="/blog/tags/git/" style="font-size: 17.33px; color: #828282">git</a> <a href="/blog/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/blog/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/blog/tags/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java基础面试题</a> <a href="/blog/tags/java%E6%A1%86%E6%9E%B6%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java框架面试题</a> <a href="/blog/tags/lombok/" style="font-size: 14px; color: #999">lombok</a> <a href="/blog/tags/oracle/" style="font-size: 20.67px; color: #6c6c6c">oracle</a> <a href="/blog/tags/spring/" style="font-size: 14px; color: #999">spring</a> <a href="/blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 20.67px; color: #6c6c6c">数据结构</a> <a href="/blog/tags/%E6%B3%A8%E8%A7%A3/" style="font-size: 14px; color: #999">注解</a> <a href="/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/blog/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 17.33px; color: #828282">设计模式</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 17.33px; color: #828282">随笔</a>
     </div>
   </section>
 
