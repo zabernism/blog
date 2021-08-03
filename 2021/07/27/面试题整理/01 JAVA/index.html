@@ -522,6 +522,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>​        客户端——发送带有SYN标志的数据包——服务端       <strong>一次握手</strong>  Client进入syn_sent状态</p>
 <p>​        服务端——发送带有SYN/ACK标志的数据包——客户端   <strong>二次握手</strong>  服务端进入syn_rcvd</p>
 <p>​        客户端——发送带有ACK标志的数据包——服务端               <strong>三次握手</strong>   连接就进入Established状态</p>
+<p>​    解释：</p>
+<p>SYN：同步序列编号（<em>Syn</em>chronize Sequence Numbers）。是TCP/IP建立连接时使用的握手信号</p>
+<p>ACK：标志位</p>
 <p>​    <strong>为什么三次：</strong></p>
 <p>​        主要是为了建立可靠的通信信道，保证客户端与服务端同时具备发送、接收数据的能力</p>
 <p>​    <strong>为什么两次不行？</strong></p>
@@ -4582,10 +4585,10 @@ P2b:如果某个v的提案被accept，那么从Proposal提出编号更高的提�
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-31T17:04:42+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-03T09:32:45+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jul 31, 2021</p>
+    <p>更新于：Aug 3, 2021</p>
   </a>
 </div>
 
