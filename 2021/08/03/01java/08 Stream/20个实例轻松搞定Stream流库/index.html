@@ -511,7 +511,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
-  <h1 id="Stream概述"><a href="#Stream概述" class="headerlink" title="Stream概述"></a>Stream概述</h1><p>Java 8 是一个非常成功的版本，这个版本新增的<code>Stream</code>，配合同版本出现的 <code>Lambda</code>，给我们操作集合（Collection）提供了极大的便利。</p>
+  <h1 id="20个实例轻松搞定Stream流库"><a href="#20个实例轻松搞定Stream流库" class="headerlink" title="20个实例轻松搞定Stream流库"></a>20个实例轻松搞定Stream流库</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Java 8 是一个非常成功的版本，这个版本新增的<code>Stream</code>，配合同版本出现的 <code>Lambda</code>，给我们操作集合（Collection）提供了极大的便利。</p>
 <p>那么什么是<code>Stream</code>？</p>
 <blockquote>
 <p><code>Stream</code>将要处理的元素集合看作一种流，在流的过程中，借助<code>Stream API</code>对流中的元素进行操作，比如：筛选、排序、聚合等。</p>
@@ -527,17 +527,17 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>stream不会改变数据源，通常情况下会产生一个新的集合或一个值。</li>
 <li>stream具有延迟执行特性，只有调用终端操作时，中间操作才会执行</li>
 </ol>
-<h1 id="Stream的创建"><a href="#Stream的创建" class="headerlink" title="Stream的创建"></a>Stream的创建</h1><p><code>Stream</code>可以通过集合数组创建</p>
-<h2 id="通过集合数组创建"><a href="#通过集合数组创建" class="headerlink" title="通过集合数组创建"></a>通过集合数组创建</h2><pre><code class="java">List&lt;String&gt; aList = Arrays.asList(&quot;aaa&quot;, &quot;bbb&quot;, &quot;ccc&quot;);
+<h2 id="Stream的创建"><a href="#Stream的创建" class="headerlink" title="Stream的创建"></a>Stream的创建</h2><p><code>Stream</code>可以通过集合数组创建</p>
+<h3 id="通过集合数组创建"><a href="#通过集合数组创建" class="headerlink" title="通过集合数组创建"></a>通过集合数组创建</h3><pre><code class="java">List&lt;String&gt; aList = Arrays.asList(&quot;aaa&quot;, &quot;bbb&quot;, &quot;ccc&quot;);
 // 创建一个顺序流
 Stream&lt;String&gt; stream = aList.stream();
 // 创建一个并行流
 Stream&lt;String&gt; parallelStream = aList.parallelStream();
 </code></pre>
-<h2 id="通过数组创建"><a href="#通过数组创建" class="headerlink" title="通过数组创建"></a>通过数组创建</h2><pre><code class="java">int[] aArray = &#123;1, 3, 5, 7, 9&#125;;
+<h3 id="通过数组创建"><a href="#通过数组创建" class="headerlink" title="通过数组创建"></a>通过数组创建</h3><pre><code class="java">int[] aArray = &#123;1, 3, 5, 7, 9&#125;;
 IntStream stream = Arrays.stream(aArray);
 </code></pre>
-<h2 id="通过Stream的静态方法进行创建"><a href="#通过Stream的静态方法进行创建" class="headerlink" title="通过Stream的静态方法进行创建"></a>通过Stream的静态方法进行创建</h2><pre><code class="java">// 通过of方法创建
+<h3 id="通过Stream的静态方法进行创建"><a href="#通过Stream的静态方法进行创建" class="headerlink" title="通过Stream的静态方法进行创建"></a>通过Stream的静态方法进行创建</h3><pre><code class="java">// 通过of方法创建
 Stream&lt;Integer&gt; stream = Stream.of(1, 2, 3);
 stream.forEach(System.out::println);
 System.out.println(&quot;---------------------------&quot;);
@@ -563,7 +563,7 @@ mathStream.forEach(System.out::println);
 0.22025458942178056
 0.6990157043068304
 </code></pre>
-<h2 id="Stream和parallelSteam简单区分"><a href="#Stream和parallelSteam简单区分" class="headerlink" title="Stream和parallelSteam简单区分"></a>Stream和parallelSteam简单区分</h2><blockquote>
+<h3 id="Stream和parallelSteam简单区分"><a href="#Stream和parallelSteam简单区分" class="headerlink" title="Stream和parallelSteam简单区分"></a>Stream和parallelSteam简单区分</h3><blockquote>
 <p><code>stream</code>是顺序流，由主线程按顺序对流执行操作，而<code>parallelStream</code>是并行流，内部以多线程并行执行的方式对流进行操作，但前提是流中的数据处理没有顺序要求。</p>
 </blockquote>
 <p>例如筛选集合中的奇数，两者的处理不同之处：</p>
@@ -573,7 +573,7 @@ mathStream.forEach(System.out::println);
 <pre><code class="java">// 将顺序流转成并行流
 Stream&lt;String&gt; parallel = stream.parallel();
 </code></pre>
-<h1 id="Stream的使用"><a href="#Stream的使用" class="headerlink" title="Stream的使用"></a>Stream的使用</h1><p>在使用stream之前，先理解一个概念：<code>Optional</code> 。</p>
+<h2 id="Stream的使用"><a href="#Stream的使用" class="headerlink" title="Stream的使用"></a>Stream的使用</h2><p>在使用stream之前，先理解一个概念：<code>Optional</code> 。</p>
 <blockquote>
 <p><code>Optional</code>类是一个可以为<code>null</code>的容器对象。如果值存在则<code>isPresent()</code>方法会返回<code>true</code>，调用<code>get()</code>方法会返回该对象。更详细说明请见：<a target="_blank" rel="noopener" href="https://www.runoob.com/java/java8-optional-class.html">https://www.runoob.com/java/java8-optional-class.html</a></p>
 </blockquote>
@@ -584,7 +584,7 @@ Stream&lt;String&gt; parallel = stream.parallel();
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-class staff &#123;
+class Staff &#123;
     /**
      * 姓名
      */
@@ -604,10 +604,247 @@ class staff &#123;
 
 &#125;
 </code></pre>
-<h2 id="遍历-匹配（foreach-find-match）"><a href="#遍历-匹配（foreach-find-match）" class="headerlink" title="遍历/匹配（foreach/find/match）"></a>遍历/匹配（foreach/find/match）</h2><blockquote>
+<h3 id="遍历-匹配（foreach-find-match）"><a href="#遍历-匹配（foreach-find-match）" class="headerlink" title="遍历/匹配（foreach/find/match）"></a>遍历/匹配（foreach/find/match）</h3><blockquote>
 <p><code>Stream</code>也是支持类似集合的遍历和匹配元素的，只是<code>Stream</code>中的元素是以<code>Optional</code>类型存在的。<code>Stream</code>的遍历、匹配非常简单。</p>
 </blockquote>
 <p><img src="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108031352621.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108031352621.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210803135225272"></p>
+<pre><code class="java">public class Main &#123;
+    public static void main(String[] args) &#123;
+        List&lt;Integer&gt; list = Arrays.asList(7, 6, 9, 3, 8, 2, 1);
+        // 遍历输出符合条件的元素
+        list.stream().filter(x -&gt; x &gt; 6).forEach(System.out::println);
+        // 匹配第一个
+        Optional&lt;Integer&gt; findFirst = list.stream().filter(x -&gt; x &gt; 6).findFirst();
+        // 匹配任意（适用于并行流）
+        Optional&lt;Integer&gt; findAny = list.parallelStream().filter(x -&gt; x &gt; 6).findAny();
+        // 是否包含符合特定条件的元素
+        boolean anyMatch = list.stream().anyMatch(x -&gt; x &lt; 6);
+        Assert.isTrue(findAny.isPresent());
+        Assert.isTrue(findFirst.isPresent());
+        System.out.println(&quot;匹配第一个值：&quot; + findFirst.get());
+        System.out.println(&quot;匹配任意一个值：&quot; + findAny.get());
+        System.out.println(&quot;是否存在大于6的值：&quot; + anyMatch);
+    &#125;
+&#125;
+
+
+输出结果：
+7
+9
+8
+匹配第一个值：7
+匹配任意一个值：8
+是否存在大于6的值：true
+</code></pre>
+<h3 id="筛选（filter）"><a href="#筛选（filter）" class="headerlink" title="筛选（filter）"></a>筛选（filter）</h3><blockquote>
+<p>筛选，是按照一定的规则校验流中的元素，将符合条件的元素提取到新的流中的操作。</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108041938966" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108041938966" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="图片"></p>
+<p><strong>案例一：筛选出<code>Integer</code>集合中大于7的元素，并打印出来</strong></p>
+<pre><code class="java">List&lt;Integer&gt; aList = Arrays.asList(6, 7, 3, 8, 1, 2, 9);
+List&lt;Integer&gt; res = aList.stream()
+        .filter(x -&gt; x &gt; 7)
+        .collect(Collectors.toList());
+res.forEach(System.out::println);
+
+结果：
+8
+9
+</code></pre>
+<p><strong>案例二：筛选员工中工资高于8000的人，并形成新的集合。</strong> 形成新集合依赖<code>collect</code>（收集），后文有详细介绍。</p>
+<pre><code class="java">public class Main &#123;
+    public static void main(String[] args) &#123;
+        List&lt;Staff&gt; asList = Arrays.asList(
+                new Staff(&quot;Tom&quot;, 8900D, 29, &quot;男&quot;),
+                new Staff(&quot;Jack&quot;, 7000D, 20, &quot;女&quot;),
+                new Staff(&quot;Lily&quot;, 7900D, 23, &quot;女&quot;),
+                new Staff(&quot;Anni&quot;, 8200D, 25, &quot;男&quot;),
+                new Staff(&quot;Owen&quot;, 9500D, 27, &quot;女&quot;),
+                new Staff(&quot;Alisa&quot;, 7800D, 30, &quot;女&quot;)
+        );
+        List&lt;Staff&gt; staffs = asList.stream()
+                .filter(staff -&gt; staff.getSalary() &gt; 8000)
+                .collect(Collectors.toList());
+        staffs.forEach(staff -&gt; System.out.println(staff.toString()));
+    &#125;
+&#125;
+
+结果：
+Staff(name=Tom, salary=8900.0, age=29, sex=男)
+Staff(name=Anni, salary=8200.0, age=25, sex=男)
+Staff(name=Owen, salary=9500.0, age=27, sex=女)
+</code></pre>
+<h3 id="聚合（max-min-count"><a href="#聚合（max-min-count" class="headerlink" title="聚合（max/min/count)"></a>聚合（max/min/count)</h3><blockquote>
+<p><code>max</code>、<code>min</code>、<code>count</code>这些字眼你一定不陌生，没错，在mysql中我们常用它们进行数据统计。Java stream中也引入了这些概念和用法，极大地方便了我们对集合、数组的数据统计工作。</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108041947428" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108041947428" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="图片"></p>
+<p><strong>案例一：获取<code>String</code>集合中最长的元素。</strong></p>
+<pre><code class="java">List&lt;String&gt; list = Arrays.asList(&quot;adnm&quot;, &quot;admmt&quot;, &quot;pot&quot;, &quot;xbangd&quot;, &quot;weoujgsd&quot;);
+Optional&lt;String&gt; max = list.stream().max(Comparator.comparing(String::length));
+System.out.println(&quot;最长的字符串：&quot; + max.get());
+
+输出：
+最长的字符串：weoujgsd
+</code></pre>
+<p><strong>案例二：获取<code>Integer</code>集合中的最大值</strong></p>
+<pre><code class="java"> List&lt;Integer&gt; list = Arrays.asList(7, 6, 9, 4, 11, 6);
+ // 自然排序
+ Optional&lt;Integer&gt; max = list.stream()
+         .max(Integer::compareTo);
+ // 自定义排序
+ Optional&lt;Integer&gt; max2 = list.stream()
+         .max(new Comparator&lt;Integer&gt;() &#123;
+             @Override
+             public int compare(Integer o1, Integer o2) &#123;
+                 return o1.compareTo(o2) ;
+             &#125;
+         &#125;);
+ System.out.println(&quot;自然排序结果：&quot; + max.get());
+ System.out.println(&quot;自定义排序结果：&quot; + max2.get());
+
+结果：
+自然排序结果：11
+自定义排序结果：11
+</code></pre>
+<p><strong>案例三：获取员工工资最高的人。</strong></p>
+<pre><code class="java">public class Main &#123;
+    public static void main(String[] args) &#123;
+        List&lt;Staff&gt; asList = Arrays.asList(
+                new Staff(&quot;Tom&quot;, 8900D, 29, &quot;男&quot;),
+                new Staff(&quot;Jack&quot;, 7000D, 20, &quot;女&quot;),
+                new Staff(&quot;Lily&quot;, 7900D, 23, &quot;女&quot;),
+                new Staff(&quot;Anni&quot;, 8200D, 25, &quot;男&quot;),
+                new Staff(&quot;Owen&quot;, 9500D, 27, &quot;女&quot;),
+                new Staff(&quot;Alisa&quot;, 7800D, 30, &quot;女&quot;)
+        );
+        Optional&lt;Staff&gt; staff = asList.stream()
+                .max(Comparator.comparing(Staff::getSalary));
+        System.out.println(staff.get());
+    &#125;
+&#125;
+输出结果：
+Staff(name=Owen, salary=9500.0, age=27, sex=女)
+</code></pre>
+<p><strong>案例四：计算<code>Integer</code>集合中大于6的元素的个数。</strong></p>
+<pre><code class="java">List&lt;Integer&gt; list = Arrays.asList(1, 2, 3, 4, 5, 7, 9);
+long count = list.stream().filter(x -&gt; x &gt; 6).count();
+System.out.println(&quot;集合中大于6的个数为：&quot; + count);
+</code></pre>
+<h3 id="映射-map-flatMap"><a href="#映射-map-flatMap" class="headerlink" title="映射(map/flatMap)"></a>映射(map/flatMap)</h3><blockquote>
+<p>映射，可以将一个流的元素按照一定的映射规则映射到另一个流中。分为<code>map</code>和<code>flatMap</code>：</p>
+</blockquote>
+<ul>
+<li><code>map</code>：接收一个函数作为参数，该函数会被应用到每个元素上，并将其映射成一个新的元素。</li>
+<li><code>flatMap</code>：接收一个函数作为参数，将流中的每个值都换成另一个流，然后把所有流连接成一个流。</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108042006529" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108042006529" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="图片"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108042006685" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108042006685" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="图片"></p>
+<p><strong>案例一：英文字符串数组的元素全部改为大写。整数数组每个元素+3。</strong></p>
+<pre><code class="java">String[] strArr = &#123;&quot;abcd&quot;, &quot;bcdd&quot;, &quot;defde&quot;, &quot;fTr&quot;&#125;;
+List&lt;String&gt; upper = Arrays.stream(strArr)
+        .map(String::toUpperCase)
+        .collect(Collectors.toList());
+System.out.println(&quot;元素大写：&quot; + upper);
+List&lt;Integer&gt; list = Arrays.asList(1, 2, 3, 4, 5, 7, 9);
+List&lt;Integer&gt; intList = list.stream()
+        .map(x -&gt; x + 3)
+        .collect(Collectors.toList());
+System.out.println(&quot;每个元素加3：&quot; + intList);
+
+结果：
+元素大写：[ABCD, BCDD, DEFDE, FTR]
+每个元素加3：[4, 5, 6, 7, 8, 10, 12]
+</code></pre>
+<p><strong>案例二：将员工的薪资全部增加1000。</strong></p>
+<pre><code class="java">public class Main &#123;
+    public static void main(String[] args) &#123;
+        List&lt;Staff&gt; asList = Arrays.asList(
+                new Staff(&quot;Tom&quot;, 8900D, 29, &quot;男&quot;),
+                new Staff(&quot;Jack&quot;, 7000D, 20, &quot;女&quot;),
+                new Staff(&quot;Lily&quot;, 7900D, 23, &quot;女&quot;),
+                new Staff(&quot;Anni&quot;, 8200D, 25, &quot;男&quot;),
+                new Staff(&quot;Owen&quot;, 9500D, 27, &quot;女&quot;),
+                new Staff(&quot;Alisa&quot;, 7800D, 30, &quot;女&quot;)
+        );
+        // 不改变原有集合
+        List&lt;Staff&gt; staffList = asList.stream()
+                .map(staff -&gt; Staff.builder()
+                        .age(staff.getAge())
+                        .name(staff.getName())
+                        .salary(staff.getSalary() + 1000)
+                        .sex(staff.getSex())
+                        .build())
+                .collect(Collectors.toList());
+        System.out.println(&quot;改变前：&quot; + asList);
+        System.out.println(&quot;改变后：&quot; + staffList);
+        System.out.println(&quot;-----------------------&quot;);
+        List&lt;Staff&gt; staffList1 = asList.stream()
+                .map(staff -&gt; &#123;
+                    staff.setSalary(staff.getSalary() + 1000);
+                    return staff;
+                &#125;).collect(Collectors.toList());
+        System.out.println(&quot;改变前：&quot; + staffList);
+        System.out.println(&quot;改变后：&quot; + staffList1);
+
+    &#125;
+&#125;
+
+结果：
+改变前：[Staff(name=Tom, salary=8900.0, age=29, sex=男), Staff(name=Jack, salary=7000.0, age=20, sex=女), Staff(name=Lily, salary=7900.0, age=23, sex=女), Staff(name=Anni, salary=8200.0, age=25, sex=男), Staff(name=Owen, salary=9500.0, age=27, sex=女), Staff(name=Alisa, salary=7800.0, age=30, sex=女)]
+改变后：[Staff(name=Tom, salary=9900.0, age=29, sex=男), Staff(name=Jack, salary=8000.0, age=20, sex=女), Staff(name=Lily, salary=8900.0, age=23, sex=女), Staff(name=Anni, salary=9200.0, age=25, sex=男), Staff(name=Owen, salary=10500.0, age=27, sex=女), Staff(name=Alisa, salary=8800.0, age=30, sex=女)]
+-----------------------
+改变前：[Staff(name=Tom, salary=9900.0, age=29, sex=男), Staff(name=Jack, salary=8000.0, age=20, sex=女), Staff(name=Lily, salary=8900.0, age=23, sex=女), Staff(name=Anni, salary=9200.0, age=25, sex=男), Staff(name=Owen, salary=10500.0, age=27, sex=女), Staff(name=Alisa, salary=8800.0, age=30, sex=女)]
+改变后：[Staff(name=Tom, salary=9900.0, age=29, sex=男), Staff(name=Jack, salary=8000.0, age=20, sex=女), Staff(name=Lily, salary=8900.0, age=23, sex=女), Staff(name=Anni, salary=9200.0, age=25, sex=男), Staff(name=Owen, salary=10500.0, age=27, sex=女), Staff(name=Alisa, salary=8800.0, age=30, sex=女)]
+</code></pre>
+<p><strong>案例三：将两个字符数组合并成一个新的字符数组。</strong></p>
+<pre><code class="java">List&lt;String&gt; list = Arrays.asList(&quot;m-k-l-a&quot;, &quot;1-3-5-7&quot;);
+List&lt;String&gt; strs = list.stream()
+        .flatMap(str -&gt; &#123;
+            // 将每个元素都转换为stream流
+            String[] split = str.split(&quot;-&quot;);
+            return Arrays.stream(split);
+        &#125;).collect(Collectors.toList());
+System.out.println(&quot;合并前的数组：&quot; + list);
+System.out.println(&quot;合并后的集合：&quot; + strs);
+
+结果：
+合并前的数组：[m-k-l-a, 1-3-5-7]
+合并后的集合：[m, k, l, a, 1, 3, 5, 7]
+</code></pre>
+<h3 id="归约-reduce"><a href="#归约-reduce" class="headerlink" title="归约(reduce)"></a>归约(reduce)</h3><blockquote>
+<p>归约，也称缩减，顾名思义，是把一个流缩减成一个值，能实现对集合求和、求乘积和求最值操作。</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108042026491" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108042026491" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="图片"></p>
+<p><strong>案例一：求<code>Integer</code>集合的元素之和、乘积和最大值。</strong></p>
+<pre><code class="java"> List&lt;Integer&gt; list = Arrays.asList(1, 3, 2, 8, 11, 4);
+ // 求和方式一
+ Integer reduce1 = list.stream().reduce((x, y) -&gt; x + y).get();
+ // 求和方式二
+ Integer reduce2 = list.stream().reduce(Integer::sum).get();
+ // 求和方式三
+ Integer reduce3 = list.stream().reduce(0, Integer::sum);
+ System.out.println(&quot;第一种求和结果：&quot; + reduce1);
+ System.out.println(&quot;第二种求和结果：&quot; + reduce2);
+ System.out.println(&quot;第三种求和结果：&quot; + reduce3);
+ // 求乘积
+ Integer reduce4 = list.stream().reduce((x, y) -&gt; x * y).get();
+ // 求最大值方式一
+ Integer reduce5 = list.stream().reduce((x, y) -&gt; x &gt; y ? x : y).get();
+ // 求最大值方式二
+ Integer reduce6 = list.stream().reduce(0, Integer::max);
+ System.out.println(&quot;求乘积：&quot; + reduce4);
+ System.out.println(&quot;求最大值方式一：&quot; + reduce5);
+ System.out.println(&quot;求最大值方式二：&quot; + reduce6);
+
+结果：
+第一种求和结果：29
+第二种求和结果：29
+第三种求和结果：29
+求乘积：2112
+求最大值方式一：11
+求最大值方式二：11
+</code></pre>
+<p><strong>案例二：求所有员工的工资之和和最高工资。</strong></p>
 
   
   
@@ -642,10 +879,10 @@ class staff &#123;
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-03T13:52:45+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-04T20:38:54+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Aug 3, 2021</p>
+    <p>更新于：Aug 4, 2021</p>
   </a>
 </div>
 
@@ -664,13 +901,13 @@ class staff &#123;
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>808 words</p>
+      <p>2.8k words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>3 min</p>
+      <p>13 min</p>
     </a>
   </div>
 
@@ -806,7 +1043,7 @@ SYN：SYN= 1 表示这是一个连接请求或连接接受报文。在建立连�
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E9%9B%86%E5%90%88%E6%95%B0%E7%BB%84%E5%88%9B%E5%BB%BA"><span class="toc-text">通过集合数组创建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E6%95%B0%E7%BB%84%E5%88%9B%E5%BB%BA"><span class="toc-text">通过数组创建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E8%BF%87Stream%E7%9A%84%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E8%BF%9B%E8%A1%8C%E5%88%9B%E5%BB%BA"><span class="toc-text">通过Stream的静态方法进行创建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stream%E5%92%8CparallelSteam%E7%AE%80%E5%8D%95%E5%8C%BA%E5%88%86"><span class="toc-text">Stream和parallelSteam简单区分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%8D%E5%8E%86-%E5%8C%B9%E9%85%8D%EF%BC%88foreach-find-match%EF%BC%89"><span class="toc-text">遍历&#x2F;匹配（foreach&#x2F;find&#x2F;match）</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stream%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-text">Stream的创建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E9%9B%86%E5%90%88%E6%95%B0%E7%BB%84%E5%88%9B%E5%BB%BA"><span class="toc-text">通过集合数组创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E6%95%B0%E7%BB%84%E5%88%9B%E5%BB%BA"><span class="toc-text">通过数组创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87Stream%E7%9A%84%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E8%BF%9B%E8%A1%8C%E5%88%9B%E5%BB%BA"><span class="toc-text">通过Stream的静态方法进行创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Stream%E5%92%8CparallelSteam%E7%AE%80%E5%8D%95%E5%8C%BA%E5%88%86"><span class="toc-text">Stream和parallelSteam简单区分</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stream%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">Stream的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%8D%E5%8E%86-%E5%8C%B9%E9%85%8D%EF%BC%88foreach-find-match%EF%BC%89"><span class="toc-text">遍历&#x2F;匹配（foreach&#x2F;find&#x2F;match）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%9B%E9%80%89%EF%BC%88filter%EF%BC%89"><span class="toc-text">筛选（filter）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%9A%E5%90%88%EF%BC%88max-min-count"><span class="toc-text">聚合（max&#x2F;min&#x2F;count)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%A0%E5%B0%84-map-flatMap"><span class="toc-text">映射(map&#x2F;flatMap)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%92%E7%BA%A6-reduce"><span class="toc-text">归约(reduce)</span></a></li></ol></li></ol>
     </div>
   </section>
 
