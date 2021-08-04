@@ -527,54 +527,6 @@ java集合框架中为不同结合定义了大量的接口。集合中存在两�
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/03%20ArrayList%E3%80%81Vector/">
-        ArrayList、Vector
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        ArrayList 除未实现同步外，跟 Vector 大致相同。同步效率低，在不需要同步的时候使用 ArrayList。
-ArrayList总体介绍ArrayList 实现了 List、RandomAccess 接口。是顺序容器，允许 null 元素，支持随机访问。
-ArrayList 底层通过动态数组实现，主要包含Object数组 elementData ，实际容量 capacity 以及...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/06%E9%9B%86%E5%90%88/">06集合</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/03%20ArrayList%E3%80%81Vector/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
       <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/04%20linkedList/">
         LinkedList
       </a>
@@ -605,6 +557,102 @@ private static class...
       
         <div>
           <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/04%20linkedList/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/02%20%E5%85%B7%E4%BD%93%E9%9B%86%E5%90%88/">
+        具体集合
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        
+
+
+集合类型
+同步
+可null
+有序
+描述
+
+
+
+ArrayList
+否
+是
+是
+动态增缩的索引序列
+
+
+Vector
+是
+是
+是
+过时，同步的ArrayList
+
+
+LinkedList
+否
+是
+是
+高效插删的有序序列
+
+
+ArrayDeque
+否
+否
+是
+循环数组实现的双端队列
+
+
+PriorityQueue
+否
+否
+-
+数组实现的小顶堆
+
+
+TreeMap
+否
+是
+是
+一种键值有序排...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/06%E9%9B%86%E5%90%88/">06集合</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/02%20%E5%85%B7%E4%BD%93%E9%9B%86%E5%90%88/'>
             Read More
           </a>
         </div>
@@ -728,65 +776,17 @@ Deque...
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/02%20%E5%85%B7%E4%BD%93%E9%9B%86%E5%90%88/">
-        具体集合
+      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/03%20ArrayList%E3%80%81Vector/">
+        ArrayList、Vector
       </a>
     </h2>
   
   <div class='md'>
     
       
-        
-
-
-集合类型
-同步
-可null
-有序
-描述
-
-
-
-ArrayList
-否
-是
-是
-动态增缩的索引序列
-
-
-Vector
-是
-是
-是
-过时，同步的ArrayList
-
-
-LinkedList
-否
-是
-是
-高效插删的有序序列
-
-
-ArrayDeque
-否
-否
-是
-循环数组实现的双端队列
-
-
-PriorityQueue
-否
-否
--
-数组实现的小顶堆
-
-
-TreeMap
-否
-是
-是
-一种键值有序排...
+        ArrayList 除未实现同步外，跟 Vector 大致相同。同步效率低，在不需要同步的时候使用 ArrayList。
+ArrayList总体介绍ArrayList 实现了 List、RandomAccess 接口。是顺序容器，允许 null 元素，支持随机访问。
+ArrayList 底层通过动态数组实现，主要包含Object数组 elementData ，实际容量 capacity 以及...
       
     
   </div>
@@ -802,7 +802,7 @@ TreeMap
       </div>
       
         <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/02%20%E5%85%B7%E4%BD%93%E9%9B%86%E5%90%88/'>
+          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/03%20ArrayList%E3%80%81Vector/'>
             Read More
           </a>
         </div>
@@ -1128,7 +1128,7 @@ TreeMap
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Wed Aug 04 2021 13:57:32 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Wed Aug 04 2021 14:05:30 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2021-08-04 日</div>
           
         </div>
