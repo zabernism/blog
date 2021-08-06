@@ -845,6 +845,296 @@ System.out.println(&quot;合并后的集合：&quot; + strs);
 求最大值方式二：11
 </code></pre>
 <p><strong>案例二：求所有员工的工资之和和最高工资。</strong></p>
+<pre><code class="java">public class Main &#123;
+    public static void main(String[] args) &#123;
+        List&lt;Staff&gt; asList = Arrays.asList(
+                new Staff(&quot;Tom&quot;, 8900, 29, &quot;男&quot;),
+                new Staff(&quot;Jack&quot;, 7000, 20, &quot;女&quot;),
+                new Staff(&quot;Lily&quot;, 7900, 23, &quot;女&quot;),
+                new Staff(&quot;Anni&quot;, 8200, 25, &quot;男&quot;),
+                new Staff(&quot;Owen&quot;, 9500, 27, &quot;女&quot;),
+                new Staff(&quot;Alisa&quot;, 7800, 30, &quot;女&quot;)
+        );
+        // 最高工资方式一
+        Staff staff = asList.stream()
+                .max(Comparator.comparing(Staff::getSalary))
+                .get();
+        // 最高工资方式二
+        Integer maxSalary = asList.stream().reduce(0, (max, p) -&gt; max &gt; p.getSalary() ? max : p.getSalary(),
+                Integer::max);
+        // 最高工资方式三
+        Integer maxSalary2 = asList.stream().reduce(0, (max, p) -&gt; max &gt; p.getSalary() ? max : p.getSalary(),
+                (max1, max2) -&gt; max1 &gt; max2 ? max1 : max2);
+        // 工资之和方式一
+        Integer sumSalary = asList.stream().map(Staff::getSalary).reduce(Integer::sum).get();
+        // 工资求和方式二
+        Integer sumSalary2 = asList.stream().reduce(0, (sum, p) -&gt; sum += p.getSalary(),
+                (sum1, sum2) -&gt; sum1 + sum2);
+        // 求工资之和方式三
+        Integer sumSalary3 = asList.stream().reduce(0, (sum, p) -&gt; sum += p.getSalary(), Integer::sum);
+        System.out.println(&quot;最高工资一：&quot; + staff.getSalary());
+        System.out.println(&quot;最高工资二：&quot; + maxSalary);
+        System.out.println(&quot;最高工资三：&quot; + maxSalary2);
+        System.out.println(&quot;工资之和方式一：&quot; + sumSalary);
+        System.out.println(&quot;工资之和方式二：&quot; + sumSalary2);
+        System.out.println(&quot;工资之和方式三：&quot; + sumSalary3);
+
+    &#125;
+&#125;
+
+结构：
+最高工资一：9500
+最高工资二：9500
+最高工资三：9500
+工资之和方式一：49300
+工资之和方式二：49300
+工资之和方式三：49300
+</code></pre>
+<h3 id="收集-collect"><a href="#收集-collect" class="headerlink" title="收集(collect)"></a>收集(collect)</h3><p><code>collect</code>，收集，可以说是内容最繁多、功能最丰富的部分了。从字面上去理解，就是把一个流收集起来，最终可以是收集成一个值也可以收集成一个新的集合。</p>
+<blockquote>
+<p><code>collect</code>主要依赖<code>java.util.stream.Collectors</code>类内置的静态方法。</p>
+</blockquote>
+<h3 id="归集-toList-toSet-toMap"><a href="#归集-toList-toSet-toMap" class="headerlink" title="归集(toList/toSet/toMap)"></a>归集(toList/toSet/toMap)</h3><p>因为流不存储数据，那么在流中的数据完成处理后，需要将流中的数据重新归集到新的集合里。<code>toList</code>、<code>toSet</code>和<code>toMap</code>比较常用，另外还有<code>toCollection</code>、<code>toConcurrentMap</code>等复杂一些的用法。</p>
+<p>下面用一个案例演示<code>toList</code>、<code>toSet</code>和<code>toMap</code>：</p>
+<pre><code class="java">public class Main &#123;
+    public static void main(String[] args) &#123;
+        List&lt;Staff&gt; asList = Arrays.asList(
+                new Staff(&quot;Tom&quot;, 8900, 29, &quot;男&quot;),
+                new Staff(&quot;Jack&quot;, 7000, 20, &quot;女&quot;),
+                new Staff(&quot;Lily&quot;, 7900, 23, &quot;女&quot;),
+                new Staff(&quot;Anni&quot;, 8200, 25, &quot;男&quot;),
+                new Staff(&quot;Owen&quot;, 9500, 27, &quot;女&quot;),
+                new Staff(&quot;Alisa&quot;, 7800, 30, &quot;女&quot;)
+        );
+        List&lt;Integer&gt; list = Arrays.asList(1, 6, 3, 4, 6, 7, 9, 6, 20);
+        List&lt;Integer&gt; listNew = list.stream().filter(x -&gt; x % 2 == 0).collect(Collectors.toList());
+        Set&lt;Integer&gt; set = list.stream().filter(x -&gt; x % 2 == 0).collect(Collectors.toSet());
+        Map&lt;?, Staff&gt; map = asList.stream().filter(p -&gt; p.getSalary() &gt; 9000)
+                .collect(Collectors.toMap(Staff::getName, p -&gt; p));
+        System.out.println(&quot;toList:&quot; + listNew);
+        System.out.println(&quot;toSet:&quot; + set);
+        System.out.println(&quot;toMap:&quot; + map);
+    &#125;
+&#125;
+
+结果：
+toList:[6, 4, 6, 6, 20]
+toSet:[4, 20, 6]
+toMap:&#123;Owen=Staff(name=Owen, salary=9500, age=27, sex=女)&#125;
+</code></pre>
+<h3 id="统计-count-averaging"><a href="#统计-count-averaging" class="headerlink" title="统计(count/averaging)"></a>统计(count/averaging)</h3><p><code>Collectors</code>提供了一系列用于数据统计的静态方法：</p>
+<ul>
+<li>计数：<code>count</code></li>
+<li>平均值：<code>averagingInt</code>、<code>averagingLong</code>、<code>averagingDouble</code></li>
+<li>最值：<code>maxBy</code>、<code>minBy</code></li>
+<li>求和：<code>summingInt</code>、<code>summingLong</code>、<code>summingDouble</code></li>
+<li>统计以上所有：<code>summarizingInt</code>、<code>summarizingLong</code>、<code>summarizingDouble</code></li>
+</ul>
+<p><strong>案例：统计员工人数、平均工资、工资总额、最高工资。</strong></p>
+<pre><code class="java">public class Main &#123;
+    public static void main(String[] args) &#123;
+        List&lt;Staff&gt; asList = Arrays.asList(
+                new Staff(&quot;Tom&quot;, 8900, 29, &quot;男&quot;),
+                new Staff(&quot;Jack&quot;, 7000, 20, &quot;女&quot;),
+                new Staff(&quot;Lily&quot;, 7900, 23, &quot;女&quot;),
+                new Staff(&quot;Anni&quot;, 8200, 25, &quot;男&quot;),
+                new Staff(&quot;Owen&quot;, 9500, 27, &quot;女&quot;),
+                new Staff(&quot;Alisa&quot;, 7800, 30, &quot;女&quot;)
+        );
+        // 求总数
+        Long count = asList.stream().collect(Collectors.counting());
+        // 求平均工资
+        Double average = asList.stream().collect(Collectors.averagingDouble(Staff::getSalary));
+        // 求最高工资
+        Optional&lt;Integer&gt; max = asList.stream().map(Staff::getSalary).collect(Collectors.maxBy(Integer::compare));
+        // 求工资之和
+        Integer sum = asList.stream().collect(Collectors.summingInt(Staff::getSalary));
+        // 一次性统计所有信息
+        DoubleSummaryStatistics collect = asList.stream().collect(Collectors.summarizingDouble(Staff::getSalary));
+
+        System.out.println(&quot;员工总数：&quot; + count);
+        System.out.println(&quot;员工平均工资：&quot; + average);
+        System.out.println(&quot;员工工资总和：&quot; + sum);
+        System.out.println(&quot;员工工资所有统计：&quot; + collect);
+    &#125;
+&#125;
+
+结果：
+员工总数：6
+员工平均工资：8216.666666666666
+员工工资总和：49300
+员工工资所有统计：DoubleSummaryStatistics&#123;count=6, sum=49300.000000, min=7000.000000, average=8216.666667, max=9500.000000&#125;
+</code></pre>
+<h3 id="分组-partitioningBy-groupingBy"><a href="#分组-partitioningBy-groupingBy" class="headerlink" title="分组(partitioningBy/groupingBy)"></a>分组(partitioningBy/groupingBy)</h3><ul>
+<li>分区：将<code>stream</code>按条件分为两个<code>Map</code>，比如员工按薪资是否高于8000分为两部分。</li>
+<li>分组：将集合分为多个Map，比如员工按性别分组。有单级分组和多级分组。</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108061120009" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108061120009" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="图片"></p>
+<p><strong>案例：将员工按薪资是否高于8000分为两部分；将员工按性别和地区分组</strong></p>
+<pre><code class="java">public class Main &#123;
+    public static void main(String[] args) &#123;
+        List&lt;Staff&gt; asList = Arrays.asList(
+                new Staff(&quot;Tom&quot;, 8900, 29, &quot;男&quot;),
+                new Staff(&quot;Jack&quot;, 7000, 20, &quot;女&quot;),
+                new Staff(&quot;Lily&quot;, 7900, 23, &quot;女&quot;),
+                new Staff(&quot;Alisa&quot;, 8200, 25, &quot;男&quot;),
+                new Staff(&quot;Owen&quot;, 9500, 27, &quot;女&quot;),
+                new Staff(&quot;Alisa&quot;, 7800, 30, &quot;女&quot;)
+        );
+        Map&lt;Boolean, List&lt;Staff&gt;&gt; part = asList.stream()
+                .collect(Collectors.partitioningBy(x -&gt; x.getSalary() &gt; 8000));
+        // 将员工按性别分组
+        Map&lt;String, List&lt;Staff&gt;&gt; group = asList.stream()
+                .collect(Collectors.groupingBy(Staff::getSex));
+        // 将员工先按性别分组，再按地区分组
+        Map&lt;String, Map&lt;String, List&lt;Staff&gt;&gt;&gt; group2 = asList.stream()
+                .collect(Collectors.groupingBy(Staff::getSex, Collectors.groupingBy(Staff::getName)));
+        System.out.println(&quot;员工按薪资是否大于8000分组情况：&quot; + part);
+        System.out.println(&quot;员工按性别分组情况：&quot; + group);
+        System.out.println(&quot;员工按性别、姓名：&quot; + group2);
+    &#125;
+&#125;
+
+结果：
+员工按薪资是否大于8000分组情况：
+&#123;false=[Staff(name=Jack, salary=7000, age=20, sex=女), Staff(name=Lily, salary=7900, age=23, sex=女), Staff(name=Alisa, salary=7800, age=30, sex=女)], 
+ true=[Staff(name=Tom, salary=8900, age=29, sex=男), Staff(name=Alisa, salary=8200, age=25, sex=男), Staff(name=Owen, salary=9500, age=27, sex=女)]&#125;
+员工按性别分组情况：
+&#123;女=[Staff(name=Jack, salary=7000, age=20, sex=女), Staff(name=Lily, salary=7900, age=23, sex=女), Staff(name=Owen, salary=9500, age=27, sex=女), Staff(name=Alisa, salary=7800, age=30, sex=女)], 
+ 男=[Staff(name=Tom, salary=8900, age=29, sex=男), Staff(name=Alisa, salary=8200, age=25, sex=男)]&#125;
+员工按性别、姓名：
+&#123;女=&#123;Owen=[Staff(name=Owen, salary=9500, age=27, sex=女)], Alisa=[Staff(name=Alisa, salary=7800, age=30, sex=女)], Jack=[Staff(name=Jack, salary=7000, age=20, sex=女)], Lily=[Staff(name=Lily, salary=7900, age=23, sex=女)]&#125;, 
+男=&#123;Tom=[Staff(name=Tom, salary=8900, age=29, sex=男)], Alisa=[Staff(name=Alisa, salary=8200, age=25, sex=男)]&#125;&#125;
+</code></pre>
+<h3 id="接合-joining"><a href="#接合-joining" class="headerlink" title="接合(joining)"></a>接合(joining)</h3><p><code>joining</code>可以将stream中的元素用特定的连接符（没有的话，则直接连接）连接成一个字符串。</p>
+<pre><code class="java">public class Main &#123;
+    public static void main(String[] args) &#123;
+        List&lt;Staff&gt; asList = Arrays.asList(
+                new Staff(&quot;Tom&quot;, 8900, 29, &quot;男&quot;),
+                new Staff(&quot;Jack&quot;, 7000, 20, &quot;女&quot;),
+                new Staff(&quot;Lily&quot;, 7900, 23, &quot;女&quot;),
+                new Staff(&quot;Alisa&quot;, 8200, 25, &quot;男&quot;),
+                new Staff(&quot;Owen&quot;, 9500, 27, &quot;女&quot;),
+                new Staff(&quot;Alisa&quot;, 7800, 30, &quot;女&quot;)
+        );
+        String names = asList.stream().map(Staff::getName).collect(Collectors.joining(&quot;,&quot;));
+        System.out.println(&quot;所有员工的姓名：&quot; + names);
+        List&lt;String&gt; list = Arrays.asList(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;);
+        String string = list.stream().collect(Collectors.joining(&quot;-&gt;&quot;));
+        System.out.println(&quot;拼接后的字符串：&quot; + string);
+    &#125;
+&#125;
+
+结果：
+所有员工的姓名：Tom,Jack,Lily,Alisa,Owen,Alisa
+拼接后的字符串：A-&gt;B-&gt;C
+</code></pre>
+<h3 id="归约-reducing"><a href="#归约-reducing" class="headerlink" title="归约(reducing)"></a>归约(reducing)</h3><p><code>Collectors</code>类提供的<code>reducing</code>方法，相比于<code>stream</code>本身的<code>reduce</code>方法，增加了对自定义归约的支持。</p>
+<pre><code class="java">public class Main &#123;
+    public static void main(String[] args) &#123;
+        List&lt;Staff&gt; asList = Arrays.asList(
+                new Staff(&quot;Tom&quot;, 8900, 29, &quot;男&quot;),
+                new Staff(&quot;Jack&quot;, 7000, 20, &quot;女&quot;),
+                new Staff(&quot;Lily&quot;, 7900, 23, &quot;女&quot;),
+                new Staff(&quot;Alisa&quot;, 8200, 25, &quot;男&quot;),
+                new Staff(&quot;Owen&quot;, 9500, 27, &quot;女&quot;),
+                new Staff(&quot;Alisa&quot;, 7800, 30, &quot;女&quot;)
+        );
+        // 每个员工减去起征点后的薪资之和
+        Integer sum = asList.stream().collect(Collectors.reducing(0, Staff::getSalary, (i, j) -&gt; (i + j - 5000)));
+        // Integer sum = asList.stream().map(Staff::getSalary).reduce(0, (i, j) -&gt; (i + j - 5000));
+        System.out.println(&quot;员工扣税薪资总和：&quot; + sum);
+
+        // stream的reduce
+        Optional&lt;Integer&gt; sum2 = asList.stream().map(Staff::getSalary).reduce(Integer::sum);
+        System.out.println(&quot;员工薪资总和：&quot; + sum2.get());
+    &#125;
+&#125;
+
+结果：
+员工扣税薪资总和：19300
+员工薪资总和：49300
+</code></pre>
+<h3 id="排序-sorted"><a href="#排序-sorted" class="headerlink" title="排序(sorted)"></a>排序(sorted)</h3><p>sorted，中间操作。有两种排序：</p>
+<ul>
+<li>sorted()：自然排序，流中元素需实现Comparable接口</li>
+<li>sorted(Comparator com)：Comparator排序器自定义排序</li>
+</ul>
+<p><strong>案例：将员工按工资由高到低（工资一样则按年龄由大到小）排序</strong></p>
+<pre><code class="java">public class Main &#123;
+    public static void main(String[] args) &#123;
+        List&lt;Staff&gt; asList = Arrays.asList(
+                new Staff(&quot;Tom&quot;, 8900, 29, &quot;男&quot;),
+                new Staff(&quot;Jack&quot;, 7000, 20, &quot;女&quot;),
+                new Staff(&quot;Lily&quot;, 7900, 23, &quot;女&quot;),
+                new Staff(&quot;Alisa&quot;, 8200, 25, &quot;男&quot;),
+                new Staff(&quot;Owen&quot;, 9500, 27, &quot;女&quot;),
+                new Staff(&quot;Alisa&quot;, 7800, 30, &quot;女&quot;)
+        );
+        // 按工资升序排序（自然排序）
+        List&lt;String&gt; newList = asList.stream().sorted(Comparator.comparing(Staff::getSalary)).map(Staff::getName)
+                .collect(Collectors.toList());
+        // 按工资倒序排序
+        List&lt;String&gt; newList2 = asList.stream().sorted(Comparator.comparing(Staff::getSalary).reversed())
+                .map(Staff::getName).collect(Collectors.toList());
+        // 先按工资再按年龄升序排序
+        List&lt;String&gt; newList3 = asList.stream()
+                .sorted(Comparator.comparing(Staff::getSalary).thenComparing(Staff::getAge)).map(Staff::getName)
+                .collect(Collectors.toList());
+        // 先按工资再按年龄自定义排序（降序）
+        List&lt;String&gt; newList4 = asList.stream().sorted((p1, p2) -&gt; &#123;
+            if (p1.getSalary() == p2.getSalary()) &#123;
+                return p2.getAge() - p1.getAge();
+            &#125; else &#123;
+                return p2.getSalary() - p1.getSalary();
+            &#125;
+        &#125;).map(Staff::getName).collect(Collectors.toList());
+
+        System.out.println(&quot;按工资升序排序：&quot; + newList);
+        System.out.println(&quot;按工资降序排序：&quot; + newList2);
+        System.out.println(&quot;先按工资再按年龄升序排序：&quot; + newList3);
+        System.out.println(&quot;先按工资再按年龄自定义降序排序：&quot; + newList4);
+    &#125;
+&#125;
+
+结果：
+按工资升序排序：[Jack, Alisa, Lily, Alisa, Tom, Owen]
+按工资降序排序：[Owen, Tom, Alisa, Lily, Alisa, Jack]
+先按工资再按年龄升序排序：[Jack, Alisa, Lily, Alisa, Tom, Owen]
+先按工资再按年龄自定义降序排序：[Owen, Tom, Alisa, Lily, Alisa, Jack]
+</code></pre>
+<h3 id="提取-组合"><a href="#提取-组合" class="headerlink" title="提取/组合"></a>提取/组合</h3><p>流也可以进行合并、去重、限制、跳过等操作。</p>
+<p><strong>去重：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108061326710" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108061326710" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="图片"></p>
+<p><strong>跳过：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108061327981" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108061327981" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="图片"></p>
+<p><strong>限制：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108061327010" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108061327010" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="图片"></p>
+<pre><code class="java">public class Main &#123;
+    public static void main(String[] args) &#123;
+        String[] arr1 = &#123; &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot; &#125;;
+        String[] arr2 = &#123; &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot; &#125;;
+
+        Stream&lt;String&gt; stream1 = Stream.of(arr1);
+        Stream&lt;String&gt; stream2 = Stream.of(arr2);
+        // concat:合并两个流 distinct：去重
+        List&lt;String&gt; newList = Stream.concat(stream1, stream2).distinct().collect(Collectors.toList());
+        // limit：限制从流中获得前n个数据
+        List&lt;Integer&gt; collect = Stream.iterate(1, x -&gt; x + 2).limit(10).collect(Collectors.toList());
+        // skip：跳过前n个数据
+        List&lt;Integer&gt; collect2 = Stream.iterate(1, x -&gt; x + 2).skip(1).limit(5).collect(Collectors.toList());
+
+        System.out.println(&quot;流合并：&quot; + newList);
+        System.out.println(&quot;limit：&quot; + collect);
+        System.out.println(&quot;skip：&quot; + collect2);
+    &#125;
+&#125;
+
+结果：
+流合并：[a, b, c, d, e, f, g]
+limit：[1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
+skip：[3, 5, 7, 9, 11]
+</code></pre>
 
   
   
@@ -879,10 +1169,10 @@ System.out.println(&quot;合并后的集合：&quot; + strs);
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-04T20:38:54+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-06T13:30:44+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Aug 4, 2021</p>
+    <p>更新于：Aug 6, 2021</p>
   </a>
 </div>
 
@@ -901,13 +1191,13 @@ System.out.println(&quot;合并后的集合：&quot; + strs);
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>2.8k words</p>
+      <p>5.4k words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>13 min</p>
+      <p>26 min</p>
     </a>
   </div>
 
@@ -1043,7 +1333,7 @@ SYN：SYN= 1 表示这是一个连接请求或连接接受报文。在建立连�
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stream%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-text">Stream的创建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E9%9B%86%E5%90%88%E6%95%B0%E7%BB%84%E5%88%9B%E5%BB%BA"><span class="toc-text">通过集合数组创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E6%95%B0%E7%BB%84%E5%88%9B%E5%BB%BA"><span class="toc-text">通过数组创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87Stream%E7%9A%84%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E8%BF%9B%E8%A1%8C%E5%88%9B%E5%BB%BA"><span class="toc-text">通过Stream的静态方法进行创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Stream%E5%92%8CparallelSteam%E7%AE%80%E5%8D%95%E5%8C%BA%E5%88%86"><span class="toc-text">Stream和parallelSteam简单区分</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stream%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">Stream的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%8D%E5%8E%86-%E5%8C%B9%E9%85%8D%EF%BC%88foreach-find-match%EF%BC%89"><span class="toc-text">遍历&#x2F;匹配（foreach&#x2F;find&#x2F;match）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%9B%E9%80%89%EF%BC%88filter%EF%BC%89"><span class="toc-text">筛选（filter）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%9A%E5%90%88%EF%BC%88max-min-count"><span class="toc-text">聚合（max&#x2F;min&#x2F;count)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%A0%E5%B0%84-map-flatMap"><span class="toc-text">映射(map&#x2F;flatMap)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%92%E7%BA%A6-reduce"><span class="toc-text">归约(reduce)</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stream%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-text">Stream的创建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E9%9B%86%E5%90%88%E6%95%B0%E7%BB%84%E5%88%9B%E5%BB%BA"><span class="toc-text">通过集合数组创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E6%95%B0%E7%BB%84%E5%88%9B%E5%BB%BA"><span class="toc-text">通过数组创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87Stream%E7%9A%84%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E8%BF%9B%E8%A1%8C%E5%88%9B%E5%BB%BA"><span class="toc-text">通过Stream的静态方法进行创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Stream%E5%92%8CparallelSteam%E7%AE%80%E5%8D%95%E5%8C%BA%E5%88%86"><span class="toc-text">Stream和parallelSteam简单区分</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stream%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">Stream的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%8D%E5%8E%86-%E5%8C%B9%E9%85%8D%EF%BC%88foreach-find-match%EF%BC%89"><span class="toc-text">遍历&#x2F;匹配（foreach&#x2F;find&#x2F;match）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%9B%E9%80%89%EF%BC%88filter%EF%BC%89"><span class="toc-text">筛选（filter）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%9A%E5%90%88%EF%BC%88max-min-count"><span class="toc-text">聚合（max&#x2F;min&#x2F;count)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%A0%E5%B0%84-map-flatMap"><span class="toc-text">映射(map&#x2F;flatMap)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%92%E7%BA%A6-reduce"><span class="toc-text">归约(reduce)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%B6%E9%9B%86-collect"><span class="toc-text">收集(collect)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%92%E9%9B%86-toList-toSet-toMap"><span class="toc-text">归集(toList&#x2F;toSet&#x2F;toMap)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%9F%E8%AE%A1-count-averaging"><span class="toc-text">统计(count&#x2F;averaging)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%BB%84-partitioningBy-groupingBy"><span class="toc-text">分组(partitioningBy&#x2F;groupingBy)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%90%88-joining"><span class="toc-text">接合(joining)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%92%E7%BA%A6-reducing"><span class="toc-text">归约(reducing)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F-sorted"><span class="toc-text">排序(sorted)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E5%8F%96-%E7%BB%84%E5%90%88"><span class="toc-text">提取&#x2F;组合</span></a></li></ol></li></ol>
     </div>
   </section>
 
