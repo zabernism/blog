@@ -480,17 +480,24 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/08/07/01java/07%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/01%20java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%8A%80%E8%83%BD/">
-        java多线程
+      <a href="/blog/2021/08/09/02%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/02%20%E4%BA%8C%E5%8D%81%E4%B8%80%E5%A4%A9%E5%88%B7%E9%A2%98%E8%AE%A1%E5%88%92/01%20%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/">
+        704二分查找
       </a>
     </h2>
   
   <div class='md'>
     
       
-        主要讲解线程的启动，如何使用线程暂停，如何使用线程停止，线程的优先级，线程的安全问题等。
-java多线程进程和线程进程
-进程是一个具有一定独立功能的程序在一个数据集上的一次动态执行的过程，是操作系统进行资源分配和调度的一个独立单位，是应用程序运行的载体。进程是一种抽象的概念，从来没有统一的标准定义。进程一般由程序，数据集合和进程控制块三部分组成。程序用于描述进程要完成的功能，是控制进程执行的...
+        
+解题思路：
+要查找的数比数组中间数大：数组右边查
+要查找的数比数组中间数小：数组左边查
+相等：返回当前数组下标
+当中间数下标与数组前置下标或者后下标相等时候证明没有查到
+代码：
+class Solution &#123;
+    public int search(int[] nums, int target) &#123;
+        return search(nums,targe...
       
     
   </div>
@@ -498,15 +505,15 @@ java多线程进程和线程进程
     <div class='meta-v3' line_style='solid'>
       <div>
         
-        <time>2021-08-07</time>
+        <time>2021-08-09</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/07%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/">07多线程与并发</a>
+          <a class="category-link" href="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">02数据结构与算法</a><span class="sep"></span><a class="category-link" href="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%E7%AE%97%E6%B3%95/">01算法</a>
         
       </div>
       
         <div>
-          <a class='readmore' href='/blog/2021/08/07/01java/07%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/01%20java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%8A%80%E8%83%BD/'>
+          <a class='readmore' href='/blog/2021/08/09/02%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/02%20%E4%BA%8C%E5%8D%81%E4%B8%80%E5%A4%A9%E5%88%B7%E9%A2%98%E8%AE%A1%E5%88%92/01%20%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/'>
             Read More
           </a>
         </div>
@@ -528,7 +535,141 @@ java多线程进程和线程进程
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/08/06/01java/08%20Stream/Optional/">
+      <a href="/blog/2021/08/09/04%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySql/MySql%E4%BC%98%E5%8C%96/">
+        MySql优化
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        参考文章：实践中如何优化MySQL（精）
+
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-08-09</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/">04数据库</a><span class="sep"></span><a class="category-link" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/01MySql/">01MySql</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/08/09/04%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySql/MySql%E4%BC%98%E5%8C%96/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/2021/08/07/01java/07%20IO%E6%93%8D%E4%BD%9C/01%20%E6%96%87%E4%BB%B6%E5%AF%B9%E8%B1%A1/">
+        Aug 7, 2021
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-08-07</time>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/08/07/01java/07%20IO%E6%93%8D%E4%BD%9C/01%20%E6%96%87%E4%BB%B6%E5%AF%B9%E8%B1%A1/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/2021/08/07/01java/08%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/01%20java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%8A%80%E8%83%BD/">
+        java多线程
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        主要讲解线程的启动，如何使用线程暂停，如何使用线程停止，线程的优先级，线程的安全问题等。
+java多线程进程和线程进程
+进程是一个具有一定独立功能的程序在一个数据集上的一次动态执行的过程，是操作系统进行资源分配和调度的一个独立单位，是应用程序运行的载体。进程是一种抽象的概念，从来没有统一的标准定义。进程一般由程序，数据集合和进程控制块三部分组成。程序用于描述进程要完成的功能，是控制进程执行的...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-08-07</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/08%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/">08多线程与并发</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/08/07/01java/08%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/01%20java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%8A%80%E8%83%BD/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/2021/08/06/01java/09%20Stream/Optional/">
         Optional
       </a>
     </h2>
@@ -552,12 +693,12 @@ Op...
         <time>2021-08-06</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/08Stream/">08Stream</a>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/09Stream/">09Stream</a>
         
       </div>
       
         <div>
-          <a class='readmore' href='/blog/2021/08/06/01java/08%20Stream/Optional/'>
+          <a class='readmore' href='/blog/2021/08/06/01java/09%20Stream/Optional/'>
             Read More
           </a>
         </div>
@@ -632,7 +773,7 @@ public class SnowFlakeUtil &#123;
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/08/03/01java/08%20Stream/20%E4%B8%AA%E5%AE%9E%E4%BE%8B%E8%BD%BB%E6%9D%BE%E6%90%9E%E5%AE%9AStream%E6%B5%81%E5%BA%93/">
+      <a href="/blog/2021/08/03/01java/09%20Stream/20%E4%B8%AA%E5%AE%9E%E4%BE%8B%E8%BD%BB%E6%9D%BE%E6%90%9E%E5%AE%9AStream%E6%B5%81%E5%BA%93/">
         20个实例轻松搞定Stream流库
       </a>
     </h2>
@@ -656,12 +797,12 @@ Stream可以由数组或集合创建，对流的操...
         <time>2021-08-03</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/08Stream/">08Stream</a>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/09Stream/">09Stream</a>
         
       </div>
       
         <div>
-          <a class='readmore' href='/blog/2021/08/03/01java/08%20Stream/20%E4%B8%AA%E5%AE%9E%E4%BE%8B%E8%BD%BB%E6%9D%BE%E6%90%9E%E5%AE%9AStream%E6%B5%81%E5%BA%93/'>
+          <a class='readmore' href='/blog/2021/08/03/01java/09%20Stream/20%E4%B8%AA%E5%AE%9E%E4%BE%8B%E8%BD%BB%E6%9D%BE%E6%90%9E%E5%AE%9AStream%E6%B5%81%E5%BA%93/'>
             Read More
           </a>
         </div>
@@ -830,170 +971,6 @@ category_dir: categories
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/07/27/05%20Spring/%E5%85%B6%E4%BB%96/Spring%E6%B3%A8%E8%A7%A3/">
-        Spring注解
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        注解@JsonProperty
-@JsonProperty 此注解用于属性上，作用是把该属性的名称序列化为另外一个名称，如把trueName属性序列化为name
-
-@JsonProperty(&quot;name&quot;) 
-private String trueName; 
-
-@FeignClient注解FeignClient注解被@Target(ElementType.TYPE)修饰...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/05Spring/">05Spring</a><span class="sep"></span><a class="category-link" href="/blog/categories/05Spring/%E5%85%B6%E4%BB%96/">其他</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/05%20Spring/%E5%85%B6%E4%BB%96/Spring%E6%B3%A8%E8%A7%A3/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/07/27/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/01%20JAVA/">
-        JAVA面试题
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        一、基础篇网络基础TCP三次握手​    三次握手过程：
-​        客户端——发送带有SYN标志的数据包——服务端       一次握手  Client进入syn_sent状态
-​        服务端——发送带有SYN/ACK标志的数据包——客户端   二次握手  服务端进入syn_rcvd
-​        客户端——发送带有ACK标志的数据包——服务端             ...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/">java基础面试题</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/01%20JAVA/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/07/27/04%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20%E5%85%B6%E4%BB%96/oracle11g%E5%9C%A8windows10%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%8C%E5%85%A8%E5%8D%B8%E8%BD%BD/">
-        oracle11g在windows环境下完全卸载
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        1.停止所有oracle相关的服务步骤：控制面板－＞管理工具－＞服务停止所有Oracle服务。
-
-2.卸载oracle搜索Universal Installer
-
-点击卸载产品
-
-注意这个目录不要选
-
-然后点击删除，选择是
-
-删除中
-
-卸载完成之后，点击关闭
-
-关闭窗口
-
-3.清空注册表windows+R键-&gt;输入regedit-&gt;回车 打开注册表
-找到HKEY_LOCAL_MA...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/">04数据库</a><span class="sep"></span><a class="category-link" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/03%E5%85%B6%E4%BB%96/">03其他</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/04%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20%E5%85%B6%E4%BB%96/oracle11g%E5%9C%A8windows10%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%8C%E5%85%A8%E5%8D%B8%E8%BD%BD/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
     
   </section>
   
@@ -1142,29 +1119,29 @@ private String trueName;
             ><div class='name'>06集合</div><div class='badge'>(6)</div></a></li>
         
           <li><a class="flat-box child"
-            title="/blog/categories/01java/07%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/" href="/blog/categories/01java/07%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/"
-            id="blogcategories01java07E5A49AE7BABFE7A88BE4B88EE5B9B6E58F91"
-            ><div class='name'>07多线程与并发</div><div class='badge'>(1)</div></a></li>
+            title="/blog/categories/01java/08%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/" href="/blog/categories/01java/08%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/"
+            id="blogcategories01java08E5A49AE7BABFE7A88BE4B88EE5B9B6E58F91"
+            ><div class='name'>08多线程与并发</div><div class='badge'>(2)</div></a></li>
         
           <li><a class="flat-box child"
-            title="/blog/categories/01java/07%E5%B9%B6%E5%8F%91/" href="/blog/categories/01java/07%E5%B9%B6%E5%8F%91/"
-            id="blogcategories01java07E5B9B6E58F91"
-            ><div class='name'>07并发</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/01java/08Stream/" href="/blog/categories/01java/08Stream/"
-            id="blogcategories01java08Stream"
-            ><div class='name'>08Stream</div><div class='badge'>(2)</div></a></li>
+            title="/blog/categories/01java/09Stream/" href="/blog/categories/01java/09Stream/"
+            id="blogcategories01java09Stream"
+            ><div class='name'>09Stream</div><div class='badge'>(2)</div></a></li>
         
           <li><a class="flat-box"
             title="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" href="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"
             id="blogcategories02E695B0E68DAEE7BB93E69E84E4B88EE7AE97E6B395"
-            ><div class='name'>02数据结构与算法</div><div class='badge'>(3)</div></a></li>
+            ><div class='name'>02数据结构与算法</div><div class='badge'>(4)</div></a></li>
         
           <li><a class="flat-box child"
             title="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" href="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"
             id="blogcategories02E695B0E68DAEE7BB93E69E84E4B88EE7AE97E6B39501E695B0E68DAEE7BB93E69E84"
             ><div class='name'>01数据结构</div><div class='badge'>(3)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%E7%AE%97%E6%B3%95/" href="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%E7%AE%97%E6%B3%95/"
+            id="blogcategories02E695B0E68DAEE7BB93E69E84E4B88EE7AE97E6B39501E7AE97E6B395"
+            ><div class='name'>01算法</div><div class='badge'>(1)</div></a></li>
         
           <li><a class="flat-box"
             title="/blog/categories/03%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" href="/blog/categories/03%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"
@@ -1174,7 +1151,12 @@ private String trueName;
           <li><a class="flat-box"
             title="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/"
             id="blogcategories04E695B0E68DAEE5BA93"
-            ><div class='name'>04数据库</div><div class='badge'>(6)</div></a></li>
+            ><div class='name'>04数据库</div><div class='badge'>(7)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/01MySql/" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/01MySql/"
+            id="blogcategories04E695B0E68DAEE5BA9301MySql"
+            ><div class='name'>01MySql</div><div class='badge'>(1)</div></a></li>
         
           <li><a class="flat-box child"
             title="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/02MyBatis/" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/02MyBatis/"
@@ -1253,7 +1235,7 @@ private String trueName;
 
 
     <div class='content'>
-      <a href="/blog/tags/MyBatis/" style="font-size: 17.33px; color: #828282">MyBatis</a> <a href="/blog/tags/MySql/" style="font-size: 14px; color: #999">MySql</a> <a href="/blog/tags/git/" style="font-size: 17.33px; color: #828282">git</a> <a href="/blog/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/blog/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/blog/tags/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java基础面试题</a> <a href="/blog/tags/java%E6%A1%86%E6%9E%B6%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java框架面试题</a> <a href="/blog/tags/lombok/" style="font-size: 14px; color: #999">lombok</a> <a href="/blog/tags/oracle/" style="font-size: 20.67px; color: #6c6c6c">oracle</a> <a href="/blog/tags/spring/" style="font-size: 14px; color: #999">spring</a> <a href="/blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 20.67px; color: #6c6c6c">数据结构</a> <a href="/blog/tags/%E6%B3%A8%E8%A7%A3/" style="font-size: 14px; color: #999">注解</a> <a href="/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/blog/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 17.33px; color: #828282">设计模式</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 17.33px; color: #828282">随笔</a> <a href="/blog/tags/%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">雪花算法</a>
+      <a href="/blog/tags/MyBatis/" style="font-size: 17.33px; color: #828282">MyBatis</a> <a href="/blog/tags/MySql/" style="font-size: 17.33px; color: #828282">MySql</a> <a href="/blog/tags/git/" style="font-size: 17.33px; color: #828282">git</a> <a href="/blog/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/blog/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/blog/tags/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java基础面试题</a> <a href="/blog/tags/java%E6%A1%86%E6%9E%B6%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java框架面试题</a> <a href="/blog/tags/lombok/" style="font-size: 14px; color: #999">lombok</a> <a href="/blog/tags/oracle/" style="font-size: 20.67px; color: #6c6c6c">oracle</a> <a href="/blog/tags/spring/" style="font-size: 14px; color: #999">spring</a> <a href="/blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 20.67px; color: #6c6c6c">数据结构</a> <a href="/blog/tags/%E6%B3%A8%E8%A7%A3/" style="font-size: 14px; color: #999">注解</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">算法</a> <a href="/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/blog/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 17.33px; color: #828282">设计模式</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 17.33px; color: #828282">随笔</a> <a href="/blog/tags/%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">雪花算法</a>
     </div>
   </section>
 
@@ -1278,7 +1260,7 @@ private String trueName;
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>51 篇</div>
+          <div>54 篇</div>
         </div>
       
 
@@ -1300,7 +1282,7 @@ private String trueName;
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>172.8k 字</div>
+          <div>173.1k 字</div>
         </div>
       
 
@@ -1326,8 +1308,8 @@ private String trueName;
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Sat Aug 07 2021 17:43:30 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2021-08-07 日</div>
+            <div id="last-update" style="display: none;">Mon Aug 09 2021 13:57:08 GMT+0800 (中国标准时间)</div>
+            <div id="last-update-show">2021-08-09 日</div>
           
         </div>
         
@@ -1377,7 +1359,7 @@ private String trueName;
           try {
             document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2021-08-07 日';
+            document.getElementById('last-update-show').innerHTML = '2021-08-09 日';
           }
         </script>
         

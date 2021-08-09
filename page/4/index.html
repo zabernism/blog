@@ -457,6 +457,158 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/03%20ArrayList%E3%80%81Vector/">
+        ArrayList、Vector
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        ArrayList 除未实现同步外，跟 Vector 大致相同。同步效率低，在不需要同步的时候使用 ArrayList。
+ArrayList总体介绍ArrayList 实现了 List、RandomAccess 接口。是顺序容器，允许 null 元素，支持随机访问。
+ArrayList 底层通过动态数组实现，主要包含Object数组 elementData ，实际容量 capacity 以及...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/06%E9%9B%86%E5%90%88/">06集合</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/03%20ArrayList%E3%80%81Vector/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/05%20ArrayDeque/">
+        ArrayDeque
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        栈Stack已过时，队列LinkedList效率不高，栈和队列首选ArrayDeque。
+总体介绍Deque 接口ArrayDeque实现了Deque接口，Deque继承Queue实现了Stack相关方法。
+Deque的含义是“double ended queue”，即双端队列。既可当栈使用，也可当队列使用。
+Deque 与 Queue 相对应的接口
+
+
+Queue Method
+Deque...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/06%E9%9B%86%E5%90%88/">06集合</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/05%20ArrayDeque/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/04%20linkedList/">
+        LinkedList
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        现在栈或者队列的首选是ArrayDeque。
+总体介绍LinkedList同时实现了List接口和Deque接口，允许null元素。
+
+LinkedList底层通过双向链表实现。节点用内部类Node表示,通过 first 和 last 引用分别指向链表的第一个和最后一个元素。链表为空时 first 和 last 指向 null 。
+//Node内部类
+private static class...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/06%E9%9B%86%E5%90%88/">06集合</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/04%20linkedList/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
       <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/06%20TreeMap%E3%80%81TreeSet/">
         TreeMap、TreeSet
       </a>
@@ -809,172 +961,6 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/02%20lambda/">
-        lambda
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        lambda表达式
-@since 1.8
-
-语法参数，箭头（-&gt;）以及一个表达式。
-(String first, String second) -&gt;first.length() - second.length()
-
-没有参数也要提供空括号，就像无参数方法一样。
-() -&gt; &#123; for (int i = 100; i &gt;= 0; i--) System.out...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/03%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/">03接口、lambda、内部类</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/02%20lambda/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/05%20%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/">
-        文档注释
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        注释方法三种注释方法，注释不会出现在可执行文件中
-
-//
-/* */
-/** */自动生成文档
-
-注释的插入javadoc 从下面几个特性中抽取信息：
-
-包
-公有类与接口
-公有的和受保护的构造器和方法
-公有的和受保护的域
-
-类注释类注释必须在 import 语句之后，在类定义之前。
-方法注释方法注释必须放在方法之前，除了通用标记之外，还可以使用 @param ，@return ，@throw...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/02%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/">02对象与类</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/05%20%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/01%20%E6%8E%A5%E5%8F%A3/">
-        接口
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        概念与特性
-成员默认 public
-常量必须赋初值，内部类自动成为 static 类。
-不能含有实例域，不能实现方法。（JDK 8 之后允许提供静态方法、默认方法）
-可以声明接口变量，不能使用 new 实例化一个接口。
-
-接口与抽象类接口与抽象类的区别
-从设计层面上看，抽象类提供了一种 IS-A 关系，需要满足里式替换原则，即子类对象必须能够替换掉所有父类对象。而接口更像是一种 LIKE-A...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/03%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/">03接口、lambda、内部类</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/01%20%E6%8E%A5%E5%8F%A3/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
     
   </section>
   
@@ -1128,29 +1114,29 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
             ><div class='name'>06集合</div><div class='badge'>(6)</div></a></li>
         
           <li><a class="flat-box child"
-            title="/blog/categories/01java/07%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/" href="/blog/categories/01java/07%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/"
-            id="blogcategories01java07E5A49AE7BABFE7A88BE4B88EE5B9B6E58F91"
-            ><div class='name'>07多线程与并发</div><div class='badge'>(1)</div></a></li>
+            title="/blog/categories/01java/08%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/" href="/blog/categories/01java/08%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/"
+            id="blogcategories01java08E5A49AE7BABFE7A88BE4B88EE5B9B6E58F91"
+            ><div class='name'>08多线程与并发</div><div class='badge'>(2)</div></a></li>
         
           <li><a class="flat-box child"
-            title="/blog/categories/01java/07%E5%B9%B6%E5%8F%91/" href="/blog/categories/01java/07%E5%B9%B6%E5%8F%91/"
-            id="blogcategories01java07E5B9B6E58F91"
-            ><div class='name'>07并发</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/01java/08Stream/" href="/blog/categories/01java/08Stream/"
-            id="blogcategories01java08Stream"
-            ><div class='name'>08Stream</div><div class='badge'>(2)</div></a></li>
+            title="/blog/categories/01java/09Stream/" href="/blog/categories/01java/09Stream/"
+            id="blogcategories01java09Stream"
+            ><div class='name'>09Stream</div><div class='badge'>(2)</div></a></li>
         
           <li><a class="flat-box"
             title="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" href="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"
             id="blogcategories02E695B0E68DAEE7BB93E69E84E4B88EE7AE97E6B395"
-            ><div class='name'>02数据结构与算法</div><div class='badge'>(3)</div></a></li>
+            ><div class='name'>02数据结构与算法</div><div class='badge'>(4)</div></a></li>
         
           <li><a class="flat-box child"
             title="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" href="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"
             id="blogcategories02E695B0E68DAEE7BB93E69E84E4B88EE7AE97E6B39501E695B0E68DAEE7BB93E69E84"
             ><div class='name'>01数据结构</div><div class='badge'>(3)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%E7%AE%97%E6%B3%95/" href="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%E7%AE%97%E6%B3%95/"
+            id="blogcategories02E695B0E68DAEE7BB93E69E84E4B88EE7AE97E6B39501E7AE97E6B395"
+            ><div class='name'>01算法</div><div class='badge'>(1)</div></a></li>
         
           <li><a class="flat-box"
             title="/blog/categories/03%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" href="/blog/categories/03%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"
@@ -1160,7 +1146,12 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
           <li><a class="flat-box"
             title="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/"
             id="blogcategories04E695B0E68DAEE5BA93"
-            ><div class='name'>04数据库</div><div class='badge'>(6)</div></a></li>
+            ><div class='name'>04数据库</div><div class='badge'>(7)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/01MySql/" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/01MySql/"
+            id="blogcategories04E695B0E68DAEE5BA9301MySql"
+            ><div class='name'>01MySql</div><div class='badge'>(1)</div></a></li>
         
           <li><a class="flat-box child"
             title="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/02MyBatis/" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/02MyBatis/"
@@ -1239,7 +1230,7 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
 
 
     <div class='content'>
-      <a href="/blog/tags/MyBatis/" style="font-size: 17.33px; color: #828282">MyBatis</a> <a href="/blog/tags/MySql/" style="font-size: 14px; color: #999">MySql</a> <a href="/blog/tags/git/" style="font-size: 17.33px; color: #828282">git</a> <a href="/blog/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/blog/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/blog/tags/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java基础面试题</a> <a href="/blog/tags/java%E6%A1%86%E6%9E%B6%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java框架面试题</a> <a href="/blog/tags/lombok/" style="font-size: 14px; color: #999">lombok</a> <a href="/blog/tags/oracle/" style="font-size: 20.67px; color: #6c6c6c">oracle</a> <a href="/blog/tags/spring/" style="font-size: 14px; color: #999">spring</a> <a href="/blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 20.67px; color: #6c6c6c">数据结构</a> <a href="/blog/tags/%E6%B3%A8%E8%A7%A3/" style="font-size: 14px; color: #999">注解</a> <a href="/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/blog/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 17.33px; color: #828282">设计模式</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 17.33px; color: #828282">随笔</a> <a href="/blog/tags/%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">雪花算法</a>
+      <a href="/blog/tags/MyBatis/" style="font-size: 17.33px; color: #828282">MyBatis</a> <a href="/blog/tags/MySql/" style="font-size: 17.33px; color: #828282">MySql</a> <a href="/blog/tags/git/" style="font-size: 17.33px; color: #828282">git</a> <a href="/blog/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/blog/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/blog/tags/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java基础面试题</a> <a href="/blog/tags/java%E6%A1%86%E6%9E%B6%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java框架面试题</a> <a href="/blog/tags/lombok/" style="font-size: 14px; color: #999">lombok</a> <a href="/blog/tags/oracle/" style="font-size: 20.67px; color: #6c6c6c">oracle</a> <a href="/blog/tags/spring/" style="font-size: 14px; color: #999">spring</a> <a href="/blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 20.67px; color: #6c6c6c">数据结构</a> <a href="/blog/tags/%E6%B3%A8%E8%A7%A3/" style="font-size: 14px; color: #999">注解</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">算法</a> <a href="/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/blog/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 17.33px; color: #828282">设计模式</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 17.33px; color: #828282">随笔</a> <a href="/blog/tags/%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">雪花算法</a>
     </div>
   </section>
 
@@ -1264,7 +1255,7 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>51 篇</div>
+          <div>54 篇</div>
         </div>
       
 
@@ -1286,7 +1277,7 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>172.8k 字</div>
+          <div>173.1k 字</div>
         </div>
       
 
@@ -1312,8 +1303,8 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Sat Aug 07 2021 17:43:30 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2021-08-07 日</div>
+            <div id="last-update" style="display: none;">Mon Aug 09 2021 13:57:09 GMT+0800 (中国标准时间)</div>
+            <div id="last-update-show">2021-08-09 日</div>
           
         </div>
         
@@ -1363,7 +1354,7 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
           try {
             document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2021-08-07 日';
+            document.getElementById('last-update-show').innerHTML = '2021-08-09 日';
           }
         </script>
         

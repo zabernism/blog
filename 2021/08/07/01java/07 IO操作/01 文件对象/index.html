@@ -22,9 +22,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>java多线程 - 灵魂有香气a</title>
-  
-    <meta name="keywords" content="java">
+  <title>灵魂有香气a</title>
   
 
   
@@ -450,283 +448,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
     
-      <h1 class="title">
-        java多线程
-      </h1>
-      <div class='new-meta-box'>
-        
-          
-            
-<div class='new-meta-item author'>
-  <a class='author' href="/" rel="nofollow">
-    <img no-lazy src="">
-    <p>张帅</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-  <div class='new-meta-item category'>
-    <a class='notlink'>
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/07%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/">07多线程与并发</a>
-    </a>
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：Aug 7, 2021</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-  <div class="new-meta-item browse leancloud">
-    <a class='notlink'>
-      
-      <div id="lc-pv" data-title="java多线程" data-path="/blog/2021/08/07/01java/07%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/01%20java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%8A%80%E8%83%BD/">
-        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-        次浏览
-      </div>
-    </a>
-  </div>
-
-
-          
-        
-      </div>
-    
   </div>
 
 
   
   
-  <p>主要讲解线程的启动，如何使用线程暂停，如何使用线程停止，线程的优先级，线程的安全问题等。</p>
-<h2 id="java多线程"><a href="#java多线程" class="headerlink" title="java多线程"></a>java多线程</h2><h3 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h3><h4 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h4><blockquote>
-<p>进程是一个具有一定独立功能的程序在一个数据集上的一次动态执行的过程，是操作系统进行资源分配和调度的一个独立单位，是应用程序运行的载体。进程是一种抽象的概念，从来没有统一的标准定义。进程一般由程序，数据集合和进程控制块三部分组成。程序用于描述进程要完成的功能，是控制进程执行的指令集；数据集合是程序在执行时所需要的数据和工作区；程序控制块包含进程的描述信息和控制信息是进程存在的唯一标志</p>
-</blockquote>
-<p><strong>进程具有的特征：</strong></p>
-<p>动态性：进程是程序的一次执行过程，是临时的，有生命期的，是动态产生，动态消亡的；</p>
-<p>并发性：任何进程都可以同其他进行一起并发执行；</p>
-<p>独立性：进程是系统进行资源分配和调度的一个独立单位；</p>
-<p>结构性：进程由程序，数据和进程控制块三部分组成</p>
-<p>初看这段文字可能觉得抽象，那么进程到底是什么东西呢？</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108071614233.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108071614233.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210807161407091"></p>
-<p>如上图所示，每个操作系统中运行的程序，就对应一个进程（Window电脑中任务管理器同样能看见类似的内容）；进程是受操作系统管理的基本运行单元。</p>
-<h4 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h4><blockquote>
-<p>线程可以理解成是在进程中独立运行的子任务，比如qq在运行时候会有很多子任务在同时运行。</p>
-</blockquote>
-<p><strong>为什么要使用多线程？</strong></p>
-<p>如图所示，单线程环境下，如果想要运行多个任务，那么只能等一个任务结束之后才能运行第二个线程，而在多线程环境，可以同时运行任务1和任务2，大大缩短了任务执行的时间，从而提高了CPU的利用率</p>
-<p><img src="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108071625968.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108071625968.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210807162557233"></p>
-<p>举个例子：比如打LOL时候，如果是单线程环境那么就会形成以下结果</p>
-<p>定义一个主类：</p>
-<pre><code class="java">public class TestThread &#123;
-    public static void main(String[] args) &#123;
-        Hero galen = new Hero(&quot;盖伦&quot;, 616, 50);
-        Hero timo = new Hero(&quot;提莫&quot;, 300, 30);
-        Hero hunter = new Hero(&quot;赏金猎人&quot;, 500, 65);
-        Hero monk = new Hero(&quot;盲僧&quot;, 455, 80);
-        //盖伦攻击提莫
-        while (!timo.isDead()) &#123;
-            galen.attackHero(timo);
-        &#125;
-        //赏金猎人攻击盲僧
-        while (!monk.isDead()) &#123;
-            hunter.attackHero(monk);
-        &#125;
-    &#125;
-&#125;
-</code></pre>
-<p>定义英雄类</p>
-<pre><code class="java">public class Hero &#123;
-    private String name;
-    private float hp;
-
-    private int damage;
-
-    public Hero(String name, float hp, int damage) &#123;
-        this.name = name;
-        this.hp = hp;
-        this.damage = damage;
-    &#125;
-
-    public void attackHero(Hero h) &#123;
-        try &#123;
-            //为了表示攻击需要时间，每次攻击暂停1000毫秒
-            Thread.sleep(1000);
-        &#125; catch (InterruptedException e) &#123;
-            e.printStackTrace();
-        &#125;
-        h.hp -= damage;
-        System.out.format(&quot;%s 正在攻击 %s, %s的血变成了 %.0f%n&quot;, name, h.name, h.name, h.hp);
-
-        if (h.isDead()) &#123;
-            System.out.println(h.name + &quot;死了！&quot;);
-        &#125;
-    &#125;
-
-    public boolean isDead() &#123;
-        return 0 &gt;= hp;
-    &#125;
-
-&#125;
-</code></pre>
-<p>当执行main方法时候会形成一个什么情况呢？只有提莫死了，赏金猎人才开始攻击盲僧。</p>
-<pre><code class="reStructuredText">执行结果：
-盖伦 正在攻击 提莫, 提莫的血变成了 250
-盖伦 正在攻击 提莫, 提莫的血变成了 200
-盖伦 正在攻击 提莫, 提莫的血变成了 150
-盖伦 正在攻击 提莫, 提莫的血变成了 100
-盖伦 正在攻击 提莫, 提莫的血变成了 50
-盖伦 正在攻击 提莫, 提莫的血变成了 0
-提莫死了！
-赏金猎人 正在攻击 盲僧, 盲僧的血变成了 390
-赏金猎人 正在攻击 盲僧, 盲僧的血变成了 325
-赏金猎人 正在攻击 盲僧, 盲僧的血变成了 260
-赏金猎人 正在攻击 盲僧, 盲僧的血变成了 195
-赏金猎人 正在攻击 盲僧, 盲僧的血变成了 130
-赏金猎人 正在攻击 盲僧, 盲僧的血变成了 65
-赏金猎人 正在攻击 盲僧, 盲僧的血变成了 0
-盲僧死了！
-</code></pre>
-<p>而在实际过程中，这显然是不合理的，此时就需要多线程的加入。</p>
-<h3 id="使用多线程"><a href="#使用多线程" class="headerlink" title="使用多线程"></a>使用多线程</h3><blockquote>
-<p>一个进程中至少会有一个线程在运行</p>
-</blockquote>
-<pre><code class="java">public class Main &#123;
-    public static void main(String[] args) &#123;
-        System.out.println(Thread.currentThread().getName());
-    &#125;
-&#125;
-
-结果
-main
-</code></pre>
-<p>在java中如果调用一个main方法，那么jvm就会相应的创建一个线程，这个线程的名字叫main</p>
-<h4 id="继承Thread类"><a href="#继承Thread类" class="headerlink" title="继承Thread类"></a>继承Thread类</h4><p>新建一个<code>KillThread</code>类用来继承<code>Thread</code></p>
-<pre><code class="java">public class KillThread extends Thread&#123;
-   
-   private Hero h1;
-   private Hero h2;
-
-   public KillThread(Hero h1, Hero h2)&#123;
-      this.h1 = h1;
-      this.h2 = h2;
-   &#125;
-
-   @Override
-   public void run()&#123;
-      while(!h2.isDead())&#123;
-         h1.attackHero(h2);
-      &#125;
-   &#125;
-&#125;
-</code></pre>
-<p>对主类的调用进行改造</p>
-<pre><code class="java">public class TestThread &#123;
-    public static void main(String[] args) &#123;
-        Hero galen = new Hero(&quot;盖伦&quot;, 616, 50);
-        Hero timo = new Hero(&quot;提莫&quot;, 300, 30);
-        Hero hunter = new Hero(&quot;赏金猎人&quot;, 500, 65);
-        Hero monk = new Hero(&quot;盲僧&quot;, 455, 80);
-        KillThread killThread1 = new KillThread(galen, timo);
-        killThread1.start();
-        KillThread killThread2 = new KillThread(hunter, monk);
-        killThread2.start();
-    &#125;
-&#125;
-
-结果：
-盖伦 正在攻击 提莫, 提莫的血变成了 250
-赏金猎人 正在攻击 盲僧, 盲僧的血变成了 390
-盖伦 正在攻击 提莫, 提莫的血变成了 200
-赏金猎人 正在攻击 盲僧, 盲僧的血变成了 325
-盖伦 正在攻击 提莫, 提莫的血变成了 150
-赏金猎人 正在攻击 盲僧, 盲僧的血变成了 260
-赏金猎人 正在攻击 盲僧, 盲僧的血变成了 195
-盖伦 正在攻击 提莫, 提莫的血变成了 100
-盖伦 正在攻击 提莫, 提莫的血变成了 50
-赏金猎人 正在攻击 盲僧, 盲僧的血变成了 130
-盖伦 正在攻击 提莫, 提莫的血变成了 0
-提莫死了！
-赏金猎人 正在攻击 盲僧, 盲僧的血变成了 65
-赏金猎人 正在攻击 盲僧, 盲僧的血变成了 0
-盲僧死了！
-</code></pre>
-<p><strong>值得注意的是：</strong> 在使用多线程时候，只能调用类的start方法进行实现，直接调用run方法的话是无法让多线程生效的</p>
-<h4 id="实现Runnable接口"><a href="#实现Runnable接口" class="headerlink" title="实现Runnable接口"></a>实现Runnable接口</h4><pre><code class="java">public class Thread implements Runnable
-</code></pre>
-<p>从上述源码中可以看出来，<code>Thread</code> 类也是实现了<code>Runnable</code> 接口。</p>
-<p><strong>此时需要对<code>KillThread</code> 类进行改造</strong></p>
-<pre><code class="java">public class KillThread implements Runnable&#123;
-   
-   private Hero h1;
-   private Hero h2;
-
-   public KillThread(Hero h1, Hero h2)&#123;
-      this.h1 = h1;
-      this.h2 = h2;
-   &#125;
-
-   @Override
-   public void run()&#123;
-      while(!h2.isDead())&#123;
-         h1.attackHero(h2);
-      &#125;
-   &#125;
-&#125;
-</code></pre>
-<p><strong>主类进行改造</strong></p>
-<pre><code class="java">public class TestThread &#123;
-    public static void main(String[] args) &#123;
-        Hero galen = new Hero(&quot;盖伦&quot;, 616, 50);
-        Hero timo = new Hero(&quot;提莫&quot;, 300, 30);
-        Hero hunter = new Hero(&quot;赏金猎人&quot;, 500, 65);
-        Hero monk = new Hero(&quot;盲僧&quot;, 455, 80);
-        KillThread killThread1 = new KillThread(galen, timo);
-        new Thread(killThread1).start();
-        KillThread killThread2 = new KillThread(hunter, monk);
-        new Thread(killThread2).start();
-    &#125;
-&#125;
-</code></pre>
-<p>此时的执行结果与Thread类的方式基本相同</p>
-<p><strong>除此之外还可以使用匿名内部类方式实现</strong></p>
-<pre><code class="java">public class TestThread &#123;
-    public static void main(String[] args) &#123;
-        Hero galen = new Hero(&quot;盖伦&quot;, 616, 50);
-        Hero timo = new Hero(&quot;提莫&quot;, 300, 30);
-        Hero hunter = new Hero(&quot;赏金猎人&quot;, 500, 65);
-        Hero monk = new Hero(&quot;盲僧&quot;, 455, 80);
-        Thread t1 = new Thread(() -&gt; &#123;
-            //匿名类中用到外部的局部变量timo，必须把timo声明为final
-            //但是在JDK7以后，就不是必须加final的了
-            while (!timo.isDead()) &#123;
-                galen.attackHero(timo);
-            &#125;
-        &#125;);
-        t1.start();
-        Thread t2 = new Thread(() -&gt; &#123;
-            while (!hunter.isDead()) &#123;
-                monk.attackHero(hunter);
-            &#125;
-        &#125;);
-        t2.start();
-    &#125;
-&#125;
-</code></pre>
-
+  
   
   
     
@@ -743,7 +470,7 @@ main
               
             
               
-                <p>本文永久链接是：<a href=https://zabernism.github.io/blog/2021/08/07/01java/07%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/01%20java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%8A%80%E8%83%BD/>https://zabernism.github.io/blog/2021/08/07/01java/07%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/01%20java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%8A%80%E8%83%BD/</a></p>
+                <p>本文永久链接是：<a href=https://zabernism.github.io/blog/2021/08/07/01java/07%20IO%E6%93%8D%E4%BD%9C/01%20%E6%96%87%E4%BB%B6%E5%AF%B9%E8%B1%A1/>https://zabernism.github.io/blog/2021/08/07/01java/07%20IO%E6%93%8D%E4%BD%9C/01%20%E6%96%87%E4%BB%B6%E5%AF%B9%E8%B1%A1/</a></p>
               
             
           </blockquote>
@@ -760,7 +487,7 @@ main
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-07T17:38:33+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-07T17:49:44+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Aug 7, 2021</p>
@@ -771,9 +498,6 @@ main
       
         
           
-  
-  <div class="new-meta-item meta-tags"><a class="tag" href="/blog/tags/java/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>java</p></a></div>
-
 
         
       
@@ -782,13 +506,13 @@ main
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>1.9k words</p>
+      <p>0 words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>7 min</p>
+      <p>1 min</p>
     </a>
   </div>
 
@@ -803,7 +527,7 @@ main
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://zabernism.github.io/blog/2021/08/07/01java/07%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/01%20java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%8A%80%E8%83%BD/&title=java多线程 - 灵魂有香气a&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://zabernism.github.io/blog/2021/08/07/01java/07%20IO%E6%93%8D%E4%BD%9C/01%20%E6%96%87%E4%BB%B6%E5%AF%B9%E8%B1%A1/&title= - 灵魂有香气a&summary="
           
           >
           
@@ -815,7 +539,7 @@ main
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://zabernism.github.io/blog/2021/08/07/01java/07%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/01%20java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%8A%80%E8%83%BD/&title=java多线程 - 灵魂有香气a&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://zabernism.github.io/blog/2021/08/07/01java/07%20IO%E6%93%8D%E4%BD%9C/01%20%E6%96%87%E4%BB%B6%E5%AF%B9%E8%B1%A1/&title= - 灵魂有香气a&summary="
           
           >
           
@@ -827,7 +551,7 @@ main
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://zabernism.github.io/blog/2021/08/07/01java/07%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/01%20java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%8A%80%E8%83%BD/&title=java多线程 - 灵魂有香气a&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://zabernism.github.io/blog/2021/08/07/01java/07%20IO%E6%93%8D%E4%BD%9C/01%20%E6%96%87%E4%BB%B6%E5%AF%B9%E8%B1%A1/&title= - 灵魂有香气a&summary="
           
           >
           
@@ -841,7 +565,7 @@ main
         <div class='hoverbox'>
           <a class='share'><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg"></a>
           <div class='target'>
-            <img src="data:image/png;base64,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">
+            <img src="data:image/png;base64,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">
           </div>
         </div>
       
@@ -849,7 +573,7 @@ main
       
         <a class="-mob-share-telegram" title="" rel="external nofollow noopener noreferrer noopener"
           
-            target="_blank" href="https://t.me/share/url?url=https://zabernism.github.io/blog/2021/08/07/01java/07%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/01%20java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%8A%80%E8%83%BD/&text=java多线程 - 灵魂有香气a"
+            target="_blank" href="https://t.me/share/url?url=https://zabernism.github.io/blog/2021/08/07/01java/07%20IO%E6%93%8D%E4%BD%9C/01%20%E6%96%87%E4%BB%B6%E5%AF%B9%E8%B1%A1/&text= - 灵魂有香气a"
           
           >
           
@@ -875,12 +599,18 @@ main
   
     <div class="prev-next">
       
+        <a class='prev' href='/blog/2021/08/09/04%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySql/MySql%E4%BC%98%E5%8C%96/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>MySql优化</p>
+          <p class='content'>参考文章：实践中如何优化MySQL（精）
+</p>
+        </a>
       
-        <a class='next' href='/blog/2021/08/06/01java/08%20Stream/Optional/'>
-          <p class='title'>Optional<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>Optional@since 1.8
-为了解决空指针异常，受到 Google Guava 的启发，Optional 类已经成为 Java 8 类库的一部分。
-Optional 实际上是个容器：它...</p>
+      
+        <a class='next' href='/blog/2021/08/07/01java/08%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/01%20java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%8A%80%E8%83%BD/'>
+          <p class='title'>java多线程<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>主要讲解线程的启动，如何使用线程暂停，如何使用线程停止，线程的优先级，线程的安全问题等。
+java多线程进程和线程进程
+进程是一个具有一定独立功能的程序在一个数据集上的一次动态执行的过程，是操作...</p>
         </a>
       
     </div>
@@ -913,20 +643,6 @@ Optional 实际上是个容器：它...</p>
 
 
 
-  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
-    
-  <header>
-    
-      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
-    
-  </header>
-
-
-    <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#java%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="toc-text">java多线程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B"><span class="toc-text">进程和线程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B"><span class="toc-text">进程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B"><span class="toc-text">线程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="toc-text">使用多线程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%A7%E6%89%BFThread%E7%B1%BB"><span class="toc-text">继承Thread类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0Runnable%E6%8E%A5%E5%8F%A3"><span class="toc-text">实现Runnable接口</span></a></li></ol></li></ol></li></ol>
-    </div>
-  </section>
-
 
   
 
@@ -941,8 +657,8 @@ Optional 实际上是个容器：它...</p>
 
 <script>
   window.pdata={}
-  pdata.ispage=true;
-  pdata.postTitle="java多线程";
+  pdata.ispage=false;
+  pdata.postTitle="";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要

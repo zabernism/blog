@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -24,7 +22,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>Category: 07并发 - 灵魂有香气a</title>
+  <title>Optional - 灵魂有香气a</title>
+  
+    <meta name="keywords" content="java">
   
 
   
@@ -409,7 +409,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper  dock' style="display: ;">
+        <div id="half" class='cover-wrapper post dock' style="display: ;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://bing.ioliu.cn/v1/rand?w=1920&h=1200"></div>
           
@@ -440,84 +440,306 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
-
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
+
+
+  
+  <div class="article-meta" id="top">
     
-      
-  <section class="post-list">
     
-      
+    
+      <h1 class="title">
+        Optional
+      </h1>
+      <div class='new-meta-box'>
         
           
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/07%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/01%20JUC%E6%A6%82%E8%BF%B0/">
-        JUC概述
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        什么是JUC
-JUC其实就是java.util.concurrent下面的类包，专门用来多线程的开发
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="">
+    <p>张帅</p>
+  </a>
+</div>
 
-并发与并行的区别串行模式
-串行表示所有任务都一一按先后顺序进行。串行意味着必须先装完一车柴才能运送这车柴，只有运送到了，才能卸下这车柴，并且只有完成了这整三个步骤，才能进行下一个步骤。
-
-串行是一次只能取得一个任务，并执行这个任务。
-并行模式
-并行意味着可以同时取得多个任务，并同时去执行所...
-      
-    
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/09Stream/">09Stream</a>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+
+
+          
         
-        <time>2021-07-27</time>
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Aug 6, 2021</p>
+  </a>
+</div>
+
+          
         
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/07%E5%B9%B6%E5%8F%91/">07并发</a>
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="Optional" data-path="/blog/2021/08/06/01java/09%20Stream/Optional/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  
+  <h1 id="Optional"><a href="#Optional" class="headerlink" title="Optional"></a>Optional</h1><p>@since 1.8</p>
+<p>为了解决空指针异常，受到 Google Guava 的启发，Optional 类已经成为 Java 8 类库的一部分。</p>
+<p>Optional 实际上是个容器：它可以保存类型T的值，或者仅仅保存 null。Optional 提供很多有用的方法，这样就不用显式进行空值检测。</p>
+<h2 id="1-初始化"><a href="#1-初始化" class="headerlink" title="1 初始化"></a>1 初始化</h2><ul>
+<li>Optional.ofNullable ： 允许传递为 null 参数</li>
+<li>Optional.of ： 如果传递的参数是 null，抛出异常 NullPointerException</li>
+</ul>
+<h2 id="2-判断"><a href="#2-判断" class="headerlink" title="2 判断"></a>2 判断</h2><ul>
+<li>Optional.isPresent ： 判断值是否存在。非空true，否则false</li>
+</ul>
+<h2 id="3-若存在"><a href="#3-若存在" class="headerlink" title="3 若存在"></a>3 若存在</h2><ul>
+<li>Optional.get - 如果值存在，返回它，否则抛出异常</li>
+<li>Optional.ifPresent： 如果值存在则使用该值调用 consumer , 否则不做任何事情。</li>
+<li>Optional.filter ： 如果值存在，并匹配给定的 predicate，返回一个Optional用以描述这个值，否则返回一个空的Optional。</li>
+<li>Optional.map ： 如果有值，则对其执行调用映射函数得到返回值。如果返回值不为 null，则创建包含映射返回值的Optional作为map方法返回值，否则返回空Optional。</li>
+</ul>
+<h2 id="4-若不存在"><a href="#4-若不存在" class="headerlink" title="4 若不存在"></a>4 若不存在</h2><ul>
+<li>Optional.orElse ： 如果值存在，返回它，否则返回默认值</li>
+<li>Optional.orElseGet ： 如果值存在，返回它，否则返执行回调函数</li>
+<li>Optional.orElseThrow ： 如果值存在，返回它，否则抛出指定异常</li>
+</ul>
+<pre><code class="java">Optional&lt; String &gt; fullName = Optional.ofNullable( null );
+fullName.isPresent();//false
+fullName.orElseGet( () -&gt; &quot;[none]&quot; );//[none]
+fullName.map( s -&gt; &quot;Hey &quot; + s + &quot;!&quot; ).orElse( &quot;Hey Stranger!&quot; );//Hey Stranger!
+// Returns maximum value in collection as an Optional&lt;E&gt;
+public static &lt;E extends Comparable&lt;E&gt;&gt; Optional&lt;E&gt; max(Collection&lt;E&gt; c) &#123;
+    if (c.isEmpty())
+        return Optional.empty();
+    E result = null;
+    for (E e : c)
+        if (result == null || e.compareTo(result) &gt; 0)
+    result = Objects.requireNonNull(e);
+    return Optional.of(result);
+&#125;
+
+// Using an optional to provide a chosen default value
+String lastWordInLexicon = max(words).orElse(&quot;No words...&quot;);
+// Using an optional to throw a chosen exception
+Toy myToy = max(toys).orElseThrow(TemperTantrumException::new);
+// Using optional when you know there’s a return value
+Element lastNobleGas = max(Elements.NOBLE_GASES).get();
+</code></pre>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/07%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/01%20JUC%E6%A6%82%E8%BF%B0/'>
-            Read More
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://zabernism.github.io/blog/2021/08/06/01java/09%20Stream/Optional/>https://zabernism.github.io/blog/2021/08/06/01java/09%20Stream/Optional/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-07T17:44:55+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Aug 7, 2021</p>
+  </a>
 </div>
 
-          </div>
         
       
-    
-  </section>
+        
+          
   
-    
-  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/blog/tags/java/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>java</p></a></div>
 
 
+        
+      
+        
+          
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>468 words</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>2 min</p>
+    </a>
+  </div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://zabernism.github.io/blog/2021/08/06/01java/09%20Stream/Optional/&title=Optional - 灵魂有香气a&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://zabernism.github.io/blog/2021/08/06/01java/09%20Stream/Optional/&title=Optional - 灵魂有香气a&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://zabernism.github.io/blog/2021/08/06/01java/09%20Stream/Optional/&title=Optional - 灵魂有香气a&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg">
+          
+        </a>
+      
+    
+      
+        
+        <div class='hoverbox'>
+          <a class='share'><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg"></a>
+          <div class='target'>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATgAAAE4CAAAAADqFLC2AAADoUlEQVR42u3ay24rQQgE0Pz/T9+7j2QZCjwh0emdnXk0p7Mogb/+WdH6QgAOHDhwFjhwR+C+wvXywd/+/u7+V897977q99X9VOsFBw4cOHDgwIG7BlcOgMNCqgVVIabXdesFBw4cOHDgwIG7CtcNrNVAvBWgtwN3+3pw4MCBAwcOHLg/CtdtTG4VWm5EggMHDhw4cODAgYsC7nRQXQ3G0wE1OHDgwIEDBw7cb4NrD2iHG0mf3w3W5yb54MCBAwcOHDhwS3DbjcHrn+N6wYEDBw4cOHDgjsBNV/fF3cH19vPH9YIDBw4cOHDgwB2BSwNiCrkNvjVAL9cHDhw4cODAgQN3FO7Tg+M0AHff/24wHT8PHDhw4MCBAwfuGFwaIKeFdwGmgbhbd3uSDw4cOHDgwIED9zDcduHdA5nupzuIjoM2OHDgwIEDBw7cMbit4NtthE5htgbR5WAMDhw4cODAgQN3DC7dyDRQTuGrQXc6cAcHDhw4cODAgbsOlzb+poH3U8F6GrzLARgcOHDgwIEDB+6H4aYBeDzwDRucjwV1cODAgQMHDhy4I3DpRrqBON1otzG5feDgwIEDBw4cOHDX4bovSGGnP+zbDrrtesGBAwcOHDhw4I7BTQe6aXCtvner8dl9z8uBNDhw4MCBAwcO3A/DTQe9acCdPncazONGLjhw4MCBAwcO3HG4aqNxK+Cmwbp6/7RxCg4cOHDgwIEDdw2uuoEuTNpg7EJMG6jt68CBAwcOHDhw4I7ApUG2G0i7QTi9Pg3k5f2AAwcOHDhw4MAdh9sOvtOGZjrgngb7dgAGBw4cOHDgwIF7GO4poG7wTYN1Cv32fnDgwIEDBw4cuGNw1Q2mG5geVNpQrTZky/sCBw4cOHDgwIH7pXDTwLt1IGsD5m6wBwcOHDhw4MCBOw6XBsjpAXQbqWkwjusGBw4cOHDgwIE7CpcOfNNC0ud9er30AQcOHDhw4MCBOwI3XWnjcTvobh3c2+eBAwcOHDhw4MAdgZsGxOpG0gZmOvD+2Gdw4MCBAwcOHLhjcE8H3vSHf1uD8u5BgwMHDhw4cODAXYdrD2iHgXbrANIB+loABgcOHDhw4MCB+yNw3Y1uNVCnwG+/BwcOHDhw4MCB+2Nw0wZl9b6nFjhw4MCBAwcO3G+D+/QguQtWPcCtf4THJvngwIEDBw4cOHBLcNsD3GlhVdAuUHf/4MCBAwcOHDhwV+GsZoMTAThw4MBZ4MD97PoPgAqBiD0YdeUAAAAASUVORK5CYII=">
+          </div>
+        </div>
+      
+    
+      
+        <a class="-mob-share-telegram" title="" rel="external nofollow noopener noreferrer noopener"
+          
+            target="_blank" href="https://t.me/share/url?url=https://zabernism.github.io/blog/2021/08/06/01java/09%20Stream/Optional/&text=Optional - 灵魂有香气a"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/telegram.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/telegram.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
   
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/blog/2021/08/07/01java/08%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/01%20java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%8A%80%E8%83%BD/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>java多线程</p>
+          <p class='content'>主要讲解线程的启动，如何使用线程暂停，如何使用线程停止，线程的优先级，线程的安全问题等。
+java多线程进程和线程进程
+进程是一个具有一定独立功能的程序在一个数据集上的一次动态执行的过程，是操作...</p>
+        </a>
+      
+      
+        <a class='next' href='/blog/2021/08/06/06%20%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%BB%E9%94%AE%E7%94%9F%E6%88%90%E5%99%A8%EF%BD%9E%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95/'>
+          <p class='title'>分布式主键生成器～雪花算法<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>@Slf4j
+public class SnowFlakeUtil &#123;
+    private static SnowFlakeUtil flowIdWorker = null;
+  ...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -525,374 +747,28 @@ JUC其实就是java.util.concurrent下面的类包，专门用来多线程的开
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box circle' href='/blog/about/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">灵魂有香气a</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/blog/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:me@xxx.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/zabernism/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/blog/"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/blog/categories/01java/" href="/blog/categories/01java/"
-            id="blogcategories01java"
-            ><div class='name'>01java</div><div class='badge'>(30)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/01java/01%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/" href="/blog/categories/01java/01%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/"
-            id="blogcategories01java01E59FBAE69CACE8AEBEE8AEA1"
-            ><div class='name'>01基本设计</div><div class='badge'>(6)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/01java/02%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/" href="/blog/categories/01java/02%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/"
-            id="blogcategories01java02E5AFB9E8B1A1E4B88EE7B1BB"
-            ><div class='name'>02对象与类</div><div class='badge'>(5)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/01java/03%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/" href="/blog/categories/01java/03%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/"
-            id="blogcategories01java03E68EA5E58FA3E38081lambdaE38081E58685E983A8E7B1BB"
-            ><div class='name'>03接口、lambda、内部类</div><div class='badge'>(4)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/01java/04%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/" href="/blog/categories/01java/04%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/"
-            id="blogcategories01java04E5BC82E5B8B8E38081E696ADE8A880E38081E697A5E5BF97"
-            ><div class='name'>04异常、断言、日志</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/01java/05%E6%B3%9B%E5%9E%8B/" href="/blog/categories/01java/05%E6%B3%9B%E5%9E%8B/"
-            id="blogcategories01java05E6B39BE59E8B"
-            ><div class='name'>05泛型</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/01java/06%E9%9B%86%E5%90%88/" href="/blog/categories/01java/06%E9%9B%86%E5%90%88/"
-            id="blogcategories01java06E99B86E59088"
-            ><div class='name'>06集合</div><div class='badge'>(6)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/01java/07%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/" href="/blog/categories/01java/07%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/"
-            id="blogcategories01java07E5A49AE7BABFE7A88BE4B88EE5B9B6E58F91"
-            ><div class='name'>07多线程与并发</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/01java/07%E5%B9%B6%E5%8F%91/" href="/blog/categories/01java/07%E5%B9%B6%E5%8F%91/"
-            id="blogcategories01java07E5B9B6E58F91"
-            ><div class='name'>07并发</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/01java/08Stream/" href="/blog/categories/01java/08Stream/"
-            id="blogcategories01java08Stream"
-            ><div class='name'>08Stream</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" href="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"
-            id="blogcategories02E695B0E68DAEE7BB93E69E84E4B88EE7AE97E6B395"
-            ><div class='name'>02数据结构与算法</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" href="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"
-            id="blogcategories02E695B0E68DAEE7BB93E69E84E4B88EE7AE97E6B39501E695B0E68DAEE7BB93E69E84"
-            ><div class='name'>01数据结构</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/blog/categories/03%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" href="/blog/categories/03%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"
-            id="blogcategories03E8AEBEE8AEA1E6A8A1E5BC8F"
-            ><div class='name'>03设计模式</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/"
-            id="blogcategories04E695B0E68DAEE5BA93"
-            ><div class='name'>04数据库</div><div class='badge'>(6)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/02MyBatis/" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/02MyBatis/"
-            id="blogcategories04E695B0E68DAEE5BA9302MyBatis"
-            ><div class='name'>02MyBatis</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/03%E5%85%B6%E4%BB%96/" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/03%E5%85%B6%E4%BB%96/"
-            id="blogcategories04E695B0E68DAEE5BA9303E585B6E4BB96"
-            ><div class='name'>03其他</div><div class='badge'>(4)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/blog/categories/05Spring/" href="/blog/categories/05Spring/"
-            id="blogcategories05Spring"
-            ><div class='name'>05Spring</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/05Spring/%E5%85%B6%E4%BB%96/" href="/blog/categories/05Spring/%E5%85%B6%E4%BB%96/"
-            id="blogcategories05SpringE585B6E4BB96"
-            ><div class='name'>其他</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/blog/categories/06%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/" href="/blog/categories/06%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/"
-            id="blogcategories06E8BE85E58AA9E5B7A5E585B7E7B1BB"
-            ><div class='name'>06辅助工具类</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/blog/categories/07DevOps/" href="/blog/categories/07DevOps/"
-            id="blogcategories07DevOps"
-            ><div class='name'>07DevOps</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/07DevOps/01git/" href="/blog/categories/07DevOps/01git/"
-            id="blogcategories07DevOps01git"
-            ><div class='name'>01git</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/blog/categories/08%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" href="/blog/categories/08%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"
-            id="blogcategories08E8AEA1E7AE97E69CBAE7BD91E7BB9C"
-            ><div class='name'>08计算机网络</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/blog/categories/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/" href="/blog/categories/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/"
-            id="blogcategoriesjavaE59FBAE7A180E99DA2E8AF95E9A298"
-            ><div class='name'>java基础面试题</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/blog/categories/java%E6%A1%86%E6%9E%B6%E9%9D%A2%E8%AF%95%E9%A2%98/" href="/blog/categories/java%E6%A1%86%E6%9E%B6%E9%9D%A2%E8%AF%95%E9%A2%98/"
-            id="blogcategoriesjavaE6A186E69EB6E99DA2E8AF95E9A298"
-            ><div class='name'>java框架面试题</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/blog/categories/%E9%9A%8F%E7%AC%94/" href="/blog/categories/%E9%9A%8F%E7%AC%94/"
-            id="blogcategoriesE99A8FE7AC94"
-            ><div class='name'>随笔</div><div class='badge'>(2)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">1 初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%88%A4%E6%96%AD"><span class="toc-text">2 判断</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%8B%A5%E5%AD%98%E5%9C%A8"><span class="toc-text">3 若存在</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E8%8B%A5%E4%B8%8D%E5%AD%98%E5%9C%A8"><span class="toc-text">4 若不存在</span></a></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/blog/tags/MyBatis/" style="font-size: 17.33px; color: #828282">MyBatis</a> <a href="/blog/tags/MySql/" style="font-size: 14px; color: #999">MySql</a> <a href="/blog/tags/git/" style="font-size: 17.33px; color: #828282">git</a> <a href="/blog/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/blog/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/blog/tags/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java基础面试题</a> <a href="/blog/tags/java%E6%A1%86%E6%9E%B6%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java框架面试题</a> <a href="/blog/tags/lombok/" style="font-size: 14px; color: #999">lombok</a> <a href="/blog/tags/oracle/" style="font-size: 20.67px; color: #6c6c6c">oracle</a> <a href="/blog/tags/spring/" style="font-size: 14px; color: #999">spring</a> <a href="/blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 20.67px; color: #6c6c6c">数据结构</a> <a href="/blog/tags/%E6%B3%A8%E8%A7%A3/" style="font-size: 14px; color: #999">注解</a> <a href="/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/blog/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 17.33px; color: #828282">设计模式</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 17.33px; color: #828282">随笔</a> <a href="/blog/tags/%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">雪花算法</a>
-    </div>
-  </section>
-
-
-  
-
-  
-    
-    
-
-<section class="widget shadow desktop article runtime wordcount">
-  
-  <header>
-    
-      <i class="fas fa-award fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>51 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
-        </div>
-        <script>
-          var BirthDay = new Date(new Date('2021/07/26'));
-          var today = new Date();
-          var timeold = (today.getTime() - BirthDay.getTime());
-          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
-          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
-        </script>
-      
-
-
-      
-        <div class="webinfo-item">
-          <div>本站总字数：</div>
-          <div>172.8k 字</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站访客数：</div>
-          
-          <div><span id="lc-uv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 人</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站总访问量：</div>
-          
-          <div><span id="lc-sv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 次</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>最后活动时间：</div>
-          
-            <div id="last-update" style="display: none;">Sat Aug 07 2021 17:43:29 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2021-08-07 日</div>
-          
-        </div>
-        
-        <script>
-          function timeago(dateTimeStamp) {
-              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
-              var hour = minute * 60;
-              var day = hour * 24;
-              var week = day * 7;
-              var month = day * 30;
-              var now = new Date().getTime(); //获取当前时间毫秒
-              var diffValue = now - dateTimeStamp; //时间差
-              if (diffValue < 0) {
-                  return;
-              }
-              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
-              var hourC = diffValue / hour;
-              var dayC = diffValue / day;
-              var weekC = diffValue / week;
-              var monthC = diffValue / month;
-              if (monthC >= 1 && monthC <= 3) {
-                  result = " " + parseInt(monthC) + " 月前"
-              } else if (weekC >= 1 && weekC <= 3) {
-                  result = " " + parseInt(weekC) + " 周前"
-              } else if (dayC >= 1 && dayC <= 6) {
-                  result = " " + parseInt(dayC) + " 天前"
-              } else if (hourC >= 1 && hourC <= 23) {
-                  result = " " + parseInt(hourC) + " 小时前"
-              } else if (minC >= 1 && minC <= 59) {
-                  result = " " + parseInt(minC) + " 分钟前"
-              } else if (diffValue >= 0 && diffValue <= minute) {
-                  result = "刚刚"
-              } else {
-                  var datetime = new Date();
-                  datetime.setTime(dateTimeStamp);
-                  var Nyear = datetime.getFullYear();
-                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
-                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
-                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-                  result = Nyear + "-" + Nmonth + "-" + Ndate
-              }
-              return result;
-          }
-          var lastUpDate = document.getElementById('last-update').innerHTML;
-          try {
-            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
-          } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2021-08-07 日';
-          }
-        </script>
-        
-      
-    </div>
-  </div>
-</section>
-
-  
 
   
 
 
 </aside>
+
 
 
 		  
@@ -901,8 +777,8 @@ JUC其实就是java.util.concurrent下面的类包，专门用来多线程的开
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="Optional";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
