@@ -511,7 +511,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
-  <p><img src="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108091321808.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108091321808.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210809132107913"></p>
+  <h2 id="704-二分查找"><a href="#704-二分查找" class="headerlink" title="704. 二分查找"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-search/">704. 二分查找</a></h2><p><img src="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108091321808.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108091321808.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210809132107913"></p>
 <p>解题思路：</p>
 <p>要查找的数比数组中间数大：数组右边查</p>
 <p>要查找的数比数组中间数小：数组左边查</p>
@@ -561,6 +561,70 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p><img src="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108091354062.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108091354062.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210809135426434"></p>
 <p><strong>总结：</strong></p>
 <p>与官方题解不同的是，计算中间位置的方式不同，由于中间数位置可变，所以需要确定左指针与右指针共同来确定中间位置。</p>
+<p><strong>修正</strong></p>
+<p>对自己写的代码进行优化</p>
+<pre><code class="java">class Solution &#123;
+    public int search(int[] nums, int target) &#123;
+        return search(nums,target,0,nums.length-1);
+    &#125;
+    private int search(int[] nums,int target,int left,int right)&#123;
+        if(left &gt; right)&#123;
+            return -1;
+        &#125;
+        int mid = left + (right - left) / 2;
+        if (nums[mid] == target)&#123;
+            return mid;
+        &#125;
+        if (nums[mid] &lt; target)&#123;
+            // 右边
+            return search(nums,target,mid + 1,right);
+        &#125;
+        if (nums[mid] &gt; target)&#123;
+            return search(nums,target,left,mid - 1);
+        &#125;
+        return -1;
+    &#125;
+&#125;
+</code></pre>
+<h2 id="278-第一个错误的版本"><a href="#278-第一个错误的版本" class="headerlink" title="278. 第一个错误的版本"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/first-bad-version/">278. 第一个错误的版本</a></h2><h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108101344780.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108101344780.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210810134439379"></h2><p>题目分析：</p>
+<p>尽量少的调用API次数，那么可知要使用二分查找。此时可以将n看成一个数组的长度，bad是要寻找的数字</p>
+<pre><code class="java">/* The isBadVersion API is defined in the parent class VersionControl.
+      boolean isBadVersion(int version); */
+
+public class Solution extends VersionControl &#123;
+    public int firstBadVersion(int n) &#123;
+        int left = 0,right = n;
+       while (left &lt; right)&#123;
+           int mid = left + (right - left) / 2;
+           if(isBadVersion(mid))&#123;
+               right = mid;
+           &#125;else&#123;
+               left = mid + 1;
+           &#125;
+       &#125;
+      // 包含letf == right
+       return left;
+    &#125;
+&#125;
+</code></pre>
+<h2 id="35-搜索插入位置"><a href="#35-搜索插入位置" class="headerlink" title="35. 搜索插入位置"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/search-insert-position/">35. 搜索插入位置</a></h2><p><img src="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108101356994.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202108101356994.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210810135621697"></p>
+<pre><code class="java">class Solution &#123;
+    public int searchInsert(int[] nums, int target) &#123;
+        int ans = nums.length;
+        int left = 0,right = ans-1;
+        while(left &lt;= right)&#123;
+            int mid = ((right - left) &gt;&gt; 1) + left;
+            if(target &lt;= nums[mid])&#123;
+                ans = mid;
+                right = mid - 1;
+            &#125;else&#123;
+                left = mid + 1;
+            &#125;
+        &#125;
+        return ans;
+    &#125;
+&#125;
+</code></pre>
 
   
   
@@ -595,10 +659,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-09T13:56:57+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-10T13:58:43+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Aug 9, 2021</p>
+    <p>更新于：Aug 10, 2021</p>
   </a>
 </div>
 
@@ -617,13 +681,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>318 words</p>
+      <p>608 words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>1 min</p>
+      <p>3 min</p>
     </a>
   </div>
 
@@ -713,8 +777,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='next' href='/blog/2021/08/09/04%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySql/MySql%E4%BC%98%E5%8C%96/'>
           <p class='title'>MySql优化<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>参考文章：实践中如何优化MySQL（精）
-</p>
+          <p class='content'>说起MySQL的查询优化，相信大家积累一堆技巧：不能使用SELECT *、不使用NULL字段、合理创建索引、为字段选择合适的数据类型….. 你是否真的理解这些优化技巧？是否理解其背后的工作原理？...</p>
         </a>
       
     </div>
@@ -746,6 +809,20 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
 
 
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#704-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE"><span class="toc-text">704. 二分查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#278-%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%94%99%E8%AF%AF%E7%9A%84%E7%89%88%E6%9C%AC"><span class="toc-text">278. 第一个错误的版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#35-%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE"><span class="toc-text">35. 搜索插入位置</span></a></li></ol>
+    </div>
+  </section>
 
 
   
