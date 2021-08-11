@@ -458,6 +458,55 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/06%20TreeMap%E3%80%81TreeSet/">
+        TreeMap、TreeSet
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        TreeSet仅对TreeMap做了一层包装，实现相同。TreeSet里面有一个TreeMap（适配器模式）。
+TreeMap和TreeSet根据对象的 compareTo 方法判断对象是否是同一个对象，若自定义了排序 Comparator，以自定义为准，顺序相同的只能存在一个。
+TreeMap总体介绍TreeMap实现了SortedMap接口，有序。非同步。
+底层通过红黑树实现，也就意味着...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/06%E9%9B%86%E5%90%88/">06集合</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/06%20TreeMap%E3%80%81TreeSet/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
       <a href="/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/01%20%E6%B3%9B%E5%9E%8B/">
         泛型
       </a>
@@ -927,58 +976,6 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/">
-        反射
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        反射反射可以提供运行时的类信息，并且这个类可以在运行时才加载进来，甚至在编译时期该类的 .class 不存在也可以加载进来。
-反射允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。
-反射的核心是 JVM 在运行时才动态加载类或调用方法/访问属性，它不需要事先知道运行对象是谁。
-反射的作用反射机制可以用来：
-
-在运行时判断任意一个对象所属的类；
-在运行时构造任意一个类...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/02%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/">02对象与类</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
     
   </section>
   
@@ -993,7 +990,7 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
           </a>
         
         <p class="current">
-          2 / 3
+          2 / 4
         </p>
         
           <a class="next" rel="next" href="/blog/categories/01java/page/3/">
@@ -1101,7 +1098,7 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
           <li><a class="flat-box"
             title="/blog/categories/01java/" href="/blog/categories/01java/"
             id="blogcategories01java"
-            ><div class='name'>01java</div><div class='badge'>(30)</div></a></li>
+            ><div class='name'>01java</div><div class='badge'>(31)</div></a></li>
         
           <li><a class="flat-box child"
             title="/blog/categories/01java/01%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/" href="/blog/categories/01java/01%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/"
@@ -1134,6 +1131,11 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
             ><div class='name'>06集合</div><div class='badge'>(6)</div></a></li>
         
           <li><a class="flat-box child"
+            title="/blog/categories/01java/07%E6%96%87%E4%BB%B6%E5%AF%B9%E8%B1%A1/" href="/blog/categories/01java/07%E6%96%87%E4%BB%B6%E5%AF%B9%E8%B1%A1/"
+            id="blogcategories01java07E69687E4BBB6E5AFB9E8B1A1"
+            ><div class='name'>07文件对象</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
             title="/blog/categories/01java/08%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/" href="/blog/categories/01java/08%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/"
             id="blogcategories01java08E5A49AE7BABFE7A88BE4B88EE5B9B6E58F91"
             ><div class='name'>08多线程与并发</div><div class='badge'>(2)</div></a></li>
@@ -1146,12 +1148,12 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
           <li><a class="flat-box"
             title="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" href="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"
             id="blogcategories02E695B0E68DAEE7BB93E69E84E4B88EE7AE97E6B395"
-            ><div class='name'>02数据结构与算法</div><div class='badge'>(4)</div></a></li>
+            ><div class='name'>02数据结构与算法</div><div class='badge'>(5)</div></a></li>
         
           <li><a class="flat-box child"
             title="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" href="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"
             id="blogcategories02E695B0E68DAEE7BB93E69E84E4B88EE7AE97E6B39501E695B0E68DAEE7BB93E69E84"
-            ><div class='name'>01数据结构</div><div class='badge'>(3)</div></a></li>
+            ><div class='name'>01数据结构</div><div class='badge'>(4)</div></a></li>
         
           <li><a class="flat-box child"
             title="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%E7%AE%97%E6%B3%95/" href="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%E7%AE%97%E6%B3%95/"
@@ -1250,7 +1252,7 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
 
 
     <div class='content'>
-      <a href="/blog/tags/MyBatis/" style="font-size: 17.33px; color: #828282">MyBatis</a> <a href="/blog/tags/MySql/" style="font-size: 17.33px; color: #828282">MySql</a> <a href="/blog/tags/git/" style="font-size: 17.33px; color: #828282">git</a> <a href="/blog/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/blog/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/blog/tags/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java基础面试题</a> <a href="/blog/tags/java%E6%A1%86%E6%9E%B6%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java框架面试题</a> <a href="/blog/tags/lombok/" style="font-size: 14px; color: #999">lombok</a> <a href="/blog/tags/oracle/" style="font-size: 20.67px; color: #6c6c6c">oracle</a> <a href="/blog/tags/spring/" style="font-size: 14px; color: #999">spring</a> <a href="/blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 20.67px; color: #6c6c6c">数据结构</a> <a href="/blog/tags/%E6%B3%A8%E8%A7%A3/" style="font-size: 14px; color: #999">注解</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">算法</a> <a href="/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/blog/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 17.33px; color: #828282">设计模式</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 17.33px; color: #828282">随笔</a> <a href="/blog/tags/%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">雪花算法</a>
+      <a href="/blog/tags/MyBatis/" style="font-size: 16.5px; color: #888">MyBatis</a> <a href="/blog/tags/MySql/" style="font-size: 16.5px; color: #888">MySql</a> <a href="/blog/tags/git/" style="font-size: 16.5px; color: #888">git</a> <a href="/blog/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/blog/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/blog/tags/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java基础面试题</a> <a href="/blog/tags/java%E6%A1%86%E6%9E%B6%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java框架面试题</a> <a href="/blog/tags/lombok/" style="font-size: 14px; color: #999">lombok</a> <a href="/blog/tags/oracle/" style="font-size: 19px; color: #777">oracle</a> <a href="/blog/tags/spring/" style="font-size: 14px; color: #999">spring</a> <a href="/blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 21.5px; color: #666">数据结构</a> <a href="/blog/tags/%E6%B3%A8%E8%A7%A3/" style="font-size: 14px; color: #999">注解</a> <a href="/blog/tags/%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">算法</a> <a href="/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/blog/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 16.5px; color: #888">设计模式</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 16.5px; color: #888">随笔</a> <a href="/blog/tags/%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">雪花算法</a>
     </div>
   </section>
 
@@ -1275,7 +1277,7 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>54 篇</div>
+          <div>55 篇</div>
         </div>
       
 
@@ -1297,7 +1299,7 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>184.2k 字</div>
+          <div>185k 字</div>
         </div>
       
 
@@ -1323,8 +1325,8 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Tue Aug 10 2021 18:49:50 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2021-08-10 日</div>
+            <div id="last-update" style="display: none;">Wed Aug 11 2021 20:01:11 GMT+0800 (中国标准时间)</div>
+            <div id="last-update-show">2021-08-11 日</div>
           
         </div>
         
@@ -1374,7 +1376,7 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
           try {
             document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2021-08-10 日';
+            document.getElementById('last-update-show').innerHTML = '2021-08-11 日';
           }
         </script>
         
