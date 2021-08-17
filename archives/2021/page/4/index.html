@@ -456,6 +456,112 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/01%20%E9%9B%86%E5%90%88%E6%8E%A5%E5%8F%A3/">
+        集合接口
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        框架，是一个类的集。
+容器，是可以容纳其他 Java 对象的对象。
+JDK 1.2 开始，Java 集合框架（JCF）提供了通用的容器。
+JDK 1.5 开始，集合类是带有类型参数的泛型类。
+Java 容器里只能放对象，基本类型会自动装箱。
+集合中也是值传递。
+接口与实现接口
+java集合框架中为不同结合定义了大量的接口。集合中存在两个基本接口：Collection、Map ,其中Map接口...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/06%E9%9B%86%E5%90%88/">06集合</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/01%20%E9%9B%86%E5%90%88%E6%8E%A5%E5%8F%A3/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/05%20ArrayDeque/">
+        ArrayDeque
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        栈Stack已过时，队列LinkedList效率不高，栈和队列首选ArrayDeque。
+总体介绍Deque 接口ArrayDeque实现了Deque接口，Deque继承Queue实现了Stack相关方法。
+Deque的含义是“double ended queue”，即双端队列。既可当栈使用，也可当队列使用。
+Deque 与 Queue 相对应的接口
+
+
+Queue Method
+Deque...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/06%E9%9B%86%E5%90%88/">06集合</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/05%20ArrayDeque/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
       <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/02%20%E5%85%B7%E4%BD%93%E9%9B%86%E5%90%88/">
         具体集合
       </a>
@@ -552,22 +658,18 @@ TreeMap
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/01%20%E9%9B%86%E5%90%88%E6%8E%A5%E5%8F%A3/">
-        集合接口
+      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/06%20TreeMap%E3%80%81TreeSet/">
+        TreeMap、TreeSet
       </a>
     </h2>
   
   <div class='md'>
     
       
-        框架，是一个类的集。
-容器，是可以容纳其他 Java 对象的对象。
-JDK 1.2 开始，Java 集合框架（JCF）提供了通用的容器。
-JDK 1.5 开始，集合类是带有类型参数的泛型类。
-Java 容器里只能放对象，基本类型会自动装箱。
-集合中也是值传递。
-接口与实现接口
-java集合框架中为不同结合定义了大量的接口。集合中存在两个基本接口：Collection、Map ,其中Map接口...
+        TreeSet仅对TreeMap做了一层包装，实现相同。TreeSet里面有一个TreeMap（适配器模式）。
+TreeMap和TreeSet根据对象的 compareTo 方法判断对象是否是同一个对象，若自定义了排序 Comparator，以自定义为准，顺序相同的只能存在一个。
+TreeMap总体介绍TreeMap实现了SortedMap接口，有序。非同步。
+底层通过红黑树实现，也就意味着...
       
     
   </div>
@@ -583,7 +685,7 @@ java集合框架中为不同结合定义了大量的接口。集合中存在两�
       </div>
       
         <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/01%20%E9%9B%86%E5%90%88%E6%8E%A5%E5%8F%A3/'>
+          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/06%20TreeMap%E3%80%81TreeSet/'>
             Read More
           </a>
         </div>
@@ -632,59 +734,6 @@ ArrayList 底层通过动态数组实现，主要包含Object数组 elementData 
       
         <div>
           <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/03%20ArrayList%E3%80%81Vector/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/05%20ArrayDeque/">
-        ArrayDeque
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        栈Stack已过时，队列LinkedList效率不高，栈和队列首选ArrayDeque。
-总体介绍Deque 接口ArrayDeque实现了Deque接口，Deque继承Queue实现了Stack相关方法。
-Deque的含义是“double ended queue”，即双端队列。既可当栈使用，也可当队列使用。
-Deque 与 Queue 相对应的接口
-
-
-Queue Method
-Deque...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/06%E9%9B%86%E5%90%88/">06集合</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/05%20ArrayDeque/'>
             Read More
           </a>
         </div>
@@ -757,18 +806,23 @@ private static class...
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/06%20TreeMap%E3%80%81TreeSet/">
-        TreeMap、TreeSet
+      <a href="/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/01%20%E5%BC%82%E5%B8%B8/">
+        异常
       </a>
     </h2>
   
   <div class='md'>
     
       
-        TreeSet仅对TreeMap做了一层包装，实现相同。TreeSet里面有一个TreeMap（适配器模式）。
-TreeMap和TreeSet根据对象的 compareTo 方法判断对象是否是同一个对象，若自定义了排序 Comparator，以自定义为准，顺序相同的只能存在一个。
-TreeMap总体介绍TreeMap实现了SortedMap接口，有序。非同步。
-底层通过红黑树实现，也就意味着...
+        异常异常分类
+Throwable
+Error
+表示 JVM 无法处理的错误，如 OutOfMemoryError, StackOverflowError。
+
+
+Exception
+未检查异常（RuntimeException，运行时异常）
+程序出错导致的异常，例如 NullPointerException，IllegalArgumentException，ArrayIndexOutOfBou...
       
     
   </div>
@@ -779,105 +833,12 @@ TreeMap总体介绍TreeMap实现了SortedMap接口，有序。非同步。
         <time>2021-07-27</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/06%E9%9B%86%E5%90%88/">06集合</a>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/04%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/">04异常、断言、日志</a>
         
       </div>
       
         <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/06%20TreeMap%E3%80%81TreeSet/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/01%20%E6%B3%9B%E5%9E%8B/">
-        泛型
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        为什么要使用泛型泛型程序设计意味着编写的代码可以被很多不同的类型的的对象所重用。在java中增加泛型之前，泛型的程序设计是用继承实现的。ArrayList 类只维护一个Object 引用的数组。
-public class ArrayList&#123;
-    private Object[] elementData;
-    private Object get(int i)&#123;....
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/05%E6%B3%9B%E5%9E%8B/">05泛型</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/01%20%E6%B3%9B%E5%9E%8B/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/02%20%E6%B3%9B%E5%9E%8B%E4%B8%8E%E5%BA%8F%E5%88%97%E5%8C%96/">
-        泛型与序列化
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>java介绍</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/05%E6%B3%9B%E5%9E%8B/">05泛型</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/02%20%E6%B3%9B%E5%9E%8B%E4%B8%8E%E5%BA%8F%E5%88%97%E5%8C%96/'>
+          <a class='readmore' href='/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/01%20%E5%BC%82%E5%B8%B8/'>
             Read More
           </a>
         </div>
@@ -952,23 +913,24 @@ assert 条件:表达式assert x &gt;= 0 : x;
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/01%20%E5%BC%82%E5%B8%B8/">
-        异常
+      <a href="/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/03%20%E6%97%A5%E5%BF%97/">
+        日志
       </a>
     </h2>
   
   <div class='md'>
     
       
-        异常异常分类
-Throwable
-Error
-表示 JVM 无法处理的错误，如 OutOfMemoryError, StackOverflowError。
+        日志
+java.util.logging.Logger
 
+日志记录器全局日志记录器Logger.getGlobal()
+Logger.getGlobal().info(&quot;&quot;);
 
-Exception
-未检查异常（RuntimeException，运行时异常）
-程序出错导致的异常，例如 NullPointerException，IllegalArgumentException，ArrayIndexOutOfBou...
+自定义日志记录器Logger.getLogger()
+Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
+
+日志级别日志级别...
       
     
   </div>
@@ -984,7 +946,56 @@ Exception
       </div>
       
         <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/01%20%E5%BC%82%E5%B8%B8/'>
+          <a class='readmore' href='/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/03%20%E6%97%A5%E5%BF%97/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/01%20%E6%B3%9B%E5%9E%8B/">
+        泛型
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        为什么要使用泛型泛型程序设计意味着编写的代码可以被很多不同的类型的的对象所重用。在java中增加泛型之前，泛型的程序设计是用继承实现的。ArrayList 类只维护一个Object 引用的数组。
+public class ArrayList&#123;
+    private Object[] elementData;
+    private Object get(int i)&#123;....
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/05%E6%B3%9B%E5%9E%8B/">05泛型</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/01%20%E6%B3%9B%E5%9E%8B/'>
             Read More
           </a>
         </div>
@@ -1345,7 +1356,7 @@ Exception
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Tue Aug 17 2021 17:41:37 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Tue Aug 17 2021 20:21:12 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2021-08-17 日</div>
           
         </div>
