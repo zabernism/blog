@@ -573,9 +573,62 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
         
+          
+        
       
     
     
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/2021/08/18/09%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%B5%85%E8%B0%88%E5%90%84%E7%A7%8D%E9%94%81%E6%9C%BA%E5%88%B6/">
+        浅谈各种锁机制
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        锁
+常见的锁主要分为两大类，第一类包括重量级锁、自旋锁、自适应锁在内的悲观锁，第二类包括轻量级锁、自适应轻量级锁在内的乐观锁
+
+
+悲观锁顾名思义，对数据的更改持悲观态度，认为每次都会并发执行造成冲突，每次都会上锁保护临界区，别人想拿这个数据就会block直到它拿到锁。这样的锁称为悲观锁。数据库中的表锁，行锁，排它锁属于悲观锁，大部分用的锁是悲观锁。
+悲观锁好处：保证不会发生并发执行，数据操作...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-08-18</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/09%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">09操作系统</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/08/18/09%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%B5%85%E8%B0%88%E5%90%84%E7%A7%8D%E9%94%81%E6%9C%BA%E5%88%B6/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
       
         
           <div class='post-wrapper'>
@@ -1014,55 +1067,6 @@ Stream可以由数组或集合创建，对流的操...
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/08/03/08%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/TCP%E7%9A%8411%E7%A7%8D%E7%8A%B6%E6%80%81/">
-        TCP的11种状态
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        TCP的11种状态TCP三次握手建立连接Tcp头部
- 
-六个标志位中，我们要用到三个：
-SYN：SYN= 1 表示这是一个连接请求或连接接受报文。在建立连接时用来进行同步序号（个人理解是，在建立连接的时候，提醒对方记录本方的起始序号）。当SYN=1而ACK=0时，表明这是一个连接请求报文段。对方若是同意建立连接，则应响应的报文段中使SYN=1、ACK=1。因此SYN=1表示该报文是一个连接请...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-08-03</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/08%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">08计算机网络</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/08/03/08%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/TCP%E7%9A%8411%E7%A7%8D%E7%8A%B6%E6%80%81/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
     
   </section>
   
@@ -1295,6 +1299,11 @@ SYN：SYN= 1 表示这是一个连接请求或连接接受报文。在建立连�
             ><div class='name'>08计算机网络</div><div class='badge'>(1)</div></a></li>
         
           <li><a class="flat-box"
+            title="/blog/categories/09%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" href="/blog/categories/09%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"
+            id="blogcategories09E6938DE4BD9CE7B3BBE7BB9F"
+            ><div class='name'>09操作系统</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
             title="/blog/categories/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/" href="/blog/categories/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/"
             id="blogcategoriesjavaE59FBAE7A180E99DA2E8AF95E9A298"
             ><div class='name'>java基础面试题</div><div class='badge'>(1)</div></a></li>
@@ -1331,7 +1340,7 @@ SYN：SYN= 1 表示这是一个连接请求或连接接受报文。在建立连�
 
 
     <div class='content'>
-      <a href="/blog/tags/MyBatis/" style="font-size: 16.5px; color: #888">MyBatis</a> <a href="/blog/tags/MySql/" style="font-size: 16.5px; color: #888">MySql</a> <a href="/blog/tags/git/" style="font-size: 16.5px; color: #888">git</a> <a href="/blog/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/blog/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/blog/tags/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java基础面试题</a> <a href="/blog/tags/java%E6%A1%86%E6%9E%B6%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java框架面试题</a> <a href="/blog/tags/linux/" style="font-size: 14px; color: #999">linux</a> <a href="/blog/tags/lombok/" style="font-size: 14px; color: #999">lombok</a> <a href="/blog/tags/oracle/" style="font-size: 19px; color: #777">oracle</a> <a href="/blog/tags/spring/" style="font-size: 14px; color: #999">spring</a> <a href="/blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 21.5px; color: #666">数据结构</a> <a href="/blog/tags/%E6%B3%A8%E8%A7%A3/" style="font-size: 14px; color: #999">注解</a> <a href="/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/blog/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 16.5px; color: #888">设计模式</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 16.5px; color: #888">随笔</a> <a href="/blog/tags/%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">雪花算法</a>
+      <a href="/blog/tags/MyBatis/" style="font-size: 16.5px; color: #888">MyBatis</a> <a href="/blog/tags/MySql/" style="font-size: 16.5px; color: #888">MySql</a> <a href="/blog/tags/git/" style="font-size: 16.5px; color: #888">git</a> <a href="/blog/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/blog/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/blog/tags/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java基础面试题</a> <a href="/blog/tags/java%E6%A1%86%E6%9E%B6%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java框架面试题</a> <a href="/blog/tags/linux/" style="font-size: 14px; color: #999">linux</a> <a href="/blog/tags/lombok/" style="font-size: 14px; color: #999">lombok</a> <a href="/blog/tags/oracle/" style="font-size: 19px; color: #777">oracle</a> <a href="/blog/tags/spring/" style="font-size: 14px; color: #999">spring</a> <a href="/blog/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 14px; color: #999">多线程</a> <a href="/blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 21.5px; color: #666">数据结构</a> <a href="/blog/tags/%E6%B3%A8%E8%A7%A3/" style="font-size: 14px; color: #999">注解</a> <a href="/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/blog/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 16.5px; color: #888">设计模式</a> <a href="/blog/tags/%E9%94%81/" style="font-size: 14px; color: #999">锁</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 16.5px; color: #888">随笔</a> <a href="/blog/tags/%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">雪花算法</a>
     </div>
   </section>
 
@@ -1356,7 +1365,7 @@ SYN：SYN= 1 表示这是一个连接请求或连接接受报文。在建立连�
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>56 篇</div>
+          <div>57 篇</div>
         </div>
       
 
@@ -1378,7 +1387,7 @@ SYN：SYN= 1 表示这是一个连接请求或连接接受报文。在建立连�
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>186k 字</div>
+          <div>187.8k 字</div>
         </div>
       
 
@@ -1404,8 +1413,8 @@ SYN：SYN= 1 表示这是一个连接请求或连接接受报文。在建立连�
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Tue Aug 17 2021 20:21:12 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2021-08-17 日</div>
+            <div id="last-update" style="display: none;">Wed Aug 18 2021 11:20:50 GMT+0800 (中国标准时间)</div>
+            <div id="last-update-show">2021-08-18 日</div>
           
         </div>
         
@@ -1455,7 +1464,7 @@ SYN：SYN= 1 表示这是一个连接请求或连接接受报文。在建立连�
           try {
             document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2021-08-17 日';
+            document.getElementById('last-update-show').innerHTML = '2021-08-18 日';
           }
         </script>
         
