@@ -471,7 +471,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class='new-meta-item category'>
     <a class='notlink'>
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <a class="category-link" href="/blog/categories/09%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">09操作系统</a>
+      <a class="category-link" href="/blog/categories/09%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">09操作系统</a><span class="sep"></span><a class="category-link" href="/blog/categories/09%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/01%E9%94%81/">01锁</a>
     </a>
   </div>
 
@@ -536,7 +536,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>所以轻量级锁适合用在那种，很少出现多个线程竞争一个锁的情况，也就是说，适合那种多个线程总是<strong>错开时间</strong>来获取锁的情况。</p>
 <h4 id="偏向锁"><a href="#偏向锁" class="headerlink" title="偏向锁"></a>偏向锁</h4><p>偏向锁就更加牛逼了，我们已经觉得轻量级锁已经够<strong>轻</strong>，然而偏向锁更加<strong>省事</strong>，偏向锁认为，你轻量级锁每次进入一个方法都需要用CAS来改变状态，退出也需要改变，多麻烦。</p>
 <p>偏向锁认为，其实对于一个方法，是很少有两个线程来执行的，搞来搞去，其实也就一个线程在执行这个方法而已，相当于<strong>单线程</strong>的情况，既然是单线程，那就没必要加锁了。</p>
-<p>不过毕竟实际情况的多线程，单线程只是自己认为的而已了，所以呢，偏向锁进入一个方法的时候是这样处理的：如果这个方法没有人进来过，那么一个线程首次进入这个方法的时候，会采用CAS机制，把这个方法标记为有人在执行了，和轻量级锁加锁有点类似，并且也会把该线程的 ID 也记录进去，相当于记录了哪个线程在执行。</p>
+<p>不过毕竟实际情况的多线程，单线程只是自己认为的而已了，所以呢，偏向锁进入一个方法的时候是这样处理的：<strong>如果这个方法没有人进来过，那么一个线程首次进入这个方法的时候，会采用CAS机制，把这个方法标记为有人在执行了，和轻量级锁加锁有点类似，并且也会把该线程的 ID 也记录进去，相当于记录了哪个线程在执行。</strong></p>
 <p>然后，但这个线程退出这个方法的时候，它不会改变这个方法的状态，而是直接退出来，懒的去改，因为它认为除了自己这个线程之外，其他线程并不会来执行这个方法。</p>
 <p>然后当这个线程想要再次进入这个方法的时候，会判断一下这个方法的状态，如果这个方法已经被标记为<strong>有人在执行</strong>了，并且线程的ID是自己，那么它就直接进入这个方法执行，啥也不用做</p>
 <p>你看，多方便，第一次进入需要CAS机制来设置，以后进出就啥也不用干了，直接进入退出。</p>
@@ -576,7 +576,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-18T11:20:27+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-18T16:35:18+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Aug 18, 2021</p>
