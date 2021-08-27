@@ -767,6 +767,116 @@ java集合框架中为不同结合定义了大量的接口。集合中存在两�
   
     
     <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/04%20linkedList/">
+        LinkedList
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        现在栈或者队列的首选是ArrayDeque。
+总体介绍LinkedList同时实现了List接口和Deque接口，允许null元素。
+
+LinkedList底层通过双向链表实现。节点用内部类Node表示,通过 first 和 last 引用分别指向链表的第一个和最后一个元素。链表为空时 first 和 last 指向 null 。
+//Node内部类
+private static class...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/06%E9%9B%86%E5%90%88/">06集合</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/04%20linkedList/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/05%20ArrayDeque/">
+        ArrayDeque
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        栈Stack已过时，队列LinkedList效率不高，栈和队列首选ArrayDeque。
+总体介绍Deque 接口ArrayDeque实现了Deque接口，Deque继承Queue实现了Stack相关方法。
+Deque的含义是“double ended queue”，即双端队列。既可当栈使用，也可当队列使用。
+Deque 与 Queue 相对应的接口
+
+
+Queue Method
+Deque...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/06%E9%9B%86%E5%90%88/">06集合</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/05%20ArrayDeque/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
       <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/02%20%E5%85%B7%E4%BD%93%E9%9B%86%E5%90%88/">
         具体集合
       </a>
@@ -866,60 +976,6 @@ TreeMap
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/04%20linkedList/">
-        LinkedList
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        现在栈或者队列的首选是ArrayDeque。
-总体介绍LinkedList同时实现了List接口和Deque接口，允许null元素。
-
-LinkedList底层通过双向链表实现。节点用内部类Node表示,通过 first 和 last 引用分别指向链表的第一个和最后一个元素。链表为空时 first 和 last 指向 null 。
-//Node内部类
-private static class...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/06%E9%9B%86%E5%90%88/">06集合</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/04%20linkedList/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
       <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/03%20ArrayList%E3%80%81Vector/">
         ArrayList、Vector
       </a>
@@ -950,62 +1006,6 @@ ArrayList 底层通过动态数组实现，主要包含Object数组 elementData 
       
         <div>
           <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/03%20ArrayList%E3%80%81Vector/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/05%20ArrayDeque/">
-        ArrayDeque
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        栈Stack已过时，队列LinkedList效率不高，栈和队列首选ArrayDeque。
-总体介绍Deque 接口ArrayDeque实现了Deque接口，Deque继承Queue实现了Stack相关方法。
-Deque的含义是“double ended queue”，即双端队列。既可当栈使用，也可当队列使用。
-Deque 与 Queue 相对应的接口
-
-
-Queue Method
-Deque...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/06%E9%9B%86%E5%90%88/">06集合</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/05%20ArrayDeque/'>
             Read More
           </a>
         </div>
@@ -1371,7 +1371,7 @@ Deque...
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Fri Aug 27 2021 22:22:02 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Fri Aug 27 2021 22:26:05 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2021-08-27 日</div>
           
         </div>
