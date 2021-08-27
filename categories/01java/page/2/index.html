@@ -20,7 +20,7 @@
   <meta content="灵魂有香气a" name="apple-mobile-web-app-title">
   <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
   <meta content="telephone=no" name="format-detection">
-  <link rel="preload" href="/blog/css/style.css?time=1630061234095" as="style">
+  <link rel="preload" href="/blog/css/style.css?time=1630061750395" as="style">
   <!-- 页面元数据 -->
   <title>Category: 01java - 灵魂有香气a</title>
   <meta name="keywords" content="null">
@@ -1657,8 +1657,8 @@ ul.list-v >li>a:hover {
 }
 
   </style>
-  <link rel="stylesheet" href="/blog/css/style.css?time=1630061234095" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/blog/css/style.css?time=1630061234095"></noscript>
+  <link rel="stylesheet" href="/blog/css/style.css?time=1630061750395" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/blog/css/style.css?time=1630061750395"></noscript>
   
 <script>
 if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
@@ -2040,27 +2040,26 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/06%20TreeMap%E3%80%81TreeSet/">
-        TreeMap、TreeSet
+      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/04%20linkedList/">
+        LinkedList
       </a>
     </h2>
   
   <div class='md'>
     
       
-        TreeSet仅对TreeMap做了一层包装，实现相同。TreeSet里面有一个TreeMap（适配器模式）。
-TreeMap和TreeSet根据对象的 compareTo 方法判断对象是否是同一个对象，若自定义了排序 Comparator，以自定义为准，顺序相同的只能存在一个。
-TreeMap总体介绍TreeMap实现了SortedMap接口，有序。非同步。
-底层通过红黑树实现，也就意味着...
+        现在栈或者队列的首选是ArrayDeque。
+总体介绍LinkedList同时实现了List接口和Deque接口，允许null元素。
+
+LinkedList底层通过双向链表实现。节点用内部类Node表示,通过 first 和 last 引用分别指向链表的第一个和最后一个元素。链表为空时 first 和 last 指向 null 。
+//Node内部类
+private static class...
       
     
   </div>
   
     <div class='meta-v3' line_style='solid'>
       <div>
-        
-          
-          <a class='avatar' href='/'><img src='' alt="This is a picture without description" ></a>
         
         <time>2021-07-27</time>
         
@@ -2070,7 +2069,169 @@ TreeMap总体介绍TreeMap实现了SortedMap接口，有序。非同步。
       </div>
       
         <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/06%20TreeMap%E3%80%81TreeSet/'>
+          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/04%20linkedList/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/01%20%E5%BC%82%E5%B8%B8/">
+        异常
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        异常异常分类
+Throwable
+Error
+表示 JVM 无法处理的错误，如 OutOfMemoryError, StackOverflowError。
+
+
+Exception
+未检查异常（RuntimeException，运行时异常）
+程序出错导致的异常，例如 NullPointerException，IllegalArgumentException，ArrayIndexOutOfBou...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/04%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/">04异常、断言、日志</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/01%20%E5%BC%82%E5%B8%B8/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/03%20%E6%97%A5%E5%BF%97/">
+        日志
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        日志
+java.util.logging.Logger
+
+日志记录器全局日志记录器Logger.getGlobal()
+Logger.getGlobal().info(&quot;&quot;);
+
+自定义日志记录器Logger.getLogger()
+Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
+
+日志级别日志级别...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/04%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/">04异常、断言、日志</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/03%20%E6%97%A5%E5%BF%97/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/02%20%E6%96%AD%E8%A8%80/">
+        断言
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        断言断言用在开发、测试期间。
+当代码发布时，这些插入的检测语句将会被自动地移走。
+表达形式assert 条件assert x &gt;= 0;
+
+assert 条件:表达式assert x &gt;= 0 : x;
+
+对条件进行检测，如果为 false，则抛出一个 AssertionError 异常。在第二种形式中，表达式传入异常作为一个消息字符串。
+启用或者禁用断言默认禁用，运行程序时用选...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/04%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/">04异常、断言、日志</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/02%20%E6%96%AD%E8%A8%80/'>
             Read More
           </a>
         </div>
@@ -2105,9 +2266,6 @@ TreeMap总体介绍TreeMap实现了SortedMap接口，有序。非同步。
   
     <div class='meta-v3' line_style='solid'>
       <div>
-        
-          
-          <a class='avatar' href='/'><img src='' alt="This is a picture without description" ></a>
         
         <time>2021-07-27</time>
         
@@ -2158,9 +2316,6 @@ public class ArrayList&#123;
     <div class='meta-v3' line_style='solid'>
       <div>
         
-          
-          <a class='avatar' href='/'><img src='' alt="This is a picture without description" ></a>
-        
         <time>2021-07-27</time>
         
           <span class="dot"></span>
@@ -2170,177 +2325,6 @@ public class ArrayList&#123;
       
         <div>
           <a class='readmore' href='/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/01%20%E6%B3%9B%E5%9E%8B/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/01%20%E5%BC%82%E5%B8%B8/">
-        异常
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        异常异常分类
-Throwable
-Error
-表示 JVM 无法处理的错误，如 OutOfMemoryError, StackOverflowError。
-
-
-Exception
-未检查异常（RuntimeException，运行时异常）
-程序出错导致的异常，例如 NullPointerException，IllegalArgumentException，ArrayIndexOutOfBou...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='' alt="This is a picture without description" ></a>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/04%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/">04异常、断言、日志</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/01%20%E5%BC%82%E5%B8%B8/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/02%20%E6%96%AD%E8%A8%80/">
-        断言
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        断言断言用在开发、测试期间。
-当代码发布时，这些插入的检测语句将会被自动地移走。
-表达形式assert 条件assert x &gt;= 0;
-
-assert 条件:表达式assert x &gt;= 0 : x;
-
-对条件进行检测，如果为 false，则抛出一个 AssertionError 异常。在第二种形式中，表达式传入异常作为一个消息字符串。
-启用或者禁用断言默认禁用，运行程序时用选...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='' alt="This is a picture without description" ></a>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/04%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/">04异常、断言、日志</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/02%20%E6%96%AD%E8%A8%80/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/03%20%E6%97%A5%E5%BF%97/">
-        日志
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        日志
-java.util.logging.Logger
-
-日志记录器全局日志记录器Logger.getGlobal()
-Logger.getGlobal().info(&quot;&quot;);
-
-自定义日志记录器Logger.getLogger()
-Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
-
-日志级别日志级别...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='' alt="This is a picture without description" ></a>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/04%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/">04异常、断言、日志</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/03%20%E6%97%A5%E5%BF%97/'>
             Read More
           </a>
         </div>
@@ -2384,9 +2368,6 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
   
     <div class='meta-v3' line_style='solid'>
       <div>
-        
-          
-          <a class='avatar' href='/'><img src='' alt="This is a picture without description" ></a>
         
         <time>2021-07-27</time>
         
@@ -2440,9 +2421,6 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
   
     <div class='meta-v3' line_style='solid'>
       <div>
-        
-          
-          <a class='avatar' href='/'><img src='' alt="This is a picture without description" ></a>
         
         <time>2021-07-27</time>
         
@@ -2499,9 +2477,6 @@ OuterClass.this
     <div class='meta-v3' line_style='solid'>
       <div>
         
-          
-          <a class='avatar' href='/'><img src='' alt="This is a picture without description" ></a>
-        
         <time>2021-07-27</time>
         
           <span class="dot"></span>
@@ -2553,9 +2528,6 @@ OuterClass.this
   
     <div class='meta-v3' line_style='solid'>
       <div>
-        
-          
-          <a class='avatar' href='/'><img src='' alt="This is a picture without description" ></a>
         
         <time>2021-07-27</time>
         
@@ -2937,7 +2909,7 @@ OuterClass.this
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Fri Aug 27 2021 18:47:12 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Fri Aug 27 2021 18:55:48 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2021-08-27 日</div>
           
         </div>
@@ -3372,8 +3344,8 @@ OuterClass.this
   <script>
   volantis.message = (title, message, option = {}, done = null) => {
     if (typeof iziToast == "undefined") {
-      volantis.css('/blog/css/message.css?time=1630061234095')
-      volantis.js('/blog/js/message.js?time=1630061234095', () => {
+      volantis.css('/blog/css/message.css?time=1630061750395')
+      volantis.js('/blog/js/message.js?time=1630061750395', () => {
         tozashMessage(title, message, option, done);
       });
     } else {
@@ -3417,8 +3389,8 @@ OuterClass.this
 
   volantis.question = (title, message, option = {}, success = null, cancel = null, done = null) => {
     if (typeof iziToast == "undefined") {
-      volantis.css('/blog/css/message.css?time=1630061234095')
-      volantis.js('/blog/js/message.js?time=1630061234095', () => {
+      volantis.css('/blog/css/message.css?time=1630061750395')
+      volantis.js('/blog/js/message.js?time=1630061750395', () => {
         tozashQuestion(title, message, option, success, cancel, done);
       });
     } else {
@@ -3677,7 +3649,7 @@ OuterClass.this
     
       volantis.APlayerController = {};
     
-    volantis.js('/blog/js/rightMenu.js?time=1630061234095')
+    volantis.js('/blog/js/rightMenu.js?time=1630061750395')
   </script>
 
 
@@ -3691,19 +3663,19 @@ OuterClass.this
     
       const sites_api = document.getElementById('sites-api');
       if (sites_api != undefined && typeof SitesJS === 'undefined') {
-        volantis.js("/blog/js/plugins/sites.js?time=1630061234095")
+        volantis.js("/blog/js/plugins/sites.js?time=1630061750395")
       }
     
     
       const friends_api = document.getElementById('friends-api');
       if (friends_api != undefined && typeof FriendsJS === 'undefined') {
-        volantis.js("/blog/js/plugins/friends.js?time=1630061234095")
+        volantis.js("/blog/js/plugins/friends.js?time=1630061750395")
       }
     
     
       const contributors_api = document.getElementById('contributors-api');
       if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
-        volantis.js("/blog/js/plugins/contributors.js?time=1630061234095")
+        volantis.js("/blog/js/plugins/contributors.js?time=1630061750395")
       }
     
   };
@@ -3851,7 +3823,7 @@ OuterClass.this
 
 
 
-<script src="/blog/blog/js/app.js?time=1630061234095.js"></script>
+<script src="/blog/blog/js/app.js?time=1630061750395.js"></script>
 
 
 <!-- optional -->
@@ -3864,7 +3836,7 @@ OuterClass.this
 
   function loadSearchScript() {
     // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
-    return volantis.js("/blog/js/search/hexo.js?time=1630061234095");
+    return volantis.js("/blog/js/search/hexo.js?time=1630061750395");
   }
 
   function loadSearchService() {
