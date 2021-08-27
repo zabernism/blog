@@ -202,22 +202,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/blog/artitalk/
-                  
-                  
-                  
-                    id="blogartitalk"
-                  >
-                  <i class='fas fa-archive fa-fw'></i>说说
-                </a>
-                
-              </li>
-            
-          
-          
-            
-            
-              <li>
                 <a class="menuitem flat-box faa-parent animated-hover" href=/blog/movies/
                   
                   
@@ -342,22 +326,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/blog/artitalk/
-                  
-                  
-                  
-                    id="blogartitalk"
-                  >
-                  <i class='fas fa-archive fa-fw'></i>说说
-                </a>
-                
-              </li>
-            
-          
-            
-              
-            
-              <li>
                 <a class="menuitem flat-box faa-parent animated-hover" href=/blog/movies/
                   
                   
@@ -470,24 +438,22 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/03%20%E5%86%85%E9%83%A8%E7%B1%BB/">
-        内部类
+      <a href="/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/02%20lambda/">
+        lambda
       </a>
     </h2>
   
   <div class='md'>
     
       
-        内部类内部类（ inner class）是定义在另一个类中的类。为什么需要使用内部类：
+        lambda表达式
+@since 1.8
 
-内部类方法可以访问该类定义所在的作用域中的数据，包括私有数据
-内部类可以对同一个包中的其他类隐藏起来
-当想要定义一个回调函数而不想写大量代码时，使用匿名内部类比较便捷
+语法参数，箭头（-&gt;）以及一个表达式。
+(String first, String second) -&gt;first.length() - second.length()
 
-访问状态内部类的构造器具有外部类的隐式引用 outer。只有内部类可以是私有类。
-使用方法引用外围类
-OuterClass.this
-...
+没有参数也要提供空括号，就像无参数方法一样。
+() -&gt; &#123; for (int i = 100; i &gt;= 0; i--) System.out...
       
     
   </div>
@@ -506,7 +472,7 @@ OuterClass.this
       </div>
       
         <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/03%20%E5%86%85%E9%83%A8%E7%B1%BB/'>
+          <a class='readmore' href='/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/02%20lambda/'>
             Read More
           </a>
         </div>
@@ -639,22 +605,24 @@ OuterClass.this
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/02%20lambda/">
-        lambda
+      <a href="/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/03%20%E5%86%85%E9%83%A8%E7%B1%BB/">
+        内部类
       </a>
     </h2>
   
   <div class='md'>
     
       
-        lambda表达式
-@since 1.8
+        内部类内部类（ inner class）是定义在另一个类中的类。为什么需要使用内部类：
 
-语法参数，箭头（-&gt;）以及一个表达式。
-(String first, String second) -&gt;first.length() - second.length()
+内部类方法可以访问该类定义所在的作用域中的数据，包括私有数据
+内部类可以对同一个包中的其他类隐藏起来
+当想要定义一个回调函数而不想写大量代码时，使用匿名内部类比较便捷
 
-没有参数也要提供空括号，就像无参数方法一样。
-() -&gt; &#123; for (int i = 100; i &gt;= 0; i--) System.out...
+访问状态内部类的构造器具有外部类的隐式引用 outer。只有内部类可以是私有类。
+使用方法引用外围类
+OuterClass.this
+...
       
     
   </div>
@@ -673,7 +641,7 @@ OuterClass.this
       </div>
       
         <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/02%20lambda/'>
+          <a class='readmore' href='/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/03%20%E5%86%85%E9%83%A8%E7%B1%BB/'>
             Read More
           </a>
         </div>
@@ -1024,7 +992,7 @@ OuterClass.this
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Fri Aug 27 2021 22:39:39 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Fri Aug 27 2021 22:46:21 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2021-08-27 日</div>
           
         </div>
