@@ -20,7 +20,7 @@
   <meta content="灵魂有香气a" name="apple-mobile-web-app-title">
   <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
   <meta content="telephone=no" name="format-detection">
-  <link rel="preload" href="/blog/css/style.css?time=1630063688785" as="style">
+  <link rel="preload" href="/blog/css/style.css?time=1630065717118" as="style">
   <!-- 页面元数据 -->
   <title>灵魂有香气a</title>
   <meta name="keywords" content="null">
@@ -1625,8 +1625,8 @@ ul.list-v >li>a:hover {
 }
 
   </style>
-  <link rel="stylesheet" href="/blog/css/style.css?time=1630063688785" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/blog/css/style.css?time=1630063688785"></noscript>
+  <link rel="stylesheet" href="/blog/css/style.css?time=1630065717118" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/blog/css/style.css?time=1630065717118"></noscript>
   
 <script>
 if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
@@ -1684,7 +1684,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <!-- Custom Files head end-->
 </head>
   <body>
-    <header id="l_header" class="l_header always shadow blur "  >
+    <header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -2062,62 +2062,6 @@ JUC其实就是java.util.concurrent下面的类包，专门用来多线程的开
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/01%20%E9%9B%86%E5%90%88%E6%8E%A5%E5%8F%A3/">
-        集合接口
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        框架，是一个类的集。
-容器，是可以容纳其他 Java 对象的对象。
-JDK 1.2 开始，Java 集合框架（JCF）提供了通用的容器。
-JDK 1.5 开始，集合类是带有类型参数的泛型类。
-Java 容器里只能放对象，基本类型会自动装箱。
-集合中也是值传递。
-接口与实现接口
-java集合框架中为不同结合定义了大量的接口。集合中存在两个基本接口：Collection、Map ,其中Map接口...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png' alt="This is a picture without description" ></a>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/06%E9%9B%86%E5%90%88/">06集合</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/01%20%E9%9B%86%E5%90%88%E6%8E%A5%E5%8F%A3/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
       <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/02%20%E5%85%B7%E4%BD%93%E9%9B%86%E5%90%88/">
         具体集合
       </a>
@@ -2268,6 +2212,60 @@ ArrayList 底层通过动态数组实现，主要包含Object数组 elementData 
   
     
     <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/04%20linkedList/">
+        LinkedList
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        现在栈或者队列的首选是ArrayDeque。
+总体介绍LinkedList同时实现了List接口和Deque接口，允许null元素。
+
+LinkedList底层通过双向链表实现。节点用内部类Node表示,通过 first 和 last 引用分别指向链表的第一个和最后一个元素。链表为空时 first 和 last 指向 null 。
+//Node内部类
+private static class...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png' alt="This is a picture without description" ></a>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/06%E9%9B%86%E5%90%88/">06集合</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/04%20linkedList/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
       <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/05%20ArrayDeque/">
         ArrayDeque
       </a>
@@ -2376,20 +2374,22 @@ TreeMap总体介绍TreeMap实现了SortedMap接口，有序。非同步。
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/04%20linkedList/">
-        LinkedList
+      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/01%20%E9%9B%86%E5%90%88%E6%8E%A5%E5%8F%A3/">
+        集合接口
       </a>
     </h2>
   
   <div class='md'>
     
       
-        现在栈或者队列的首选是ArrayDeque。
-总体介绍LinkedList同时实现了List接口和Deque接口，允许null元素。
-
-LinkedList底层通过双向链表实现。节点用内部类Node表示,通过 first 和 last 引用分别指向链表的第一个和最后一个元素。链表为空时 first 和 last 指向 null 。
-//Node内部类
-private static class...
+        框架，是一个类的集。
+容器，是可以容纳其他 Java 对象的对象。
+JDK 1.2 开始，Java 集合框架（JCF）提供了通用的容器。
+JDK 1.5 开始，集合类是带有类型参数的泛型类。
+Java 容器里只能放对象，基本类型会自动装箱。
+集合中也是值传递。
+接口与实现接口
+java集合框架中为不同结合定义了大量的接口。集合中存在两个基本接口：Collection、Map ,其中Map接口...
       
     
   </div>
@@ -2408,7 +2408,7 @@ private static class...
       </div>
       
         <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/04%20linkedList/'>
+          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/01%20%E9%9B%86%E5%90%88%E6%8E%A5%E5%8F%A3/'>
             Read More
           </a>
         </div>
@@ -2487,62 +2487,6 @@ Exception
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/02%20%E6%96%AD%E8%A8%80/">
-        断言
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        断言断言用在开发、测试期间。
-当代码发布时，这些插入的检测语句将会被自动地移走。
-表达形式assert 条件assert x &gt;= 0;
-
-assert 条件:表达式assert x &gt;= 0 : x;
-
-对条件进行检测，如果为 false，则抛出一个 AssertionError 异常。在第二种形式中，表达式传入异常作为一个消息字符串。
-启用或者禁用断言默认禁用，运行程序时用选...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png' alt="This is a picture without description" ></a>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/04%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/">04异常、断言、日志</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/02%20%E6%96%AD%E8%A8%80/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
       <a href="/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/03%20%E6%97%A5%E5%BF%97/">
         日志
       </a>
@@ -2580,6 +2524,58 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
       
         <div>
           <a class='readmore' href='/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/03%20%E6%97%A5%E5%BF%97/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/01%20%E6%B3%9B%E5%9E%8B/">
+        泛型
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        为什么要使用泛型泛型程序设计意味着编写的代码可以被很多不同的类型的的对象所重用。在java中增加泛型之前，泛型的程序设计是用继承实现的。ArrayList 类只维护一个Object 引用的数组。
+public class ArrayList&#123;
+    private Object[] elementData;
+    private Object get(int i)&#123;....
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png' alt="This is a picture without description" ></a>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/05%E6%B3%9B%E5%9E%8B/">05泛型</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/01%20%E6%B3%9B%E5%9E%8B/'>
             Read More
           </a>
         </div>
@@ -2970,7 +2966,7 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Fri Aug 27 2021 19:28:07 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Fri Aug 27 2021 20:01:56 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2021-08-27 日</div>
           
         </div>
@@ -3404,8 +3400,8 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
   <script>
   volantis.message = (title, message, option = {}, done = null) => {
     if (typeof iziToast == "undefined") {
-      volantis.css('/blog/css/message.css?time=1630063688785')
-      volantis.js('/blog/js/message.js?time=1630063688785', () => {
+      volantis.css('/blog/css/message.css?time=1630065717118')
+      volantis.js('/blog/js/message.js?time=1630065717118', () => {
         tozashMessage(title, message, option, done);
       });
     } else {
@@ -3449,8 +3445,8 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
 
   volantis.question = (title, message, option = {}, success = null, cancel = null, done = null) => {
     if (typeof iziToast == "undefined") {
-      volantis.css('/blog/css/message.css?time=1630063688785')
-      volantis.js('/blog/js/message.js?time=1630063688785', () => {
+      volantis.css('/blog/css/message.css?time=1630065717118')
+      volantis.js('/blog/js/message.js?time=1630065717118', () => {
         tozashQuestion(title, message, option, success, cancel, done);
       });
     } else {
@@ -3709,7 +3705,7 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
     
       volantis.APlayerController = {};
     
-    volantis.js('/blog/js/rightMenu.js?time=1630063688785')
+    volantis.js('/blog/js/rightMenu.js?time=1630065717118')
   </script>
 
 
@@ -3723,19 +3719,19 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
     
       const sites_api = document.getElementById('sites-api');
       if (sites_api != undefined && typeof SitesJS === 'undefined') {
-        volantis.js("/blog/js/plugins/sites.js?time=1630063688785")
+        volantis.js("/blog/js/plugins/sites.js?time=1630065717118")
       }
     
     
       const friends_api = document.getElementById('friends-api');
       if (friends_api != undefined && typeof FriendsJS === 'undefined') {
-        volantis.js("/blog/js/plugins/friends.js?time=1630063688785")
+        volantis.js("/blog/js/plugins/friends.js?time=1630065717118")
       }
     
     
       const contributors_api = document.getElementById('contributors-api');
       if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
-        volantis.js("/blog/js/plugins/contributors.js?time=1630063688785")
+        volantis.js("/blog/js/plugins/contributors.js?time=1630065717118")
       }
     
   };
@@ -3862,7 +3858,7 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
       emojiMaps: emojiMaps,
     }))
   }
-  volantis.js('/blog/js/valine.js?time=1630063688785').then(pjax_valine)
+  volantis.js('/blog/js/valine.js?time=1630065717118').then(pjax_valine)
   volantis.pjax.push(pjax_valine);
 </script>
 
@@ -3871,7 +3867,7 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
 
 
 
-<script src="/blog/blog/js/app.js?time=1630063688785.js"></script>
+<script src="/blog/blog/js/app.js?time=1630065717118.js"></script>
 
 
 <!-- optional -->
@@ -3884,7 +3880,7 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
 
   function loadSearchScript() {
     // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
-    return volantis.js("/blog/js/search/hexo.js?time=1630063688785");
+    return volantis.js("/blog/js/search/hexo.js?time=1630065717118");
   }
 
   function loadSearchService() {
@@ -4188,7 +4184,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  var imgs = ["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.webp"];
+  var imgs = ["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.webp"];
   var index = 0;
 
   function parallax(){
@@ -4227,7 +4223,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var runningOnBrowser = typeof window !== "undefined";
   var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
   if (!isBot) {
-    volantis.js('/blog/js/parallax.js?time=1630063688785').then(()=>{
+    volantis.js('/blog/js/parallax.js?time=1630065717118').then(()=>{
       parallax()
     })
     volantis.pjax.push(next_parallax);

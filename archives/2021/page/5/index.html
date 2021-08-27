@@ -20,7 +20,7 @@
   <meta content="灵魂有香气a" name="apple-mobile-web-app-title">
   <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
   <meta content="telephone=no" name="format-detection">
-  <link rel="preload" href="/blog/css/style.css?time=1630063688722" as="style">
+  <link rel="preload" href="/blog/css/style.css?time=1630065717054" as="style">
   <!-- 页面元数据 -->
   <title>Archive: 2021 - 灵魂有香气a</title>
   <meta name="keywords" content="null">
@@ -1625,8 +1625,8 @@ ul.list-v >li>a:hover {
 }
 
   </style>
-  <link rel="stylesheet" href="/blog/css/style.css?time=1630063688722" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/blog/css/style.css?time=1630063688722"></noscript>
+  <link rel="stylesheet" href="/blog/css/style.css?time=1630065717054" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/blog/css/style.css?time=1630065717054"></noscript>
   
 <script>
 if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
@@ -1684,7 +1684,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <!-- Custom Files head end-->
 </head>
   <body>
-    <header id="l_header" class="l_header always shadow blur "  >
+    <header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -2053,18 +2053,22 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/01%20%E6%B3%9B%E5%9E%8B/">
-        泛型
+      <a href="/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/02%20%E6%96%AD%E8%A8%80/">
+        断言
       </a>
     </h2>
   
   <div class='md'>
     
       
-        为什么要使用泛型泛型程序设计意味着编写的代码可以被很多不同的类型的的对象所重用。在java中增加泛型之前，泛型的程序设计是用继承实现的。ArrayList 类只维护一个Object 引用的数组。
-public class ArrayList&#123;
-    private Object[] elementData;
-    private Object get(int i)&#123;....
+        断言断言用在开发、测试期间。
+当代码发布时，这些插入的检测语句将会被自动地移走。
+表达形式assert 条件assert x &gt;= 0;
+
+assert 条件:表达式assert x &gt;= 0 : x;
+
+对条件进行检测，如果为 false，则抛出一个 AssertionError 异常。在第二种形式中，表达式传入异常作为一个消息字符串。
+启用或者禁用断言默认禁用，运行程序时用选...
       
     
   </div>
@@ -2078,12 +2082,12 @@ public class ArrayList&#123;
         <time>2021-07-27</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/05%E6%B3%9B%E5%9E%8B/">05泛型</a>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/04%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/">04异常、断言、日志</a>
         
       </div>
       
         <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/01%20%E6%B3%9B%E5%9E%8B/'>
+          <a class='readmore' href='/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/02%20%E6%96%AD%E8%A8%80/'>
             Read More
           </a>
         </div>
@@ -2283,6 +2287,62 @@ public class ArrayList&#123;
   
     
     <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/01%20%E6%8E%A5%E5%8F%A3/">
+        接口
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        概念与特性
+成员默认 public
+常量必须赋初值，内部类自动成为 static 类。
+不能含有实例域，不能实现方法。（JDK 8 之后允许提供静态方法、默认方法）
+可以声明接口变量，不能使用 new 实例化一个接口。
+
+接口与抽象类接口与抽象类的区别
+从设计层面上看，抽象类提供了一种 IS-A 关系，需要满足里式替换原则，即子类对象必须能够替换掉所有父类对象。而接口更像是一种 LIKE-A...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png' alt="This is a picture without description" ></a>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/03%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/">03接口、lambda、内部类</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/01%20%E6%8E%A5%E5%8F%A3/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
       <a href="/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/02%20lambda/">
         lambda
       </a>
@@ -2376,62 +2436,6 @@ OuterClass.this
       
         <div>
           <a class='readmore' href='/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/03%20%E5%86%85%E9%83%A8%E7%B1%BB/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/01%20%E6%8E%A5%E5%8F%A3/">
-        接口
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        概念与特性
-成员默认 public
-常量必须赋初值，内部类自动成为 static 类。
-不能含有实例域，不能实现方法。（JDK 8 之后允许提供静态方法、默认方法）
-可以声明接口变量，不能使用 new 实例化一个接口。
-
-接口与抽象类接口与抽象类的区别
-从设计层面上看，抽象类提供了一种 IS-A 关系，需要满足里式替换原则，即子类对象必须能够替换掉所有父类对象。而接口更像是一种 LIKE-A...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png' alt="This is a picture without description" ></a>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/03%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/">03接口、lambda、内部类</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/01%20%E6%8E%A5%E5%8F%A3/'>
             Read More
           </a>
         </div>
@@ -2935,7 +2939,7 @@ new int[]&#123;1,2,3&#125;;
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Fri Aug 27 2021 19:28:06 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Fri Aug 27 2021 20:01:54 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2021-08-27 日</div>
           
         </div>
@@ -3368,8 +3372,8 @@ new int[]&#123;1,2,3&#125;;
   <script>
   volantis.message = (title, message, option = {}, done = null) => {
     if (typeof iziToast == "undefined") {
-      volantis.css('/blog/css/message.css?time=1630063688722')
-      volantis.js('/blog/js/message.js?time=1630063688722', () => {
+      volantis.css('/blog/css/message.css?time=1630065717054')
+      volantis.js('/blog/js/message.js?time=1630065717054', () => {
         tozashMessage(title, message, option, done);
       });
     } else {
@@ -3413,8 +3417,8 @@ new int[]&#123;1,2,3&#125;;
 
   volantis.question = (title, message, option = {}, success = null, cancel = null, done = null) => {
     if (typeof iziToast == "undefined") {
-      volantis.css('/blog/css/message.css?time=1630063688722')
-      volantis.js('/blog/js/message.js?time=1630063688722', () => {
+      volantis.css('/blog/css/message.css?time=1630065717054')
+      volantis.js('/blog/js/message.js?time=1630065717054', () => {
         tozashQuestion(title, message, option, success, cancel, done);
       });
     } else {
@@ -3673,7 +3677,7 @@ new int[]&#123;1,2,3&#125;;
     
       volantis.APlayerController = {};
     
-    volantis.js('/blog/js/rightMenu.js?time=1630063688722')
+    volantis.js('/blog/js/rightMenu.js?time=1630065717054')
   </script>
 
 
@@ -3687,19 +3691,19 @@ new int[]&#123;1,2,3&#125;;
     
       const sites_api = document.getElementById('sites-api');
       if (sites_api != undefined && typeof SitesJS === 'undefined') {
-        volantis.js("/blog/js/plugins/sites.js?time=1630063688722")
+        volantis.js("/blog/js/plugins/sites.js?time=1630065717054")
       }
     
     
       const friends_api = document.getElementById('friends-api');
       if (friends_api != undefined && typeof FriendsJS === 'undefined') {
-        volantis.js("/blog/js/plugins/friends.js?time=1630063688722")
+        volantis.js("/blog/js/plugins/friends.js?time=1630065717054")
       }
     
     
       const contributors_api = document.getElementById('contributors-api');
       if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
-        volantis.js("/blog/js/plugins/contributors.js?time=1630063688722")
+        volantis.js("/blog/js/plugins/contributors.js?time=1630065717054")
       }
     
   };
@@ -3826,7 +3830,7 @@ new int[]&#123;1,2,3&#125;;
       emojiMaps: emojiMaps,
     }))
   }
-  volantis.js('/blog/js/valine.js?time=1630063688722').then(pjax_valine)
+  volantis.js('/blog/js/valine.js?time=1630065717054').then(pjax_valine)
   volantis.pjax.push(pjax_valine);
 </script>
 
@@ -3835,7 +3839,7 @@ new int[]&#123;1,2,3&#125;;
 
 
 
-<script src="/blog/blog/js/app.js?time=1630063688722.js"></script>
+<script src="/blog/blog/js/app.js?time=1630065717054.js"></script>
 
 
 <!-- optional -->
@@ -3848,7 +3852,7 @@ new int[]&#123;1,2,3&#125;;
 
   function loadSearchScript() {
     // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
-    return volantis.js("/blog/js/search/hexo.js?time=1630063688722");
+    return volantis.js("/blog/js/search/hexo.js?time=1630065717054");
   }
 
   function loadSearchService() {
@@ -4152,7 +4156,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  var imgs = ["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.webp"];
+  var imgs = ["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.webp"];
   var index = 0;
 
   function parallax(){
@@ -4191,7 +4195,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var runningOnBrowser = typeof window !== "undefined";
   var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
   if (!isBot) {
-    volantis.js('/blog/js/parallax.js?time=1630063688722').then(()=>{
+    volantis.js('/blog/js/parallax.js?time=1630065717054').then(()=>{
       parallax()
     })
     volantis.pjax.push(next_parallax);
