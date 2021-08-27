@@ -440,21 +440,26 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/">
-        反射
+      <a href="/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/03%20%E7%B1%BB/">
+        修饰符
       </a>
     </h2>
   
   <div class='md'>
     
       
-        反射反射可以提供运行时的类信息，并且这个类可以在运行时才加载进来，甚至在编译时期该类的 .class 不存在也可以加载进来。
-反射允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。
-反射的核心是 JVM 在运行时才动态加载类或调用方法/访问属性，它不需要事先知道运行对象是谁。
-反射的作用反射机制可以用来：
+        类与对象类类是构造对象的模板。
+由类构造对象的过程称为创建类的实例。
+一个源文件中，只能有一个公共类，类名必须与文件名相同。
+类之间的关系最常见的关系有：
 
-在运行时判断任意一个对象所属的类；
-在运行时构造任意一个类...
+依赖（uses-a）：一个类的方法需要操纵另一个类的对象
+聚合（has-a）：类 A 的对象包含着类 B 的对象
+继承（is-a）：继承是一种用于表示特殊与一般的关系，父类更一般
+
+应该尽可能地将相互依赖的类减至最少。
+构造器
+构造器和...
       
     
   </div>
@@ -473,7 +478,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       </div>
       
         <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/'>
+          <a class='readmore' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/03%20%E7%B1%BB/'>
             Read More
           </a>
         </div>
@@ -558,26 +563,21 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/03%20%E7%B1%BB/">
-        修饰符
+      <a href="/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/">
+        反射
       </a>
     </h2>
   
   <div class='md'>
     
       
-        类与对象类类是构造对象的模板。
-由类构造对象的过程称为创建类的实例。
-一个源文件中，只能有一个公共类，类名必须与文件名相同。
-类之间的关系最常见的关系有：
+        反射反射可以提供运行时的类信息，并且这个类可以在运行时才加载进来，甚至在编译时期该类的 .class 不存在也可以加载进来。
+反射允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。
+反射的核心是 JVM 在运行时才动态加载类或调用方法/访问属性，它不需要事先知道运行对象是谁。
+反射的作用反射机制可以用来：
 
-依赖（uses-a）：一个类的方法需要操纵另一个类的对象
-聚合（has-a）：类 A 的对象包含着类 B 的对象
-继承（is-a）：继承是一种用于表示特殊与一般的关系，父类更一般
-
-应该尽可能地将相互依赖的类减至最少。
-构造器
-构造器和...
+在运行时判断任意一个对象所属的类；
+在运行时构造任意一个类...
       
     
   </div>
@@ -596,7 +596,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       </div>
       
         <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/03%20%E7%B1%BB/'>
+          <a class='readmore' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/'>
             Read More
           </a>
         </div>
@@ -1049,7 +1049,7 @@ final 域必须显式指定初始值，赋值后，不能被重新赋值。
         <div class="webinfo-item">
           <div>本站访客数：</div>
           
-          <div><span id="lc-uv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 人</div>
+          <div><span id="busuanzi_value_site_uv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 人</div>
           
         </div>
       
@@ -1058,7 +1058,7 @@ final 域必须显式指定初始值，赋值后，不能被重新赋值。
         <div class="webinfo-item">
           <div>本站总访问量：</div>
           
-          <div><span id="lc-sv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 次</div>
+          <div><span id="busuanzi_value_site_pv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 次</div>
           
         </div>
       
@@ -1067,7 +1067,7 @@ final 域必须显式指定初始值，赋值后，不能被重新赋值。
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Fri Aug 27 2021 22:46:21 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Fri Aug 27 2021 22:48:48 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2021-08-27 日</div>
           
         </div>
@@ -1200,7 +1200,10 @@ final 域必须显式指定初始值，赋值后，不能被重新赋值。
       
         Use
         <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1" target="_blank" class="codename">Volantis</a>
-        as theme
+        as theme, total visits
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          times
+        
       
     
       
@@ -1923,6 +1926,8 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 
+
+  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
 
 
 

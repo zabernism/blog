@@ -426,18 +426,20 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/06%20TreeMap%E3%80%81TreeSet/">
-        TreeMap、TreeSet
+      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/04%20linkedList/">
+        LinkedList
       </a>
     </h2>
   
   <div class='md'>
     
       
-        TreeSet仅对TreeMap做了一层包装，实现相同。TreeSet里面有一个TreeMap（适配器模式）。
-TreeMap和TreeSet根据对象的 compareTo 方法判断对象是否是同一个对象，若自定义了排序 Comparator，以自定义为准，顺序相同的只能存在一个。
-TreeMap总体介绍TreeMap实现了SortedMap接口，有序。非同步。
-底层通过红黑树实现，也就意味着...
+        现在栈或者队列的首选是ArrayDeque。
+总体介绍LinkedList同时实现了List接口和Deque接口，允许null元素。
+
+LinkedList底层通过双向链表实现。节点用内部类Node表示,通过 first 和 last 引用分别指向链表的第一个和最后一个元素。链表为空时 first 和 last 指向 null 。
+//Node内部类
+private static class...
       
     
   </div>
@@ -456,106 +458,7 @@ TreeMap总体介绍TreeMap实现了SortedMap接口，有序。非同步。
       </div>
       
         <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/06%20TreeMap%E3%80%81TreeSet/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/01%20%E6%B3%9B%E5%9E%8B/">
-        泛型
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        为什么要使用泛型泛型程序设计意味着编写的代码可以被很多不同的类型的的对象所重用。在java中增加泛型之前，泛型的程序设计是用继承实现的。ArrayList 类只维护一个Object 引用的数组。
-public class ArrayList&#123;
-    private Object[] elementData;
-    private Object get(int i)&#123;....
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/05%E6%B3%9B%E5%9E%8B/">05泛型</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/01%20%E6%B3%9B%E5%9E%8B/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/02%20%E6%B3%9B%E5%9E%8B%E4%B8%8E%E5%BA%8F%E5%88%97%E5%8C%96/">
-        泛型与序列化
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>java介绍</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/05%E6%B3%9B%E5%9E%8B/">05泛型</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/02%20%E6%B3%9B%E5%9E%8B%E4%B8%8E%E5%BA%8F%E5%88%97%E5%8C%96/'>
+          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/04%20linkedList/'>
             Read More
           </a>
         </div>
@@ -748,6 +651,228 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
   
     
     <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/01%20%E6%B3%9B%E5%9E%8B/">
+        泛型
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        为什么要使用泛型泛型程序设计意味着编写的代码可以被很多不同的类型的的对象所重用。在java中增加泛型之前，泛型的程序设计是用继承实现的。ArrayList 类只维护一个Object 引用的数组。
+public class ArrayList&#123;
+    private Object[] elementData;
+    private Object get(int i)&#123;....
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/05%E6%B3%9B%E5%9E%8B/">05泛型</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/01%20%E6%B3%9B%E5%9E%8B/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/02%20%E6%B3%9B%E5%9E%8B%E4%B8%8E%E5%BA%8F%E5%88%97%E5%8C%96/">
+        泛型与序列化
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      <p>java介绍</p>
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/05%E6%B3%9B%E5%9E%8B/">05泛型</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/02%20%E6%B3%9B%E5%9E%8B%E4%B8%8E%E5%BA%8F%E5%88%97%E5%8C%96/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/03%20%E7%B1%BB/">
+        修饰符
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        类与对象类类是构造对象的模板。
+由类构造对象的过程称为创建类的实例。
+一个源文件中，只能有一个公共类，类名必须与文件名相同。
+类之间的关系最常见的关系有：
+
+依赖（uses-a）：一个类的方法需要操纵另一个类的对象
+聚合（has-a）：类 A 的对象包含着类 B 的对象
+继承（is-a）：继承是一种用于表示特殊与一般的关系，父类更一般
+
+应该尽可能地将相互依赖的类减至最少。
+构造器
+构造器和...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/02%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/">02对象与类</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/03%20%E7%B1%BB/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/05%20%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/">
+        文档注释
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        注释方法三种注释方法，注释不会出现在可执行文件中
+
+//
+/* */
+/** */自动生成文档
+
+注释的插入javadoc 从下面几个特性中抽取信息：
+
+包
+公有类与接口
+公有的和受保护的构造器和方法
+公有的和受保护的域
+
+类注释类注释必须在 import 语句之后，在类定义之前。
+方法注释方法注释必须放在方法之前，除了通用标记之外，还可以使用 @param ，@return ，@throw...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/02%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/">02对象与类</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/05%20%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
       <a href="/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/02%20lambda/">
         lambda
       </a>
@@ -804,62 +929,6 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/01%20%E6%8E%A5%E5%8F%A3/">
-        接口
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        概念与特性
-成员默认 public
-常量必须赋初值，内部类自动成为 static 类。
-不能含有实例域，不能实现方法。（JDK 8 之后允许提供静态方法、默认方法）
-可以声明接口变量，不能使用 new 实例化一个接口。
-
-接口与抽象类接口与抽象类的区别
-从设计层面上看，抽象类提供了一种 IS-A 关系，需要满足里式替换原则，即子类对象必须能够替换掉所有父类对象。而接口更像是一种 LIKE-A...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/03%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/">03接口、lambda、内部类</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/01%20%E6%8E%A5%E5%8F%A3/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
       <a href="/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/">
         反射
       </a>
@@ -894,61 +963,6 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
       
         <div>
           <a class='readmore' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/04%20%E4%BB%A3%E7%90%86/">
-        代理
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        代理代理模式：就是为其他对象提供一种代理以控制对这个对象的访问。
-代理可以在不改动目标对象的基础上，增加其他额外的功能（扩展功能）。
-静态代理代理对象和目标对象实现了相同的接口。
-目标对象作为代理对象的一个属性，代理对象可以在调用目标对象相应方法时加上增强处理的逻辑。
-
-优点可以做到在不修改目标对象的功能前提下,对目标功能扩展.
-缺点一个代理类只能代理一个业务类。如果业务类增加方法时，相应的...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/03%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/">03接口、lambda、内部类</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/04%20%E4%BB%A3%E7%90%86/'>
             Read More
           </a>
         </div>
@@ -1302,7 +1316,7 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
         <div class="webinfo-item">
           <div>本站访客数：</div>
           
-          <div><span id="lc-uv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 人</div>
+          <div><span id="busuanzi_value_site_uv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 人</div>
           
         </div>
       
@@ -1311,7 +1325,7 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
         <div class="webinfo-item">
           <div>本站总访问量：</div>
           
-          <div><span id="lc-sv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 次</div>
+          <div><span id="busuanzi_value_site_pv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 次</div>
           
         </div>
       
@@ -1320,7 +1334,7 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Fri Aug 27 2021 22:46:23 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Fri Aug 27 2021 22:48:49 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2021-08-27 日</div>
           
         </div>
@@ -1453,7 +1467,10 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
       
         Use
         <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1" target="_blank" class="codename">Volantis</a>
-        as theme
+        as theme, total visits
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          times
+        
       
     
       
@@ -2176,6 +2193,8 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 
+
+  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
 
 
 
