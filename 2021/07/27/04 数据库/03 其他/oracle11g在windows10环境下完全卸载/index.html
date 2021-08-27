@@ -20,7 +20,7 @@
   <meta content="灵魂有香气a" name="apple-mobile-web-app-title">
   <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
   <meta content="telephone=no" name="format-detection">
-  <link rel="preload" href="/blog/css/style.css?time=1630062860969" as="style">
+  <link rel="preload" href="/blog/css/style.css?time=1630063688625" as="style">
   <!-- 页面元数据 -->
   <title>oracle11g在windows环境下完全卸载 - 灵魂有香气a</title>
   <meta name="keywords" content="oracle,null">
@@ -1630,8 +1630,8 @@ ul.list-v >li>a:hover {
 }
 
   </style>
-  <link rel="stylesheet" href="/blog/css/style.css?time=1630062860969" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/blog/css/style.css?time=1630062860969"></noscript>
+  <link rel="stylesheet" href="/blog/css/style.css?time=1630063688625" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/blog/css/style.css?time=1630063688625"></noscript>
   
 <script>
 if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
@@ -1689,7 +1689,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <!-- Custom Files head end-->
 </head>
   <body>
-    <header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+    <header id="l_header" class="l_header always shadow blur "  >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -2244,16 +2244,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/blog/2021/07/27/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/01%20JAVA/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>JAVA面试题</p>
-          <p class='content'>一、基础篇网络基础TCP三次握手​    三次握手过程：
-​        客户端——发送带有SYN标志的数据包——服务端       一次握手  Client进入syn_sent状态
-​   ...</p>
-        </a>
-      
-      
-        <a class='next' href='/blog/2021/07/27/04%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20%E5%85%B6%E4%BB%96/oracle%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7%E5%B9%B6%E6%8C%87%E5%AE%9A%E8%A1%A8%E7%A9%BA%E9%97%B4/'>
-          <p class='title'>oracle11g创建用户并指定表空间<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+        <a class='prev' href='/blog/2021/07/27/04%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20%E5%85%B6%E4%BB%96/oracle%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7%E5%B9%B6%E6%8C%87%E5%AE%9A%E8%A1%A8%E7%A9%BA%E9%97%B4/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>oracle11g创建用户并指定表空间</p>
           <p class='content'>oracle创建表空间并赋值给用户
 
 
@@ -2263,6 +2255,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 创建表空间create tablespace eprk
 logging datafile &#39;D:\oracle\oradata\orcl\...</p>
+        </a>
+      
+      
+        <a class='next' href='/blog/2021/07/27/06%20%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/lombok%E4%BD%BF%E7%94%A8/'>
+          <p class='title'>lombok学习笔记<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>Lombok是一个可以通过简单的注解形式来帮助我们简化消除一些必须有但显得很臃肿的Java代码的工具，通过使用对应的注解，可以在编译源码的时候生成对应的方法。
+Lombok学习注解介绍官网
+注解...</p>
         </a>
       
     </div>
@@ -2319,7 +2319,7 @@ logging datafile &#39;D:\oracle\oradata\orcl\...</p>
 
 
     <div class='content'>
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%81%9C%E6%AD%A2%E6%89%80%E6%9C%89oracle%E7%9B%B8%E5%85%B3%E7%9A%84%E6%9C%8D%E5%8A%A1"><span class="toc-text">1.停止所有oracle相关的服务</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E5%8D%B8%E8%BD%BDoracle"><span class="toc-text">2.卸载oracle</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E6%B8%85%E7%A9%BA%E6%B3%A8%E5%86%8C%E8%A1%A8"><span class="toc-text">3.清空注册表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E9%87%8D%E5%90%AF%E7%94%B5%E8%84%91"><span class="toc-text">4.重启电脑</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E5%88%A0%E9%99%A4%E5%AE%89%E8%A3%85%E7%9B%AE%E5%BD%95"><span class="toc-text">5.删除安装目录</span></a></li></ol>
     </div>
   </section>
 
@@ -2698,8 +2698,8 @@ logging datafile &#39;D:\oracle\oradata\orcl\...</p>
   <script>
   volantis.message = (title, message, option = {}, done = null) => {
     if (typeof iziToast == "undefined") {
-      volantis.css('/blog/css/message.css?time=1630062860969')
-      volantis.js('/blog/js/message.js?time=1630062860969', () => {
+      volantis.css('/blog/css/message.css?time=1630063688625')
+      volantis.js('/blog/js/message.js?time=1630063688625', () => {
         tozashMessage(title, message, option, done);
       });
     } else {
@@ -2743,8 +2743,8 @@ logging datafile &#39;D:\oracle\oradata\orcl\...</p>
 
   volantis.question = (title, message, option = {}, success = null, cancel = null, done = null) => {
     if (typeof iziToast == "undefined") {
-      volantis.css('/blog/css/message.css?time=1630062860969')
-      volantis.js('/blog/js/message.js?time=1630062860969', () => {
+      volantis.css('/blog/css/message.css?time=1630063688625')
+      volantis.js('/blog/js/message.js?time=1630063688625', () => {
         tozashQuestion(title, message, option, success, cancel, done);
       });
     } else {
@@ -3003,7 +3003,7 @@ logging datafile &#39;D:\oracle\oradata\orcl\...</p>
     
       volantis.APlayerController = {};
     
-    volantis.js('/blog/js/rightMenu.js?time=1630062860969')
+    volantis.js('/blog/js/rightMenu.js?time=1630063688625')
   </script>
 
 
@@ -3017,19 +3017,19 @@ logging datafile &#39;D:\oracle\oradata\orcl\...</p>
     
       const sites_api = document.getElementById('sites-api');
       if (sites_api != undefined && typeof SitesJS === 'undefined') {
-        volantis.js("/blog/js/plugins/sites.js?time=1630062860969")
+        volantis.js("/blog/js/plugins/sites.js?time=1630063688625")
       }
     
     
       const friends_api = document.getElementById('friends-api');
       if (friends_api != undefined && typeof FriendsJS === 'undefined') {
-        volantis.js("/blog/js/plugins/friends.js?time=1630062860969")
+        volantis.js("/blog/js/plugins/friends.js?time=1630063688625")
       }
     
     
       const contributors_api = document.getElementById('contributors-api');
       if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
-        volantis.js("/blog/js/plugins/contributors.js?time=1630062860969")
+        volantis.js("/blog/js/plugins/contributors.js?time=1630063688625")
       }
     
   };
@@ -3148,7 +3148,7 @@ logging datafile &#39;D:\oracle\oradata\orcl\...</p>
       path = defaultPath || decodeURI(window.location.pathname);
     }
     var valine = new Valine();
-    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"guoPbSVxNyamQ4PE6FgwlKTi-gzGzoHsz","appKey":"t8qr51J6QUbHNGA5lA54Jodr","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":true,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false}, {
+    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"guoPbSVxNyamQ4PE6FgwlKTi-gzGzoHsz","appKey":"t8qr51J6QUbHNGA5lA54Jodr","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":true,"avatar":"robohash","pageSize":8,"lang":"zh-cn","highlight":true,"mathJax":false}, {
       el: '#valine_container',
       path: path,
       placeholder: pagePlaceholder,
@@ -3156,7 +3156,7 @@ logging datafile &#39;D:\oracle\oradata\orcl\...</p>
       emojiMaps: emojiMaps,
     }))
   }
-  volantis.js('/blog/js/valine.js?time=1630062860969').then(pjax_valine)
+  volantis.js('/blog/js/valine.js?time=1630063688625').then(pjax_valine)
   volantis.pjax.push(pjax_valine);
 </script>
 
@@ -3165,7 +3165,7 @@ logging datafile &#39;D:\oracle\oradata\orcl\...</p>
 
 
 
-<script src="/blog/blog/js/app.js?time=1630062860969.js"></script>
+<script src="/blog/blog/js/app.js?time=1630063688625.js"></script>
 
 
 <!-- optional -->
@@ -3178,7 +3178,7 @@ logging datafile &#39;D:\oracle\oradata\orcl\...</p>
 
   function loadSearchScript() {
     // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
-    return volantis.js("/blog/js/search/hexo.js?time=1630062860969");
+    return volantis.js("/blog/js/search/hexo.js?time=1630063688625");
   }
 
   function loadSearchService() {
@@ -3482,7 +3482,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  var imgs = ["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.webp"];
+  var imgs = ["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.webp"];
   var index = 0;
 
   function parallax(){
@@ -3521,7 +3521,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var runningOnBrowser = typeof window !== "undefined";
   var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
   if (!isBot) {
-    volantis.js('/blog/js/parallax.js?time=1630062860969').then(()=>{
+    volantis.js('/blog/js/parallax.js?time=1630063688625').then(()=>{
       parallax()
     })
     volantis.pjax.push(next_parallax);

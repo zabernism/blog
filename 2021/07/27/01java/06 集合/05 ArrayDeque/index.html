@@ -20,7 +20,7 @@
   <meta content="灵魂有香气a" name="apple-mobile-web-app-title">
   <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
   <meta content="telephone=no" name="format-detection">
-  <link rel="preload" href="/blog/css/style.css?time=1630062861009" as="style">
+  <link rel="preload" href="/blog/css/style.css?time=1630063688655" as="style">
   <!-- 页面元数据 -->
   <title>ArrayDeque - 灵魂有香气a</title>
   <meta name="keywords" content="java,null">
@@ -1630,8 +1630,8 @@ ul.list-v >li>a:hover {
 }
 
   </style>
-  <link rel="stylesheet" href="/blog/css/style.css?time=1630062861009" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/blog/css/style.css?time=1630062861009"></noscript>
+  <link rel="stylesheet" href="/blog/css/style.css?time=1630063688655" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/blog/css/style.css?time=1630063688655"></noscript>
   
 <script>
 if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
@@ -1689,7 +1689,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <!-- Custom Files head end-->
 </head>
   <body>
-    <header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+    <header id="l_header" class="l_header always shadow blur "  >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -2374,12 +2374,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/04%20linkedList/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>LinkedList</p>
-          <p class='content'>现在栈或者队列的首选是ArrayDeque。
-总体介绍LinkedList同时实现了List接口和Deque接口，允许null元素。
-
-LinkedList底层通过双向链表实现。节点用内部类No...</p>
+        <a class='prev' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/03%20ArrayList%E3%80%81Vector/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>ArrayList、Vector</p>
+          <p class='content'>ArrayList 除未实现同步外，跟 Vector 大致相同。同步效率低，在不需要同步的时候使用 ArrayList。
+ArrayList总体介绍ArrayList 实现了 List、Rand...</p>
         </a>
       
       
@@ -2443,7 +2441,7 @@ TreeMap和TreeSet根据对象的 compareTo 方法判断对象是否是同...</p>
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Deque-%E6%8E%A5%E5%8F%A3"><span class="toc-text">Deque 接口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Deque-%E4%B8%8E-Queue-%E7%9B%B8%E5%AF%B9%E5%BA%94%E7%9A%84%E6%8E%A5%E5%8F%A3"><span class="toc-text">Deque 与 Queue 相对应的接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deque-%E4%B8%8E-Stack-%E5%AF%B9%E5%BA%94%E7%9A%84%E6%8E%A5%E5%8F%A3"><span class="toc-text">Deque 与 Stack 对应的接口</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ArrayDeque"><span class="toc-text">ArrayDeque</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0"><span class="toc-text">添加</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#addFirst"><span class="toc-text">addFirst()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#addLast"><span class="toc-text">addLast()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E6%A0%87%E8%B6%8A%E7%95%8C"><span class="toc-text">下标越界</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A9%E5%AE%B9"><span class="toc-text">扩容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4"><span class="toc-text">删除</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#pollFirst"><span class="toc-text">pollFirst()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pollLast"><span class="toc-text">pollLast()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%96%E5%80%BC"><span class="toc-text">取值</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#peekFirst"><span class="toc-text">peekFirst()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#peekLast"><span class="toc-text">peekLast()</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E4%BD%93%E4%BB%8B%E7%BB%8D"><span class="toc-text">总体介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Deque-%E6%8E%A5%E5%8F%A3"><span class="toc-text">Deque 接口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Deque-%E4%B8%8E-Queue-%E7%9B%B8%E5%AF%B9%E5%BA%94%E7%9A%84%E6%8E%A5%E5%8F%A3"><span class="toc-text">Deque 与 Queue 相对应的接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deque-%E4%B8%8E-Stack-%E5%AF%B9%E5%BA%94%E7%9A%84%E6%8E%A5%E5%8F%A3"><span class="toc-text">Deque 与 Stack 对应的接口</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ArrayDeque"><span class="toc-text">ArrayDeque</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E5%89%96%E6%9E%90"><span class="toc-text">方法剖析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0"><span class="toc-text">添加</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#addFirst"><span class="toc-text">addFirst()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#addLast"><span class="toc-text">addLast()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E6%A0%87%E8%B6%8A%E7%95%8C"><span class="toc-text">下标越界</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A9%E5%AE%B9"><span class="toc-text">扩容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4"><span class="toc-text">删除</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#pollFirst"><span class="toc-text">pollFirst()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pollLast"><span class="toc-text">pollLast()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%96%E5%80%BC"><span class="toc-text">取值</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#peekFirst"><span class="toc-text">peekFirst()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#peekLast"><span class="toc-text">peekLast()</span></a></li></ol></li></ol></li></ol>
     </div>
   </section>
 
@@ -2822,8 +2820,8 @@ TreeMap和TreeSet根据对象的 compareTo 方法判断对象是否是同...</p>
   <script>
   volantis.message = (title, message, option = {}, done = null) => {
     if (typeof iziToast == "undefined") {
-      volantis.css('/blog/css/message.css?time=1630062861009')
-      volantis.js('/blog/js/message.js?time=1630062861009', () => {
+      volantis.css('/blog/css/message.css?time=1630063688655')
+      volantis.js('/blog/js/message.js?time=1630063688655', () => {
         tozashMessage(title, message, option, done);
       });
     } else {
@@ -2867,8 +2865,8 @@ TreeMap和TreeSet根据对象的 compareTo 方法判断对象是否是同...</p>
 
   volantis.question = (title, message, option = {}, success = null, cancel = null, done = null) => {
     if (typeof iziToast == "undefined") {
-      volantis.css('/blog/css/message.css?time=1630062861009')
-      volantis.js('/blog/js/message.js?time=1630062861009', () => {
+      volantis.css('/blog/css/message.css?time=1630063688655')
+      volantis.js('/blog/js/message.js?time=1630063688655', () => {
         tozashQuestion(title, message, option, success, cancel, done);
       });
     } else {
@@ -3127,7 +3125,7 @@ TreeMap和TreeSet根据对象的 compareTo 方法判断对象是否是同...</p>
     
       volantis.APlayerController = {};
     
-    volantis.js('/blog/js/rightMenu.js?time=1630062861009')
+    volantis.js('/blog/js/rightMenu.js?time=1630063688655')
   </script>
 
 
@@ -3141,19 +3139,19 @@ TreeMap和TreeSet根据对象的 compareTo 方法判断对象是否是同...</p>
     
       const sites_api = document.getElementById('sites-api');
       if (sites_api != undefined && typeof SitesJS === 'undefined') {
-        volantis.js("/blog/js/plugins/sites.js?time=1630062861009")
+        volantis.js("/blog/js/plugins/sites.js?time=1630063688655")
       }
     
     
       const friends_api = document.getElementById('friends-api');
       if (friends_api != undefined && typeof FriendsJS === 'undefined') {
-        volantis.js("/blog/js/plugins/friends.js?time=1630062861009")
+        volantis.js("/blog/js/plugins/friends.js?time=1630063688655")
       }
     
     
       const contributors_api = document.getElementById('contributors-api');
       if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
-        volantis.js("/blog/js/plugins/contributors.js?time=1630062861009")
+        volantis.js("/blog/js/plugins/contributors.js?time=1630063688655")
       }
     
   };
@@ -3272,7 +3270,7 @@ TreeMap和TreeSet根据对象的 compareTo 方法判断对象是否是同...</p>
       path = defaultPath || decodeURI(window.location.pathname);
     }
     var valine = new Valine();
-    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"guoPbSVxNyamQ4PE6FgwlKTi-gzGzoHsz","appKey":"t8qr51J6QUbHNGA5lA54Jodr","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":true,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false}, {
+    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"guoPbSVxNyamQ4PE6FgwlKTi-gzGzoHsz","appKey":"t8qr51J6QUbHNGA5lA54Jodr","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":true,"avatar":"robohash","pageSize":8,"lang":"zh-cn","highlight":true,"mathJax":false}, {
       el: '#valine_container',
       path: path,
       placeholder: pagePlaceholder,
@@ -3280,7 +3278,7 @@ TreeMap和TreeSet根据对象的 compareTo 方法判断对象是否是同...</p>
       emojiMaps: emojiMaps,
     }))
   }
-  volantis.js('/blog/js/valine.js?time=1630062861009').then(pjax_valine)
+  volantis.js('/blog/js/valine.js?time=1630063688655').then(pjax_valine)
   volantis.pjax.push(pjax_valine);
 </script>
 
@@ -3289,7 +3287,7 @@ TreeMap和TreeSet根据对象的 compareTo 方法判断对象是否是同...</p>
 
 
 
-<script src="/blog/blog/js/app.js?time=1630062861009.js"></script>
+<script src="/blog/blog/js/app.js?time=1630063688655.js"></script>
 
 
 <!-- optional -->
@@ -3302,7 +3300,7 @@ TreeMap和TreeSet根据对象的 compareTo 方法判断对象是否是同...</p>
 
   function loadSearchScript() {
     // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
-    return volantis.js("/blog/js/search/hexo.js?time=1630062861009");
+    return volantis.js("/blog/js/search/hexo.js?time=1630063688655");
   }
 
   function loadSearchService() {
@@ -3606,7 +3604,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  var imgs = ["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.webp"];
+  var imgs = ["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.webp"];
   var index = 0;
 
   function parallax(){
@@ -3645,7 +3643,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var runningOnBrowser = typeof window !== "undefined";
   var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
   if (!isBot) {
-    volantis.js('/blog/js/parallax.js?time=1630062861009').then(()=>{
+    volantis.js('/blog/js/parallax.js?time=1630063688655').then(()=>{
       parallax()
     })
     volantis.pjax.push(next_parallax);

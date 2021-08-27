@@ -20,7 +20,7 @@
   <meta content="灵魂有香气a" name="apple-mobile-web-app-title">
   <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
   <meta content="telephone=no" name="format-detection">
-  <link rel="preload" href="/blog/css/style.css?time=1630062860955" as="style">
+  <link rel="preload" href="/blog/css/style.css?time=1630063688599" as="style">
   <!-- 页面元数据 -->
   <title>二十个实例轻松搞定Stream流库 - 灵魂有香气a</title>
   <meta name="keywords" content="java,null">
@@ -1630,8 +1630,8 @@ ul.list-v >li>a:hover {
 }
 
   </style>
-  <link rel="stylesheet" href="/blog/css/style.css?time=1630062860955" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/blog/css/style.css?time=1630062860955"></noscript>
+  <link rel="stylesheet" href="/blog/css/style.css?time=1630063688599" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/blog/css/style.css?time=1630063688599"></noscript>
   
 <script>
 if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
@@ -1689,7 +1689,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <!-- Custom Files head end-->
 </head>
   <body>
-    <header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+    <header id="l_header" class="l_header always shadow blur "  >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -2914,7 +2914,7 @@ SYN：SYN= 1 表示这是一个连接请求或连接接受报文。在建立连�
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stream%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-text">Stream的创建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E9%9B%86%E5%90%88%E6%95%B0%E7%BB%84%E5%88%9B%E5%BB%BA"><span class="toc-text">通过集合数组创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E6%95%B0%E7%BB%84%E5%88%9B%E5%BB%BA"><span class="toc-text">通过数组创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87Stream%E7%9A%84%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E8%BF%9B%E8%A1%8C%E5%88%9B%E5%BB%BA"><span class="toc-text">通过Stream的静态方法进行创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Stream%E5%92%8CparallelSteam%E7%AE%80%E5%8D%95%E5%8C%BA%E5%88%86"><span class="toc-text">Stream和parallelSteam简单区分</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stream%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">Stream的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%8D%E5%8E%86-%E5%8C%B9%E9%85%8D%EF%BC%88foreach-find-match%EF%BC%89"><span class="toc-text">遍历&#x2F;匹配（foreach&#x2F;find&#x2F;match）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%9B%E9%80%89%EF%BC%88filter%EF%BC%89"><span class="toc-text">筛选（filter）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%9A%E5%90%88%EF%BC%88max-min-count"><span class="toc-text">聚合（max&#x2F;min&#x2F;count)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%A0%E5%B0%84-map-flatMap"><span class="toc-text">映射(map&#x2F;flatMap)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%92%E7%BA%A6-reduce"><span class="toc-text">归约(reduce)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%B6%E9%9B%86-collect"><span class="toc-text">收集(collect)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%92%E9%9B%86-toList-toSet-toMap"><span class="toc-text">归集(toList&#x2F;toSet&#x2F;toMap)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%9F%E8%AE%A1-count-averaging"><span class="toc-text">统计(count&#x2F;averaging)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%BB%84-partitioningBy-groupingBy"><span class="toc-text">分组(partitioningBy&#x2F;groupingBy)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%90%88-joining"><span class="toc-text">接合(joining)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%92%E7%BA%A6-reducing"><span class="toc-text">归约(reducing)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F-sorted"><span class="toc-text">排序(sorted)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E5%8F%96-%E7%BB%84%E5%90%88"><span class="toc-text">提取&#x2F;组合</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#20%E4%B8%AA%E5%AE%9E%E4%BE%8B%E8%BD%BB%E6%9D%BE%E6%90%9E%E5%AE%9AStream%E6%B5%81%E5%BA%93"><span class="toc-text">20个实例轻松搞定Stream流库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stream%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-text">Stream的创建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E9%9B%86%E5%90%88%E6%95%B0%E7%BB%84%E5%88%9B%E5%BB%BA"><span class="toc-text">通过集合数组创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E6%95%B0%E7%BB%84%E5%88%9B%E5%BB%BA"><span class="toc-text">通过数组创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87Stream%E7%9A%84%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E8%BF%9B%E8%A1%8C%E5%88%9B%E5%BB%BA"><span class="toc-text">通过Stream的静态方法进行创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Stream%E5%92%8CparallelSteam%E7%AE%80%E5%8D%95%E5%8C%BA%E5%88%86"><span class="toc-text">Stream和parallelSteam简单区分</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stream%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">Stream的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%8D%E5%8E%86-%E5%8C%B9%E9%85%8D%EF%BC%88foreach-find-match%EF%BC%89"><span class="toc-text">遍历&#x2F;匹配（foreach&#x2F;find&#x2F;match）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%9B%E9%80%89%EF%BC%88filter%EF%BC%89"><span class="toc-text">筛选（filter）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%9A%E5%90%88%EF%BC%88max-min-count"><span class="toc-text">聚合（max&#x2F;min&#x2F;count)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%A0%E5%B0%84-map-flatMap"><span class="toc-text">映射(map&#x2F;flatMap)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%92%E7%BA%A6-reduce"><span class="toc-text">归约(reduce)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%B6%E9%9B%86-collect"><span class="toc-text">收集(collect)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%92%E9%9B%86-toList-toSet-toMap"><span class="toc-text">归集(toList&#x2F;toSet&#x2F;toMap)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%9F%E8%AE%A1-count-averaging"><span class="toc-text">统计(count&#x2F;averaging)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%BB%84-partitioningBy-groupingBy"><span class="toc-text">分组(partitioningBy&#x2F;groupingBy)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%90%88-joining"><span class="toc-text">接合(joining)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%92%E7%BA%A6-reducing"><span class="toc-text">归约(reducing)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F-sorted"><span class="toc-text">排序(sorted)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E5%8F%96-%E7%BB%84%E5%90%88"><span class="toc-text">提取&#x2F;组合</span></a></li></ol></li></ol></li></ol>
     </div>
   </section>
 
@@ -3293,8 +3293,8 @@ SYN：SYN= 1 表示这是一个连接请求或连接接受报文。在建立连�
   <script>
   volantis.message = (title, message, option = {}, done = null) => {
     if (typeof iziToast == "undefined") {
-      volantis.css('/blog/css/message.css?time=1630062860955')
-      volantis.js('/blog/js/message.js?time=1630062860955', () => {
+      volantis.css('/blog/css/message.css?time=1630063688599')
+      volantis.js('/blog/js/message.js?time=1630063688599', () => {
         tozashMessage(title, message, option, done);
       });
     } else {
@@ -3338,8 +3338,8 @@ SYN：SYN= 1 表示这是一个连接请求或连接接受报文。在建立连�
 
   volantis.question = (title, message, option = {}, success = null, cancel = null, done = null) => {
     if (typeof iziToast == "undefined") {
-      volantis.css('/blog/css/message.css?time=1630062860955')
-      volantis.js('/blog/js/message.js?time=1630062860955', () => {
+      volantis.css('/blog/css/message.css?time=1630063688599')
+      volantis.js('/blog/js/message.js?time=1630063688599', () => {
         tozashQuestion(title, message, option, success, cancel, done);
       });
     } else {
@@ -3598,7 +3598,7 @@ SYN：SYN= 1 表示这是一个连接请求或连接接受报文。在建立连�
     
       volantis.APlayerController = {};
     
-    volantis.js('/blog/js/rightMenu.js?time=1630062860955')
+    volantis.js('/blog/js/rightMenu.js?time=1630063688599')
   </script>
 
 
@@ -3612,19 +3612,19 @@ SYN：SYN= 1 表示这是一个连接请求或连接接受报文。在建立连�
     
       const sites_api = document.getElementById('sites-api');
       if (sites_api != undefined && typeof SitesJS === 'undefined') {
-        volantis.js("/blog/js/plugins/sites.js?time=1630062860955")
+        volantis.js("/blog/js/plugins/sites.js?time=1630063688599")
       }
     
     
       const friends_api = document.getElementById('friends-api');
       if (friends_api != undefined && typeof FriendsJS === 'undefined') {
-        volantis.js("/blog/js/plugins/friends.js?time=1630062860955")
+        volantis.js("/blog/js/plugins/friends.js?time=1630063688599")
       }
     
     
       const contributors_api = document.getElementById('contributors-api');
       if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
-        volantis.js("/blog/js/plugins/contributors.js?time=1630062860955")
+        volantis.js("/blog/js/plugins/contributors.js?time=1630063688599")
       }
     
   };
@@ -3743,7 +3743,7 @@ SYN：SYN= 1 表示这是一个连接请求或连接接受报文。在建立连�
       path = defaultPath || decodeURI(window.location.pathname);
     }
     var valine = new Valine();
-    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"guoPbSVxNyamQ4PE6FgwlKTi-gzGzoHsz","appKey":"t8qr51J6QUbHNGA5lA54Jodr","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":true,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false}, {
+    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"guoPbSVxNyamQ4PE6FgwlKTi-gzGzoHsz","appKey":"t8qr51J6QUbHNGA5lA54Jodr","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":true,"avatar":"robohash","pageSize":8,"lang":"zh-cn","highlight":true,"mathJax":false}, {
       el: '#valine_container',
       path: path,
       placeholder: pagePlaceholder,
@@ -3751,7 +3751,7 @@ SYN：SYN= 1 表示这是一个连接请求或连接接受报文。在建立连�
       emojiMaps: emojiMaps,
     }))
   }
-  volantis.js('/blog/js/valine.js?time=1630062860955').then(pjax_valine)
+  volantis.js('/blog/js/valine.js?time=1630063688599').then(pjax_valine)
   volantis.pjax.push(pjax_valine);
 </script>
 
@@ -3760,7 +3760,7 @@ SYN：SYN= 1 表示这是一个连接请求或连接接受报文。在建立连�
 
 
 
-<script src="/blog/blog/js/app.js?time=1630062860955.js"></script>
+<script src="/blog/blog/js/app.js?time=1630063688599.js"></script>
 
 
 <!-- optional -->
@@ -3773,7 +3773,7 @@ SYN：SYN= 1 表示这是一个连接请求或连接接受报文。在建立连�
 
   function loadSearchScript() {
     // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
-    return volantis.js("/blog/js/search/hexo.js?time=1630062860955");
+    return volantis.js("/blog/js/search/hexo.js?time=1630063688599");
   }
 
   function loadSearchService() {
@@ -4077,7 +4077,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  var imgs = ["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.webp"];
+  var imgs = ["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.webp"];
   var index = 0;
 
   function parallax(){
@@ -4116,7 +4116,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var runningOnBrowser = typeof window !== "undefined";
   var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
   if (!isBot) {
-    volantis.js('/blog/js/parallax.js?time=1630062860955').then(()=>{
+    volantis.js('/blog/js/parallax.js?time=1630063688599').then(()=>{
       parallax()
     })
     volantis.pjax.push(next_parallax);

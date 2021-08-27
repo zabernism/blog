@@ -20,7 +20,7 @@
   <meta content="灵魂有香气a" name="apple-mobile-web-app-title">
   <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
   <meta content="telephone=no" name="format-detection">
-  <link rel="preload" href="/blog/css/style.css?time=1630062860974" as="style">
+  <link rel="preload" href="/blog/css/style.css?time=1630063688622" as="style">
   <!-- 页面元数据 -->
   <title>lombok学习笔记 - 灵魂有香气a</title>
   <meta name="keywords" content="lombok,null">
@@ -1630,8 +1630,8 @@ ul.list-v >li>a:hover {
 }
 
   </style>
-  <link rel="stylesheet" href="/blog/css/style.css?time=1630062860974" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/blog/css/style.css?time=1630062860974"></noscript>
+  <link rel="stylesheet" href="/blog/css/style.css?time=1630063688622" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/blog/css/style.css?time=1630063688622"></noscript>
   
 <script>
 if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
@@ -1689,7 +1689,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <!-- Custom Files head end-->
 </head>
   <body>
-    <header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+    <header id="l_header" class="l_header always shadow blur "  >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -2564,17 +2564,15 @@ class BuilderExample &#123;
   
     <div class="prev-next">
       
-        <a class='prev' href='/blog/2021/07/27/04%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20%E5%85%B6%E4%BB%96/oracle%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7%E5%B9%B6%E6%8C%87%E5%AE%9A%E8%A1%A8%E7%A9%BA%E9%97%B4/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>oracle11g创建用户并指定表空间</p>
-          <p class='content'>oracle创建表空间并赋值给用户
+        <a class='prev' href='/blog/2021/07/27/04%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20%E5%85%B6%E4%BB%96/oracle11g%E5%9C%A8windows10%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%8C%E5%85%A8%E5%8D%B8%E8%BD%BD/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>oracle11g在windows环境下完全卸载</p>
+          <p class='content'>1.停止所有oracle相关的服务步骤：控制面板－＞管理工具－＞服务停止所有Oracle服务。
 
+2.卸载oracle搜索Universal Installer
 
+点击卸载产品
 
-
-
-
-创建表空间create tablespace eprk
-logging datafile &#39;D:\oracle\oradata\orcl\...</p>
+注意这个目录不...</p>
         </a>
       
       
@@ -2641,7 +2639,7 @@ SELECT &#39;drop  table &#39;|| table_name || &#39;;&#39; FROM USER_TABLE...</p>
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E8%A7%A3%E4%BB%8B%E7%BB%8D"><span class="toc-text">注解介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E8%A7%A3%E4%BD%BF%E7%94%A8"><span class="toc-text">注解使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#val%EF%BC%88%E5%80%BC%EF%BC%89"><span class="toc-text">val（值）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NonNull%E6%B3%A8%E8%A7%A3"><span class="toc-text">@NonNull注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#clean%E6%B3%A8%E8%A7%A3"><span class="toc-text">@clean注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Getter-Setter%E6%B3%A8%E8%A7%A3"><span class="toc-text">@Getter&#x2F;@Setter注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ToString%E6%B3%A8%E8%A7%A3"><span class="toc-text">@ToString注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EqualsAndHashCode%E6%B3%A8%E8%A7%A3"><span class="toc-text">@EqualsAndHashCode注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NoArgsConstructor%E6%B3%A8%E8%A7%A3"><span class="toc-text">@NoArgsConstructor注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RequiredArgsConstructor-%E6%B3%A8%E8%A7%A3"><span class="toc-text">@RequiredArgsConstructor 注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Data%E6%B3%A8%E8%A7%A3"><span class="toc-text">@ Data注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Accessors%E6%B3%A8%E8%A7%A3"><span class="toc-text">@Accessors注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Synchronized%E6%B3%A8%E8%A7%A3"><span class="toc-text">@Synchronized注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Wither%E6%B3%A8%E8%A7%A3"><span class="toc-text">@Wither注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Builder%E6%B3%A8%E8%A7%A3"><span class="toc-text">@Builder注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Log%E6%B3%A8%E8%A7%A3"><span class="toc-text">@Log注解</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Lombok%E5%AD%A6%E4%B9%A0"><span class="toc-text">Lombok学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E8%A7%A3%E4%BB%8B%E7%BB%8D"><span class="toc-text">注解介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E8%A7%A3%E4%BD%BF%E7%94%A8"><span class="toc-text">注解使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#val%EF%BC%88%E5%80%BC%EF%BC%89"><span class="toc-text">val（值）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NonNull%E6%B3%A8%E8%A7%A3"><span class="toc-text">@NonNull注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#clean%E6%B3%A8%E8%A7%A3"><span class="toc-text">@clean注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Getter-Setter%E6%B3%A8%E8%A7%A3"><span class="toc-text">@Getter&#x2F;@Setter注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ToString%E6%B3%A8%E8%A7%A3"><span class="toc-text">@ToString注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EqualsAndHashCode%E6%B3%A8%E8%A7%A3"><span class="toc-text">@EqualsAndHashCode注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NoArgsConstructor%E6%B3%A8%E8%A7%A3"><span class="toc-text">@NoArgsConstructor注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RequiredArgsConstructor-%E6%B3%A8%E8%A7%A3"><span class="toc-text">@RequiredArgsConstructor 注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Data%E6%B3%A8%E8%A7%A3"><span class="toc-text">@ Data注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Accessors%E6%B3%A8%E8%A7%A3"><span class="toc-text">@Accessors注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Synchronized%E6%B3%A8%E8%A7%A3"><span class="toc-text">@Synchronized注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Wither%E6%B3%A8%E8%A7%A3"><span class="toc-text">@Wither注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Builder%E6%B3%A8%E8%A7%A3"><span class="toc-text">@Builder注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Log%E6%B3%A8%E8%A7%A3"><span class="toc-text">@Log注解</span></a></li></ol></li></ol></li></ol>
     </div>
   </section>
 
@@ -3020,8 +3018,8 @@ SELECT &#39;drop  table &#39;|| table_name || &#39;;&#39; FROM USER_TABLE...</p>
   <script>
   volantis.message = (title, message, option = {}, done = null) => {
     if (typeof iziToast == "undefined") {
-      volantis.css('/blog/css/message.css?time=1630062860974')
-      volantis.js('/blog/js/message.js?time=1630062860974', () => {
+      volantis.css('/blog/css/message.css?time=1630063688621')
+      volantis.js('/blog/js/message.js?time=1630063688621', () => {
         tozashMessage(title, message, option, done);
       });
     } else {
@@ -3065,8 +3063,8 @@ SELECT &#39;drop  table &#39;|| table_name || &#39;;&#39; FROM USER_TABLE...</p>
 
   volantis.question = (title, message, option = {}, success = null, cancel = null, done = null) => {
     if (typeof iziToast == "undefined") {
-      volantis.css('/blog/css/message.css?time=1630062860974')
-      volantis.js('/blog/js/message.js?time=1630062860974', () => {
+      volantis.css('/blog/css/message.css?time=1630063688621')
+      volantis.js('/blog/js/message.js?time=1630063688621', () => {
         tozashQuestion(title, message, option, success, cancel, done);
       });
     } else {
@@ -3325,7 +3323,7 @@ SELECT &#39;drop  table &#39;|| table_name || &#39;;&#39; FROM USER_TABLE...</p>
     
       volantis.APlayerController = {};
     
-    volantis.js('/blog/js/rightMenu.js?time=1630062860974')
+    volantis.js('/blog/js/rightMenu.js?time=1630063688621')
   </script>
 
 
@@ -3339,19 +3337,19 @@ SELECT &#39;drop  table &#39;|| table_name || &#39;;&#39; FROM USER_TABLE...</p>
     
       const sites_api = document.getElementById('sites-api');
       if (sites_api != undefined && typeof SitesJS === 'undefined') {
-        volantis.js("/blog/js/plugins/sites.js?time=1630062860974")
+        volantis.js("/blog/js/plugins/sites.js?time=1630063688621")
       }
     
     
       const friends_api = document.getElementById('friends-api');
       if (friends_api != undefined && typeof FriendsJS === 'undefined') {
-        volantis.js("/blog/js/plugins/friends.js?time=1630062860974")
+        volantis.js("/blog/js/plugins/friends.js?time=1630063688621")
       }
     
     
       const contributors_api = document.getElementById('contributors-api');
       if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
-        volantis.js("/blog/js/plugins/contributors.js?time=1630062860974")
+        volantis.js("/blog/js/plugins/contributors.js?time=1630063688621")
       }
     
   };
@@ -3470,7 +3468,7 @@ SELECT &#39;drop  table &#39;|| table_name || &#39;;&#39; FROM USER_TABLE...</p>
       path = defaultPath || decodeURI(window.location.pathname);
     }
     var valine = new Valine();
-    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"guoPbSVxNyamQ4PE6FgwlKTi-gzGzoHsz","appKey":"t8qr51J6QUbHNGA5lA54Jodr","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":true,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false}, {
+    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"guoPbSVxNyamQ4PE6FgwlKTi-gzGzoHsz","appKey":"t8qr51J6QUbHNGA5lA54Jodr","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":true,"avatar":"robohash","pageSize":8,"lang":"zh-cn","highlight":true,"mathJax":false}, {
       el: '#valine_container',
       path: path,
       placeholder: pagePlaceholder,
@@ -3478,7 +3476,7 @@ SELECT &#39;drop  table &#39;|| table_name || &#39;;&#39; FROM USER_TABLE...</p>
       emojiMaps: emojiMaps,
     }))
   }
-  volantis.js('/blog/js/valine.js?time=1630062860974').then(pjax_valine)
+  volantis.js('/blog/js/valine.js?time=1630063688621').then(pjax_valine)
   volantis.pjax.push(pjax_valine);
 </script>
 
@@ -3487,7 +3485,7 @@ SELECT &#39;drop  table &#39;|| table_name || &#39;;&#39; FROM USER_TABLE...</p>
 
 
 
-<script src="/blog/blog/js/app.js?time=1630062860974.js"></script>
+<script src="/blog/blog/js/app.js?time=1630063688622.js"></script>
 
 
 <!-- optional -->
@@ -3500,7 +3498,7 @@ SELECT &#39;drop  table &#39;|| table_name || &#39;;&#39; FROM USER_TABLE...</p>
 
   function loadSearchScript() {
     // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
-    return volantis.js("/blog/js/search/hexo.js?time=1630062860974");
+    return volantis.js("/blog/js/search/hexo.js?time=1630063688622");
   }
 
   function loadSearchService() {
@@ -3804,7 +3802,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  var imgs = ["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.webp"];
+  var imgs = ["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.webp"];
   var index = 0;
 
   function parallax(){
@@ -3843,7 +3841,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var runningOnBrowser = typeof window !== "undefined";
   var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
   if (!isBot) {
-    volantis.js('/blog/js/parallax.js?time=1630062860974').then(()=>{
+    volantis.js('/blog/js/parallax.js?time=1630063688621').then(()=>{
       parallax()
     })
     volantis.pjax.push(next_parallax);
