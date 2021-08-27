@@ -680,17 +680,44 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/06%20TreeMap%E3%80%81TreeSet/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>TreeMap、TreeSet</p>
-          <p class='content'>TreeSet仅对TreeMap做了一层包装，实现相同。TreeSet里面有一个TreeMap（适配器模式）。
-TreeMap和TreeSet根据对象的 compareTo 方法判断对象是否是同...</p>
+        <a class='prev' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/02%20%E5%85%B7%E4%BD%93%E9%9B%86%E5%90%88/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>具体集合</p>
+          <p class='content'>
+
+
+集合类型
+同步
+可null
+有序
+描述
+
+
+
+ArrayList
+否
+是
+是
+动态增缩的索引序列
+
+
+Vector
+是
+是
+是
+过时，同步的ArrayList
+
+
+LinkedList
+否...</p>
         </a>
       
       
-        <a class='next' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/05%20ArrayDeque/'>
-          <p class='title'>ArrayDeque<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>栈Stack已过时，队列LinkedList效率不高，栈和队列首选ArrayDeque。
-总体介绍Deque 接口ArrayDeque实现了Deque接口，Deque继承Queue实现了Stac...</p>
+        <a class='next' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/04%20linkedList/'>
+          <p class='title'>LinkedList<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>现在栈或者队列的首选是ArrayDeque。
+总体介绍LinkedList同时实现了List接口和Deque接口，允许null元素。
+
+LinkedList底层通过双向链表实现。节点用内部类No...</p>
         </a>
       
     </div>
@@ -812,7 +839,10 @@ TreeMap和TreeSet根据对象的 compareTo 方法判断对象是否是同...</p>
       
         Use
         <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1" target="_blank" class="codename">Volantis</a>
-        as theme
+        as theme, total visits
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          times
+        
       
     
       
@@ -1536,6 +1566,8 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 
+  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
+
 
 
   
@@ -1614,8 +1646,8 @@ volantis.pjax.push(()=>{
   <script defer>
 
   const LCCounter = {
-    app_id: 'u9j57bwJod4EDmXWdxrwuqQT-MdYXbMMI',
-    app_key: 'jfHtEKVE24j0IVCGHbvuFClp',
+    app_id: 'guoPbSVxNyamQ4PE6FgwlKTi-gzGzoHsz',
+    app_key: 't8qr51J6QUbHNGA5lA54Jodr',
     custom_api_server: '',
 
     // 查询存储的记录
