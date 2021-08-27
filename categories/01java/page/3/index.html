@@ -426,22 +426,22 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/01%20%E6%8E%A5%E5%8F%A3/">
-        接口
+      <a href="/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/02%20lambda/">
+        lambda
       </a>
     </h2>
   
   <div class='md'>
     
       
-        概念与特性
-成员默认 public
-常量必须赋初值，内部类自动成为 static 类。
-不能含有实例域，不能实现方法。（JDK 8 之后允许提供静态方法、默认方法）
-可以声明接口变量，不能使用 new 实例化一个接口。
+        lambda表达式
+@since 1.8
 
-接口与抽象类接口与抽象类的区别
-从设计层面上看，抽象类提供了一种 IS-A 关系，需要满足里式替换原则，即子类对象必须能够替换掉所有父类对象。而接口更像是一种 LIKE-A...
+语法参数，箭头（-&gt;）以及一个表达式。
+(String first, String second) -&gt;first.length() - second.length()
+
+没有参数也要提供空括号，就像无参数方法一样。
+() -&gt; &#123; for (int i = 100; i &gt;= 0; i--) System.out...
       
     
   </div>
@@ -460,7 +460,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       </div>
       
         <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/01%20%E6%8E%A5%E5%8F%A3/'>
+          <a class='readmore' href='/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/02%20lambda/'>
             Read More
           </a>
         </div>
@@ -652,6 +652,58 @@ new int[]&#123;1,2,3&#125;;
   
     
     <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/05%20%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/">
+        输入输出
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        输入输出读取输入Scanner 类文件输入// 如果是 win 系统，使用双反斜杠，&quot;c:\\mydirectory\\myfile.txt&quot; ，每个 \ 需要额外的一个 \。
+Scanner scan = new Scanner(Paths.get(&quot;myfile.txt&quot;)，&quot;UTF-8&quot;);
+
+标准输入Scanner in =...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/01%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/">01基本设计</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/05%20%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
       <a href="/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/04%20%E8%BF%90%E7%AE%97%E7%AC%A6/">
         运算符
       </a>
@@ -700,58 +752,6 @@ Math.floorMod(x, y)：求余
       
         <div>
           <a class='readmore' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/04%20%E8%BF%90%E7%AE%97%E7%AC%A6/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/05%20%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/">
-        输入输出
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        输入输出读取输入Scanner 类文件输入// 如果是 win 系统，使用双反斜杠，&quot;c:\\mydirectory\\myfile.txt&quot; ，每个 \ 需要额外的一个 \。
-Scanner scan = new Scanner(Paths.get(&quot;myfile.txt&quot;)，&quot;UTF-8&quot;);
-
-标准输入Scanner in =...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/01%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/">01基本设计</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/05%20%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/'>
             Read More
           </a>
         </div>
@@ -952,21 +952,39 @@ final 域必须显式指定初始值，赋值后，不能被重新赋值。
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/02%20%E5%AD%97%E7%AC%A6%E4%B8%B2/">
-        字符串
+      <a href="/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/01%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+        数据类型
       </a>
     </h2>
   
   <div class='md'>
     
       
-        String字符串String底层实现
-String被声明为final，因此它不可被继承。底层是char或byte类型的value数组，value数组也被声明为final，这意味着数组初始化之后就不能再引用其他数组。并且String内部没有改变value数组的办法，因此可以保障String不可变
+        数据类型
+数据类型分为基本类型和对象类型
 
-java 8 -char数组
-在java8中，String内部使用char数组存储数据。
+基本类型java中的基本类型有8种，其中4种整型、2种浮点型、char和boolean。还有void和reference类型
 
-p...
+1、java的基本类型值存储在内存栈上
+2、基本类型所占空间大小固定
+3、所有数值类型都有正负号
+
+整型
+
+
+类型
+包装类
+存储需求
+取值范围
+零值
+备注
+
+
+
+long
+Long
+8 字节 64 bits
+-2^63 ~...
       
     
   </div>
@@ -985,7 +1003,7 @@ p...
       </div>
       
         <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/02%20%E5%AD%97%E7%AC%A6%E4%B8%B2/'>
+          <a class='readmore' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/01%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/'>
             Read More
           </a>
         </div>
@@ -1357,7 +1375,7 @@ p...
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Fri Aug 27 2021 22:18:05 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Fri Aug 27 2021 22:19:44 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2021-08-27 日</div>
           
         </div>
