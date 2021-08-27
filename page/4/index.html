@@ -236,22 +236,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
             
               <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/blog/about/
-                  
-                  
-                  
-                    id="blogabout"
-                  >
-                  <i class='fas fa-info-circle fa-fw'></i>关于
-                </a>
-                
-              </li>
-            
-          
-          
-            
-            
-              <li>
                 <a class="menuitem flat-box header toggle-mode-btn">
                   <i class='fas fa-moon fa-fw'></i>darkmode
                 </a>
@@ -367,22 +351,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                     id="blogfriends"
                   >
                   <i class='fas fa-link fa-fw'></i>友链
-                </a>
-                
-              </li>
-            
-          
-            
-              
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover" href=/blog/about/
-                  
-                  
-                  
-                    id="blogabout"
-                  >
-                  <i class='fas fa-info-circle fa-fw'></i>关于
                 </a>
                 
               </li>
@@ -511,6 +479,59 @@ JUC其实就是java.util.concurrent下面的类包，专门用来多线程的开
   
     
     <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/05%20ArrayDeque/">
+        ArrayDeque
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        栈Stack已过时，队列LinkedList效率不高，栈和队列首选ArrayDeque。
+总体介绍Deque 接口ArrayDeque实现了Deque接口，Deque继承Queue实现了Stack相关方法。
+Deque的含义是“double ended queue”，即双端队列。既可当栈使用，也可当队列使用。
+Deque 与 Queue 相对应的接口
+
+
+Queue Method
+Deque...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/06%E9%9B%86%E5%90%88/">06集合</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/05%20ArrayDeque/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
       <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/04%20linkedList/">
         LinkedList
       </a>
@@ -562,22 +583,22 @@ private static class...
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/05%20ArrayDeque/">
-        ArrayDeque
+      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/01%20%E9%9B%86%E5%90%88%E6%8E%A5%E5%8F%A3/">
+        集合接口
       </a>
     </h2>
   
   <div class='md'>
     
       
-        栈Stack已过时，队列LinkedList效率不高，栈和队列首选ArrayDeque。
-总体介绍Deque 接口ArrayDeque实现了Deque接口，Deque继承Queue实现了Stack相关方法。
-Deque的含义是“double ended queue”，即双端队列。既可当栈使用，也可当队列使用。
-Deque 与 Queue 相对应的接口
-
-
-Queue Method
-Deque...
+        框架，是一个类的集。
+容器，是可以容纳其他 Java 对象的对象。
+JDK 1.2 开始，Java 集合框架（JCF）提供了通用的容器。
+JDK 1.5 开始，集合类是带有类型参数的泛型类。
+Java 容器里只能放对象，基本类型会自动装箱。
+集合中也是值传递。
+接口与实现接口
+java集合框架中为不同结合定义了大量的接口。集合中存在两个基本接口：Collection、Map ,其中Map接口...
       
     
   </div>
@@ -593,7 +614,7 @@ Deque...
       </div>
       
         <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/05%20ArrayDeque/'>
+          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/01%20%E9%9B%86%E5%90%88%E6%8E%A5%E5%8F%A3/'>
             Read More
           </a>
         </div>
@@ -711,108 +732,6 @@ TreeMap
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/06%20TreeMap%E3%80%81TreeSet/">
-        TreeMap、TreeSet
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        TreeSet仅对TreeMap做了一层包装，实现相同。TreeSet里面有一个TreeMap（适配器模式）。
-TreeMap和TreeSet根据对象的 compareTo 方法判断对象是否是同一个对象，若自定义了排序 Comparator，以自定义为准，顺序相同的只能存在一个。
-TreeMap总体介绍TreeMap实现了SortedMap接口，有序。非同步。
-底层通过红黑树实现，也就意味着...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/06%E9%9B%86%E5%90%88/">06集合</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/06%20TreeMap%E3%80%81TreeSet/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/01%20%E9%9B%86%E5%90%88%E6%8E%A5%E5%8F%A3/">
-        集合接口
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        框架，是一个类的集。
-容器，是可以容纳其他 Java 对象的对象。
-JDK 1.2 开始，Java 集合框架（JCF）提供了通用的容器。
-JDK 1.5 开始，集合类是带有类型参数的泛型类。
-Java 容器里只能放对象，基本类型会自动装箱。
-集合中也是值传递。
-接口与实现接口
-java集合框架中为不同结合定义了大量的接口。集合中存在两个基本接口：Collection、Map ,其中Map接口...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/06%E9%9B%86%E5%90%88/">06集合</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/01%20%E9%9B%86%E5%90%88%E6%8E%A5%E5%8F%A3/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
       <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/03%20ArrayList%E3%80%81Vector/">
         ArrayList、Vector
       </a>
@@ -861,22 +780,18 @@ ArrayList 底层通过动态数组实现，主要包含Object数组 elementData 
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/02%20%E6%96%AD%E8%A8%80/">
-        断言
+      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/06%20TreeMap%E3%80%81TreeSet/">
+        TreeMap、TreeSet
       </a>
     </h2>
   
   <div class='md'>
     
       
-        断言断言用在开发、测试期间。
-当代码发布时，这些插入的检测语句将会被自动地移走。
-表达形式assert 条件assert x &gt;= 0;
-
-assert 条件:表达式assert x &gt;= 0 : x;
-
-对条件进行检测，如果为 false，则抛出一个 AssertionError 异常。在第二种形式中，表达式传入异常作为一个消息字符串。
-启用或者禁用断言默认禁用，运行程序时用选...
+        TreeSet仅对TreeMap做了一层包装，实现相同。TreeSet里面有一个TreeMap（适配器模式）。
+TreeMap和TreeSet根据对象的 compareTo 方法判断对象是否是同一个对象，若自定义了排序 Comparator，以自定义为准，顺序相同的只能存在一个。
+TreeMap总体介绍TreeMap实现了SortedMap接口，有序。非同步。
+底层通过红黑树实现，也就意味着...
       
     
   </div>
@@ -887,12 +802,12 @@ assert 条件:表达式assert x &gt;= 0 : x;
         <time>2021-07-27</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/04%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/">04异常、断言、日志</a>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/06%E9%9B%86%E5%90%88/">06集合</a>
         
       </div>
       
         <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/02%20%E6%96%AD%E8%A8%80/'>
+          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/06%20TreeMap%E3%80%81TreeSet/'>
             Read More
           </a>
         </div>
@@ -969,23 +884,66 @@ Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/01%20%E5%BC%82%E5%B8%B8/">
-        异常
+      <a href="/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/02%20%E6%B3%9B%E5%9E%8B%E4%B8%8E%E5%BA%8F%E5%88%97%E5%8C%96/">
+        泛型与序列化
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      <p>java介绍</p>
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/05%E6%B3%9B%E5%9E%8B/">05泛型</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/02%20%E6%B3%9B%E5%9E%8B%E4%B8%8E%E5%BA%8F%E5%88%97%E5%8C%96/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/02%20%E6%96%AD%E8%A8%80/">
+        断言
       </a>
     </h2>
   
   <div class='md'>
     
       
-        异常异常分类
-Throwable
-Error
-表示 JVM 无法处理的错误，如 OutOfMemoryError, StackOverflowError。
+        断言断言用在开发、测试期间。
+当代码发布时，这些插入的检测语句将会被自动地移走。
+表达形式assert 条件assert x &gt;= 0;
 
+assert 条件:表达式assert x &gt;= 0 : x;
 
-Exception
-未检查异常（RuntimeException，运行时异常）
-程序出错导致的异常，例如 NullPointerException，IllegalArgumentException，ArrayIndexOutOfBou...
+对条件进行检测，如果为 false，则抛出一个 AssertionError 异常。在第二种形式中，表达式传入异常作为一个消息字符串。
+启用或者禁用断言默认禁用，运行程序时用选...
       
     
   </div>
@@ -1001,7 +959,7 @@ Exception
       </div>
       
         <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/01%20%E5%BC%82%E5%B8%B8/'>
+          <a class='readmore' href='/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/02%20%E6%96%AD%E8%A8%80/'>
             Read More
           </a>
         </div>
@@ -1371,8 +1329,8 @@ Exception
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Mon Aug 23 2021 22:42:48 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2021-08-23 日</div>
+            <div id="last-update" style="display: none;">Fri Aug 27 2021 15:48:58 GMT+0800 (中国标准时间)</div>
+            <div id="last-update-show">2021-08-27 日</div>
           
         </div>
         
@@ -1422,7 +1380,7 @@ Exception
           try {
             document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2021-08-23 日';
+            document.getElementById('last-update-show').innerHTML = '2021-08-27 日';
           }
         </script>
         
