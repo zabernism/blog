@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/5.0.0.alpha.1'>
-  <meta name="generator" content="Hexo 5.4.0">
+  <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1'>
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="https://zabernism.github.io/blog/2021/07/27/面试题整理/p7/"/>
+    
+  
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
   <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
@@ -15,1623 +15,47 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="HandheldFriendly" content="True" >
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-  <meta content="灵魂有香气a" name="application-name">
-  <meta content="灵魂有香气a" name="apple-mobile-web-app-title">
-  <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
-  <meta content="telephone=no" name="format-detection">
-  <link rel="preload" href="/blog/css/style.css?time=1630065716960" as="style">
-  <!-- 页面元数据 -->
-  <title>JAVA - 灵魂有香气a</title>
-  <meta name="keywords" content="java框架面试题,null">
-  <meta name="description" content="一、ES篇 Elasticsearch可以实现秒级的搜索，cluster是一种分布式的部署，极易扩展(scale )这样很容易使它处理PB级的数据库容量。最重要的是Elasticsearch是它搜索的结果可以按照分数进行排序，它能提供我们最相关的搜索结果（relevance) 。  1、概述特点 安装方便：没有其他依赖，下载后安装非常方便；只用修改几个参数就可以搭建起来一个集群  JSON：输入&#x2F;">
-<meta property="og:type" content="article">
-<meta property="og:title" content="JAVA">
-<meta property="og:url" content="https://zabernism.github.io/blog/2021/07/27/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/P7/">
-<meta property="og:site_name" content="灵魂有香气a">
-<meta property="og:description" content="一、ES篇 Elasticsearch可以实现秒级的搜索，cluster是一种分布式的部署，极易扩展(scale )这样很容易使它处理PB级的数据库容量。最重要的是Elasticsearch是它搜索的结果可以按照分数进行排序，它能提供我们最相关的搜索结果（relevance) 。  1、概述特点 安装方便：没有其他依赖，下载后安装非常方便；只用修改几个参数就可以搭建起来一个集群  JSON：输入&#x2F;">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2021-07-27T09:52:15.559Z">
-<meta property="article:modified_time" content="2021-07-31T09:05:25.162Z">
-<meta property="article:author" content="张帅">
-<meta property="article:tag" content="java框架面试题">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png">
-  <!-- feed -->
-  <!-- import meta -->
-  <!-- link -->
-    <link rel="shortcut icon" type='image/x-icon' href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicon.ico">
-  <!-- import link -->
-  <style>
-    /* 首屏样式 */
-    #safearea {
-  display: none;
-}
-/* 
-  * Workaround for Chrome bug, part 1
-  * Chunk rendering for all but the first article.
-  * /layout/_partial/scripts/content-visibility-scroll-fix.ejs
-*/
-.post-story + .post-story,
-article + article,
-.post-wrapper + .post-wrapper {
-  content-visibility: auto;
-  contain-intrinsic-size: 10px 500px;
-}
-:root {
-  --color-site-body: #f4f4f4;
-  --color-site-bg: #f4f4f4;
-  --color-site-inner: #fff;
-  --color-site-footer: #666;
-  --color-card: #fff;
-  --color-text: #444;
-  --color-block: #f6f6f6;
-  --color-inlinecode: #c74f00;
-  --color-codeblock: #fff7ea;
-  --color-h1: #3a3a3a;
-  --color-h2: #3a3a3a;
-  --color-h3: #333;
-  --color-h4: #444;
-  --color-h5: #555;
-  --color-h6: #666;
-  --color-p: #444;
-  --color-list: #666;
-  --color-list-hl: #36ac91;
-  --color-meta: #888;
-  --color-read-bkg: #e0d8c8;
-  --color-read-post: #f8f1e2;
-}
-* {
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  outline: none;
-  margin: 0;
-  padding: 0;
-}
-html {
-  color: var(--color-text);
-  width: 100%;
-  height: 100%;
-  font-family: UbuntuMono, "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Menlo, Monaco, monospace, sans-serif;
-  font-size: 16px;
-}
-html >::-webkit-scrollbar {
-  height: 4px;
-  width: 4px;
-}
-html >::-webkit-scrollbar-track-piece {
-  background: transparent;
-}
-html >::-webkit-scrollbar-thumb {
-  background: #44d7b6;
-  cursor: pointer;
-  border-radius: 2px;
-  -webkit-border-radius: 2px;
-}
-html >::-webkit-scrollbar-thumb:hover {
-  background: #ff5722;
-}
-body {
-  background-color: var(--color-site-body);
-  text-rendering: optimizelegibility;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-  line-height: 1.6;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-}
-body.modal-active {
-  overflow: hidden;
-}
-@media screen and (max-width: 680px) {
-  body.modal-active {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-}
-a {
-  color: #1b79c4;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.28s ease;
-  -webkit-transition: all 0.28s ease;
-  -khtml-transition: all 0.28s ease;
-  -moz-transition: all 0.28s ease;
-  -o-transition: all 0.28s ease;
-  -ms-transition: all 0.28s ease;
-}
-a:hover {
-  color: #ff5722;
-}
-a:active,
-a:hover {
-  outline: 0;
-}
-ul,
-ol {
-  padding-left: 0;
-}
-ul li,
-ol li {
-  list-style: none;
-}
-header {
-  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-  display: block;
-}
-img {
-  border: 0;
-  background: none;
-  max-width: 100%;
-}
-svg:not(:root) {
-  overflow: hidden;
-}
-hr {
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  height: 0;
-  border: 0;
-  border-radius: 1px;
-  -webkit-border-radius: 1px;
-  border-bottom: 1px solid rgba(68,68,68,0.1);
-}
-button,
-input {
-  color: inherit;
-  font: inherit;
-  margin: 0;
-}
-button {
-  overflow: visible;
-  text-transform: none;
-  -webkit-appearance: button;
-  cursor: pointer;
-}
-@supports (backdrop-filter: blur(20px)) {
-  .blur {
-    background: rgba(255,255,255,0.9) !important;
-    backdrop-filter: saturate(200%) blur(20px);
-  }
-}
-.shadow {
-  box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
-  -webkit-box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
-}
-.shadow.floatable {
-  transition: all 0.28s ease;
-  -webkit-transition: all 0.28s ease;
-  -khtml-transition: all 0.28s ease;
-  -moz-transition: all 0.28s ease;
-  -o-transition: all 0.28s ease;
-  -ms-transition: all 0.28s ease;
-}
-.shadow.floatable:hover {
-  box-shadow: 0 2px 4px 0px rgba(0,0,0,0.1), 0 4px 8px 0px rgba(0,0,0,0.1), 0 8px 16px 0px rgba(0,0,0,0.1);
-  -webkit-box-shadow: 0 2px 4px 0px rgba(0,0,0,0.1), 0 4px 8px 0px rgba(0,0,0,0.1), 0 8px 16px 0px rgba(0,0,0,0.1);
-}
-#l_cover {
-  min-height: 64px;
-}
-.cover-wrapper {
-  top: 0;
-  left: 0;
-  max-width: 100%;
-  height: 100vh;
-  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-  display: -ms-flexbox /* TWEENER - IE 10 */;
-  display: -webkit-flex /* NEW - Chrome */;
-  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
-  display: flex;
-  flex-wrap: nowrap;
-  -webkit-flex-wrap: nowrap;
-  -khtml-flex-wrap: nowrap;
-  -moz-flex-wrap: nowrap;
-  -o-flex-wrap: nowrap;
-  -ms-flex-wrap: nowrap;
-  -webkit-box-direction: normal;
-  -moz-box-direction: normal;
-  -webkit-box-orient: vertical;
-  -moz-box-orient: vertical;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  align-items: center;
-  align-self: center;
-  align-content: center;
-  color: var(--color-site-inner);
-  padding: 0 16px;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  position: relative;
-  overflow: hidden;
-  margin-bottom: -100px;
-}
-.cover-wrapper .cover-body {
-  z-index: 1;
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-.cover-wrapper#full {
-  height: calc(100vh + 100px);
-  padding-bottom: 100px;
-}
-.cover-wrapper#half {
-  max-height: 640px;
-  min-height: 400px;
-  height: calc(36vh - 64px + 200px);
-}
-.cover-wrapper #scroll-down {
-  width: 100%;
-  height: 64px;
-  position: absolute;
-  bottom: 100px;
-  text-align: center;
-  cursor: pointer;
-}
-.cover-wrapper #scroll-down .scroll-down-effects {
-  color: #fff;
-  font-size: 24px;
-  line-height: 64px;
-  position: absolute;
-  width: 24px;
-  left: calc(50% - 12px);
-  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-  animation: scroll-down-effect 1.5s infinite;
-  -webkit-animation: scroll-down-effect 1.5s infinite;
-  -khtml-animation: scroll-down-effect 1.5s infinite;
-  -moz-animation: scroll-down-effect 1.5s infinite;
-  -o-animation: scroll-down-effect 1.5s infinite;
-  -ms-animation: scroll-down-effect 1.5s infinite;
-}
-@-moz-keyframes scroll-down-effect {
-  0% {
-    top: 0;
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
-  50% {
-    top: -16px;
-    opacity: 0.4;
-    -webkit-opacity: 0.4;
-    -moz-opacity: 0.4;
-  }
-  100% {
-    top: 0;
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
-}
-@-webkit-keyframes scroll-down-effect {
-  0% {
-    top: 0;
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
-  50% {
-    top: -16px;
-    opacity: 0.4;
-    -webkit-opacity: 0.4;
-    -moz-opacity: 0.4;
-  }
-  100% {
-    top: 0;
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
-}
-@-o-keyframes scroll-down-effect {
-  0% {
-    top: 0;
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
-  50% {
-    top: -16px;
-    opacity: 0.4;
-    -webkit-opacity: 0.4;
-    -moz-opacity: 0.4;
-  }
-  100% {
-    top: 0;
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
-}
-@keyframes scroll-down-effect {
-  0% {
-    top: 0;
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
-  50% {
-    top: -16px;
-    opacity: 0.4;
-    -webkit-opacity: 0.4;
-    -moz-opacity: 0.4;
-  }
-  100% {
-    top: 0;
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
-}
-.cover-wrapper .cover-body {
-  margin-top: 64px;
-  margin-bottom: 100px;
-}
-.cover-wrapper .cover-body,
-.cover-wrapper .cover-body .top,
-.cover-wrapper .cover-body .bottom {
-  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-  display: -ms-flexbox /* TWEENER - IE 10 */;
-  display: -webkit-flex /* NEW - Chrome */;
-  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
-  display: flex;
-  -webkit-box-direction: normal;
-  -moz-box-direction: normal;
-  -webkit-box-orient: vertical;
-  -moz-box-orient: vertical;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  -webkit-justify-content: center;
-  -khtml-justify-content: center;
-  -moz-justify-content: center;
-  -o-justify-content: center;
-  -ms-justify-content: center;
-  max-width: 100%;
-}
-.cover-wrapper .cover-body .bottom {
-  margin-top: 32px;
-}
-.cover-wrapper .cover-body .title {
-  font-family: "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
-  font-size: 3.125rem;
-  line-height: 1.2;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-}
-.cover-wrapper .cover-body .subtitle {
-  font-size: 20px;
-}
-.cover-wrapper .cover-body .logo {
-  max-height: 120px;
-  max-width: calc(100% - 4 * 16px);
-}
-@media screen and (min-height: 1024px) {
-  .cover-wrapper .cover-body .title {
-    font-size: 3rem;
-  }
-  .cover-wrapper .cover-body .subtitle {
-    font-size: 1.05rem;
-  }
-  .cover-wrapper .cover-body .logo {
-    max-height: 150px;
-  }
-}
-.cover-wrapper .cover-body .m_search {
-  position: relative;
-  max-width: calc(100% - 16px);
-  width: 320px;
-  vertical-align: middle;
-}
-.cover-wrapper .cover-body .m_search .form {
-  position: relative;
-  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-  display: block;
-  width: 100%;
-}
-.cover-wrapper .cover-body .m_search .icon,
-.cover-wrapper .cover-body .m_search .input {
-  transition: all 0.28s ease;
-  -webkit-transition: all 0.28s ease;
-  -khtml-transition: all 0.28s ease;
-  -moz-transition: all 0.28s ease;
-  -o-transition: all 0.28s ease;
-  -ms-transition: all 0.28s ease;
-}
-.cover-wrapper .cover-body .m_search .icon {
-  position: absolute;
-  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-  display: block;
-  line-height: 2.5rem;
-  width: 32px;
-  top: 0;
-  left: 5px;
-  color: rgba(68,68,68,0.75);
-}
-.cover-wrapper .cover-body .m_search .input {
-  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-  display: block;
-  height: 2.5rem;
-  width: 100%;
-  box-shadow: none;
-  -webkit-box-shadow: none;
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  font-size: 0.875rem;
-  -webkit-appearance: none;
-  padding-left: 36px;
-  border-radius: 1.4rem;
-  -webkit-border-radius: 1.4rem;
-  background: rgba(255,255,255,0.6);
-  backdrop-filter: blur(10px);
-  border: none;
-  color: var(--color-text);
-}
-@media screen and (max-width: 500px) {
-  .cover-wrapper .cover-body .m_search .input {
-    padding-left: 36px;
-  }
-}
-.cover-wrapper .cover-body .m_search .input:hover {
-  background: rgba(255,255,255,0.8);
-}
-.cover-wrapper .cover-body .m_search .input:focus {
-  background: #fff;
-}
-.cover-wrapper .list-h {
-  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-  display: -ms-flexbox /* TWEENER - IE 10 */;
-  display: -webkit-flex /* NEW - Chrome */;
-  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
-  display: flex;
-  -webkit-box-direction: normal;
-  -moz-box-direction: normal;
-  -webkit-box-orient: horizontal;
-  -moz-box-orient: horizontal;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  flex-wrap: wrap;
-  -webkit-flex-wrap: wrap;
-  -khtml-flex-wrap: wrap;
-  -moz-flex-wrap: wrap;
-  -o-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  align-items: stretch;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-}
-.cover-wrapper .list-h a {
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
-  -webkit-flex: 1 0;
-  -ms-flex: 1 0;
-  flex: 1 0;
-  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-  display: -ms-flexbox /* TWEENER - IE 10 */;
-  display: -webkit-flex /* NEW - Chrome */;
-  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
-  display: flex;
-  font-weight: 600;
-}
-.cover-wrapper .list-h a img {
-  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-  display: block;
-  border-radius: 2px;
-  -webkit-border-radius: 2px;
-  margin: 4px;
-  min-width: 40px;
-  max-width: 44px;
-}
-@media screen and (max-width: 768px) {
-  .cover-wrapper .list-h a img {
-    min-width: 36px;
-    max-width: 40px;
-  }
-}
-@media screen and (max-width: 500px) {
-  .cover-wrapper .list-h a img {
-    margin: 2px 4px;
-    min-width: 32px;
-    max-width: 36px;
-  }
-}
-@media screen and (max-width: 375px) {
-  .cover-wrapper .list-h a img {
-    min-width: 28px;
-    max-width: 32px;
-  }
-}
-.cover-wrapper {
-  max-width: 100%;
-}
-.cover-wrapper.search .bottom .menu {
-  margin-top: 16px;
-}
-.cover-wrapper.search .bottom .menu .list-h a {
-  white-space: nowrap;
-  -webkit-box-direction: normal;
-  -moz-box-direction: normal;
-  -webkit-box-orient: horizontal;
-  -moz-box-orient: horizontal;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  align-items: baseline;
-  padding: 2px;
-  margin: 4px;
-  color: var(--color-site-inner);
-  opacity: 0.75;
-  -webkit-opacity: 0.75;
-  -moz-opacity: 0.75;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.05);
-  border-bottom: 2px solid transparent;
-}
-.cover-wrapper.search .bottom .menu .list-h a i {
-  margin-right: 4px;
-}
-.cover-wrapper.search .bottom .menu .list-h a p {
-  font-size: 0.9375rem;
-}
-.cover-wrapper.search .bottom .menu .list-h a:hover,
-.cover-wrapper.search .bottom .menu .list-h a.active,
-.cover-wrapper.search .bottom .menu .list-h a:active {
-  opacity: 1;
-  -webkit-opacity: 1;
-  -moz-opacity: 1;
-  border-bottom: 2px solid var(--color-site-inner);
-}
-.cover-wrapper.dock .menu,
-.cover-wrapper.featured .menu,
-.cover-wrapper.focus .menu {
-  border-radius: 6px;
-  -webkit-border-radius: 6px;
-}
-.cover-wrapper.dock .menu .list-h a,
-.cover-wrapper.featured .menu .list-h a,
-.cover-wrapper.focus .menu .list-h a {
-  -webkit-box-direction: normal;
-  -moz-box-direction: normal;
-  -webkit-box-orient: vertical;
-  -moz-box-orient: vertical;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  align-items: center;
-  padding: 12px;
-  line-height: 24px;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-bottom: none;
-  text-align: center;
-  align-content: flex-end;
-  color: rgba(68,68,68,0.7);
-  font-size: 1.5rem;
-}
-@media screen and (max-width: 500px) {
-  .cover-wrapper.dock .menu .list-h a,
-  .cover-wrapper.featured .menu .list-h a,
-  .cover-wrapper.focus .menu .list-h a {
-    padding: 12px 8px;
-  }
-}
-.cover-wrapper.dock .menu .list-h a i,
-.cover-wrapper.featured .menu .list-h a i,
-.cover-wrapper.focus .menu .list-h a i {
-  margin: 8px;
-}
-.cover-wrapper.dock .menu .list-h a p,
-.cover-wrapper.featured .menu .list-h a p,
-.cover-wrapper.focus .menu .list-h a p {
-  font-size: 0.875rem;
-}
-.cover-wrapper.dock .menu .list-h a.active,
-.cover-wrapper.featured .menu .list-h a.active,
-.cover-wrapper.focus .menu .list-h a.active {
-  background: var(--color-card);
-  backdrop-filter: none;
-}
-.cover-wrapper.dock .menu .list-h a.active i,
-.cover-wrapper.featured .menu .list-h a.active i,
-.cover-wrapper.focus .menu .list-h a.active i,
-.cover-wrapper.dock .menu .list-h a.active i+p,
-.cover-wrapper.featured .menu .list-h a.active i+p,
-.cover-wrapper.focus .menu .list-h a.active i+p {
-  color: #44d7b6;
-}
-.cover-wrapper.dock .menu .list-h a.active img+p,
-.cover-wrapper.featured .menu .list-h a.active img+p,
-.cover-wrapper.focus .menu .list-h a.active img+p {
-  color: var(--color-text);
-}
-.cover-wrapper.dock .menu .list-h a:hover,
-.cover-wrapper.featured .menu .list-h a:hover,
-.cover-wrapper.focus .menu .list-h a:hover {
-  background: var(--color-card);
-}
-.cover-wrapper.dock .top {
-  margin-bottom: 48px;
-}
-.cover-wrapper.dock .menu {
-  background: rgba(255,255,255,0.5);
-  position: absolute;
-  bottom: 0;
-  max-width: 100%;
-}
-.cover-wrapper.dock .menu .list-h {
-  flex-wrap: nowrap;
-  -webkit-flex-wrap: nowrap;
-  -khtml-flex-wrap: nowrap;
-  -moz-flex-wrap: nowrap;
-  -o-flex-wrap: nowrap;
-  -ms-flex-wrap: nowrap;
-  margin: 4px;
-}
-.cover-wrapper.dock .menu .list-h a+a {
-  margin-left: 4px;
-}
-@media screen and (max-width: 500px) {
-  .cover-wrapper.dock .menu .list-h {
-    overflow-x: scroll;
-  }
-  .cover-wrapper.dock .menu .list-h::-webkit-scrollbar {
-    height: 0;
-    width: 0;
-  }
-  .cover-wrapper.dock .menu .list-h::-webkit-scrollbar-track-piece {
-    background: transparent;
-  }
-  .cover-wrapper.dock .menu .list-h::-webkit-scrollbar-thumb {
-    background: #44d7b6;
-    cursor: pointer;
-    border-radius: 0;
-    -webkit-border-radius: 0;
-  }
-  .cover-wrapper.dock .menu .list-h::-webkit-scrollbar-thumb:hover {
-    background: #ff5722;
-  }
-}
-@supports (backdrop-filter: blur(20px)) {
-  .cover-wrapper.dock .menu {
-    background: rgba(255,255,255,0.5);
-    backdrop-filter: saturate(200%) blur(20px);
-  }
-}
-.cover-wrapper #parallax-window {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: transparent;
-}
-.parallax-mirror {
-  animation-delay: 0s;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease-out;
-  animation-name: fadeIn;
-}
-@-moz-keyframes fadeIn {
-  0% {
-    opacity: 0;
-    -webkit-opacity: 0;
-    -moz-opacity: 0;
-    filter: blur(12px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
-}
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-    -webkit-opacity: 0;
-    -moz-opacity: 0;
-    filter: blur(12px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
-}
-@-o-keyframes fadeIn {
-  0% {
-    opacity: 0;
-    -webkit-opacity: 0;
-    -moz-opacity: 0;
-    filter: blur(12px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
-}
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    -webkit-opacity: 0;
-    -moz-opacity: 0;
-    filter: blur(12px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
-}
-.cover-wrapper .menu img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1;
-}
-@font-face {
-  font-family: 'UbuntuMono';
-  src: url("https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/UbuntuMono/UbuntuMono-Regular.ttf");
-  font-weight: 'normal';
-  font-style: 'normal';
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Varela Round';
-  src: url("https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/VarelaRound/VarelaRound-Regular.ttf");
-  font-weight: 'normal';
-  font-style: 'normal';
-  font-display: swap;
-}
-.l_header {
-  position: fixed;
-  z-index: 1000;
-  top: 0;
-  width: 100%;
-  height: 64px;
-  background: var(--color-card);
-  box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
-  -webkit-box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
-}
-.l_header.auto {
-  transition: opacity 0.4s ease;
-  -webkit-transition: opacity 0.4s ease;
-  -khtml-transition: opacity 0.4s ease;
-  -moz-transition: opacity 0.4s ease;
-  -o-transition: opacity 0.4s ease;
-  -ms-transition: opacity 0.4s ease;
-  visibility: hidden;
-}
-.l_header.auto.show {
-  opacity: 1 !important;
-  -webkit-opacity: 1 !important;
-  -moz-opacity: 1 !important;
-  visibility: visible;
-}
-.l_header .container {
-  margin-left: 16px;
-  margin-right: 16px;
-}
-.l_header #wrapper {
-  height: 100%;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-}
-.l_header #wrapper .nav-main,
-.l_header #wrapper .nav-sub {
-  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-  display: -ms-flexbox /* TWEENER - IE 10 */;
-  display: -webkit-flex /* NEW - Chrome */;
-  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
-  display: flex;
-  flex-wrap: nowrap;
-  -webkit-flex-wrap: nowrap;
-  -khtml-flex-wrap: nowrap;
-  -moz-flex-wrap: nowrap;
-  -o-flex-wrap: nowrap;
-  -ms-flex-wrap: nowrap;
-  justify-content: space-between;
-  -webkit-justify-content: space-between;
-  -khtml-justify-content: space-between;
-  -moz-justify-content: space-between;
-  -o-justify-content: space-between;
-  -ms-justify-content: space-between;
-  align-items: center;
-}
-.l_header #wrapper .nav-main {
-  transition: all 0.28s ease;
-  -webkit-transition: all 0.28s ease;
-  -khtml-transition: all 0.28s ease;
-  -moz-transition: all 0.28s ease;
-  -o-transition: all 0.28s ease;
-  -ms-transition: all 0.28s ease;
-}
-.l_header #wrapper.sub .nav-main {
-  transform: translateY(-64px);
-  -webkit-transform: translateY(-64px);
-  -khtml-transform: translateY(-64px);
-  -moz-transform: translateY(-64px);
-  -o-transform: translateY(-64px);
-  -ms-transform: translateY(-64px);
-}
-.l_header #wrapper .nav-sub {
-  transition: all 0.28s ease;
-  -webkit-transition: all 0.28s ease;
-  -khtml-transition: all 0.28s ease;
-  -moz-transition: all 0.28s ease;
-  -o-transition: all 0.28s ease;
-  -ms-transition: all 0.28s ease;
-  opacity: 0;
-  -webkit-opacity: 0;
-  -moz-opacity: 0;
-  height: 64px;
-  width: calc(100% - 2 * 16px);
-  position: absolute;
-}
-.l_header #wrapper .nav-sub ::-webkit-scrollbar {
-  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-  display: none;
-}
-@media screen and (min-width: 2048px) {
-  .l_header #wrapper .nav-sub {
-    max-width: 55vw;
-    margin: auto;
-  }
-}
-.l_header #wrapper.sub .nav-sub {
-  opacity: 1;
-  -webkit-opacity: 1;
-  -moz-opacity: 1;
-}
-.l_header #wrapper .title {
-  position: relative;
-  color: var(--color-text);
-  padding-left: 24px;
-  max-height: 64px;
-}
-.l_header #wrapper .nav-main .title {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  flex-shrink: 0;
-  line-height: 64px;
-  padding: 0 24px;
-  font-size: 1.25rem;
-  font-family: "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
-}
-.l_header #wrapper .nav-main .title img {
-  height: 64px;
-}
-.l_header .nav-sub {
-  max-width: 1080px;
-  margin: auto;
-}
-.l_header .nav-sub .title {
-  font-weight: bold;
-  font-family: UbuntuMono, "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Menlo, Monaco, monospace, sans-serif;
-  line-height: 1.2;
-  max-height: 64px;
-  white-space: normal;
-  flex-shrink: 1;
-}
-.l_header .switcher {
-  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-  display: none;
-  line-height: 64px;
-  align-items: center;
-}
-.l_header .switcher .s-toc {
-  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-  display: none;
-}
-@media screen and (max-width: 768px) {
-  .l_header .switcher .s-toc {
-    display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-    display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-    display: -ms-flexbox /* TWEENER - IE 10 */;
-    display: -webkit-flex /* NEW - Chrome */;
-    display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
-    display: flex;
-  }
-}
-.l_header .switcher >li {
-  height: 48px;
-  transition: all 0.28s ease;
-  -webkit-transition: all 0.28s ease;
-  -khtml-transition: all 0.28s ease;
-  -moz-transition: all 0.28s ease;
-  -o-transition: all 0.28s ease;
-  -ms-transition: all 0.28s ease;
-  margin: 2px;
-}
-@media screen and (max-width: 500px) {
-  .l_header .switcher >li {
-    margin: 0 1px;
-    height: 48px;
-  }
-}
-.l_header .switcher >li >a {
-  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-  display: -ms-flexbox /* TWEENER - IE 10 */;
-  display: -webkit-flex /* NEW - Chrome */;
-  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
-  display: flex;
-  justify-content: center;
-  -webkit-justify-content: center;
-  -khtml-justify-content: center;
-  -moz-justify-content: center;
-  -o-justify-content: center;
-  -ms-justify-content: center;
-  align-items: center;
-  width: 48px;
-  height: 48px;
-  padding: 0.85em 1.1em;
-  border-radius: 100px;
-  -webkit-border-radius: 100px;
-  border: none;
-  transition: all 0.28s ease;
-  -webkit-transition: all 0.28s ease;
-  -khtml-transition: all 0.28s ease;
-  -moz-transition: all 0.28s ease;
-  -o-transition: all 0.28s ease;
-  -ms-transition: all 0.28s ease;
-  color: #44d7b6;
-}
-.l_header .switcher >li >a:hover {
-  border: none;
-}
-.l_header .switcher >li >a.active,
-.l_header .switcher >li >a:active {
-  border: none;
-  background: var(--color-site-bg);
-}
-@media screen and (max-width: 500px) {
-  .l_header .switcher >li >a {
-    width: 36px;
-    height: 48px;
-  }
-}
-.l_header .nav-sub .switcher {
-  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-  display: -ms-flexbox /* TWEENER - IE 10 */;
-  display: -webkit-flex /* NEW - Chrome */;
-  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
-  display: flex;
-}
-.l_header .m_search {
-  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-  display: -ms-flexbox /* TWEENER - IE 10 */;
-  display: -webkit-flex /* NEW - Chrome */;
-  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
-  display: flex;
-  height: 64px;
-  width: 240px;
-  transition: all 0.28s ease;
-  -webkit-transition: all 0.28s ease;
-  -khtml-transition: all 0.28s ease;
-  -moz-transition: all 0.28s ease;
-  -o-transition: all 0.28s ease;
-  -ms-transition: all 0.28s ease;
-}
-@media screen and (max-width: 1024px) {
-  .l_header .m_search {
-    width: 44px;
-    min-width: 44px;
-  }
-  .l_header .m_search input::placeholder {
-    opacity: 0;
-    -webkit-opacity: 0;
-    -moz-opacity: 0;
-  }
-  .l_header .m_search:hover {
-    width: 240px;
-  }
-  .l_header .m_search:hover input::placeholder {
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
-}
-@media screen and (min-width: 500px) {
-  .l_header .m_search:hover .input {
-    width: 100%;
-  }
-  .l_header .m_search:hover .input::placeholder {
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
-}
-@media screen and (max-width: 500px) {
-  .l_header .m_search {
-    min-width: 0;
-  }
-  .l_header .m_search input::placeholder {
-    opacity: 1;
-    -webkit-opacity: 1;
-    -moz-opacity: 1;
-  }
-}
-.l_header .m_search .form {
-  position: relative;
-  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-  display: -ms-flexbox /* TWEENER - IE 10 */;
-  display: -webkit-flex /* NEW - Chrome */;
-  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
-  display: flex;
-  width: 100%;
-  align-items: center;
-}
-.l_header .m_search .icon {
-  position: absolute;
-  width: 36px;
-  left: 5px;
-  color: var(--color-meta);
-}
-@media screen and (max-width: 500px) {
-  .l_header .m_search .icon {
-    display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-    display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-    display: none;
-  }
-}
-.l_header .m_search .input {
-  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-  display: block;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  line-height: 1.3;
-  width: 100%;
-  color: var(--color-text);
-  background: #fafafa;
-  box-shadow: none;
-  -webkit-box-shadow: none;
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  padding-left: 40px;
-  font-size: 0.875rem;
-  border-radius: 8px;
-  -webkit-border-radius: 8px;
-  border: none;
-  transition: all 0.28s ease;
-  -webkit-transition: all 0.28s ease;
-  -khtml-transition: all 0.28s ease;
-  -moz-transition: all 0.28s ease;
-  -o-transition: all 0.28s ease;
-  -ms-transition: all 0.28s ease;
-}
-@media screen and (min-width: 500px) {
-  .l_header .m_search .input:focus {
-    box-shadow: 0 4px 8px 0px rgba(0,0,0,0.1);
-    -webkit-box-shadow: 0 4px 8px 0px rgba(0,0,0,0.1);
-  }
-}
-@media screen and (max-width: 500px) {
-  .l_header .m_search .input {
-    background: var(--color-block);
-    padding-left: 8px;
-    border: none;
-  }
-  .l_header .m_search .input:hover,
-  .l_header .m_search .input:focus {
-    border: none;
-  }
-}
-@media (max-width: 500px) {
-  .l_header .m_search {
-    left: 0;
-    width: 0;
-    overflow: hidden;
-    position: absolute;
-    background: #fff;
-    transition: all 0.28s ease;
-    -webkit-transition: all 0.28s ease;
-    -khtml-transition: all 0.28s ease;
-    -moz-transition: all 0.28s ease;
-    -o-transition: all 0.28s ease;
-    -ms-transition: all 0.28s ease;
-  }
-  .l_header .m_search .input {
-    border-radius: 32px;
-    -webkit-border-radius: 32px;
-    margin-left: 16px;
-    padding-left: 16px;
-  }
-  .l_header.z_search-open .m_search {
-    width: 100%;
-  }
-  .l_header.z_search-open .m_search .input {
-    width: calc(100% - 120px);
-  }
-}
-ul.m-pc >li>a {
-  color: inherit;
-  border-bottom: 2px solid transparent;
-}
-ul.m-pc >li>a:active,
-ul.m-pc >li>a.active {
-  border-bottom: 2px solid #44d7b6;
-}
-ul.m-pc li:hover >ul.list-v,
-ul.list-v li:hover >ul.list-v {
-  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-  display: block;
-}
-ul.nav-list-h {
-  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-  display: -ms-flexbox /* TWEENER - IE 10 */;
-  display: -webkit-flex /* NEW - Chrome */;
-  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
-  display: flex;
-  align-items: stretch;
-}
-ul.nav-list-h>li {
-  position: relative;
-  justify-content: center;
-  -webkit-justify-content: center;
-  -khtml-justify-content: center;
-  -moz-justify-content: center;
-  -o-justify-content: center;
-  -ms-justify-content: center;
-  height: 100%;
-  line-height: 2.4;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-}
-ul.nav-list-h>li >a {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 600;
-}
-ul.list-v {
-  z-index: 1;
-  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-  display: none;
-  position: absolute;
-  background: var(--color-card);
-  box-shadow: 0 2px 4px 0px rgba(0,0,0,0.08), 0 4px 8px 0px rgba(0,0,0,0.08), 0 8px 16px 0px rgba(0,0,0,0.08);
-  -webkit-box-shadow: 0 2px 4px 0px rgba(0,0,0,0.08), 0 4px 8px 0px rgba(0,0,0,0.08), 0 8px 16px 0px rgba(0,0,0,0.08);
-  margin-top: -6px;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  padding: 8px 0;
-}
-ul.list-v.show {
-  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-  display: block;
-}
-ul.list-v hr {
-  margin-top: 8px;
-  margin-bottom: 8px;
-}
-ul.list-v >li {
-  white-space: nowrap;
-  word-break: keep-all;
-}
-ul.list-v >li.header {
-  font-size: 0.78125rem;
-  font-weight: bold;
-  line-height: 2em;
-  color: var(--color-meta);
-  margin: 8px 16px 4px;
-}
-ul.list-v >li.header i {
-  margin-right: 8px;
-}
-ul.list-v >li ul {
-  margin-left: 0;
-  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-  display: none;
-  margin-top: -40px;
-}
-ul.list-v .aplayer-container {
-  min-height: 64px;
-  padding: 6px 16px;
-}
-ul.list-v >li>a {
-  transition: all 0.28s ease;
-  -webkit-transition: all 0.28s ease;
-  -khtml-transition: all 0.28s ease;
-  -moz-transition: all 0.28s ease;
-  -o-transition: all 0.28s ease;
-  -ms-transition: all 0.28s ease;
-  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-  display: block;
-  color: var(--color-list);
-  font-size: 0.875rem;
-  font-weight: bold;
-  line-height: 36px;
-  padding: 0 20px 0 16px;
-  text-overflow: ellipsis;
-  margin: 0 4px;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-}
-@media screen and (max-width: 1024px) {
-  ul.list-v >li>a {
-    line-height: 40px;
-  }
-}
-ul.list-v >li>a >i {
-  margin-right: 8px;
-}
-ul.list-v >li>a:active,
-ul.list-v >li>a.active {
-  color: var(--color-list-hl);
-}
-ul.list-v >li>a:hover {
-  color: var(--color-list-hl);
-  background: var(--color-site-bg);
-}
-.l_header .menu >ul>li>a {
-  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-  display: block;
-  padding: 0 8px;
-}
-.l_header .menu >ul>li>a >i {
-  margin-right: 4px;
-}
-.l_header ul.nav-list-h>li {
-  color: var(--color-list);
-  line-height: 64px;
-}
-.l_header ul.nav-list-h>li >a {
-  max-height: 64px;
-  overflow: hidden;
-  color: inherit;
-}
-.l_header ul.nav-list-h>li >a:active,
-.l_header ul.nav-list-h>li >a.active {
-  color: #44d7b6;
-}
-.l_header ul.nav-list-h>li:hover>a {
-  color: var(--color-list-hl);
-}
-.l_header ul.nav-list-h>li i.music {
-  animation: rotate-effect 1.5s linear infinite;
-  -webkit-animation: rotate-effect 1.5s linear infinite;
-  -khtml-animation: rotate-effect 1.5s linear infinite;
-  -moz-animation: rotate-effect 1.5s linear infinite;
-  -o-animation: rotate-effect 1.5s linear infinite;
-  -ms-animation: rotate-effect 1.5s linear infinite;
-}
-@-moz-keyframes rotate-effect {
-  0% {
-    transform: rotate(0);
-    -webkit-transform: rotate(0);
-    -khtml-transform: rotate(0);
-    -moz-transform: rotate(0);
-    -o-transform: rotate(0);
-    -ms-transform: rotate(0);
-  }
-  25% {
-    transform: rotate(90deg);
-    -webkit-transform: rotate(90deg);
-    -khtml-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-  }
-  50% {
-    transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    -khtml-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-  }
-  75% {
-    transform: rotate(270deg);
-    -webkit-transform: rotate(270deg);
-    -khtml-transform: rotate(270deg);
-    -moz-transform: rotate(270deg);
-    -o-transform: rotate(270deg);
-    -ms-transform: rotate(270deg);
-  }
-  100% {
-    transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -khtml-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-  }
-}
-@-webkit-keyframes rotate-effect {
-  0% {
-    transform: rotate(0);
-    -webkit-transform: rotate(0);
-    -khtml-transform: rotate(0);
-    -moz-transform: rotate(0);
-    -o-transform: rotate(0);
-    -ms-transform: rotate(0);
-  }
-  25% {
-    transform: rotate(90deg);
-    -webkit-transform: rotate(90deg);
-    -khtml-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-  }
-  50% {
-    transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    -khtml-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-  }
-  75% {
-    transform: rotate(270deg);
-    -webkit-transform: rotate(270deg);
-    -khtml-transform: rotate(270deg);
-    -moz-transform: rotate(270deg);
-    -o-transform: rotate(270deg);
-    -ms-transform: rotate(270deg);
-  }
-  100% {
-    transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -khtml-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-  }
-}
-@-o-keyframes rotate-effect {
-  0% {
-    transform: rotate(0);
-    -webkit-transform: rotate(0);
-    -khtml-transform: rotate(0);
-    -moz-transform: rotate(0);
-    -o-transform: rotate(0);
-    -ms-transform: rotate(0);
-  }
-  25% {
-    transform: rotate(90deg);
-    -webkit-transform: rotate(90deg);
-    -khtml-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-  }
-  50% {
-    transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    -khtml-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-  }
-  75% {
-    transform: rotate(270deg);
-    -webkit-transform: rotate(270deg);
-    -khtml-transform: rotate(270deg);
-    -moz-transform: rotate(270deg);
-    -o-transform: rotate(270deg);
-    -ms-transform: rotate(270deg);
-  }
-  100% {
-    transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -khtml-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-  }
-}
-@keyframes rotate-effect {
-  0% {
-    transform: rotate(0);
-    -webkit-transform: rotate(0);
-    -khtml-transform: rotate(0);
-    -moz-transform: rotate(0);
-    -o-transform: rotate(0);
-    -ms-transform: rotate(0);
-  }
-  25% {
-    transform: rotate(90deg);
-    -webkit-transform: rotate(90deg);
-    -khtml-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-  }
-  50% {
-    transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    -khtml-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-  }
-  75% {
-    transform: rotate(270deg);
-    -webkit-transform: rotate(270deg);
-    -khtml-transform: rotate(270deg);
-    -moz-transform: rotate(270deg);
-    -o-transform: rotate(270deg);
-    -ms-transform: rotate(270deg);
-  }
-  100% {
-    transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -khtml-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-  }
-}
-.menu-phone li ul.list-v {
-  right: calc(100% - 0.5 * 16px);
-}
-.menu-phone li ul.list-v ul {
-  right: calc(100% - 0.5 * 16px);
-}
-#wrapper {
-  max-width: 1080px;
-  margin: auto;
-}
-@media screen and (min-width: 2048px) {
-  #wrapper {
-    max-width: 55vw;
-  }
-}
-#wrapper .menu {
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
-  -webkit-flex: 1 1;
-  -ms-flex: 1 1;
-  flex: 1 1;
-  margin: 0 16px 0 0;
-}
-#wrapper .menu .list-v ul {
-  left: calc(100% - 0.5 * 16px);
-}
-.menu-phone {
-  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-  display: none;
-  margin-top: 16px;
-  right: 8px;
-  transition: all 0.28s ease;
-  -webkit-transition: all 0.28s ease;
-  -khtml-transition: all 0.28s ease;
-  -moz-transition: all 0.28s ease;
-  -o-transition: all 0.28s ease;
-  -ms-transition: all 0.28s ease;
-}
-.menu-phone ul {
-  right: calc(100% - 0.5 * 16px);
-}
-@media screen and (max-width: 500px) {
-  .menu-phone {
-    display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-    display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-    display: block;
-  }
-}
-.l_header {
-  max-width: 65vw;
-  left: calc((100% - 65vw) * 0.5);
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-}
-@media screen and (max-width: 2048px) {
-  .l_header {
-    max-width: 1112px;
-    left: calc((100% - 1112px) * 0.5);
-  }
-}
-@media screen and (max-width: 1112px) {
-  .l_header {
-    left: 0;
-    border-radius: 0;
-    -webkit-border-radius: 0;
-    max-width: 100%;
-  }
-}
-@media screen and (max-width: 500px) {
-  .l_header .container {
-    margin-left: 0;
-    margin-right: 0;
-  }
-  .l_header #wrapper .nav-main .title {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-  .l_header #wrapper .nav-sub {
-    width: 100%;
-  }
-  .l_header #wrapper .nav-sub .title {
-    overflow-y: scroll;
-    margin-top: 2px;
-    padding: 8px 16px;
-  }
-  .l_header #wrapper .switcher {
-    display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-    display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-    display: -ms-flexbox /* TWEENER - IE 10 */;
-    display: -webkit-flex /* NEW - Chrome */;
-    display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
-    display: flex;
-    margin-right: 8px;
-  }
-  .l_header .menu {
-    display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-    display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-    display: none;
-  }
-}
-@media screen and (max-width: 500px) {
-  .list-v li {
-    max-width: 270px;
-  }
-}
-#u-search {
-  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding: 60px 20px;
-  z-index: 1001;
-}
-@media screen and (max-width: 680px) {
-  #u-search {
-    padding: 0px;
-  }
-}
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <link rel="preload" href="/blog/css/first.css" as="style">
+  
 
-  </style>
-  <link rel="stylesheet" href="/blog/css/style.css?time=1630065716960" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/blog/css/style.css?time=1630065716960"></noscript>
+  <!-- 页面元数据 -->
+  
+  <title>JAVA - 灵魂有香气a</title>
+  
+    <meta name="keywords" content="java框架面试题">
+  
+
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+    <link rel="shortcut icon" type='image/x-icon' href="https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/favicon/favicon.ico">
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/blog/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/blog/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/blog/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+
   
 <script>
 if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
@@ -1647,12 +71,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 			'margin-top: 15%;'+
 			'margin-bottom: 5500%;'+
 		'}'+
-		'#l_header,#l_body{'+
-			'display: none;'+
-		'}'+
 	'</style>'+
     '<div class="kill-ie">'+
-        '<h2><b>抱歉，您的浏览器无法访问本站</b></h2>'+
+        '<h1><b>抱歉，您的浏览器无法访问本站</b></h1>'+
         '<h3>微软已经于2016年终止了对 Internet Explorer (IE) 10 及更早版本的支持，<br/>'+
         '继续使用存在极大的安全隐患，请使用当代主流的浏览器进行访问。</h3><br/>'+
         '<a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/WindowsForBusiness/End-of-IE-support"><strong>了解详情 ></strong></a>'+
@@ -1672,32 +93,28 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 			margin-top: 15%;
 			margin-bottom: 5500%;
 		}
-		#l_header,#l_body{
-			display: none;
-		}
 	</style>
     <div class="kill-noscript">
-        <h2><b>抱歉，您的浏览器无法访问本站</b></h2>
+        <h1><b>抱歉，您的浏览器无法访问本站</b></h1>
         <h3>本页面需要浏览器支持（启用）JavaScript</h3><br/>
         <a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=启用JavaScript"><strong>了解详情 ></strong></a>
     </div>
 </noscript>
 
-
-  <!-- Custom Files head begin-->
-  
-  <!-- Custom Files head end-->
 </head>
+
   <body>
-    <header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+    
+
+<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
       <p class="title"></p>
       <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
-        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self"  href="/" onclick="return false;" title="comment"></a></li>
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
         
-          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self"  href="/" onclick="return false;" title="toc"></a></li>
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
         
       </ul>
     </div>
@@ -1706,7 +123,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
         <a class="title flat-box" target="_self" href='/blog/'>
           
-            <img no-lazy class='logo' src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png' alt="This is a picture without description" />
+            <img no-lazy class='logo' src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png'/>
           
           
           
@@ -1725,7 +142,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                   
                   
                   
-                    active-action="action-blog"
+                    id="blog"
                   >
                   <i class='fas fa-rss fa-fw'></i>博客
                 </a>
@@ -1741,7 +158,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                   
                   
                   
-                    active-action="action-blogcategories"
+                    id="blogcategories"
                   >
                   <i class='fas fa-folder-open fa-fw'></i>分类
                 </a>
@@ -1757,7 +174,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                   
                   
                   
-                    active-action="action-blogtags"
+                    id="blogtags"
                   >
                   <i class='fas fa-tags fa-fw'></i>标签
                 </a>
@@ -1773,7 +190,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                   
                   
                   
-                    active-action="action-blogarchives"
+                    id="blogarchives"
                   >
                   <i class='fas fa-archive fa-fw'></i>归档
                 </a>
@@ -1789,7 +206,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                   
                   
                   
-                    active-action="action-blogmovies"
+                    id="blogmovies"
                   >
                   <i class='fas fa-film fa-fw'></i>电影
                 </a>
@@ -1805,7 +222,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                   
                   
                   
-                    active-action="action-blogfriends"
+                    id="blogfriends"
                   >
                   <i class='fas fa-link fa-fw'></i>友链
                 </a>
@@ -1817,7 +234,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
             
               <li>
-                <a class="menuitem flat-box header toggle-mode-btn" href="/" onclick="return false;" title="Click me!" >
+                <a class="menuitem flat-box header toggle-mode-btn">
                   <i class='fas fa-moon fa-fw'></i>darkmode
                 </a>
               <li>
@@ -1836,10 +253,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 			<ul class='switcher nav-list-h m-phone'>
 				
-					<li><a class="s-search fas fa-search fa-fw" target="_self" href="/" onclick="return false;" title="search"></a></li>
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
 				
 				<li>
-          <a class="s-menu fas fa-bars fa-fw" target="_self" href="/" onclick="return false;" title="menu"></a>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
           <ul class="menu-phone list-v navigation white-box">
             
               
@@ -1849,7 +266,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                   
                   
                   
-                    active-action="action-blog"
+                    id="blog"
                   >
                   <i class='fas fa-rss fa-fw'></i>博客
                 </a>
@@ -1865,7 +282,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                   
                   
                   
-                    active-action="action-blogcategories"
+                    id="blogcategories"
                   >
                   <i class='fas fa-folder-open fa-fw'></i>分类
                 </a>
@@ -1881,7 +298,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                   
                   
                   
-                    active-action="action-blogtags"
+                    id="blogtags"
                   >
                   <i class='fas fa-tags fa-fw'></i>标签
                 </a>
@@ -1897,7 +314,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                   
                   
                   
-                    active-action="action-blogarchives"
+                    id="blogarchives"
                   >
                   <i class='fas fa-archive fa-fw'></i>归档
                 </a>
@@ -1913,7 +330,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                   
                   
                   
-                    active-action="action-blogmovies"
+                    id="blogmovies"
                   >
                   <i class='fas fa-film fa-fw'></i>电影
                 </a>
@@ -1929,7 +346,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                   
                   
                   
-                    active-action="action-blogfriends"
+                    id="blogfriends"
                   >
                   <i class='fas fa-link fa-fw'></i>友链
                 </a>
@@ -1941,7 +358,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               <li>
-                <a class="menuitem flat-box header toggle-mode-btn" href="/" onclick="return false;" title="Click me!" >
+                <a class="menuitem flat-box header toggle-mode-btn">
                   <i class='fas fa-moon fa-fw'></i>darkmode
                 </a>
               <li>
@@ -1951,10 +368,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           </ul>
         </li>
 			</ul>
-
-      <!-- Custom Files header begin -->
-      
-      <!-- Custom Files header end -->
 		</div>
 	</div>
   </div>
@@ -1964,12 +377,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-      <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
-      <div id="half" class='cover-wrapper post dock' style="display: ;">
-        
-  <div id="parallax-window"></div>
-
-<div class='cover-body'>
+        <div id="half" class='cover-wrapper post dock' style="display: ;">
+          
+            <div id='cover-backstretch'></div>
+          
+          <div class='cover-body'>
   <div class='top'>
     
     
@@ -1986,16 +398,17 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   </div>
 </div>
 
-        <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
-      </div>
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
     
   
-</div>
+  </div>
 
       <div id="safearea">
         <div class="body-wrapper" id="pjax-container">
           
-<div id="l_main" class=''>
+
+<div class='l_main'>
   <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
 
@@ -2014,7 +427,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
 <div class='new-meta-item author'>
   <a class='author' href="/" rel="nofollow">
-    <img no-lazy src="https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png" alt="This is a picture without description" >
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png">
     <p>张帅</p>
   </a>
 </div>
@@ -2024,8 +437,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
             
   <div class='new-meta-item category'>
-    <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-    <a class="category-link" href="/blog/categories/java%E6%A1%86%E6%9E%B6%E9%9D%A2%E8%AF%95%E9%A2%98/">java框架面试题</a>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/blog/categories/java%E6%A1%86%E6%9E%B6%E9%9D%A2%E8%AF%95%E9%A2%98/">java框架面试题</a>
+    </a>
   </div>
 
 
@@ -2033,7 +448,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
             <div class="new-meta-item date">
-  <a class='notlink' href="/" onclick="return false;" title="Click me!" >
+  <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
     <p>发布于：Jul 27, 2021</p>
   </a>
@@ -2044,7 +459,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
             
   <div class="new-meta-item browse leancloud">
-    <a class='notlink' href="/" onclick="return false;" title="Click me!" >
+    <a class='notlink'>
       
       <div id="lc-pv" data-title="JAVA" data-path="/blog/2021/07/27/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/P7/">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
@@ -2057,19 +472,17 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
           
         
-        <!-- Custom Files topMeta begin-->
-        
-        <!-- Custom Files topMeta end-->
       </div>
     
   </div>
 
 
-  <div id="page-plugins-helper"></div>
+  
+  
   <h1 id="一、ES篇"><a href="#一、ES篇" class="headerlink" title="一、ES篇"></a>一、ES篇</h1><blockquote>
 <p>Elasticsearch可以实现<strong>秒级</strong>的搜索，cluster是一种分布式的部署，极<strong>易扩展(scale )<strong>这样很容易使它处理PB级的数据库容量。最重要的是Elasticsearch是它搜索的结果可以按照分数进行排序，它能提供我们最</strong>相关</strong>的搜索结果（<strong>relevance</strong>) 。</p>
 </blockquote>
-<h2 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h2><div class="story post-story"><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ol>
+<h2 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h2><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ol>
 <li><p><strong>安装方便</strong>：没有其他依赖，下载后安装非常方便；只用修改几个参数就可以搭建起来一个集群</p>
 </li>
 <li><p><strong>JSON</strong>：输入/输出格式为 JSON，意味着不需要定义 Schema，快捷方便</p>
@@ -2123,7 +536,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>3）Solr在传统的搜索应用中表现好于Elasticsearch，而Elasticsearch在实时搜索应用方面比Solr表现好</p>
 <p>目前主流依然是<strong>Elasticsearch</strong>7.x 最新的是7.8</p>
 <p>​    优化：<strong>默认集成JDK</strong>、升级Lucene8大幅提升<strong>TopK性能</strong>、引入熔断机制<strong>避免OOM</strong>发生</p>
-</div><h2 id="2、基本概念"><a href="#2、基本概念" class="headerlink" title="2、基本概念"></a>2、基本概念</h2><div class="story post-story"><h3 id="IK分词器"><a href="#IK分词器" class="headerlink" title="IK分词器"></a>IK分词器</h3><p>IKAnalyzer是一个开源的，基于java语言开发的轻量级的中文分词工具包。新版本的IKAnalyzer3.0则发展为 面向Java的公用分词组件，独立于Lucene项目，同时提供了对Lucene的默认优化实现。</p>
+<h2 id="2、基本概念"><a href="#2、基本概念" class="headerlink" title="2、基本概念"></a>2、基本概念</h2><h3 id="IK分词器"><a href="#IK分词器" class="headerlink" title="IK分词器"></a>IK分词器</h3><p>IKAnalyzer是一个开源的，基于java语言开发的轻量级的中文分词工具包。新版本的IKAnalyzer3.0则发展为 面向Java的公用分词组件，独立于Lucene项目，同时提供了对Lucene的默认优化实现。</p>
 <p>IK分词器3.0的特性如下：</p>
 <ol>
 <li>采用了特有的“正向迭代<strong>最细粒度</strong>切分算法“，具有<strong>60万</strong>字/秒的高速处理能力。</li>
@@ -2147,7 +560,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>全量更新用Put</li>
 <li>局部更新用Post</li>
 </ul>
-</div><h2 id="3、高级特性"><a href="#3、高级特性" class="headerlink" title="3、高级特性"></a>3、高级特性</h2><div class="story post-story"><h3 id="映射高级"><a href="#映射高级" class="headerlink" title="映射高级"></a>映射高级</h3><h4 id="地理坐标点数据类型"><a href="#地理坐标点数据类型" class="headerlink" title="地理坐标点数据类型"></a><strong>地理坐标点数据类型</strong></h4><blockquote>
+<h2 id="3、高级特性"><a href="#3、高级特性" class="headerlink" title="3、高级特性"></a>3、高级特性</h2><h3 id="映射高级"><a href="#映射高级" class="headerlink" title="映射高级"></a>映射高级</h3><h4 id="地理坐标点数据类型"><a href="#地理坐标点数据类型" class="headerlink" title="地理坐标点数据类型"></a><strong>地理坐标点数据类型</strong></h4><blockquote>
 <p>地理坐标点是指地球表面可以用经纬度描述的一个点。 地理坐标点可以用来计算两个坐标间的距离，还可以判断一个坐标是否在一个区域中。地理坐标点需要显式声明对应字段类型为 geo_point</p>
 </blockquote>
 <h4 id="动态映射"><a href="#动态映射" class="headerlink" title="动态映射"></a>动态映射</h4><blockquote>
@@ -2196,7 +609,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>如果<strong>Completion Suggester</strong>已经到了零匹配，可以猜测用户有输入错误，这时候可以尝试一下<strong>Phrase Suggester</strong>。如果还是未匹配则尝试<strong>Term Suggester</strong>。</p>
 <p>精准程度上(<strong>Precision</strong>)看： <strong>Completion &gt; Phrase &gt; Term</strong>， 而召回率上(Recall)则反之。</p>
 <p>从性能上看，Completion Suggester是最快的，如果能满足业务需求，只用Completion Suggester做前缀匹配是最理想的。 Phrase和Term由于是做倒排索引的搜索，相比较而言性能应该要低不少，应尽量控制Suggester用到的索引的数据量，最理想的状况是经过一定时间预热后，索引可以全量map到内存。</p>
-</div><h2 id="4、实战"><a href="#4、实战" class="headerlink" title="4、实战"></a>4、实战</h2><div class="story post-story"><h3 id="写优化"><a href="#写优化" class="headerlink" title="写优化"></a>写优化</h3><ul>
+<h2 id="4、实战"><a href="#4、实战" class="headerlink" title="4、实战"></a>4、实战</h2><h3 id="写优化"><a href="#写优化" class="headerlink" title="写优化"></a>写优化</h3><ul>
 <li><p><strong>副本数量</strong>0</p>
 <p>首次 初始化数据时，将副本设置为0，写入完毕再改回，避免了副本建立索引的过程</p>
 </li>
@@ -4426,7 +2839,7 @@ class FooBar2 &#123;
     &#125;
 &#125;
 </code></pre>
-<h1 id="六、个人项目"><a href="#六、个人项目" class="headerlink" title="六、个人项目"></a><strong>六、个人项目</strong></h1></div><h2 id="一、一站到底"><a href="#一、一站到底" class="headerlink" title="一、一站到底"></a><strong>一、一站到底</strong></h2><div class="story post-story"><p>​    采用SpringBoot构建项目，主要通过分布式缓存、队列、限流保证系统高可用，Netty、缓存、反向代理保证高并发。</p>
+<h1 id="六、个人项目"><a href="#六、个人项目" class="headerlink" title="六、个人项目"></a><strong>六、个人项目</strong></h1><h2 id="一、一站到底"><a href="#一、一站到底" class="headerlink" title="一、一站到底"></a><strong>一、一站到底</strong></h2><p>​    采用SpringBoot构建项目，主要通过分布式缓存、队列、限流保证系统高可用，Netty、缓存、反向代理保证高并发。</p>
 <blockquote>
 <p>双人对战答题、公司对战抢答</p>
 </blockquote>
@@ -4495,7 +2908,7 @@ Object result = jedis.eval(lua, Collections.singletonList(lockKey)
 <p>​    服务端定义refreshTime，当我们从channel中read到了服务端发来的心跳响应消息的话，就刷新refreshTime为当前时间</p>
 <p>​    客户端在state是WRITER_IDLE的时候每隔一秒就发送一个心跳包到sever端，告诉server端我还活着。</p>
 <p>当重连成功时，会触发channelActive方法，在这里我们开启了一个定时任务去判断refreshTime和当前时间的时间差，超过5秒说明断线了，要进行重连，最后计算重连次数，尝试连接2次以上连不上就会修改header信息强制重连去连另一个服务器。</p>
-</div><h2 id="二、秒杀项目"><a href="#二、秒杀项目" class="headerlink" title="二、秒杀项目"></a>二、秒杀项目</h2><div class="story post-story"><h3 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a><strong>技术选型</strong></h3><p>秒杀用到的基础组件，主要有<strong>框架、KV 存储、关系型数据库、MQ</strong>。</p>
+<h2 id="二、秒杀项目"><a href="#二、秒杀项目" class="headerlink" title="二、秒杀项目"></a>二、秒杀项目</h2><h3 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a><strong>技术选型</strong></h3><p>秒杀用到的基础组件，主要有<strong>框架、KV 存储、关系型数据库、MQ</strong>。</p>
 <p>框架主要有 Web 框架和 RPC 框架。</p>
 <p>其中，Web 框架主要用于提供 HTTP 接口给浏览器访问，所以 Web 框架的选型在秒杀服务中非常重要。在这里，我<strong>推荐Gin</strong>，它的性能和易用性都不错，在 <strong>GitHub 上的 Star 达到了 44k</strong>。对比性能最好的 fasthttp，虽然 fasthttp 在请求延迟低于 10ms 时性能优势明显，但其底层使用的对象池容易让人踩坑，导致其易用性较差，所以没必要过于追求性能而忽略了稳定性</p>
 <p>至于 RPC 框架，我推荐选用 <strong>gRPC</strong>，因为它的扩展性和性能都非常不错。在秒杀系统中，Redis 中的数据主要是给秒杀接口服务使用，以便将配置从管理后台同步到 Redis 缓存中。</p>
@@ -4666,7 +3079,7 @@ public void write(String key,Object data)&#123;
 <p><strong>10、池化技术</strong></p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gq6japwof2j31520na4mh.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/008i3skNly1gq6japwof2j31520na4mh.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210504174220668"></p>
 <p>​    通常可以采用<strong>循环队列</strong>来保存空闲连接。使用的时候，可以从队列头部取出连接，用完后将空闲连接放到队列尾部。Netty中利用带缓冲区的 channel 来充当队列。</p>
-</div><h2 id="三、即时通信"><a href="#三、即时通信" class="headerlink" title="三、即时通信"></a>三、即时通信</h2><div class="story post-story"><h3 id="1、单聊消息可靠传输"><a href="#1、单聊消息可靠传输" class="headerlink" title="1、单聊消息可靠传输"></a>1、<strong>单聊消息可靠传输</strong></h3><p>TCP保证消息可靠传输三板斧：超时、重传、确认。服务端和客户端通信MSG和ACK的共计6个报文</p>
+<h2 id="三、即时通信"><a href="#三、即时通信" class="headerlink" title="三、即时通信"></a>三、即时通信</h2><h3 id="1、单聊消息可靠传输"><a href="#1、单聊消息可靠传输" class="headerlink" title="1、单聊消息可靠传输"></a>1、<strong>单聊消息可靠传输</strong></h3><p>TCP保证消息可靠传输三板斧：超时、重传、确认。服务端和客户端通信MSG和ACK的共计6个报文</p>
 <ul>
 <li>请求报文（request，后简称为为R），客户端主动发送给服务端。</li>
 <li>应答报文（acknowledge，后简称为A），服务器被动应答客户端的报文。</li>
@@ -4736,7 +3149,7 @@ public void write(String key,Object data)&#123;
 <li><strong>系统消息/开屏广告等</strong>这种实时产生的消息，可以采用推送的方式获取消息；</li>
 </ul>
 <h3 id="5、好友推荐"><a href="#5、好友推荐" class="headerlink" title="5、好友推荐"></a>5、好友推荐</h3><p>Neo4j 图谱数据库</p>
-</div><h2 id="四、智慧社区"><a href="#四、智慧社区" class="headerlink" title="四、智慧社区"></a>四、智慧社区</h2><div class="story post-story"><p>​    18年初，针对我们Dubbo框架的智慧楼宇项目的单体服务显得十分笨重，需要采用微服务的形式进行架构的重新设计，当时，我阅读了<em>Eric Evans</em> 写的《领域驱动设计：软件核心复杂性应对之道》和<em>Martin</em> <em>fowler</em>的《微服务架构：<em>Microservice</em>》两本重量级书籍，书中了解到转型微服务的重要原因之一就是利用<strong>分治的思想</strong>减少系统的复杂性，是一种针对<strong>复杂问题的宏观设计</strong>，来应对系统后来规模越来越大，维护越来越困难的问题。然而，拆分成微服务以后，并<strong>不意味着每个微服务都是各自独立地运行</strong>，而是彼此协作地组织在一起。这就好像一个团队，<strong>规模越大越需要一些方法来组织</strong>，这正是我们需要DDD模型为我们的架构设计提供理论并实践的方法。</p>
+<h2 id="四、智慧社区"><a href="#四、智慧社区" class="headerlink" title="四、智慧社区"></a>四、智慧社区</h2><p>​    18年初，针对我们Dubbo框架的智慧楼宇项目的单体服务显得十分笨重，需要采用微服务的形式进行架构的重新设计，当时，我阅读了<em>Eric Evans</em> 写的《领域驱动设计：软件核心复杂性应对之道》和<em>Martin</em> <em>fowler</em>的《微服务架构：<em>Microservice</em>》两本重量级书籍，书中了解到转型微服务的重要原因之一就是利用<strong>分治的思想</strong>减少系统的复杂性，是一种针对<strong>复杂问题的宏观设计</strong>，来应对系统后来规模越来越大，维护越来越困难的问题。然而，拆分成微服务以后，并<strong>不意味着每个微服务都是各自独立地运行</strong>，而是彼此协作地组织在一起。这就好像一个团队，<strong>规模越大越需要一些方法来组织</strong>，这正是我们需要DDD模型为我们的架构设计提供理论并实践的方法。</p>
 <p>​    当时每次版本更新迭代动辄十几个微服务同时修改，有时一个简单的数据库字段变更，也需要同时变更多个微服务，引起了团队的反思：微服务化看上去并没有减少我们的工作量。《企业架构设计》中对于微服务的定义是<strong>小而专</strong>，但在起初的设计时，我们只片面的<strong>理解了小却忽视了专</strong>，此时我们才意识到拆分的关键是要保证微服务内高内聚，微服务间低耦合。</p>
 <h3 id="物联网架构"><a href="#物联网架构" class="headerlink" title="物联网架构"></a><strong>物联网架构</strong></h3><blockquote>
 <p>物联网是互联网的<strong>外延</strong>。将用户端<strong>延伸</strong>和扩展到物与人的连接。物联网模式中，所有<strong>物品与网络连接</strong>，并进行通信和场景联动。互联网通过<strong>电脑、移动终端</strong>等设备将参与者联系起来，形成的一种全新的<strong>信息互换方式</strong></p>
@@ -5044,7 +3457,7 @@ public void write(String key,Object data)&#123;
 <p>​                交付阶段，根据反馈及时调整中台战略，减少损失和增大收益</p>
 <p>​                    合理制定每个阶段的绩效考核目标：</p>
 <p>​                40%稳定+25%业务创新+20%服务接入+15%用户满意度</p>
-<h1 id="七、架构设计"><a href="#七、架构设计" class="headerlink" title="七、架构设计"></a><strong>七、架构设计</strong></h1></div><h2 id="1、社区系统的架构"><a href="#1、社区系统的架构" class="headerlink" title="1、社区系统的架构"></a>1、社区系统的架构</h2><div class="story post-story"><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmqv8zyhkqj311s0u0q7s.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gmqv8zyhkqj311s0u0q7s.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210117182546782" style="zoom:40%;" />
+<h1 id="七、架构设计"><a href="#七、架构设计" class="headerlink" title="七、架构设计"></a><strong>七、架构设计</strong></h1><h2 id="1、社区系统的架构"><a href="#1、社区系统的架构" class="headerlink" title="1、社区系统的架构"></a>1、社区系统的架构</h2><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmqv8zyhkqj311s0u0q7s.jpg" class="lazyload placeholder" data-srcset="https://tva1.sinaimg.cn/large/008eGmZEly1gmqv8zyhkqj311s0u0q7s.jpg" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210117182546782" style="zoom:40%;" />
 
 <p><strong>系统拆分</strong></p>
 <p>​        通过DDD领域模型，对服务进行拆分，将一个系统拆分为多个子系统，做成SpringCloud的微服务。微服务设计时要尽可能做到少扇出，多扇入，根据服务器的承载，进行客户端负载均衡，通过对核心服务的上游服务进行限流和降级改造。</p>
@@ -5069,13 +3482,13 @@ public void write(String key,Object data)&#123;
 <p>​        读写分离，这个就是说大部分时候数据库可能也是读多写少，没必要所有请求都 集中在一个库上吧，可以搞个主从架构，主库写入，从库读取，搞一个读写分离。 读流量太多的时候，还可以加更多的从库。比如<strong>统计监控类的微服务</strong>通过读写分离，只需访问从库就可以完成统计，例如ES</p>
 <p><strong>ElasticSearch</strong></p>
 <p>​        Elasticsearch，简称 es。es 是分布式的，可以随便扩容，分布式天然就可以支撑高并发，因为动不动就可以扩容加机器来扛更高的并发。那么一些比较简单的<strong>查询、统计类</strong>的操作，比如<strong>运营平台上</strong>的各地市的汇聚统计，还有一些<strong>全文搜索类</strong>的操作，比如<strong>通讯录和订单</strong>的查询。</p>
-</div><h2 id="2、商城系统-亿级商品如何存储"><a href="#2、商城系统-亿级商品如何存储" class="headerlink" title="2、商城系统-亿级商品如何存储"></a>2、商城系统-亿级商品如何存储</h2><div class="story post-story"><p>基于 Hash 取模、一致性 Hash 实现分库分表</p>
+<h2 id="2、商城系统-亿级商品如何存储"><a href="#2、商城系统-亿级商品如何存储" class="headerlink" title="2、商城系统-亿级商品如何存储"></a>2、商城系统-亿级商品如何存储</h2><p>基于 Hash 取模、一致性 Hash 实现分库分表</p>
 <p>高并发读可以通过<a href="5%E3%80%81%E5%BA%94%E5%AF%B9%E9%AB%98%E5%B9%B6%E5%8F%91%E7%9A%84%E8%AF%BB%E8%AF%B7%E6%B1%82">多级缓存</a>应对</p>
 <p>大促销热key读的问题通过<a href="**4%E3%80%81%E7%83%ADkey%E9%97%AE%E9%A2%98%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%EF%BC%9F**">redis集群+本地缓存+限流+key加随机值</a>分布在多个实例中</p>
 <p>高并发写的问题通过<strong>基于 Hash 取模、一致性 Hash 实现分库分表</strong>均匀落盘</p>
 <p>业务分配不均导致的<strong>热key</strong>读写问题，可以根据业务场景进行range分片，将热点范围下的子key打散</p>
 <p>具体实现：预先设定主键的生成规则，根据规则进行数据的分片路由，但这种方式会侵入商品各条线主数据的业务规则，更好的方式是基于<strong>分片元数据服务器</strong>（即每次访问分片前先询问分片元服务器在路由到实际分片）不过会带来复杂性，比如保证元数据服务器的<strong>一致性</strong>和可用性。</p>
-</div><h2 id="3、对账系统-分布式事务一致性"><a href="#3、对账系统-分布式事务一致性" class="headerlink" title="3、对账系统-分布式事务一致性"></a>3、对账系统-分布式事务一致性</h2><div class="story post-story"><blockquote>
+<h2 id="3、对账系统-分布式事务一致性"><a href="#3、对账系统-分布式事务一致性" class="headerlink" title="3、对账系统-分布式事务一致性"></a>3、对账系统-分布式事务一致性</h2><blockquote>
 <p>尽量避免分布式事务，单进程用数据库事务，跨进程用消息队列</p>
 </blockquote>
 <p>主流实现分布式系统事务一致性的方案：</p>
@@ -5093,7 +3506,7 @@ public void write(String key,Object data)&#123;
 <p>我觉得不是特殊的场景不推荐</p>
 <p>三、RocketMQ事务消息</p>
 <p>听起来挺好挺简单的方案，但它比较挑业务场景，同步性强的处理链路不适合。<br>【重要】要求下游MQ消费方一定能成功消费消息。否则转人工介入处理。<br>【重要】千万记得实现幂等性。</p>
-</div><h2 id="4、用户系统-多线程数据割接"><a href="#4、用户系统-多线程数据割接" class="headerlink" title="4、用户系统-多线程数据割接"></a>4、用户系统-多线程数据割接</h2><div class="story post-story"><p>由于项目需要进行数据割接，保证用户多平台使用用户感知的一致，将广东项目的几百万用户及业务数据按照一定的逻辑灌到社区云平台上，由于依赖了第三方统一认证和省侧crm系统，按照之前系统内割接的方法，通过数据库将用户的唯一标识查出来然后使用多线程向省侧crm系统获取结果。</p>
+<h2 id="4、用户系统-多线程数据割接"><a href="#4、用户系统-多线程数据割接" class="headerlink" title="4、用户系统-多线程数据割接"></a>4、用户系统-多线程数据割接</h2><p>由于项目需要进行数据割接，保证用户多平台使用用户感知的一致，将广东项目的几百万用户及业务数据按照一定的逻辑灌到社区云平台上，由于依赖了第三方统一认证和省侧crm系统，按照之前系统内割接的方法，通过数据库将用户的唯一标识查出来然后使用多线程向省侧crm系统获取结果。</p>
 <p>但是测试的过程中，发现每个线程请求的数据发生了错乱，导致每个请求处理的数据有重复，于是立即停止了脚本，当时怀疑是多线程对资源并发访问导致的，于是把ArrayList 改成了CopyOnWriteArrayList，但是折腾了一晚上，不管怎么修改，线程之间一直有重复数据，叫了一起加班的同事也没看出问题来，和同事估算了一下不使用多线程，大概30-40个小时能跑完，想了下也能接受，本来已经准备放弃了。</p>
 <p>不过回到家，我还是用多线程仔细单步模拟了下，整个处理的过程，发现在起线程的时候，有些子线程并没有把分配给他的全部id的list处理完，导致最终状态没更新，新线程又去执行了一遍，然后我尝试通过修改在线程外深拷贝一个List再作为参数传入到子线程里，（后续clear的时候也是clear老的List）果然，整个测试过程中再也没出现过重复处理的情况。</p>
 <p>事后，我也深究了下原因：</p>
@@ -5105,8 +3518,8 @@ public void write(String key,Object data)&#123;
 </code></pre>
 <p>在一个线程中开启另外一个新线程，则新开线程称为该线程的子线程，子线程初始优先级与父线程相同。不过主线程先启动占用了cpu资源，因此主线程总是优于子线程。然而，即使设置了优先级，也无法保障线程的执行次序。只不过，优先级高的线程获取CPU资源的概率较大，优先级低的并非没机会执行。</p>
 <p>所以主线程上的clear操作有可能先执行，那么子线程中未处理完的数据就变成一个空的数组，所以就出现了多个线程出现了重复数据的原因，所以我们要保证的是子线程每次执行完后再进行clear即可。而不是一开始定位的保证ArrayList的安全性。所以将赋值(buffer-&gt;list)操作放在外面去执行后，多线程数据就正常了。</p>
-</div><h2 id="5、秒杀系统场景设计"><a href="#5、秒杀系统场景设计" class="headerlink" title="5、秒杀系统场景设计"></a>5、秒杀系统场景设计</h2><div class="story post-story"><p>[见秒杀项目方案设计](# 二、秒杀项目)</p>
-</div><h2 id="6、统计系统-海量计数"><a href="#6、统计系统-海量计数" class="headerlink" title="6、统计系统-海量计数"></a><strong>6、统计系统-海量计数</strong></h2><div class="story post-story"><p><strong>中小规模的计数服务</strong>（万级）</p>
+<h2 id="5、秒杀系统场景设计"><a href="#5、秒杀系统场景设计" class="headerlink" title="5、秒杀系统场景设计"></a>5、秒杀系统场景设计</h2><p>[见秒杀项目方案设计](# 二、秒杀项目)</p>
+<h2 id="6、统计系统-海量计数"><a href="#6、统计系统-海量计数" class="headerlink" title="6、统计系统-海量计数"></a><strong>6、统计系统-海量计数</strong></h2><p><strong>中小规模的计数服务</strong>（万级）</p>
 <p>最常见的计数方案是采用缓存 + DB 的存储方案。当计数变更时，先变更计数 DB，计数加 1，然后再变更计数缓存，修改计数存储的 Memcached 或 Redis。这种方案比较通用且成熟，但在高并发访问场景，支持不够友好。在互联网社交系统中，有些业务的计数变更特别频繁，比如微博 feed 的阅读数，计数的变更次数和访问次数相当，每秒十万到百万级以上的更新量，如果用 DB 存储，会给 DB 带来巨大的压力，DB 就会成为整个计数服务的瓶颈所在。即便采用聚合延迟更新 DB 的方案，由于总量特别大，同时请求均衡分散在大量不同的业务端，巨大的写压力仍然是 DB 的不可承受之重。</p>
 <p><strong>大型互联网场景</strong>（百万级）</p>
 <p>直接把计数全部存储在 Redis 中，通过 hash 分拆的方式，可以大幅提升计数服务在 Redis 集群的写性能，通过主从复制，在 master 后挂载多个从库，利用读写分离，可以大幅提升计数服务在 Redis 集群的读性能。而且 Redis 有持久化机制，不会丢数据</p>
@@ -5117,7 +3530,7 @@ public void write(String key,Object data)&#123;
 <p>超过阈值后数据保存到SSD硬盘，内存里存索引</p>
 <p>冷key从SSD硬盘中读取后，放入到LRU队列中</p>
 <p>自定义主从复制的方式，海量冷数据异步多线程并发复制</p>
-</div><h2 id="7、系统设计-微软"><a href="#7、系统设计-微软" class="headerlink" title="7、系统设计 - 微软"></a>7、系统设计 - 微软</h2><div class="story post-story"><h3 id="1、需求收集"><a href="#1、需求收集" class="headerlink" title="1、需求收集"></a><strong>1、需求收集</strong></h3><p>确认<strong>使用的对象</strong>（ToC：高并发，ToB：高可用）</p>
+<h2 id="7、系统设计-微软"><a href="#7、系统设计-微软" class="headerlink" title="7、系统设计 - 微软"></a>7、系统设计 - 微软</h2><h3 id="1、需求收集"><a href="#1、需求收集" class="headerlink" title="1、需求收集"></a><strong>1、需求收集</strong></h3><p>确认<strong>使用的对象</strong>（ToC：高并发，ToB：高可用）</p>
 <p><strong>系统的服务场景</strong>（<strong>即时通信</strong>：低延迟，<strong>游戏</strong>：高性能，<strong>购物</strong>：秒杀-一致性）</p>
 <p><strong>用户量级</strong>（<strong>万级</strong>：双机、<strong>百万</strong>：集群、<strong>亿级</strong>：弹性分布式、容器化编排架构）</p>
 <p><strong>百万读</strong>：3主6从，<strong>每个节点的读写高峰 QPS</strong> 可能可以达到每秒 5 万，可以实现15万，30万读性能</p>
@@ -5149,7 +3562,7 @@ public void write(String key,Object data)&#123;
 <p>列型存储：Hbase、BigTable（大数据）</p>
 <p>图形存储：Neo4j （社交及推荐）</p>
 <p>多媒体：FastDfs（图文视频微博）</p>
-</div><h2 id="7、如何设计一个微博"><a href="#7、如何设计一个微博" class="headerlink" title="7、如何设计一个微博"></a>7、如何设计一个微博</h2><div class="story post-story"><p><strong>实现哪些功能：</strong></p>
+<h2 id="7、如何设计一个微博"><a href="#7、如何设计一个微博" class="headerlink" title="7、如何设计一个微博"></a>7、如何设计一个微博</h2><p><strong>实现哪些功能：</strong></p>
 <p>筛选出核心功能（Post a Tweet，Timeline，News Feed，Follow/Unfollow a user，Register/Login）</p>
 <p><strong>承担多大QPS：</strong></p>
 <p>QPS = 100，那么用我的笔记本作Web服务器就好了</p>
@@ -5284,7 +3697,6 @@ public void write(String key,Object data)&#123;
 </li>
 </ul>
 
-</div>
   
   
     
@@ -5319,7 +3731,7 @@ public void write(String key,Object data)&#123;
       
         
           <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-31T17:05:25+08:00">
-  <a class='notlink' href="/" onclick="return false;" title="Click me!" >
+  <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Jul 31, 2021</p>
   </a>
@@ -5338,13 +3750,13 @@ public void write(String key,Object data)&#123;
         
           
   <div class="new-meta-item wordcount">
-    <a class='notlink' href="/" onclick="return false;" title="Click me!" >
+    <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
       <p>45.8k words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
-    <a class='notlink' href="/" onclick="return false;" title="Click me!" >
+    <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
       <p>177 min</p>
     </a>
@@ -5365,7 +3777,7 @@ public void write(String key,Object data)&#123;
           
           >
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="This is a picture without description" >
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg">
           
         </a>
       
@@ -5377,7 +3789,7 @@ public void write(String key,Object data)&#123;
           
           >
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="This is a picture without description" >
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg">
           
         </a>
       
@@ -5389,7 +3801,7 @@ public void write(String key,Object data)&#123;
           
           >
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="This is a picture without description" >
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg">
           
         </a>
       
@@ -5397,9 +3809,9 @@ public void write(String key,Object data)&#123;
       
         
         <div class='hoverbox'>
-          <a class='share' href="/" onclick="return false;" title="Click me!" ><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="This is a picture without description" ></a>
+          <a class='share'><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg"></a>
           <div class='target'>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVgAAAFYCAAAAAAzB7ucAAAEdklEQVR42u3aQXIjIQwFUN//0sl+plzNlwTYqccurqaBRy8kRa8fY8t4IQAL1gALFqwB9gjsqzj+nf/fAm+efzfvaZ3HAy3OW91X2QMsWLBgwYIFCxbsUdj0AKtAqxtOL2p1/ur7xzzAggULFixYsGDBXoGdPngaeK9e0PR+p94PFixYsGDBggUL9jtgqwXt6QRl+qLAggULFixYsGDB/m3Y1UJx90DVxoq0cQMsWLBgwYIFCxbsd8KmAXq3AN5NJHY/d60TBixYsGDBggULFuwSbDq6gf+n/132AAsWLFiwYMGCBXsEtjvSBok0cUjnpYXvNCF43B9YsGDBggULFizYI7CrIF2IbmG7ul434YmdwIIFCxYsWLBgwV6B7TZapAdeXXe6oSNNNJYTH7BgwYIFCxYsWLBHYdMDdA+aFqTT9buF+3R9sGDBggULFixYsGdhpxaaSjDSedMXVW0cAQsWLFiwYMGCBXsHdrqgnAbW1UC+mthMJSaPCQJYsGDBggULFizYLbDVQHtXYL+aQFThq8DL64IFCxYsWLBgwYK9ClsOkBcbPE4lEnHDxeIH9VjoBgsWLFiwYMGCBbsVdtfBqglEt6BdDezTgv/yfxDAggULFixYsGDBboGdKhxXAauF9enAPr2Yt7+DBQsWLFiwYMGCPQJbfcF0AbmacFTnT78fLFiwYMGCBQsW7FnY6UaK1Qbl9O9qI3O3oThNWMCCBQsWLFiwYMGegS2/oHig6vPVhKa7n7igDhYsWLBgwYIFC/YIbLXBolsg31XonkpgVi/iMfMCCxYsWLBgwYIFuwV2V0E7TUC6Af/URbV/BwsWLFiwYMGCBXsEttsQUW3EqF5QtzDf/ZDKmRdYsGDBggULFizYUdhqwftTCtbdC+8WxMGCBQsWLFiwYMHege02bKQXlAKkhe5qITxNkN6+ByxYsGDBggULFuwV2F0BercwXk1cuvuKzwEWLFiwYMGCBQv2CmzawJEG7mmjyFSDR/Uc8X7AggULFixYsGDBXoFNGxi6he8uRPX59OLbDRtgwYIFCxYsWLBgj8KmC1QvqHoh1YubajwBCxYsWLBgwYIFewe2WvDeVZBOGzfSAnuakMT7BwsWLFiwYMGCBXsEtlo4ThsduvOnAvupBGg58wILFixYsGDBggW7BbbaGNFt4EgLz1MNGd1zPcKDBQsWLFiwYMGCPQpbDZCnQKcaRtJzdQvnYMGCBQsWLFiwYO/CVscqzFSjRvoh7E6EwIIFCxYsWLBgwd6BnQ6QV2HSRGL1YNUEoXuhYMGCBQsWLFiwYO/ApgnB1EG7B+/+Pn4xYMGCBQsWLFiwYK/AdhskqhvsXmTamLHtfWDBggULFixYsGC/AjYN4KcbKqoBfTeheXt+sGDBggULFixYsF8NWw38u+/pPpd+IGDBggULFixYsGA/A3bXgtOJwmqDxvSH8/g7WLBgwYIFCxYs2KOw6ajOTy8u3UcVvrtPsGDBggULFixYsGdhjdkBFixYAyxYsAbYreMX1jJSdj6cMRUAAAAASUVORK5CYII=" alt="This is a picture without description" >
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVgAAAFYCAAAAAAzB7ucAAAEdklEQVR42u3aQXIjIQwFUN//0sl+plzNlwTYqccurqaBRy8kRa8fY8t4IQAL1gALFqwB9gjsqzj+nf/fAm+efzfvaZ3HAy3OW91X2QMsWLBgwYIFCxbsUdj0AKtAqxtOL2p1/ur7xzzAggULFixYsGDBXoGdPngaeK9e0PR+p94PFixYsGDBggUL9jtgqwXt6QRl+qLAggULFixYsGDB/m3Y1UJx90DVxoq0cQMsWLBgwYIFCxbsd8KmAXq3AN5NJHY/d60TBixYsGDBggULFuwSbDq6gf+n/132AAsWLFiwYMGCBXsEtjvSBok0cUjnpYXvNCF43B9YsGDBggULFizYI7CrIF2IbmG7ul434YmdwIIFCxYsWLBgwV6B7TZapAdeXXe6oSNNNJYTH7BgwYIFCxYsWLBHYdMDdA+aFqTT9buF+3R9sGDBggULFixYsGdhpxaaSjDSedMXVW0cAQsWLFiwYMGCBXsHdrqgnAbW1UC+mthMJSaPCQJYsGDBggULFizYLbDVQHtXYL+aQFThq8DL64IFCxYsWLBgwYK9ClsOkBcbPE4lEnHDxeIH9VjoBgsWLFiwYMGCBbsVdtfBqglEt6BdDezTgv/yfxDAggULFixYsGDBboGdKhxXAauF9enAPr2Yt7+DBQsWLFiwYMGCPQJbfcF0AbmacFTnT78fLFiwYMGCBQsW7FnY6UaK1Qbl9O9qI3O3oThNWMCCBQsWLFiwYMGegS2/oHig6vPVhKa7n7igDhYsWLBgwYIFC/YIbLXBolsg31XonkpgVi/iMfMCCxYsWLBgwYIFuwV2V0E7TUC6Af/URbV/BwsWLFiwYMGCBXsEttsQUW3EqF5QtzDf/ZDKmRdYsGDBggULFizYUdhqwftTCtbdC+8WxMGCBQsWLFiwYMHege02bKQXlAKkhe5qITxNkN6+ByxYsGDBggULFuwV2F0BercwXk1cuvuKzwEWLFiwYMGCBQv2CmzawJEG7mmjyFSDR/Uc8X7AggULFixYsGDBXoFNGxi6he8uRPX59OLbDRtgwYIFCxYsWLBgj8KmC1QvqHoh1YubajwBCxYsWLBgwYIFewe2WvDeVZBOGzfSAnuakMT7BwsWLFiwYMGCBXsEtlo4ThsduvOnAvupBGg58wILFixYsGDBggW7BbbaGNFt4EgLz1MNGd1zPcKDBQsWLFiwYMGCPQpbDZCnQKcaRtJzdQvnYMGCBQsWLFiwYO/CVscqzFSjRvoh7E6EwIIFCxYsWLBgwd6BnQ6QV2HSRGL1YNUEoXuhYMGCBQsWLFiwYO/ApgnB1EG7B+/+Pn4xYMGCBQsWLFiwYK/AdhskqhvsXmTamLHtfWDBggULFixYsGC/AjYN4KcbKqoBfTeheXt+sGDBggULFixYsF8NWw38u+/pPpd+IGDBggULFixYsGA/A3bXgtOJwmqDxvSH8/g7WLBgwYIFCxYs2KOw6ajOTy8u3UcVvrtPsGDBggULFixYsGdhjdkBFixYAyxYsAbYreMX1jJSdj6cMRUAAAAASUVORK5CYII=">
           </div>
         </div>
       
@@ -5411,7 +3823,7 @@ public void write(String key,Object data)&#123;
           
           >
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/telegram.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/telegram.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="This is a picture without description" >
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/telegram.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/telegram.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg">
           
         </a>
       
@@ -5424,9 +3836,6 @@ public void write(String key,Object data)&#123;
         
       
     </div>
-    <!-- Custom Files bottomMeta begin -->
-    
-    <!-- Custom Files bottomMeta end -->
   </div>
 
 
@@ -5458,33 +3867,19 @@ MyBatis 避免了几乎所有的 JDBC 代码和手...</p>
       
     </div>
   
-  <!-- Custom Files postEnd begin-->
-  
-  <!-- Custom Files postEnd end-->
 </article>
 
 
   
 
-  
   <article class="post white-box reveal shadow" id="comments">
     <p ct><i class='fas fa-comments'></i> 评论</p>
     
-
-    
-      <div id="valine_container" class="valine_thread">
+    <div id="valine_container" class="valine_thread">
   <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-    
-
-    
-      <!-- Custom Files comment begin-->
-      
-      <!-- Custom Files comment end-->
-    
   </article>
-  
 
 
 
@@ -5492,7 +3887,7 @@ MyBatis 避免了几乎所有的 JDBC 代码和手...</p>
 
 
 </div>
-<aside id='l_side'>
+<aside class='l_side'>
   
   
     
@@ -5518,14 +3913,12 @@ MyBatis 避免了几乎所有的 JDBC 代码和手...</p>
   
 
 
-  <!-- Custom Files side begin -->
-  
-  <!-- Custom Files side end -->
 </aside>
 
 
 
-          <!--此文件用来存放一些不方便取值的变量-->
+		  
+		  <!--此文件用来存放一些不方便取值的变量-->
 <!--思路大概是将值藏到重加载的区域内-->
 
 <script>
@@ -5534,20 +3927,17 @@ MyBatis 避免了几乎所有的 JDBC 代码和手...</p>
   pdata.postTitle="JAVA";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
-  //  see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs
+  // header 这里无论是否开启pjax都需要
+  var l_header=document.getElementById("l_header");
   
-    // header
-    var l_header=document.getElementById("l_header");
+  l_header.classList.remove("show");
+  
+  
+    // cover
+    var cover_wrapper=document.querySelector('.cover-wrapper');
     
-    l_header.classList.remove("show");
-    
-    
-      // cover
-      var cover_wrapper=document.querySelector('#l_cover .cover-wrapper');
-      var scroll_down=document.getElementById('scroll-down');
-      cover_wrapper.id="half";
-      cover_wrapper.style.display="";
-      scroll_down.style.display="none";
+    cover_wrapper.id="half";
+    cover_wrapper.style.display="";
     
   
 </script>
@@ -5593,7 +3983,7 @@ MyBatis 避免了几乎所有的 JDBC 代码和手...</p>
     
       
         Use
-        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/5.0.0.alpha.1" target="_blank" class="codename">Volantis</a>
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1" target="_blank" class="codename">Volantis</a>
         as theme
       
     
@@ -5604,466 +3994,279 @@ MyBatis 避免了几乎所有的 JDBC 代码和手...</p>
         </div>
       
     
-    <!-- Custom Files footer begin-->
-    
-    <!-- Custom Files footer end-->
   </footer>
 
 
-        <a id="s-top" class="fas fa-arrow-up fa-fw" href="/" onclick="return false;" title="top"></a>
+        <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
       </div>
     </div>
     <div>
       <script>
-  /************这个文件存放不需要重载的全局变量和全局函数*********/
-  window.volantis = {}; // volantis 全局变量
-  volantis.dom = {}; // 页面Dom see: /source/js/app.js etc.
-  /******************** volantis.EventListener ********************************/
-  // 事件监听器 see: /source/js/app.js
-  volantis.EventListener = {}
-  // 这里存放pjax切换页面时将被移除的事件监听器
-  volantis.EventListener.list = []
-  //构造方法
-  function volantisEventListener(type, f, ele) {
-    this.type = type
-    this.f = f
-    this.ele = ele
-  }
-  // 移除事件监听器
-  volantis.EventListener.remove = () => {
-    volantis.EventListener.list.forEach(function (i) {
-      i.ele.removeEventListener(i.type, i.f, false)
-    })
-    volantis.EventListener.list = []
-  }
-  /******************** volantis.dom.$ ********************************/
-  // 注：这里没有选择器，也没有forEach一次只处理一个dom，这里重新封装主题常用的dom方法，返回的是dom对象，对象包含了以下方法，同时保留dom的原生API
-  function volantisDom(ele) {
-    if (!ele) ele = document.createElement("div")
-    this.ele = ele;
-    // ==============================================================
-    this.ele.find = (c) => {
-      let q = this.ele.querySelector(c)
-      if (q)
-        return new volantisDom(q)
-    }
-    // ==============================================================
-    this.ele.hasClass = (c) => {
-      return this.ele.className.match(new RegExp('(\\s|^)' + c + '(\\s|$)'));
-    }
-    this.ele.addClass = (c) => {
-      this.ele.classList.add(c);
-      return this.ele
-    }
-    this.ele.removeClass = (c) => {
-      this.ele.classList.remove(c);
-      return this.ele
-    }
-    this.ele.toggleClass = (c) => {
-      if (this.ele.hasClass(c)) {
-        this.ele.removeClass(c)
-      } else {
-        this.ele.addClass(c)
-      }
-      return this.ele
-    }
-    // ==============================================================
-    // 参数 r 为 true 表示pjax切换页面时事件监听器将被移除，false不移除
-    this.ele.on = (c, f, r = 1) => {
-      this.ele.addEventListener(c, f, false)
-      if (r) {
-        volantis.EventListener.list.push(new volantisEventListener(c, f, this.ele))
-      }
-      return this.ele
-    }
-    this.ele.click = (f, r) => {
-      this.ele.on("click", f, r)
-      return this.ele
-    }
-    this.ele.scroll = (f, r) => {
-      this.ele.on("scroll", f, r)
-      return this.ele
-    }
-    // ==============================================================
-    this.ele.html = (c) => {
-      // if(c=== undefined){
-      //   return this.ele.innerHTML
-      // }else{
-      this.ele.innerHTML = c
-      return this.ele
-      // }
-    }
-    // ==============================================================
-    this.ele.hide = (c) => {
-      this.ele.style.display = "none"
-      return this.ele
-    }
-    this.ele.show = (c) => {
-      this.ele.style.display = "block"
-      return this.ele
-    }
-    // ==============================================================
-    return this.ele
-  }
-  volantis.dom.$ = (ele) => {
-    return new volantisDom(ele)
-  }
-  /******************** volantis.dom ********************************/
-  // 页面选择器 将dom对象缓存起来 see: /source/js/app.js etc.
-  volantis.dom.bodyAnchor = volantis.dom.$(document.getElementById("safearea")); // 页面主体
-  volantis.dom.topBtn = volantis.dom.$(document.getElementById('s-top')); // 向上
-  volantis.dom.wrapper = volantis.dom.$(document.getElementById('wrapper')); // 整个导航栏
-  volantis.dom.coverAnchor = volantis.dom.$(document.querySelector('#l_cover .cover-wrapper')); // 1个
-  volantis.dom.switcher = volantis.dom.$(document.querySelector('#l_header .switcher .s-search')); // 搜索按钮   移动端 1个
-  volantis.dom.header = volantis.dom.$(document.getElementById('l_header')); // 移动端导航栏
-  volantis.dom.search = volantis.dom.$(document.querySelector('#l_header .m_search')); // 搜索框 桌面端 移动端 1个
-  volantis.dom.mPhoneList = volantis.dom.$(document.querySelectorAll('#l_header .m-phone .list-v')); //  手机端 子菜单 多个
-  /******************** RunItem ********************************/
-  function RunItem() {
-    this.list = []; // 存放回调函数
-    this.start = () => {
-      for (var i = 0; i < this.list.length; i++) {
-        this.list[i].run();
-      }
-    };
-    this.push = (fn, name, setRequestAnimationFrame = true) => {
-      let myfn = fn
-      if (setRequestAnimationFrame) {
-        myfn = ()=>{
-          volantis.requestAnimationFrame(fn)
-        }
-      }
-      var f = new Item(myfn, name);
-      this.list.push(f);
-    };
-    // 构造一个可以run的对象
-    function Item(fn, name) {
-      // 函数名称
-      this.name = name || fn.name;
-      // run方法
-      this.run = () => {
-        try {
-          fn()
-        } catch (error) {
-          console.log(error);
-        }
-      };
-    }
-  }
-  /******************** Pjax ********************************/
-  // /layout/_plugins/pjax/index.ejs
-  // volantis.pjax.send(callBack[,"callBackName"]) 传入pjax:send回调函数
-  // volantis.pjax.push(callBack[,"callBackName"]) 传入pjax:complete回调函数
-  // volantis.pjax.error(callBack[,"callBackName"]) 传入pjax:error回调函数
-  volantis.pjax = {};
-  volantis.pjax.method = {
-    complete: new RunItem(),
-    error: new RunItem(),
-    send: new RunItem(),
-  };
-  volantis.pjax = {
-    ...volantis.pjax,
-    push: volantis.pjax.method.complete.push,
-    error: volantis.pjax.method.error.push,
-    send: volantis.pjax.method.send.push,
-  };
-  /********************  Dark Mode  ********************************/
-  // /layout/_partial/scripts/darkmode.ejs
-  // volantis.dark.mode 当前模式 dark or light
-  // volantis.dark.toggle() 暗黑模式触发器
-  // volantis.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
-  volantis.dark = {};
-  volantis.dark.method = {
-    toggle: new RunItem(),
-  };
-  volantis.dark = {
-    ...volantis.dark,
-    push: volantis.dark.method.toggle.push,
-  };
-  /********************  Message  ********************************/
-  // /layout/_plugins/message/script.ejs
-  // volantis.message
-  /********************  isMobile  ********************************/
-  // /source/js/app.js
-  // volantis.isMobile
-  // volantis.isMobileOld
-  /********************脚本动态加载函数********************************/
-  // volantis.js(src, cb)  cb 可以传入onload回调函数 或者 JSON对象 例如: volantis.js("src", ()=>{}) 或 volantis.js("src", {defer:true,onload:()=>{}})
-  // volantis.css(src)
-
-  // 返回Promise对象，如下方法同步加载资源，这利于处理文件资源之间的依赖关系，例如：APlayer 需要在 MetingJS 之前加载
-  // (async () => {
-  //     await volantis.js("...theme.plugins.aplayer.js.aplayer...")
-  //     await volantis.js("...theme.plugins.aplayer.js.meting...")
-  // })();
-
-  // 已经加入了setTimeout
-  volantis.js = (src, cb) => {
-    return new Promise(resolve => {
-      setTimeout(function () {
-        var HEAD = document.getElementsByTagName("head")[0] || document.documentElement;
-        var script = document.createElement("script");
-        script.setAttribute("type", "text/javascript");
-        if (cb) {
-          if (JSON.stringify(cb)) {
-            for (let p in cb) {
-              if (p == "onload") {
-                script[p] = () => {
-                  cb[p]()
-                  resolve()
-                }
-              } else {
-                script[p] = cb[p]
-                script.onload = resolve
-              }
-            }
-          } else {
-            script.onload = () => {
-              cb()
-              resolve()
-            };
-          }
-        } else {
-          script.onload = resolve
-        }
-        script.setAttribute("src", src);
-        HEAD.appendChild(script);
-      });
-    });
-  }
-  volantis.css = (src) => {
-    return new Promise(resolve => {
-      setTimeout(function () {
-        var link = document.createElement('link');
-        link.rel = "stylesheet";
-        link.href = src;
-        link.onload = resolve;
-        document.getElementsByTagName("head")[0].appendChild(link);
-      });
-    });
-  }
-  /********************按需加载的插件********************************/
-  // volantis.import.jQuery().then(()=>{})
-  volantis.import = {
-    jQuery: () => {
-      if (typeof jQuery == "undefined") {
-        return volantis.js("https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js")
-      } else {
-        return new Promise(resolve => {
-          resolve()
-        });
-      }
-    }
-  }
-  /********************** requestAnimationFrame ********************************/
-  // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
-  // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
-  volantis.requestAnimationFrame = (fn)=>{
-    if (!window.requestAnimationFrame) {
-      window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
-    }
-    window.requestAnimationFrame(fn)
-  }
-  /******************************************************************************/
-  /******************************************************************************/
-
+/************这个文件存放不需要重载的全局变量和全局函数*********/
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/******************** Pjax ********************************/
+function VPjax(){
+	this.list=[] // 存放回调函数
+	this.start=()=>{
+	  for(var i=0;i<this.list.length;i++){
+		this.list[i].run();
+	  }
+	}
+	this.push=(fn,name)=>{
+		var f=new PjaxItem(fn,name);
+		this.list.push(f);
+	}
+	// 构造一个可以run的对象
+	function PjaxItem(fn,name){
+		// 函数名称
+		this.name = name || fn.name
+		// run方法
+		this.run=()=>{
+			fn()
+		}
+	}
+}
+volantis.pjax={}
+volantis.pjax.method={
+	complete: new VPjax(),
+	error: new VPjax(),
+	send: new VPjax()
+}
+volantis.pjax={
+	...volantis.pjax,
+	push: volantis.pjax.method.complete.push,
+	error: volantis.pjax.method.error.push,
+	send: volantis.pjax.method.send.push
+}
+/********************脚本懒加载函数********************************/
+// 已经加入了setTimeout
+function loadScript(src, cb) {
+	setTimeout(function() {
+		var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+		var script = document.createElement('script');
+		script.setAttribute('type','text/javascript');
+		if (cb) script.onload = cb;
+		script.setAttribute('src', src);
+		HEAD.appendChild(script);
+	});
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
 </script>
 <script>
   
-  volantis.css("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css");
+  loadCSS("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css", window.volantis.loadcss);
   
   
-  volantis.css("https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css");
+  loadCSS("https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css", window.volantis.loadcss);
   
   
-  volantis.css("https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css");
+  loadCSS("https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css", window.volantis.loadcss);
+  
+  
+  loadCSS("https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/styles/solarized-light.min.css", window.volantis.loadcss);
   
 </script>
-
 <!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+  function Pjax_SCload_fancybox(){
+	if (typeof $.fancybox == "undefined") {
+	 SCload_fancybox();
+    } else {
+	 pjax_fancybox();
+    }
+  }
+  volantis.pjax.push(Pjax_SCload_fancybox)
+  volantis.pjax.send(()=>{
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+  },'fancybox')
+</script>
 
 
 <!-- internal -->
 
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
 
-  <script>
-  volantis.message = (title, message, option = {}, done = null) => {
-    if (typeof iziToast == "undefined") {
-      volantis.css('/blog/css/message.css?time=1630065716960')
-      volantis.js('/blog/js/message.js?time=1630065716960', () => {
-        tozashMessage(title, message, option, done);
-      });
-    } else {
-      tozashMessage(title, message, option, done);
-    }
-
-    function tozashMessage(title, message, option, done) {
-      const {
-        icon,
-        time,
-        position,
-        transitionIn,
-        transitionOut,
-        messageColor,
-        titleColor,
-        backgroundColor,
-        zindex
-      } = option;
-      iziToast.show({
-        layout: '2',
-        icon: 'Fontawesome',
-        closeOnEscape: 'true',
-        displayMode: 'replace',
-        transitionIn: transitionIn || 'bounceInLeft',
-        transitionOut: transitionOut || 'fadeOutRight',
-        messageColor: messageColor || 'var(--color-text)',
-        titleColor: titleColor || 'var(--color-text)',
-        backgroundColor: backgroundColor || 'var(--color-card)',
-        zindex: zindex || '2147483647',
-        icon: icon || 'fas fa-info-circle light-blue',
-        timeout: time || '5000',
-        position: position || 'topRight',
-        title: title,
-        message: message,
-        onClosed: () => {
-          if(done) done();
-        },
-      });
-    }
-  };
-
-  volantis.question = (title, message, option = {}, success = null, cancel = null, done = null) => {
-    if (typeof iziToast == "undefined") {
-      volantis.css('/blog/css/message.css?time=1630065716960')
-      volantis.js('/blog/js/message.js?time=1630065716960', () => {
-        tozashQuestion(title, message, option, success, cancel, done);
-      });
-    } else {
-      tozashQuestion(title, message, option, success, cancel, done);
-    }
-
-    function tozashQuestion(title, message, option, success, cancel, done) {
-      const {
-        icon,
-        time,
-        position,
-        transitionIn,
-        transitionOut,
-        messageColor,
-        titleColor,
-        backgroundColor,
-        zindex
-      } = option;
-      iziToast.question({ 
-        id: 'question',
-        icon: 'Fontawesome',
-        close: false,
-        overlay: true,
-        displayMode: 'once',
-        position: 'center',
-        messageColor: messageColor || 'var(--color-text)',
-        titleColor: titleColor || 'var(--color-text)',
-        backgroundColor: backgroundColor || 'var(--color-card)',
-        zindex: zindex || '2147483647',
-        icon: icon || 'fas fa-question-circle light-blue',
-        timeout: time || '20000',
-        title: title,
-        message: message,
-        buttons: [
-          ['<button><b>是</b></button>', (instance, toast) => {
-            instance.hide({ transitionOut: transitionOut || 'fadeOut' }, toast, 'button');
-            if(success) success(instance, toast)
-          }],
-          ['<button><b>否</b></button>', (instance, toast) => {
-            instance.hide({ transitionOut: transitionOut || 'fadeOut' }, toast, 'button');
-            if(cancel) cancel(instance, toast)
-          }]
-        ],
-        onClosed: (instance, toast, closedBy) => {
-          if(done) done(instance, toast, closedBy);
+    <script type="text/javascript">
+        var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.jpg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
         }
-      });
-    }
-  }
-
-  volantis.messageCopyright = {
-    enable: 'true' === 'true' ? true : false,
-    title: '知识共享许可协议',
-    message: '请遵守 CC BY-NC-SA 4.0 协议。',
-    icon: 'far fa-copyright light-blue'
-  }
-
-  volantis.messageRightMenu = {
-    enable: 'true' === 'true' ? true : false,
-  }
-
-  if(volantis.messageCopyright.enable) {
-    document.body.oncopy = function(){
-      volantis.message(volantis.messageCopyright.title, volantis.messageCopyright.message, {
-        icon: volantis.messageCopyright.icon
-      });
-    }; 
-  }
-</script>
-
+	  function Pjax_backstretch(){
+        
+          $('#cover-backstretch').backstretch(
+            imgs,
+          {
+            duration: "10000",
+            fade: "1500"
+          });
+        
+	  }
+	  loadScript("https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js",Pjax_backstretch)
+    </script>
+  
 
 
 
   
   
-  
+
   <div id="rightmenu-wrapper">
     <ul class="list-v rightmenu" id="rightmenu-content">
-      <li class='navigation menuNavigation-Content'>
-        <a class='nav icon-only fix-cursor-default' onclick='history.back()'><i class='fa fa-arrow-left fa-fw'></i></a>
-        <a class='nav icon-only fix-cursor-default' onclick='history.forward()'><i class='fa fa-arrow-right fa-fw'></i></a>
-        <a class='nav icon-only fix-cursor-default' onclick='window.location.reload()'><i class='fa fa-redo fa-fw'></i></a>
-        <a class='nav icon-only fix-cursor-default' href='/'><i class='fa fa-home fa-fw'></i></a>
+      <li class='option'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-text' onclick="document.execCommand('copy')"><i class='fa fa-copy fa-fw'></i>Copy Text</a>
+        <hr id='hr-text'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-href'><i class='fa fa-link fa-fw'></i>Copy Link</a>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-open-href'><i class='fa fa-external-link-square-alt fa-fw'></i>Open Link in New Tab</a>
+        <hr id='hr-href'>
+        <a class='vlts-menu opt fix-cursor-default' id='menu-copy-src'><i class='fa fa-image fa-fw'></i>Copy Image Link</a>
+        <hr id='hr-src'>
       </li>
-      <li class='option menuOption-Content'>
-        <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copyText'>
-          
-          <i class='fa fa-copy fa-fw'></i> Copy Text
-        </span>
-        <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copyPaste'>
-          
-          <i class='fa fa-paste fa-fw mR12'></i> 粘贴文本
-        </span>
-        <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copySelect'>
-          
-          <i class='fa fa-object-ungroup fa-fw mR12'></i> 全选文本
-        </span>
-        <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copyCut'>
-          
-          <i class='fa fa-cut fa-fw mR12'></i> 剪切文本
-        </span>
-        <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='openTab'>
-          
-          <i class='fa fa-external-link-square-alt fa-fw mR12'></i> Open Link in New Tab
-        </span>
-        <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copySrc'>
-          
-          <i class='fa fa-image fa-fw mR12'></i> Copy Image Link
-        </span>
-        <span class='vlts-menu opt fix-cursor-default menu-Option' data-fn-type='copyImg'>
-          
-          <i class='fa fa-images fa-fw mR12'></i> 复制图片文件
-        </span>
-      </li>
+      
+        <li class='navigation'>
+          <a class='nav icon-only fix-cursor-default' onclick='history.back()'><i class='fa fa-arrow-left fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' onclick='history.forward()'><i class='fa fa-arrow-right fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' onclick='window.location.reload()'><i class='fa fa-redo fa-fw'></i></a>
+          <a class='nav icon-only fix-cursor-default' href='/'><i class='fa fa-home fa-fw'></i></a>
+        </li>
+      
+      <hr>
       
         
       
         
           
-    <li class="menuLoad-Content">
-      <a class='vlts-menu fix-cursor-default' href=https://volantis.js.org/faqs/
+    <li>
+      <a class='vlts-menu fix-cursor-default ' href=https://volantis.js.org/faqs/
         
         
         
         
           id="https:volantisjsorgfaqs"
-        
-      >
+        >
         <i class='fa fa-question fa-fw'></i> 常见问题
       </a>
     </li>
@@ -6072,15 +4275,14 @@ MyBatis 避免了几乎所有的 JDBC 代码和手...</p>
       
         
           
-    <li class="menuLoad-Content">
-      <a class='vlts-menu fix-cursor-default' href=https://volantis.js.org/examples/
+    <li>
+      <a class='vlts-menu fix-cursor-default ' href=https://volantis.js.org/examples/
         
         
         
         
           id="https:volantisjsorgexamples"
-        
-      >
+        >
         <i class='fa fa-rss fa-fw'></i> 示例博客
       </a>
     </li>
@@ -6089,15 +4291,14 @@ MyBatis 避免了几乎所有的 JDBC 代码和手...</p>
       
         
           
-    <li class="menuLoad-Content">
-      <a class='vlts-menu fix-cursor-default' href=https://volantis.js.org/contributors/
+    <li>
+      <a class='vlts-menu fix-cursor-default ' href=https://volantis.js.org/contributors/
         
         
         
         
           id="https:volantisjsorgcontributors"
-        
-      >
+        >
         <i class='fa fa-fan fa-spin fa-fw'></i> 加入社区
       </a>
     </li>
@@ -6105,20 +4306,19 @@ MyBatis 避免了几乎所有的 JDBC 代码和手...</p>
         
       
         
-          <hr class="menuLoad-Content">
+          <hr>
         
       
         
           
-    <li class="menuLoad-Content">
-      <a class='vlts-menu fix-cursor-default' href=https://github.com/volantis-x/volantis-docs/
+    <li>
+      <a class='vlts-menu fix-cursor-default ' href=https://github.com/volantis-x/volantis-docs/
         
         
         
         
           id="https:githubcomvolantis-xvolantis-docs"
-        
-      >
+        >
         <i class='fa fa-code-branch fa-fw'></i> 本站源码
       </a>
     </li>
@@ -6127,15 +4327,14 @@ MyBatis 避免了几乎所有的 JDBC 代码和手...</p>
       
         
           
-    <li class="menuLoad-Content">
-      <a class='vlts-menu fix-cursor-default' href=https://github.com/volantis-x/hexo-theme-volantis/
+    <li>
+      <a class='vlts-menu fix-cursor-default ' href=https://github.com/volantis-x/hexo-theme-volantis/
         
         
         
         
           id="https:githubcomvolantis-xhexo-theme-volantis"
-        
-      >
+        >
         <i class='fa fa-code-branch fa-fw'></i> 主题源码
       </a>
     </li>
@@ -6143,30 +4342,37 @@ MyBatis 避免了几乎所有的 JDBC 代码和手...</p>
         
       
         
-          <hr class="menuLoad-Content">
-        
-      
-        
-          <li class='option menuOption-Content'>
-            <span class='vlts-menu opt fix-cursor-default' id='printHtml'>
-              <i class='fa fa-print fa-fw '></i> 打印页面
-            </span>
-          </li>  
-        
-      
-        
-          <hr class="menuLoad-Content">
+          <hr>
         
       
         
           
-    <li class="menuLoad-Content">
-      <a class='vlts-menu fix-cursor-default' 
+    <li>
+      <a class='vlts-menu fix-cursor-default ' 
         
         
         
+          onclick="document.execCommand('print')"
         
-      >
+        >
+        <i class='fa fa-print fa-fw'></i> 打印页面
+      </a>
+    </li>
+  
+        
+      
+        
+          <hr>
+        
+      
+        
+          
+    <li>
+      <a class='vlts-menu fix-cursor-default toggle-mode-btn' 
+        
+        
+        
+        >
         <i class='fas fa-moon fa-fw'></i> Dark mode
       </a>
     </li>
@@ -6174,63 +4380,150 @@ MyBatis 避免了几乎所有的 JDBC 代码和手...</p>
         
       
         
-          <hr class="menuLoad-Content">
+          <hr>
         
       
         
       
     </ul>
   </div>
+
   <script>
-    volantis.rightMenu = {};
-    volantis.rightMenu.faicon = 'fa' || 'fa';
-    
-    
-      volantis.rightMenu.defaultStyles = true;
-    
-    
-    
-    
-    
-      volantis.APlayerController = {};
-    
-    volantis.js('/blog/js/rightMenu.js?time=1630065716960')
+    window.document.oncontextmenu = function (event) {
+      if (event.ctrlKey) return true;
+      if (/Android|webOS|BlackBerry/i.test(navigator.userAgent)) return true;
+      return popMenu(event);
+    };
+    document.addEventListener("click", function (event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      mymenu.style.display = "none";
+    });
+    function popMenu(event) {
+      var mymenu = document.getElementById('rightmenu-wrapper');
+      var menuContent = document.getElementById('rightmenu-content');
+      var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+      mymenu.style.left = event.clientX + "px"; // 获取鼠标位置
+      mymenu.style.top = event.clientY + "px";
+      mymenu.style.display = 'block';
+      if (event.clientX * 2 > screenWidth) {
+        menuContent.classList.add('left');
+      } else {
+        menuContent.classList.remove('left');
+      }
+      if (event.clientY * 2 > screenHeight) {
+        menuContent.classList.add('top');
+      } else {
+        menuContent.classList.remove('top');
+      }
+
+      let hrText = document.getElementById('hr-text');
+      let hrSrc = document.getElementById('hr-src');
+      let hrHref = document.getElementById('hr-href');
+
+      // 选中图片
+      let copySrc = document.getElementById('menu-copy-src');
+      if (copySrc != undefined) {
+        if (event.target.currentSrc) {
+          copySrc.style.display = 'block';
+          copySrc.addEventListener("click", function (e) {
+            copyString(event.target.currentSrc);
+          },{once: true});
+          hrSrc.style.display = 'block';
+        } else {
+          copySrc.style.display = 'none';
+          hrSrc.style.display = 'none';
+        }
+      }
+
+      // 选中按钮
+      // 判断是不是按钮
+      let href = '';
+      if (event.path) {
+        for (i = 0; i < event.path.length; i++) {
+          if (event.path[i].href != undefined && event.path[i].href.length > 0) {
+            href = event.path[i].href;
+          }
+        }
+      }
+
+      let copyText = document.getElementById('menu-copy-text');
+      copyText.style.display = 'none';
+      hrText.style.display = 'none';
+      if (href.length == 0) {
+        // 选中文本
+        if (window.getSelection().toString()) {
+          if ('true' == 'true') {
+            copyText.style.display = 'block';
+            hrText.style.display = 'block';
+          }
+        }
+      }
+
+      // 在新标签页打开
+      let openHref = document.getElementById('menu-open-href');
+      if (openHref != undefined) {
+        if (href.length > 0) {
+          openHref.style.display = 'block';
+          openHref.addEventListener("click", function (e) {
+            window.open(href);
+          },{once: true});
+          hrHref.style.display = 'block';
+        } else {
+          openHref.style.display = 'none';
+          hrHref.style.display = 'none';
+        }
+      }
+      // 复制链接
+      let copyHref = document.getElementById('menu-copy-href');
+      if (copyHref != undefined) {
+        if (href.length > 0) {
+          copyHref.style.display = 'block';
+          copyHref.addEventListener("click", function (e) {
+            copyString(href);
+          },{once: true});
+        } else {
+          copyHref.style.display = 'none';
+        }
+      }
+      // 有音乐播放器 see: layout/_third-party/aplayer/script.ejs
+      
+      return false; // 该行代码确保系统自带的右键菜单不会被调出
+    }
+    function hideMenu() {
+      document.getElementById('rightmenu-wrapper').style.display = 'none';
+    }
+    function copyString(str) {
+      const input = document.createElement('input');
+      input.setAttribute('readonly', 'readonly');
+      document.body.appendChild(input);
+      input.setAttribute('value', str);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+    }
+    document.execCommand('click');
   </script>
 
-
-
-<!-- rightmenu要在darkmode之前（ToggleButton） darkmode要在comments之前（volantis.dark.push）-->
 
 
 
 <script>
   function loadIssuesJS() {
-    
-      const sites_api = document.getElementById('sites-api');
-      if (sites_api != undefined && typeof SitesJS === 'undefined') {
-        volantis.js("/blog/js/plugins/sites.js?time=1630065716960")
-      }
-    
-    
-      const friends_api = document.getElementById('friends-api');
-      if (friends_api != undefined && typeof FriendsJS === 'undefined') {
-        volantis.js("/blog/js/plugins/friends.js?time=1630065716960")
-      }
-    
-    
-      const contributors_api = document.getElementById('contributors-api');
-      if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
-        volantis.js("/blog/js/plugins/contributors.js?time=1630065716960")
-      }
-    
+    if ($(".md").find(".issues-api").length == 0) return;
+	
+	  loadScript('/blog/js/issues.js');
+	
   };
-  loadIssuesJS()
-  volantis.pjax.push(()=>{
+  $(function () {
     loadIssuesJS();
-  })
-
+  });
+  volantis.pjax.push(()=>{
+	if (typeof IssuesAPI == "undefined") {
+	  loadIssuesJS();
+	}
+  },"IssuesJS")
 </script>
-
 
 
 
@@ -6268,9 +4561,9 @@ MyBatis 避免了几乎所有的 JDBC 代码和手...</p>
 <script>
   window.FPConfig = {
 	delay: 0,
-	ignoreKeywords: ["#"],
-	maxRPS: 6,
-	hoverDelay: 0
+	ignoreKeywords: [],
+	maxRPS: 5,
+	hoverDelay: 25
   };
 </script>
 <script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
@@ -6279,30 +4572,84 @@ MyBatis 避免了几乎所有的 JDBC 代码和手...</p>
 
 
 
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+	volantis.pjax.push(pjax_initCopyCode)
+</script>
+
+
+
+
    <script type="text/javascript">
+  loadScript("https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js")
   function pjax_scrollrebeal() {
-    ScrollReveal().reveal("#l_main .reveal", {
-      distance: "32px",
-      duration: "800",
-      interval: "20",
-      scale: "1",
-      easing: "ease-out",
+    ScrollReveal().reveal('.l_main .reveal', {
+      distance: '32px',
+      duration: '800',
+      interval: '20',
+      scale: '1',
+      easing: 'ease-out'
     });
   }
-  function init_scrollrebeal() {
-    if (typeof ScrollReveal == "undefined") {
-      volantis.requestAnimationFrame(init_scrollrebeal);
-    } else {
-      pjax_scrollrebeal();
-    }
-  }
-  volantis.js("https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js");
-  document.addEventListener("DOMContentLoaded", init_scrollrebeal);
-  volantis.pjax.push(
-    pjax_scrollrebeal,
-    "pjax_scrollrebeal",
-    (setRequestAnimationFrame = false)
-  );
+  $(function () {
+  var checkScrollReveal = setInterval(function () {
+    if ($("#safearea").css("display")!="block") return
+    if (typeof ScrollReveal=="undefined") return
+    clearInterval(checkScrollReveal)
+	pjax_scrollrebeal();
+  }, 100)
+  });
+  volantis.pjax.push(pjax_scrollrebeal)
 </script>
 
 
@@ -6310,7 +4657,12 @@ MyBatis 避免了几乎所有的 JDBC 代码和手...</p>
 
 
 
-  <script>
+  
+  
+<script src="/blog/js/valine.js"></script>
+
+
+<script>
   function emoji(path, idx, ext) {
     return path + "/" + path + "-" + idx + "." + ext;
   }
@@ -6347,7 +4699,9 @@ MyBatis 避免了几乎所有的 JDBC 代码和手...</p>
       emojiMaps: emojiMaps,
     }))
   }
-  volantis.js('/blog/js/valine.js?time=1630065716960').then(pjax_valine)
+  $(function () {
+    pjax_valine();
+  });
   volantis.pjax.push(pjax_valine);
 </script>
 
@@ -6356,50 +4710,36 @@ MyBatis 避免了几乎所有的 JDBC 代码和手...</p>
 
 
 
-<script src="/blog/blog/js/app.js?time=1630065716960.js"></script>
+  
+<script src="/blog/js/app.js"></script>
+
 
 
 <!-- optional -->
 
   <script>
-  const SearchServiceDataPathRoot = ("/blog/" || "/").endsWith("/")
-    ? "/blog/" || "/"
-    : "/blog//" || "/";
-  const SearchServiceDataPath = SearchServiceDataPathRoot + "content.json";
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/blog/" || "/").endsWith('/') ? ("/blog/" || "/") : ("/blog//" || "/" );
 
-  function loadSearchScript() {
-    // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
-    return volantis.js("/blog/js/search/hexo.js?time=1630065716960");
-  }
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('/blog/js/search/hexo.js',setSearchService);
+	
+})
 
-  function loadSearchService() {
-    loadSearchScript();
-    document.querySelectorAll(".input.u-search-input").forEach((e) => {
-      e.removeEventListener("focus", loadSearchService, false);
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
     });
-  }
-
-  // 打开并搜索 字符串 s
-  function OpenSearch(s) {
-    loadSearchScript().then(() => {
-      SearchService.setQueryText(s);
-      SearchService.search();
-    });
-  }
-
-  // 访问含有 ?s=xxx  的链接时打开搜索 // 与搜索引擎 structured data 相关: /scripts/helpers/structured-data/lib/config.js
-  if (window.location.search && /^\?s=/g.test(window.location.search)) {
-    let queryText = decodeURI(window.location.search)
-      .replace(/\ /g, "-")
-      .replace(/^\?s=/g, "");
-    OpenSearch(queryText);
-  }
-
-  // 搜索输入框获取焦点时加载搜索
-  document.querySelectorAll(".input.u-search-input").forEach((e) => {
-    e.addEventListener("focus", loadSearchService, false);
-  });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+}
 </script>
+
 
 
 
@@ -6408,7 +4748,7 @@ MyBatis 避免了几乎所有的 JDBC 代码和手...</p>
 <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
 
 <script type="text/javascript">
-document.addEventListener("DOMContentLoaded", function () {
+$(function () {
   Waves.attach('.flat-btn', ['waves-button']);
   Waves.attach('.float-btn', ['waves-button', 'waves-float']);
   Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
@@ -6427,33 +4767,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  <script>
+  
 
-  volantis.css("https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/styles/solarized-light.min.css");
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
 
+<script>hljs.initHighlightingOnLoad();</script>
 
-  volantis.js("https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js").then(()=>{
-    volantis.requestAnimationFrame(hljs.initHighlightingOnLoad)
-  })
-  volantis.pjax.push(()=>{
-    document.querySelectorAll('pre code').forEach((block) => {
-      hljs.highlightBlock(block);
-    });
-  },"highlightjs")
-
-
-  function pjax_highlightjs_copyCode(){
-    if (!(document.querySelector(".highlight .code pre") ||
-      document.querySelector(".article pre code"))) {
-      return;
-    }
-    VolantisApp.copyCode(".highlight .code pre, .article pre code")
-  }
-  volantis.requestAnimationFrame(pjax_highlightjs_copyCode)
-  volantis.pjax.push(pjax_highlightjs_copyCode)
-
+<script>
+volantis.pjax.push(()=>{
+	document.querySelectorAll('pre code').forEach((block) => {
+	  hljs.highlightBlock(block);
+	});
+},"highlightjs")
 </script>
-
 
 
 
@@ -6668,254 +4994,185 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
-
-
-
   <script>
-  var imgs = ["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.webp","https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.webp"];
-  var index = 0;
+const rootElement = document.documentElement;
+const darkModeStorageKey = "user-color-scheme";
+const rootElementDarkModeAttributeName = "data-user-color-scheme";
 
-  function parallax(){
-    let ParallaxWindow = document.querySelector("#parallax-window");
-    
-    Parallax.window = ParallaxWindow;
-    Parallax.options.fade = 1500;
-    Parallax.cache = 1;
-    next_parallax();
-    Parallax.init();
-    if (imgs.length>1) {
-      let IntervalParallax = setInterval(function () {
-        next_parallax();
-      }, '10000');
-    }
-  }
+const setLS = (k, v) => {
+    localStorage.setItem(k, v);
+};
 
-  function next_parallax() {
-    
-      if (!document.querySelector("#full")&&!document.querySelector("#half")) {
-        return
-      }
-    
-    if (imgs.length>=1) {
-      Parallax.options.src = imgs[index % imgs.length];
-      Parallax.start();
-      index++;
-      if (Parallax.cache) {
-        fetch(imgs[index % imgs.length] +"?t=" + new Date().getTime());
-        if (index == imgs.length) {
-          Parallax.cache = 0;
-        }
-      }
-    }
+const removeLS = (k) => {
+    localStorage.removeItem(k);
+};
+
+const getLS = (k) => {
+    return localStorage.getItem(k);
+};
+
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
   }
-  var runningOnBrowser = typeof window !== "undefined";
-  var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
-  if (!isBot) {
-    volantis.js('/blog/js/parallax.js?time=1630065716960').then(()=>{
-      parallax()
-    })
-    volantis.pjax.push(next_parallax);
+};
+
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+
+/**
+ * get target mode
+ */
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
   }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+
+/**
+ * bind click event for toggle button
+ */
+var btn=$("#wrapper .toggle-mode-btn,#rightmenu-wrapper .toggle-mode-btn");
+function bindToggleButton() {
+    btn.on('click',(e) => {
+      const mode = toggleCustomDarkMode();
+      applyCustomDarkModeSettings(mode);
+    });
+}
+
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", bindToggleButton);
+volantis.pjax.push(bindToggleButton);
+volantis.pjax.send(()=>{
+	btn.unbind('click');
+},'toggle-mode-btn-unbind');
 </script>
 
 
 
-<!-- pjax 标签必须存在于所有页面 否则 pjax error -->
-<pjax>
 
 
 
-</pjax>
+
 
 <script>
-  function listennSidebarTOC() {
-    const navItems = document.querySelectorAll(".toc li");
-    if (!navItems.length) return;
-    const sections = [...navItems].map((element) => {
-      const link = element.querySelector(".toc-link");
-      const target = document.getElementById(
-        decodeURI(link.getAttribute("href")).replace("#", "")
-      );
-      link.addEventListener("click", (event) => {
-        event.preventDefault();
-        window.scrollTo({
-          top: target.offsetTop + document.getElementById("safearea").offsetTop + 5,
-          
-        });
-      });
-      return target;
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
     });
+    return target;
+  });
 
-    function activateNavByIndex(target) {
-      if (target.classList.contains("active-current")) return;
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
 
-      document.querySelectorAll(".toc .active").forEach((element) => {
-        element.classList.remove("active", "active-current");
-      });
-      target.classList.add("active", "active-current");
-      let parent = target.parentNode;
-      while (!parent.matches(".toc")) {
-        if (parent.matches("li")) parent.classList.add("active");
-        parent = parent.parentNode;
-      }
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
     }
-
-    function findIndex(entries) {
-      let index = 0;
-      let entry = entries[index];
-      if (entry.boundingClientRect.top > 0) {
-        index = sections.indexOf(entry.target);
-        return index === 0 ? 0 : index - 1;
-      }
-      for (; index < entries.length; index++) {
-        if (entries[index].boundingClientRect.top <= 0) {
-          entry = entries[index];
-        } else {
-          return sections.indexOf(entry.target);
-        }
-      }
-      return sections.indexOf(entry.target);
-    }
-
-    function createIntersectionObserver(marginTop) {
-      marginTop = Math.floor(marginTop + 10000);
-      let intersectionObserver = new IntersectionObserver(
-        (entries, observe) => {
-          let scrollHeight = document.documentElement.scrollHeight + document.getElementById("safearea").offsetTop +
-          5;
-          if (scrollHeight > marginTop) {
-            observe.disconnect();
-            createIntersectionObserver(scrollHeight);
-            return;
-          }
-          let index = findIndex(entries);
-          activateNavByIndex(navItems[index]);
-        }, {
-          rootMargin: marginTop + "px 0px -100% 0px",
-          threshold: 0,
-        }
-      );
-      sections.forEach((element) => {
-        element && intersectionObserver.observe(element);
-      });
-    }
-
-    createIntersectionObserver(document.documentElement.scrollHeight);
   }
 
-  document.addEventListener("DOMContentLoaded", ()=>{
-    volantis.requestAnimationFrame(listennSidebarTOC)
-  });
-  document.addEventListener("pjax:success", ()=>{
-    volantis.requestAnimationFrame(listennSidebarTOC)
-  });
-</script>
-
-<script>
-  // https://web.dev/content-visibility/
-  // https://www.caniuse.com/?search=content-visibility
-  // https://infrequently.org/2020/12/content-visibility-scroll-fix/
-  // https://infrequently.org/2020/12/resize-resilient-deferred-rendering/
-
-  // 备注 目前已知的问题:
-  // 动态修改导致的内容高度变化(例如评论框异步渲染的外部盒子高度变化) 无法提前获知, 进而导致的首次滚动条跳动无法去除 (wontfix) 事实上不使用 content-visibility 也会有跳动, 不过是比使用 content-visibility 跳动提前
-  // scrollreveal 插件潜在问题 目前尚不明确
-
-  let eqIsh = (a, b, fuzz = 2) => {
-    return Math.abs(a - b) <= fuzz;
-  };
-
-  let rectNotEQ = (a, b) => {
-    return !eqIsh(a.width, b.width) || !eqIsh(a.height, b.height);
-  };
-
-  // Keep a map of elements and the dimensions of
-  // their place-holders, re-setting the element's
-  // intrinsic size when we get updated measurements
-  // from observers.
-  let spaced = new WeakMap();
-
-  // Only call this when known cheap, post layout
-  let reserveSpace = (el, rect = el.getClientBoundingRect()) => {
-    let old = spaced.get(el);
-    // Set intrinsic size to prevent jumping on un-painting:
-    //    https://drafts.csswg.org/css-sizing-4/#intrinsic-size-override
-    if (!old || rectNotEQ(old, rect)) {
-      spaced.set(el, rect);
-      el.style["contain-intrinsic-size"] = `${rect.width}px ${rect.height}px`;
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
     }
-  };
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
 
-  let iObs = new IntersectionObserver(
-    (entries, o) => {
-      entries.forEach((entry) => {
-        // We don't care if the element is intersecting or
-        // has been laid out as our page structure ensures
-        // they'll get the right width.
-        reserveSpace(entry.target, entry.boundingClientRect);
-      });
-    },
-    { rootMargin: "500px 0px 500px 0px" }
-  );
-
-  let rObs = new ResizeObserver((entries, o) => {
-    entries.forEach((entry) => {
-      reserveSpace(entry.target, entry.contentRect);
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
     });
-  });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
 
-  let resizeResilientDeferredRendering = (Selector) => {
-    let articles = document.querySelectorAll(Selector);
-
-    if (articles.length) {
-      articles.forEach((el) => {
-        iObs.observe(el);
-        rObs.observe(el);
-      });
-
-      // Workaround for Chrome bug, part 2.
-      //
-      // Re-enable browser management of rendering for the
-      // first article after the first paint. Double-rAF
-      // to ensure we get called after a layout.
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          articles[0].style["content-visibility"] = "auto";
-        });
-      });
-    }
-  };
-
-  let contentVisibilityScrollFix = () => {
-    if (!("content-visibility" in document.documentElement.style)) {
-      return;
-    }
-    resizeResilientDeferredRendering(".post-story");
-    resizeResilientDeferredRendering("article");
-    resizeResilientDeferredRendering(".post-wrapper");
-  };
-  contentVisibilityScrollFix();
-  volantis.pjax.push(contentVisibilityScrollFix);
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
 </script>
-
-
-
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"灵魂有香气a","url":"https://zabernism.github.io/blog/blog/","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"sameAs":["https://github.com/volantis-x"]},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://zabernism.github.io/blog/blog/","name":"灵魂有香气a"}},{"@type":"ListItem","position":2,"item":{"@id":"https://zabernism.github.io/blog/blog/categories/java框架面试题/","name":"java框架面试题"}},{"@type":"ListItem","position":3,"item":{"@id":"https://zabernism.github.io/blog/blog/2021/07/27/面试题整理/P7/","name":"JAVA"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"JAVA","description":"","datePublished":"2021-07-27T09:52:15.559Z","dateModified":"2021-07-31T09:05:25.162Z","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://zabernism.github.io/blog/2021/07/27/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/P7/"},"author":{"@type":"Person"},"publisher":{"@type":"Organization","name":"灵魂有香气a","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://zabernism.github.io/blog/2021/07/27/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/P7/","wordCount":0,"articleSection":"java框架面试题","keywords":"java框架面试题"}]</script>
-
 
 <!-- more -->
 
-
-
-      
-        <!-- 
-  pjax重载区域接口：
-  1.  <pjax></pjax> 标签 pjax 标签必须存在于所有页面 否则 pjax error
-  2.  script[data-pjax]
-  3.  .pjax-reload script
--->
-
+ 
+	   
+	    
 
 
 <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
@@ -6925,14 +5182,12 @@ document.addEventListener("DOMContentLoaded", function () {
     var pjax;
     document.addEventListener('DOMContentLoaded', function () {
       pjax = new Pjax({
-        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox]):not([onclick="return false;"])',
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
         selectors: [
           "title",
           
           "#pjax-container",
-          "#pjax-header-nav-list",
-          "pjax", // <pjax></pjax> 标签
-          "script[data-pjax], .pjax-reload script" // script标签添加data-pjax 或 script标签外层添加.pjax-reload 的script代码段重载
+          "#pjax-header-nav-list"
         ],
         cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
         timeout: 5000
@@ -6955,26 +5210,46 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       } catch (error) {}
 
-      // 使用 volantis.pjax.send 方法传入pjax:send回调函数 参见layout/_partial/scripts/global.ejs
-      volantis.pjax.method.send.start();
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  // 使用 volantis.pjax.send 方法传入pjax:send回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.send.start();
     });
 
     document.addEventListener('pjax:complete', function () {
-      // 使用 volantis.pjax.push 方法传入重载函数 参见layout/_partial/scripts/global.ejs
-      volantis.pjax.method.complete.start();
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+		// 使用 volantis.pjax.push 方法传入重载函数 参见layout/_partial/scripts/global.ejs
+		volantis.pjax.method.complete.start();
+      } catch (e) {
+        console.log(e);
+      }
     });
 
     document.addEventListener('pjax:error', function (e) {
-      // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
-      volantis.pjax.method.error.start();
+	  // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.error.start();
       window.location.href = e.triggerElement.href;
     });
 </script>
-
-      
+ 
+	  
     </div>
-  <!-- Custom Files bodyEnd begin-->
-  
-  <!-- Custom Files bodyEnd end-->
   </body>
 </html>
