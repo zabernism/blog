@@ -716,23 +716,30 @@ System.out.println(obj);
   
     <div class="prev-next">
       
-        <a class='prev' href='/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/02%20lambda/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>lambda</p>
-          <p class='content'>lambda表达式
-@since 1.8
+        <a class='prev' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/03%20%E7%B1%BB/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>修饰符</p>
+          <p class='content'>类与对象类类是构造对象的模板。
+由类构造对象的过程称为创建类的实例。
+一个源文件中，只能有一个公共类，类名必须与文件名相同。
+类之间的关系最常见的关系有：
 
-语法参数，箭头（-&gt;）以及一个表达式。
-(String first, String second) -&gt;first.length() - ...</p>
+依赖（uses-a）：一个类的方法需...</p>
         </a>
       
       
-        <a class='next' href='/blog/2021/07/27/01java/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/03%20%E5%86%85%E9%83%A8%E7%B1%BB/'>
-          <p class='title'>内部类<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>内部类内部类（ inner class）是定义在另一个类中的类。为什么需要使用内部类：
+        <a class='next' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/05%20%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/'>
+          <p class='title'>文档注释<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>注释方法三种注释方法，注释不会出现在可执行文件中
 
-内部类方法可以访问该类定义所在的作用域中的数据，包括私有数据
-内部类可以对同一个包中的其他类隐藏起来
-当...</p>
+//
+/* */
+/** */自动生成文档
+
+注释的插入javadoc 从下面几个特性中抽取信息：
+
+包
+公有类与接口
+公有的和受保护的构造器...</p>
         </a>
       
     </div>
@@ -854,10 +861,7 @@ System.out.println(obj);
       
         Use
         <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1" target="_blank" class="codename">Volantis</a>
-        as theme, total visits
-          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          times
-        
+        as theme
       
     
       
@@ -1564,7 +1568,7 @@ var loadCSS = function( href, before, media, attributes ){
       path = defaultPath || decodeURI(window.location.pathname);
     }
     var valine = new Valine();
-    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"guoPbSVxNyamQ4PE6FgwlKTi-gzGzoHsz","appKey":"t8qr51J6QUbHNGA5lA54Jodr","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":true,"avatar":"robohash","pageSize":8,"lang":"zh-cn","highlight":true,"mathJax":true}, {
+    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"guoPbSVxNyamQ4PE6FgwlKTi-gzGzoHsz","appKey":"t8qr51J6QUbHNGA5lA54Jodr","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":true,"avatar":"robohash","pageSize":8,"lang":"zh-cn","highlight":true,"mathJax":false}, {
       el: '#valine_container',
       path: path,
       placeholder: pagePlaceholder,
@@ -1580,8 +1584,6 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 
-
-  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
 
 
 

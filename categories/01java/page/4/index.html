@@ -426,39 +426,21 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/01%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
-        数据类型
+      <a href="/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/02%20%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+        字符串
       </a>
     </h2>
   
   <div class='md'>
     
       
-        数据类型
-数据类型分为基本类型和对象类型
+        String字符串String底层实现
+String被声明为final，因此它不可被继承。底层是char或byte类型的value数组，value数组也被声明为final，这意味着数组初始化之后就不能再引用其他数组。并且String内部没有改变value数组的办法，因此可以保障String不可变
 
-基本类型java中的基本类型有8种，其中4种整型、2种浮点型、char和boolean。还有void和reference类型
+java 8 -char数组
+在java8中，String内部使用char数组存储数据。
 
-1、java的基本类型值存储在内存栈上
-2、基本类型所占空间大小固定
-3、所有数值类型都有正负号
-
-整型
-
-
-类型
-包装类
-存储需求
-取值范围
-零值
-备注
-
-
-
-long
-Long
-8 字节 64 bits
--2^63 ~...
+p...
       
     
   </div>
@@ -477,7 +459,7 @@ Long
       </div>
       
         <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/01%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/'>
+          <a class='readmore' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/02%20%E5%AD%97%E7%AC%A6%E4%B8%B2/'>
             Read More
           </a>
         </div>
@@ -825,7 +807,7 @@ Long
         <div class="webinfo-item">
           <div>本站访客数：</div>
           
-          <div><span id="busuanzi_value_site_uv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 人</div>
+          <div><span id="lc-uv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 人</div>
           
         </div>
       
@@ -834,7 +816,7 @@ Long
         <div class="webinfo-item">
           <div>本站总访问量：</div>
           
-          <div><span id="busuanzi_value_site_pv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 次</div>
+          <div><span id="lc-sv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 次</div>
           
         </div>
       
@@ -843,7 +825,7 @@ Long
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Fri Aug 27 2021 22:48:48 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Fri Aug 27 2021 22:50:12 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2021-08-27 日</div>
           
         </div>
@@ -976,10 +958,7 @@ Long
       
         Use
         <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1" target="_blank" class="codename">Volantis</a>
-        as theme, total visits
-          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          times
-        
+        as theme
       
     
       
@@ -1686,7 +1665,7 @@ var loadCSS = function( href, before, media, attributes ){
       path = defaultPath || decodeURI(window.location.pathname);
     }
     var valine = new Valine();
-    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"guoPbSVxNyamQ4PE6FgwlKTi-gzGzoHsz","appKey":"t8qr51J6QUbHNGA5lA54Jodr","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":true,"avatar":"robohash","pageSize":8,"lang":"zh-cn","highlight":true,"mathJax":true}, {
+    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"guoPbSVxNyamQ4PE6FgwlKTi-gzGzoHsz","appKey":"t8qr51J6QUbHNGA5lA54Jodr","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":true,"avatar":"robohash","pageSize":8,"lang":"zh-cn","highlight":true,"mathJax":false}, {
       el: '#valine_container',
       path: path,
       placeholder: pagePlaceholder,
@@ -1702,8 +1681,6 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 
-
-  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
 
 
 

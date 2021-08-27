@@ -746,35 +746,10 @@ JUC其实就是java.util.concurrent下面的类包，专门用来多线程的开
         </a>
       
       
-        <a class='next' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/02%20%E5%85%B7%E4%BD%93%E9%9B%86%E5%90%88/'>
-          <p class='title'>具体集合<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>
-
-
-集合类型
-同步
-可null
-有序
-描述
-
-
-
-ArrayList
-否
-是
-是
-动态增缩的索引序列
-
-
-Vector
-是
-是
-是
-过时，同步的ArrayList
-
-
-LinkedList
-否...</p>
+        <a class='next' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/03%20ArrayList%E3%80%81Vector/'>
+          <p class='title'>ArrayList、Vector<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>ArrayList 除未实现同步外，跟 Vector 大致相同。同步效率低，在不需要同步的时候使用 ArrayList。
+ArrayList总体介绍ArrayList 实现了 List、Rand...</p>
         </a>
       
     </div>
@@ -896,10 +871,7 @@ LinkedList
       
         Use
         <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1" target="_blank" class="codename">Volantis</a>
-        as theme, total visits
-          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          times
-        
+        as theme
       
     
       
@@ -1606,7 +1578,7 @@ var loadCSS = function( href, before, media, attributes ){
       path = defaultPath || decodeURI(window.location.pathname);
     }
     var valine = new Valine();
-    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"guoPbSVxNyamQ4PE6FgwlKTi-gzGzoHsz","appKey":"t8qr51J6QUbHNGA5lA54Jodr","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":true,"avatar":"robohash","pageSize":8,"lang":"zh-cn","highlight":true,"mathJax":true}, {
+    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"guoPbSVxNyamQ4PE6FgwlKTi-gzGzoHsz","appKey":"t8qr51J6QUbHNGA5lA54Jodr","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":true,"avatar":"robohash","pageSize":8,"lang":"zh-cn","highlight":true,"mathJax":false}, {
       el: '#valine_container',
       path: path,
       placeholder: pagePlaceholder,
@@ -1622,8 +1594,6 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 
-
-  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
 
 
 

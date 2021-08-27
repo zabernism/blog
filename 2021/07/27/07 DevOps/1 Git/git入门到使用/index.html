@@ -789,14 +789,12 @@ doc/*.txt    #会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
         </a>
       
       
-        <a class='next' href='/blog/2021/07/27/04%20%E6%95%B0%E6%8D%AE%E5%BA%93/02%20MyBatis/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/'>
-          <p class='title'>MyBatis学习笔记<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>视频链接
+        <a class='next' href='/blog/2021/07/27/03%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/02%20%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/'>
+          <p class='title'>单例模式<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>单例设计模式
+在有些系统中，为了节省内存资源、保证数据内容的一致性，对某些类要求只能创建一个实例，这就是所谓的单例模式。
 
-
-MyBatis学习笔记简介MyBatis是什么
-MyBatis 是支持定制化 SQL、存储过程以及高级映射的优秀的持久层框架。
-MyBatis 避免了几乎所有的 JDBC 代码和手...</p>
+定义与特点单例（Singleton）模式的定义：指一个类只有一个实例，...</p>
         </a>
       
     </div>
@@ -918,10 +916,7 @@ MyBatis 避免了几乎所有的 JDBC 代码和手...</p>
       
         Use
         <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1" target="_blank" class="codename">Volantis</a>
-        as theme, total visits
-          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          times
-        
+        as theme
       
     
       
@@ -1628,7 +1623,7 @@ var loadCSS = function( href, before, media, attributes ){
       path = defaultPath || decodeURI(window.location.pathname);
     }
     var valine = new Valine();
-    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"guoPbSVxNyamQ4PE6FgwlKTi-gzGzoHsz","appKey":"t8qr51J6QUbHNGA5lA54Jodr","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":true,"avatar":"robohash","pageSize":8,"lang":"zh-cn","highlight":true,"mathJax":true}, {
+    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"guoPbSVxNyamQ4PE6FgwlKTi-gzGzoHsz","appKey":"t8qr51J6QUbHNGA5lA54Jodr","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":true,"avatar":"robohash","pageSize":8,"lang":"zh-cn","highlight":true,"mathJax":false}, {
       el: '#valine_container',
       path: path,
       placeholder: pagePlaceholder,
@@ -1644,8 +1639,6 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 
-
-  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
 
 
 

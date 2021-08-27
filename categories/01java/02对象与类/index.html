@@ -500,6 +500,61 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/">
+        反射
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        反射反射可以提供运行时的类信息，并且这个类可以在运行时才加载进来，甚至在编译时期该类的 .class 不存在也可以加载进来。
+反射允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。
+反射的核心是 JVM 在运行时才动态加载类或调用方法/访问属性，它不需要事先知道运行对象是谁。
+反射的作用反射机制可以用来：
+
+在运行时判断任意一个对象所属的类；
+在运行时构造任意一个类...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/02%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/">02对象与类</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
       <a href="/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/05%20%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/">
         文档注释
       </a>
@@ -563,21 +618,23 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/">
-        反射
+      <a href="/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/01%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+        面向对象
       </a>
     </h2>
   
   <div class='md'>
     
       
-        反射反射可以提供运行时的类信息，并且这个类可以在运行时才加载进来，甚至在编译时期该类的 .class 不存在也可以加载进来。
-反射允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。
-反射的核心是 JVM 在运行时才动态加载类或调用方法/访问属性，它不需要事先知道运行对象是谁。
-反射的作用反射机制可以用来：
-
-在运行时判断任意一个对象所属的类；
-在运行时构造任意一个类...
+        面向对象抽象抽象是将一类对象的共同特征总结出来构造类的过程，包括数据抽象和行为抽象两方面。抽象只关注对象有哪些属性和行为，并不关注这些行为的细节是什么。
+封装把数据和行为隐藏，只能通过暴露的接口访问数据。
+继承通过扩展一个类来建立另一个新的类。
+慎用继承
+将公共操作和域放在超类。
+不要使用受保护的域。
+使用继承实现”is-a”。
+除非所有继承的方法都有意义，否则不要使用继承。
+在覆盖方法时，...
       
     
   </div>
@@ -596,7 +653,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       </div>
       
         <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/04%20%E5%8F%8D%E5%B0%84/'>
+          <a class='readmore' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/01%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/'>
             Read More
           </a>
         </div>
@@ -660,63 +717,6 @@ final 域必须显式指定初始值，赋值后，不能被重新赋值。
       
         <div>
           <a class='readmore' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/02%20%E4%BF%AE%E9%A5%B0%E7%AC%A6/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/01%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
-        面向对象
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        面向对象抽象抽象是将一类对象的共同特征总结出来构造类的过程，包括数据抽象和行为抽象两方面。抽象只关注对象有哪些属性和行为，并不关注这些行为的细节是什么。
-封装把数据和行为隐藏，只能通过暴露的接口访问数据。
-继承通过扩展一个类来建立另一个新的类。
-慎用继承
-将公共操作和域放在超类。
-不要使用受保护的域。
-使用继承实现”is-a”。
-除非所有继承的方法都有意义，否则不要使用继承。
-在覆盖方法时，...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/02%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/">02对象与类</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/01%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/'>
             Read More
           </a>
         </div>
@@ -1049,7 +1049,7 @@ final 域必须显式指定初始值，赋值后，不能被重新赋值。
         <div class="webinfo-item">
           <div>本站访客数：</div>
           
-          <div><span id="busuanzi_value_site_uv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 人</div>
+          <div><span id="lc-uv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 人</div>
           
         </div>
       
@@ -1058,7 +1058,7 @@ final 域必须显式指定初始值，赋值后，不能被重新赋值。
         <div class="webinfo-item">
           <div>本站总访问量：</div>
           
-          <div><span id="busuanzi_value_site_pv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 次</div>
+          <div><span id="lc-sv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 次</div>
           
         </div>
       
@@ -1067,7 +1067,7 @@ final 域必须显式指定初始值，赋值后，不能被重新赋值。
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Fri Aug 27 2021 22:48:48 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Fri Aug 27 2021 22:50:12 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2021-08-27 日</div>
           
         </div>
@@ -1200,10 +1200,7 @@ final 域必须显式指定初始值，赋值后，不能被重新赋值。
       
         Use
         <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1" target="_blank" class="codename">Volantis</a>
-        as theme, total visits
-          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          times
-        
+        as theme
       
     
       
@@ -1910,7 +1907,7 @@ var loadCSS = function( href, before, media, attributes ){
       path = defaultPath || decodeURI(window.location.pathname);
     }
     var valine = new Valine();
-    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"guoPbSVxNyamQ4PE6FgwlKTi-gzGzoHsz","appKey":"t8qr51J6QUbHNGA5lA54Jodr","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":true,"avatar":"robohash","pageSize":8,"lang":"zh-cn","highlight":true,"mathJax":true}, {
+    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"guoPbSVxNyamQ4PE6FgwlKTi-gzGzoHsz","appKey":"t8qr51J6QUbHNGA5lA54Jodr","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":true,"avatar":"robohash","pageSize":8,"lang":"zh-cn","highlight":true,"mathJax":false}, {
       el: '#valine_container',
       path: path,
       placeholder: pagePlaceholder,
@@ -1926,8 +1923,6 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 
-
-  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
 
 
 

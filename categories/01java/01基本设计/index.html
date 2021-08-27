@@ -442,63 +442,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/03%20%E6%95%B0%E7%BB%84%E5%92%8C%E5%B9%BF%E4%B9%89%E8%A1%A8/">
-        数组和广义表
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        数组和广义表一维数组声明一旦创建了数组就不能改变它的大小。
-int[] a = new int[n];
-int a[] = new int[n];
-
-初始化数字数组初始化为 0。boolean 数组初始化 false。对象数组初始化 null。
-int[] a = &#123;1,2,3&#125; ;
-new int[]&#123;1,2,3&#125;;
-
-多维数组java 实际上没有多...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/01%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/">01基本设计</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/03%20%E6%95%B0%E7%BB%84%E5%92%8C%E5%B9%BF%E4%B9%89%E8%A1%A8/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
       <a href="/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/04%20%E8%BF%90%E7%AE%97%E7%AC%A6/">
         运算符
       </a>
@@ -547,6 +490,63 @@ Math.floorMod(x, y)：求余
       
         <div>
           <a class='readmore' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/04%20%E8%BF%90%E7%AE%97%E7%AC%A6/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/03%20%E6%95%B0%E7%BB%84%E5%92%8C%E5%B9%BF%E4%B9%89%E8%A1%A8/">
+        数组和广义表
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        数组和广义表一维数组声明一旦创建了数组就不能改变它的大小。
+int[] a = new int[n];
+int a[] = new int[n];
+
+初始化数字数组初始化为 0。boolean 数组初始化 false。对象数组初始化 null。
+int[] a = &#123;1,2,3&#125; ;
+new int[]&#123;1,2,3&#125;;
+
+多维数组java 实际上没有多...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/01%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/">01基本设计</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/03%20%E6%95%B0%E7%BB%84%E5%92%8C%E5%B9%BF%E4%B9%89%E8%A1%A8/'>
             Read More
           </a>
         </div>
@@ -679,61 +679,6 @@ do while
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/02%20%E5%AD%97%E7%AC%A6%E4%B8%B2/">
-        字符串
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        String字符串String底层实现
-String被声明为final，因此它不可被继承。底层是char或byte类型的value数组，value数组也被声明为final，这意味着数组初始化之后就不能再引用其他数组。并且String内部没有改变value数组的办法，因此可以保障String不可变
-
-java 8 -char数组
-在java8中，String内部使用char数组存储数据。
-
-p...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/01%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/">01基本设计</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/02%20%E5%AD%97%E7%AC%A6%E4%B8%B2/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
       <a href="/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/01%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
         数据类型
       </a>
@@ -786,6 +731,61 @@ Long
       
         <div>
           <a class='readmore' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/01%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/02%20%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+        字符串
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        String字符串String底层实现
+String被声明为final，因此它不可被继承。底层是char或byte类型的value数组，value数组也被声明为final，这意味着数组初始化之后就不能再引用其他数组。并且String内部没有改变value数组的办法，因此可以保障String不可变
+
+java 8 -char数组
+在java8中，String内部使用char数组存储数据。
+
+p...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/01%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/">01基本设计</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/02%20%E5%AD%97%E7%AC%A6%E4%B8%B2/'>
             Read More
           </a>
         </div>
@@ -1118,7 +1118,7 @@ Long
         <div class="webinfo-item">
           <div>本站访客数：</div>
           
-          <div><span id="busuanzi_value_site_uv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 人</div>
+          <div><span id="lc-uv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 人</div>
           
         </div>
       
@@ -1127,7 +1127,7 @@ Long
         <div class="webinfo-item">
           <div>本站总访问量：</div>
           
-          <div><span id="busuanzi_value_site_pv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 次</div>
+          <div><span id="lc-sv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 次</div>
           
         </div>
       
@@ -1136,7 +1136,7 @@ Long
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Fri Aug 27 2021 22:48:48 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Fri Aug 27 2021 22:50:12 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2021-08-27 日</div>
           
         </div>
@@ -1269,10 +1269,7 @@ Long
       
         Use
         <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1" target="_blank" class="codename">Volantis</a>
-        as theme, total visits
-          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          times
-        
+        as theme
       
     
       
@@ -1979,7 +1976,7 @@ var loadCSS = function( href, before, media, attributes ){
       path = defaultPath || decodeURI(window.location.pathname);
     }
     var valine = new Valine();
-    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"guoPbSVxNyamQ4PE6FgwlKTi-gzGzoHsz","appKey":"t8qr51J6QUbHNGA5lA54Jodr","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":true,"avatar":"robohash","pageSize":8,"lang":"zh-cn","highlight":true,"mathJax":true}, {
+    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"guoPbSVxNyamQ4PE6FgwlKTi-gzGzoHsz","appKey":"t8qr51J6QUbHNGA5lA54Jodr","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":true,"avatar":"robohash","pageSize":8,"lang":"zh-cn","highlight":true,"mathJax":false}, {
       el: '#valine_container',
       path: path,
       placeholder: pagePlaceholder,
@@ -1995,8 +1992,6 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 
-
-  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
 
 
 

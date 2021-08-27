@@ -812,12 +812,22 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/02%20%E5%AD%97%E7%AC%A6%E4%B8%B2/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>字符串</p>
+        <a class='prev' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/06%20%E6%8E%A7%E5%88%B6%E6%B5%81%E7%A8%8B/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>控制流程</p>
+          <p class='content'>控制流程
+Java 使用条件语句和循环语句控制流程。
+
+块作用域块（block、复合语句），由一对花括号括起来，确定了变量的作用域。
+不能在嵌套的块中声明同名的变量。
+条件语句if else i...</p>
+        </a>
+      
+      
+        <a class='next' href='/blog/2021/07/27/01java/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/02%20%E5%AD%97%E7%AC%A6%E4%B8%B2/'>
+          <p class='title'>字符串<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
           <p class='content'>String字符串String底层实现
 String被声明为final，因此它不可被继承。底层是char或byte类型的value数组，value数组也被声明为final，这意味着数组初始化之后...</p>
         </a>
-      
       
     </div>
   
@@ -938,10 +948,7 @@ String被声明为final，因此它不可被继承。底层是char或byte类型�
       
         Use
         <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1" target="_blank" class="codename">Volantis</a>
-        as theme, total visits
-          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-          times
-        
+        as theme
       
     
       
@@ -1648,7 +1655,7 @@ var loadCSS = function( href, before, media, attributes ){
       path = defaultPath || decodeURI(window.location.pathname);
     }
     var valine = new Valine();
-    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"guoPbSVxNyamQ4PE6FgwlKTi-gzGzoHsz","appKey":"t8qr51J6QUbHNGA5lA54Jodr","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":true,"avatar":"robohash","pageSize":8,"lang":"zh-cn","highlight":true,"mathJax":true}, {
+    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"guoPbSVxNyamQ4PE6FgwlKTi-gzGzoHsz","appKey":"t8qr51J6QUbHNGA5lA54Jodr","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":true,"avatar":"robohash","pageSize":8,"lang":"zh-cn","highlight":true,"mathJax":false}, {
       el: '#valine_container',
       path: path,
       placeholder: pagePlaceholder,
@@ -1664,8 +1671,6 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 
-
-  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
 
 
 
