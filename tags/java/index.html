@@ -711,22 +711,17 @@ JUC其实就是java.util.concurrent下面的类包，专门用来多线程的开
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/01%20%E9%9B%86%E5%90%88%E6%8E%A5%E5%8F%A3/">
-        集合接口
+      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/03%20ArrayList%E3%80%81Vector/">
+        ArrayList、Vector
       </a>
     </h2>
   
   <div class='md'>
     
       
-        框架，是一个类的集。
-容器，是可以容纳其他 Java 对象的对象。
-JDK 1.2 开始，Java 集合框架（JCF）提供了通用的容器。
-JDK 1.5 开始，集合类是带有类型参数的泛型类。
-Java 容器里只能放对象，基本类型会自动装箱。
-集合中也是值传递。
-接口与实现接口
-java集合框架中为不同结合定义了大量的接口。集合中存在两个基本接口：Collection、Map ,其中Map接口...
+        ArrayList 除未实现同步外，跟 Vector 大致相同。同步效率低，在不需要同步的时候使用 ArrayList。
+ArrayList总体介绍ArrayList 实现了 List、RandomAccess 接口。是顺序容器，允许 null 元素，支持随机访问。
+ArrayList 底层通过动态数组实现，主要包含Object数组 elementData ，实际容量 capacity 以及...
       
     
   </div>
@@ -745,7 +740,7 @@ java集合框架中为不同结合定义了大量的接口。集合中存在两�
       </div>
       
         <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/01%20%E9%9B%86%E5%90%88%E6%8E%A5%E5%8F%A3/'>
+          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/03%20ArrayList%E3%80%81Vector/'>
             Read More
           </a>
         </div>
@@ -866,17 +861,22 @@ TreeMap
   
     
     <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/03%20ArrayList%E3%80%81Vector/">
-        ArrayList、Vector
+      <a href="/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/01%20%E9%9B%86%E5%90%88%E6%8E%A5%E5%8F%A3/">
+        集合接口
       </a>
     </h2>
   
   <div class='md'>
     
       
-        ArrayList 除未实现同步外，跟 Vector 大致相同。同步效率低，在不需要同步的时候使用 ArrayList。
-ArrayList总体介绍ArrayList 实现了 List、RandomAccess 接口。是顺序容器，允许 null 元素，支持随机访问。
-ArrayList 底层通过动态数组实现，主要包含Object数组 elementData ，实际容量 capacity 以及...
+        框架，是一个类的集。
+容器，是可以容纳其他 Java 对象的对象。
+JDK 1.2 开始，Java 集合框架（JCF）提供了通用的容器。
+JDK 1.5 开始，集合类是带有类型参数的泛型类。
+Java 容器里只能放对象，基本类型会自动装箱。
+集合中也是值传递。
+接口与实现接口
+java集合框架中为不同结合定义了大量的接口。集合中存在两个基本接口：Collection、Map ,其中Map接口...
       
     
   </div>
@@ -895,7 +895,7 @@ ArrayList 底层通过动态数组实现，主要包含Object数组 elementData 
       </div>
       
         <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/03%20ArrayList%E3%80%81Vector/'>
+          <a class='readmore' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/01%20%E9%9B%86%E5%90%88%E6%8E%A5%E5%8F%A3/'>
             Read More
           </a>
         </div>
@@ -1353,7 +1353,7 @@ Deque...
         <div class="webinfo-item">
           <div>本站访客数：</div>
           
-          <div><span id="busuanzi_value_site_uv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 人</div>
+          <div><span id="lc-uv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 人</div>
           
         </div>
       
@@ -1362,7 +1362,7 @@ Deque...
         <div class="webinfo-item">
           <div>本站总访问量：</div>
           
-          <div><span id="busuanzi_value_site_pv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 次</div>
+          <div><span id="lc-sv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 次</div>
           
         </div>
       
@@ -1371,7 +1371,7 @@ Deque...
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Fri Aug 27 2021 23:07:13 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Fri Aug 27 2021 23:14:18 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2021-08-27 日</div>
           
         </div>
