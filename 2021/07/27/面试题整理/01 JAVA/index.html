@@ -4676,17 +4676,15 @@ P2b:如果某个v的提案被accept，那么从Proposal提出编号更高的提�
         </a>
       
       
-        <a class='next' href='/blog/2021/07/27/04%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20%E5%85%B6%E4%BB%96/oracle%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7%E5%B9%B6%E6%8C%87%E5%AE%9A%E8%A1%A8%E7%A9%BA%E9%97%B4/'>
-          <p class='title'>oracle11g创建用户并指定表空间<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>oracle创建表空间并赋值给用户
+        <a class='next' href='/blog/2021/07/27/04%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20%E5%85%B6%E4%BB%96/oracle11g%E5%9C%A8windows10%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%8C%E5%85%A8%E5%8D%B8%E8%BD%BD/'>
+          <p class='title'>oracle11g在windows环境下完全卸载<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>1.停止所有oracle相关的服务步骤：控制面板－＞管理工具－＞服务停止所有Oracle服务。
 
+2.卸载oracle搜索Universal Installer
 
+点击卸载产品
 
-
-
-
-创建表空间create tablespace eprk
-logging datafile &#39;D:\oracle\oradata\orcl\...</p>
+注意这个目录不...</p>
         </a>
       
     </div>
@@ -4699,7 +4697,7 @@ logging datafile &#39;D:\oracle\oradata\orcl\...</p>
   <article class="post white-box reveal shadow" id="comments">
     <p ct><i class='fas fa-comments'></i> 评论</p>
     
-    <div id="valine_container" class="valine_thread">
+    <div id="minivaline_container">
   <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
@@ -5513,52 +5511,37 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 
-  
-  
-<script src="/blog/js/valine.js"></script>
-
-
-<script>
-  function emoji(path, idx, ext) {
-    return path + "/" + path + "-" + idx + "." + ext;
-  }
-  var emojiMaps = {};
-  for (var i = 1; i <= 54; i++) {
-    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
-  }
-  for (var i = 1; i <= 101; i++) {
-    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
-  }
-  for (var i = 1; i <= 116; i++) {
-    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
-  }
-  for (var i = 1; i <= 125; i++) {
-    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
-  }
-  for (var i = 1; i <= 4; i++) {
-    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
-  }
-  function pjax_valine() {
-    if(!document.querySelectorAll("#valine_container")[0])return;
-    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
-    let path = pdata.commentPath;
-    if (path.length == 0) {
-      let defaultPath = '';
-      path = defaultPath || decodeURI(window.location.pathname);
-    }
-    var valine = new Valine();
-    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"guoPbSVxNyamQ4PE6FgwlKTi-gzGzoHsz","appKey":"t8qr51J6QUbHNGA5lA54Jodr","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false}, {
-      el: '#valine_container',
-      path: path,
+  <script>
+  function load_minivaline() {
+      
+        loadScript('https://cdn.jsdelivr.net/npm/minivaline@latest', pjax_minivaline)
+      
+  };
+   function pjax_minivaline() {
+     if(!document.querySelectorAll("#minivaline_container")[0])return;
+     let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
+     let path = pdata.commentPath;
+     if (path.length == 0) {
+       let defaultPath = '';
+       path = defaultPath || decodeURI(window.location.pathname);
+     }
+     new MiniValine(Object.assign({"js":"https://cdn.jsdelivr.net/npm/minivaline@latest","path":null,"placeholder":"快来评论吧~","backend":"waline","serverURL":"https://waline.vercel.app"}, {
+      el: '#minivaline_container',
+      pathname: path,
       placeholder: pagePlaceholder,
-      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
-      emojiMaps: emojiMaps,
-    }))
-  }
-  $(function () {
-    pjax_valine();
-  });
-  volantis.pjax.push(pjax_valine);
+     }));
+   }
+   $(function () {
+     if(!document.querySelectorAll("#minivaline_container")[0])return;
+     load_minivaline();
+   });
+   volantis.pjax.push(()=>{
+	  if (typeof MiniValine == "undefined") {
+		load_minivaline();
+	  } else {
+		pjax_minivaline();
+	  }
+   },"MiniValine");
 </script>
 
 

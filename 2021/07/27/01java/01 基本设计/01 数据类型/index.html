@@ -815,10 +815,18 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/01%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>面向对象</p>
-          <p class='content'>面向对象抽象抽象是将一类对象的共同特征总结出来构造类的过程，包括数据抽象和行为抽象两方面。抽象只关注对象有哪些属性和行为，并不关注这些行为的细节是什么。
-封装把数据和行为隐藏，只能通过暴露的接口...</p>
+        <a class='prev' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/02%20%E4%BF%AE%E9%A5%B0%E7%AC%A6/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>修饰符</p>
+          <p class='content'>修饰符访问修饰符
+private：仅对本类可见
+public：对所有类可见
+接口里方法默认 public
+
+
+protected：对本包和所有子类可见
+default：对本包可见
+
+一个方法可以...</p>
         </a>
       
       
@@ -838,7 +846,7 @@ String被声明为final，因此它不可被继承。底层是char或byte类型�
   <article class="post white-box reveal shadow" id="comments">
     <p ct><i class='fas fa-comments'></i> 评论</p>
     
-    <div id="valine_container" class="valine_thread">
+    <div id="minivaline_container">
   <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
@@ -1652,52 +1660,37 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 
-  
-  
-<script src="/blog/js/valine.js"></script>
-
-
-<script>
-  function emoji(path, idx, ext) {
-    return path + "/" + path + "-" + idx + "." + ext;
-  }
-  var emojiMaps = {};
-  for (var i = 1; i <= 54; i++) {
-    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
-  }
-  for (var i = 1; i <= 101; i++) {
-    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
-  }
-  for (var i = 1; i <= 116; i++) {
-    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
-  }
-  for (var i = 1; i <= 125; i++) {
-    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
-  }
-  for (var i = 1; i <= 4; i++) {
-    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
-  }
-  function pjax_valine() {
-    if(!document.querySelectorAll("#valine_container")[0])return;
-    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
-    let path = pdata.commentPath;
-    if (path.length == 0) {
-      let defaultPath = '';
-      path = defaultPath || decodeURI(window.location.pathname);
-    }
-    var valine = new Valine();
-    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"guoPbSVxNyamQ4PE6FgwlKTi-gzGzoHsz","appKey":"t8qr51J6QUbHNGA5lA54Jodr","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false}, {
-      el: '#valine_container',
-      path: path,
+  <script>
+  function load_minivaline() {
+      
+        loadScript('https://cdn.jsdelivr.net/npm/minivaline@latest', pjax_minivaline)
+      
+  };
+   function pjax_minivaline() {
+     if(!document.querySelectorAll("#minivaline_container")[0])return;
+     let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
+     let path = pdata.commentPath;
+     if (path.length == 0) {
+       let defaultPath = '';
+       path = defaultPath || decodeURI(window.location.pathname);
+     }
+     new MiniValine(Object.assign({"js":"https://cdn.jsdelivr.net/npm/minivaline@latest","path":null,"placeholder":"快来评论吧~","backend":"waline","serverURL":"https://waline.vercel.app"}, {
+      el: '#minivaline_container',
+      pathname: path,
       placeholder: pagePlaceholder,
-      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
-      emojiMaps: emojiMaps,
-    }))
-  }
-  $(function () {
-    pjax_valine();
-  });
-  volantis.pjax.push(pjax_valine);
+     }));
+   }
+   $(function () {
+     if(!document.querySelectorAll("#minivaline_container")[0])return;
+     load_minivaline();
+   });
+   volantis.pjax.push(()=>{
+	  if (typeof MiniValine == "undefined") {
+		load_minivaline();
+	  } else {
+		pjax_minivaline();
+	  }
+   },"MiniValine");
 </script>
 
 

@@ -651,14 +651,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/03%20%E7%B1%BB/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>修饰符</p>
-          <p class='content'>类与对象类类是构造对象的模板。
-由类构造对象的过程称为创建类的实例。
-一个源文件中，只能有一个公共类，类名必须与文件名相同。
-类之间的关系最常见的关系有：
+        <a class='prev' href='/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/02%20%E6%B3%9B%E5%9E%8B%E4%B8%8E%E5%BA%8F%E5%88%97%E5%8C%96/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>泛型与序列化</p>
+          <p class='content'>java介绍
 
-依赖（uses-a）：一个类的方法需...</p>
+
+java泛型
+Java泛型方法和泛型类支持程序员使用一个方法指定一组相关方法，或者使用一个类指定一组相关的类型。
+Java泛型（generics）是JDK 5中引入的一个新特性...</p>
         </a>
       
       
@@ -678,7 +678,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <article class="post white-box reveal shadow" id="comments">
     <p ct><i class='fas fa-comments'></i> 评论</p>
     
-    <div id="valine_container" class="valine_thread">
+    <div id="minivaline_container">
   <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
@@ -1492,52 +1492,37 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 
-  
-  
-<script src="/blog/js/valine.js"></script>
-
-
-<script>
-  function emoji(path, idx, ext) {
-    return path + "/" + path + "-" + idx + "." + ext;
-  }
-  var emojiMaps = {};
-  for (var i = 1; i <= 54; i++) {
-    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
-  }
-  for (var i = 1; i <= 101; i++) {
-    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
-  }
-  for (var i = 1; i <= 116; i++) {
-    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
-  }
-  for (var i = 1; i <= 125; i++) {
-    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
-  }
-  for (var i = 1; i <= 4; i++) {
-    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
-  }
-  function pjax_valine() {
-    if(!document.querySelectorAll("#valine_container")[0])return;
-    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
-    let path = pdata.commentPath;
-    if (path.length == 0) {
-      let defaultPath = '';
-      path = defaultPath || decodeURI(window.location.pathname);
-    }
-    var valine = new Valine();
-    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"guoPbSVxNyamQ4PE6FgwlKTi-gzGzoHsz","appKey":"t8qr51J6QUbHNGA5lA54Jodr","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false}, {
-      el: '#valine_container',
-      path: path,
+  <script>
+  function load_minivaline() {
+      
+        loadScript('https://cdn.jsdelivr.net/npm/minivaline@latest', pjax_minivaline)
+      
+  };
+   function pjax_minivaline() {
+     if(!document.querySelectorAll("#minivaline_container")[0])return;
+     let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
+     let path = pdata.commentPath;
+     if (path.length == 0) {
+       let defaultPath = '';
+       path = defaultPath || decodeURI(window.location.pathname);
+     }
+     new MiniValine(Object.assign({"js":"https://cdn.jsdelivr.net/npm/minivaline@latest","path":null,"placeholder":"快来评论吧~","backend":"waline","serverURL":"https://waline.vercel.app"}, {
+      el: '#minivaline_container',
+      pathname: path,
       placeholder: pagePlaceholder,
-      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
-      emojiMaps: emojiMaps,
-    }))
-  }
-  $(function () {
-    pjax_valine();
-  });
-  volantis.pjax.push(pjax_valine);
+     }));
+   }
+   $(function () {
+     if(!document.querySelectorAll("#minivaline_container")[0])return;
+     load_minivaline();
+   });
+   volantis.pjax.push(()=>{
+	  if (typeof MiniValine == "undefined") {
+		load_minivaline();
+	  } else {
+		pjax_minivaline();
+	  }
+   },"MiniValine");
 </script>
 
 

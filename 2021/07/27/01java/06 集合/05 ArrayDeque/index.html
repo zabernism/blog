@@ -783,22 +783,17 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/blog/2021/07/27/01java/08%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/01%20JUC%E6%A6%82%E8%BF%B0/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>JUC概述</p>
-          <p class='content'>什么是JUC
-JUC其实就是java.util.concurrent下面的类包，专门用来多线程的开发
-
-并发与并行的区别串行模式
-串行表示所有任务都一一按先后顺序进行。串行意味着必须先装完一车柴...</p>
+        <a class='prev' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/03%20ArrayList%E3%80%81Vector/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>ArrayList、Vector</p>
+          <p class='content'>ArrayList 除未实现同步外，跟 Vector 大致相同。同步效率低，在不需要同步的时候使用 ArrayList。
+ArrayList总体介绍ArrayList 实现了 List、Rand...</p>
         </a>
       
       
-        <a class='next' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/04%20linkedList/'>
-          <p class='title'>LinkedList<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>现在栈或者队列的首选是ArrayDeque。
-总体介绍LinkedList同时实现了List接口和Deque接口，允许null元素。
-
-LinkedList底层通过双向链表实现。节点用内部类No...</p>
+        <a class='next' href='/blog/2021/07/27/01java/06%20%E9%9B%86%E5%90%88/06%20TreeMap%E3%80%81TreeSet/'>
+          <p class='title'>TreeMap、TreeSet<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>TreeSet仅对TreeMap做了一层包装，实现相同。TreeSet里面有一个TreeMap（适配器模式）。
+TreeMap和TreeSet根据对象的 compareTo 方法判断对象是否是同...</p>
         </a>
       
     </div>
@@ -811,7 +806,7 @@ LinkedList底层通过双向链表实现。节点用内部类No...</p>
   <article class="post white-box reveal shadow" id="comments">
     <p ct><i class='fas fa-comments'></i> 评论</p>
     
-    <div id="valine_container" class="valine_thread">
+    <div id="minivaline_container">
   <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
@@ -1625,52 +1620,37 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 
-  
-  
-<script src="/blog/js/valine.js"></script>
-
-
-<script>
-  function emoji(path, idx, ext) {
-    return path + "/" + path + "-" + idx + "." + ext;
-  }
-  var emojiMaps = {};
-  for (var i = 1; i <= 54; i++) {
-    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
-  }
-  for (var i = 1; i <= 101; i++) {
-    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
-  }
-  for (var i = 1; i <= 116; i++) {
-    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
-  }
-  for (var i = 1; i <= 125; i++) {
-    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
-  }
-  for (var i = 1; i <= 4; i++) {
-    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
-  }
-  function pjax_valine() {
-    if(!document.querySelectorAll("#valine_container")[0])return;
-    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
-    let path = pdata.commentPath;
-    if (path.length == 0) {
-      let defaultPath = '';
-      path = defaultPath || decodeURI(window.location.pathname);
-    }
-    var valine = new Valine();
-    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"guoPbSVxNyamQ4PE6FgwlKTi-gzGzoHsz","appKey":"t8qr51J6QUbHNGA5lA54Jodr","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false}, {
-      el: '#valine_container',
-      path: path,
+  <script>
+  function load_minivaline() {
+      
+        loadScript('https://cdn.jsdelivr.net/npm/minivaline@latest', pjax_minivaline)
+      
+  };
+   function pjax_minivaline() {
+     if(!document.querySelectorAll("#minivaline_container")[0])return;
+     let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
+     let path = pdata.commentPath;
+     if (path.length == 0) {
+       let defaultPath = '';
+       path = defaultPath || decodeURI(window.location.pathname);
+     }
+     new MiniValine(Object.assign({"js":"https://cdn.jsdelivr.net/npm/minivaline@latest","path":null,"placeholder":"快来评论吧~","backend":"waline","serverURL":"https://waline.vercel.app"}, {
+      el: '#minivaline_container',
+      pathname: path,
       placeholder: pagePlaceholder,
-      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
-      emojiMaps: emojiMaps,
-    }))
-  }
-  $(function () {
-    pjax_valine();
-  });
-  volantis.pjax.push(pjax_valine);
+     }));
+   }
+   $(function () {
+     if(!document.querySelectorAll("#minivaline_container")[0])return;
+     load_minivaline();
+   });
+   volantis.pjax.push(()=>{
+	  if (typeof MiniValine == "undefined") {
+		load_minivaline();
+	  } else {
+		pjax_minivaline();
+	  }
+   },"MiniValine");
 </script>
 
 

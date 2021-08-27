@@ -469,6 +469,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='meta-v3' line_style='solid'>
       <div>
         
+          
+          <a class='avatar' href='/'><img src=''></a>
+        
         <time>2021-08-18</time>
         
           <span class="dot"></span>
@@ -518,6 +521,9 @@ Linux/Unix 的文件调用权限分为三级 : 文件所有者（Owner）、用�
   
     <div class='meta-v3' line_style='solid'>
       <div>
+        
+          
+          <a class='avatar' href='/'><img src=''></a>
         
         <time>2021-08-17</time>
         
@@ -569,6 +575,9 @@ public class QuickSort &#123;
     <div class='meta-v3' line_style='solid'>
       <div>
         
+          
+          <a class='avatar' href='/'><img src=''></a>
+        
         <time>2021-08-16</time>
         
           <span class="dot"></span>
@@ -615,6 +624,9 @@ public class QuickSort &#123;
   
     <div class='meta-v3' line_style='solid'>
       <div>
+        
+          
+          <a class='avatar' href='/'><img src=''></a>
         
         <time>2021-08-10</time>
         
@@ -664,6 +676,9 @@ MySQL逻辑架构如果能在头脑中构建一幅MySQL各...
     <div class='meta-v3' line_style='solid'>
       <div>
         
+          
+          <a class='avatar' href='/'><img src=''></a>
+        
         <time>2021-08-09</time>
         
           <span class="dot"></span>
@@ -705,6 +720,9 @@ MySQL逻辑架构如果能在头脑中构建一幅MySQL各...
   
     <div class='meta-v3' line_style='solid'>
       <div>
+        
+          
+          <a class='avatar' href='/'><img src=''></a>
         
         <time>2021-08-07</time>
         
@@ -753,6 +771,9 @@ java多线程进程和线程进程
   
     <div class='meta-v3' line_style='solid'>
       <div>
+        
+          
+          <a class='avatar' href='/'><img src=''></a>
         
         <time>2021-08-07</time>
         
@@ -804,6 +825,9 @@ Op...
   
     <div class='meta-v3' line_style='solid'>
       <div>
+        
+          
+          <a class='avatar' href='/'><img src=''></a>
         
         <time>2021-08-06</time>
         
@@ -858,6 +882,9 @@ public class SnowFlakeUtil &#123;
     <div class='meta-v3' line_style='solid'>
       <div>
         
+          
+          <a class='avatar' href='/'><img src=''></a>
+        
         <time>2021-08-06</time>
         
           <span class="dot"></span>
@@ -908,6 +935,9 @@ Stream可以由数组或集合创建，对流的操...
   
     <div class='meta-v3' line_style='solid'>
       <div>
+        
+          
+          <a class='avatar' href='/'><img src=''></a>
         
         <time>2021-08-03</time>
         
@@ -1282,7 +1312,7 @@ Stream可以由数组或集合创建，对流的操...
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Fri Aug 27 2021 15:48:57 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Fri Aug 27 2021 16:02:37 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2021-08-27 日</div>
           
         </div>
@@ -2122,52 +2152,37 @@ var loadCSS = function( href, before, media, attributes ){
 
 
 
-  
-  
-<script src="/blog/js/valine.js"></script>
-
-
-<script>
-  function emoji(path, idx, ext) {
-    return path + "/" + path + "-" + idx + "." + ext;
-  }
-  var emojiMaps = {};
-  for (var i = 1; i <= 54; i++) {
-    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
-  }
-  for (var i = 1; i <= 101; i++) {
-    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
-  }
-  for (var i = 1; i <= 116; i++) {
-    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
-  }
-  for (var i = 1; i <= 125; i++) {
-    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
-  }
-  for (var i = 1; i <= 4; i++) {
-    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
-  }
-  function pjax_valine() {
-    if(!document.querySelectorAll("#valine_container")[0])return;
-    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
-    let path = pdata.commentPath;
-    if (path.length == 0) {
-      let defaultPath = '';
-      path = defaultPath || decodeURI(window.location.pathname);
-    }
-    var valine = new Valine();
-    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":"guoPbSVxNyamQ4PE6FgwlKTi-gzGzoHsz","appKey":"t8qr51J6QUbHNGA5lA54Jodr","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false}, {
-      el: '#valine_container',
-      path: path,
+  <script>
+  function load_minivaline() {
+      
+        loadScript('https://cdn.jsdelivr.net/npm/minivaline@latest', pjax_minivaline)
+      
+  };
+   function pjax_minivaline() {
+     if(!document.querySelectorAll("#minivaline_container")[0])return;
+     let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
+     let path = pdata.commentPath;
+     if (path.length == 0) {
+       let defaultPath = '';
+       path = defaultPath || decodeURI(window.location.pathname);
+     }
+     new MiniValine(Object.assign({"js":"https://cdn.jsdelivr.net/npm/minivaline@latest","path":null,"placeholder":"快来评论吧~","backend":"waline","serverURL":"https://waline.vercel.app"}, {
+      el: '#minivaline_container',
+      pathname: path,
       placeholder: pagePlaceholder,
-      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
-      emojiMaps: emojiMaps,
-    }))
-  }
-  $(function () {
-    pjax_valine();
-  });
-  volantis.pjax.push(pjax_valine);
+     }));
+   }
+   $(function () {
+     if(!document.querySelectorAll("#minivaline_container")[0])return;
+     load_minivaline();
+   });
+   volantis.pjax.push(()=>{
+	  if (typeof MiniValine == "undefined") {
+		load_minivaline();
+	  } else {
+		pjax_minivaline();
+	  }
+   },"MiniValine");
 </script>
 
 
