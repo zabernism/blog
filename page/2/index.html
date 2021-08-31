@@ -425,6 +425,167 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
+      <a href="/blog/2021/08/07/01java/08%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/01%20java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%8A%80%E8%83%BD/">
+        java多线程
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        主要讲解线程的启动，如何使用线程暂停，如何使用线程停止，线程的优先级，线程的安全问题等。
+java多线程进程和线程进程
+进程是一个具有一定独立功能的程序在一个数据集上的一次动态执行的过程，是操作系统进行资源分配和调度的一个独立单位，是应用程序运行的载体。进程是一种抽象的概念，从来没有统一的标准定义。进程一般由程序，数据集合和进程控制块三部分组成。程序用于描述进程要完成的功能，是控制进程执行的...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
+        
+        <time>2021-08-07</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/08%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/">08多线程与并发</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/08/07/01java/08%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/01%20java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%8A%80%E8%83%BD/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/2021/08/06/01java/09%20Stream/Optional/">
+        02Optional
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        Optional@since 1.8
+为了解决空指针异常，受到 Google Guava 的启发，Optional 类已经成为 Java 8 类库的一部分。
+Optional 实际上是个容器：它可以保存类型T的值，或者仅仅保存 null。Optional 提供很多有用的方法，这样就不用显式进行空值检测。
+1 初始化
+Optional.ofNullable ： 允许传递为 null 参数
+Op...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
+        
+        <time>2021-08-06</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/09Stream/">09Stream</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/08/06/01java/09%20Stream/Optional/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/2021/08/06/06%20%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%BB%E9%94%AE%E7%94%9F%E6%88%90%E5%99%A8%EF%BD%9E%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95/">
+        分布式主键生成器～雪花算法
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        @Slf4j
+public class SnowFlakeUtil &#123;
+    private static SnowFlakeUtil flowIdWorker = null;
+    private final long id;
+    /**
+     * 时间起始标记点，作为基准，一般取系统的最近时间
+     */
+    private final Long epoch...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
+        
+        <time>2021-08-06</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/06%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/">06辅助工具类</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/08/06/06%20%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%BB%E9%94%AE%E7%94%9F%E6%88%90%E5%99%A8%EF%BD%9E%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
       <a href="/blog/2021/08/03/01java/09%20Stream/20%E4%B8%AA%E5%AE%9E%E4%BE%8B%E8%BD%BB%E6%9D%BE%E6%90%9E%E5%AE%9AStream%E6%B5%81%E5%BA%93/">
         二十个实例轻松搞定Stream流库
       </a>
@@ -808,156 +969,6 @@ private String trueName;
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/07/27/04%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20%E5%85%B6%E4%BB%96/oracle%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7%E5%B9%B6%E6%8C%87%E5%AE%9A%E8%A1%A8%E7%A9%BA%E9%97%B4/">
-        oracle11g创建用户并指定表空间
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>oracle创建表空间并赋值给用户</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/">04数据库</a><span class="sep"></span><a class="category-link" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/03%E5%85%B6%E4%BB%96/">03其他</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/04%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20%E5%85%B6%E4%BB%96/oracle%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7%E5%B9%B6%E6%8C%87%E5%AE%9A%E8%A1%A8%E7%A9%BA%E9%97%B4/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/07/27/06%20%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/lombok%E4%BD%BF%E7%94%A8/">
-        lombok学习笔记
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        Lombok是一个可以通过简单的注解形式来帮助我们简化消除一些必须有但显得很臃肿的Java代码的工具，通过使用对应的注解，可以在编译源码的时候生成对应的方法。
-Lombok学习注解介绍官网
-注解使用val（值）
-类似于js中的val属性，val 是某种类型，从初始化程序程序表达式中推断类型；此功能仅适用于局部变量和foreach循环，不适用于字段。
-
-
-import lombok.val;
-...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/06%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/">06辅助工具类</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/06%20%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/lombok%E4%BD%BF%E7%94%A8/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/07/27/04%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20%E5%85%B6%E4%BB%96/Oracle%E5%88%A0%E9%99%A4%E7%94%A8%E6%88%B7%E4%B8%8B%E6%89%80%E6%9C%89%E8%A1%A8/">
-        oracle11g删除某一用户下所有表
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>oracle11g删除数据</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/">04数据库</a><span class="sep"></span><a class="category-link" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/03%E5%85%B6%E4%BB%96/">03其他</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/04%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20%E5%85%B6%E4%BB%96/Oracle%E5%88%A0%E9%99%A4%E7%94%A8%E6%88%B7%E4%B8%8B%E6%89%80%E6%9C%89%E8%A1%A8/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
     
   </section>
   
@@ -972,7 +983,7 @@ import lombok.val;
           </a>
         
         <p class="current">
-          2 / 6
+          2 / 7
         </p>
         
           <a class="next" rel="next" href="/blog/page/3/">
@@ -1173,7 +1184,7 @@ import lombok.val;
           <li><a class="flat-box"
             title="/blog/categories/06%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/" href="/blog/categories/06%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/"
             id="blogcategories06E8BE85E58AA9E5B7A5E585B7E7B1BB"
-            ><div class='name'>06辅助工具类</div><div class='badge'>(3)</div></a></li>
+            ><div class='name'>06辅助工具类</div><div class='badge'>(6)</div></a></li>
         
           <li><a class="flat-box"
             title="/blog/categories/07DevOps/" href="/blog/categories/07DevOps/"
@@ -1242,7 +1253,7 @@ import lombok.val;
 
 
     <div class='content'>
-      <a href="/blog/tags/MyBatis/" style="font-size: 16.5px; color: #888">MyBatis</a> <a href="/blog/tags/MySql/" style="font-size: 16.5px; color: #888">MySql</a> <a href="/blog/tags/git/" style="font-size: 16.5px; color: #888">git</a> <a href="/blog/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/blog/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/blog/tags/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java基础面试题</a> <a href="/blog/tags/java%E6%A1%86%E6%9E%B6%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java框架面试题</a> <a href="/blog/tags/linux/" style="font-size: 14px; color: #999">linux</a> <a href="/blog/tags/lombok/" style="font-size: 14px; color: #999">lombok</a> <a href="/blog/tags/oracle/" style="font-size: 19px; color: #777">oracle</a> <a href="/blog/tags/spring/" style="font-size: 14px; color: #999">spring</a> <a href="/blog/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 14px; color: #999">多线程</a> <a href="/blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 21.5px; color: #666">数据结构</a> <a href="/blog/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 14px; color: #999">正则表达式</a> <a href="/blog/tags/%E6%B3%A8%E8%A7%A3/" style="font-size: 14px; color: #999">注解</a> <a href="/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/blog/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 16.5px; color: #888">设计模式</a> <a href="/blog/tags/%E9%94%81/" style="font-size: 14px; color: #999">锁</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 16.5px; color: #888">随笔</a> <a href="/blog/tags/%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">雪花算法</a>
+      <a href="/blog/tags/Base64%E5%B7%A5%E5%85%B7/" style="font-size: 14px; color: #999">Base64工具</a> <a href="/blog/tags/IO%E5%B7%A5%E5%85%B7/" style="font-size: 14px; color: #999">IO工具</a> <a href="/blog/tags/MyBatis/" style="font-size: 16.5px; color: #888">MyBatis</a> <a href="/blog/tags/MySql/" style="font-size: 16.5px; color: #888">MySql</a> <a href="/blog/tags/git/" style="font-size: 16.5px; color: #888">git</a> <a href="/blog/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/blog/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/blog/tags/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java基础面试题</a> <a href="/blog/tags/java%E6%A1%86%E6%9E%B6%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java框架面试题</a> <a href="/blog/tags/linux/" style="font-size: 14px; color: #999">linux</a> <a href="/blog/tags/lombok/" style="font-size: 14px; color: #999">lombok</a> <a href="/blog/tags/oracle/" style="font-size: 19px; color: #777">oracle</a> <a href="/blog/tags/spring/" style="font-size: 14px; color: #999">spring</a> <a href="/blog/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 14px; color: #999">多线程</a> <a href="/blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 21.5px; color: #666">数据结构</a> <a href="/blog/tags/%E6%97%A5%E6%9C%9F%E5%B7%A5%E5%85%B7%E7%B1%BB/" style="font-size: 14px; color: #999">日期工具类</a> <a href="/blog/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 14px; color: #999">正则表达式</a> <a href="/blog/tags/%E6%B3%A8%E8%A7%A3/" style="font-size: 14px; color: #999">注解</a> <a href="/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/blog/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 16.5px; color: #888">设计模式</a> <a href="/blog/tags/%E9%94%81/" style="font-size: 14px; color: #999">锁</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 16.5px; color: #888">随笔</a> <a href="/blog/tags/%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">雪花算法</a>
     </div>
   </section>
 
@@ -1267,7 +1278,7 @@ import lombok.val;
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>58 篇</div>
+          <div>61 篇</div>
         </div>
       
 
@@ -1289,7 +1300,7 @@ import lombok.val;
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>187.9k 字</div>
+          <div>189.9k 字</div>
         </div>
       
 
@@ -1315,7 +1326,7 @@ import lombok.val;
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Tue Aug 31 2021 16:12:13 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Tue Aug 31 2021 16:31:30 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2021-08-31 日</div>
           
         </div>
