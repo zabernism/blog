@@ -551,9 +551,131 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
         
+          
+        
+          
+        
       
     
     
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/2021/09/04/04%20%E6%95%B0%E6%8D%AE%E5%BA%93/04%20redis/01%20redis%E9%94%AE/">
+        redis键（KEY）
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        Redis keys 命令[TOC]
+DEL key 该命令用于在key存在时返回删除key
+用于删除已存在的键。不存在的 key 会被忽略。
+
+语法
+redis DEL 命令基本语法如下：
+DEL KEY_NAME
+
+返回值
+被删除 key 的数量。
+基本使用
+
+DUMP key 序列化给定 key ，并返回被序列化的值。
+用于序列化给定 key ，并返回被序列化的值。
+
+语法
+DUMP ...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
+        
+        <time>2021-09-04</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/">04数据库</a><span class="sep"></span><a class="category-link" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/04redis/">04redis</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/09/04/04%20%E6%95%B0%E6%8D%AE%E5%BA%93/04%20redis/01%20redis%E9%94%AE/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/2021/09/04/04%20%E6%95%B0%E6%8D%AE%E5%BA%93/04%20redis/02%20redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+        redis数据类型
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        Redis 数据类型
+Redis支持五种数据类型：string（字符串），hash（哈希），list（列表），set（集合）及zset(sorted set：有序集合)。
+
+String（字符串）string 是 redis 最基本的类型，一个 key 对应一个 value。
+string 类型是二进制安全的。意思是 redis 的 string 可以包含任何数据。比如jpg图片或者序列化的...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
+        
+        <time>2021-09-04</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/">04数据库</a><span class="sep"></span><a class="category-link" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/04redis/">04redis</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/09/04/04%20%E6%95%B0%E6%8D%AE%E5%BA%93/04%20redis/02%20redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
       
         
           <div class='post-wrapper'>
@@ -991,102 +1113,6 @@ public class QuickSort &#123;
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/08/09/04%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySql/MySql%E4%BC%98%E5%8C%96/">
-        MySql优化
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        说起MySQL的查询优化，相信大家积累一堆技巧：不能使用SELECT *、不使用NULL字段、合理创建索引、为字段选择合适的数据类型….. 你是否真的理解这些优化技巧？是否理解其背后的工作原理？在实际场景下性能真有提升吗？
-我想未必。因而理解这些优化建议背后的原理就尤为重要，希望本文能让你重新审视这些优化建议，并在实际业务场景下合理的运用
-MySQL逻辑架构如果能在头脑中构建一幅MySQL各...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
-        
-        <time>2021-08-09</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/">04数据库</a><span class="sep"></span><a class="category-link" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/01MySql/">01MySql</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/08/09/04%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySql/MySql%E4%BC%98%E5%8C%96/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/08/07/01java/07%20IO%E6%93%8D%E4%BD%9C/01%20%E6%96%87%E4%BB%B6%E5%AF%B9%E8%B1%A1/">
-        文件对象
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
-        
-        <time>2021-08-07</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/07%E6%96%87%E4%BB%B6%E5%AF%B9%E8%B1%A1/">07文件对象</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/blog/2021/08/07/01java/07%20IO%E6%93%8D%E4%BD%9C/01%20%E6%96%87%E4%BB%B6%E5%AF%B9%E8%B1%A1/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
     
   </section>
   
@@ -1266,7 +1292,7 @@ MySQL逻辑架构如果能在头脑中构建一幅MySQL各...
           <li><a class="flat-box"
             title="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/"
             id="blogcategories04E695B0E68DAEE5BA93"
-            ><div class='name'>04数据库</div><div class='badge'>(7)</div></a></li>
+            ><div class='name'>04数据库</div><div class='badge'>(9)</div></a></li>
         
           <li><a class="flat-box child"
             title="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/01MySql/" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/01MySql/"
@@ -1282,6 +1308,11 @@ MySQL逻辑架构如果能在头脑中构建一幅MySQL各...
             title="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/03%E5%85%B6%E4%BB%96/" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/03%E5%85%B6%E4%BB%96/"
             id="blogcategories04E695B0E68DAEE5BA9303E585B6E4BB96"
             ><div class='name'>03其他</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/04redis/" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/04redis/"
+            id="blogcategories04E695B0E68DAEE5BA9304redis"
+            ><div class='name'>04redis</div><div class='badge'>(2)</div></a></li>
         
           <li><a class="flat-box"
             title="/blog/categories/05Spring/" href="/blog/categories/05Spring/"
@@ -1365,7 +1396,7 @@ MySQL逻辑架构如果能在头脑中构建一幅MySQL各...
 
 
     <div class='content'>
-      <a href="/blog/tags/Base64%E5%B7%A5%E5%85%B7/" style="font-size: 14px; color: #999">Base64工具</a> <a href="/blog/tags/IO%E5%B7%A5%E5%85%B7/" style="font-size: 14px; color: #999">IO工具</a> <a href="/blog/tags/MyBatis/" style="font-size: 16.5px; color: #888">MyBatis</a> <a href="/blog/tags/MySql/" style="font-size: 16.5px; color: #888">MySql</a> <a href="/blog/tags/git/" style="font-size: 16.5px; color: #888">git</a> <a href="/blog/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/blog/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/blog/tags/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java基础面试题</a> <a href="/blog/tags/java%E6%A1%86%E6%9E%B6%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java框架面试题</a> <a href="/blog/tags/linux/" style="font-size: 14px; color: #999">linux</a> <a href="/blog/tags/lombok/" style="font-size: 14px; color: #999">lombok</a> <a href="/blog/tags/oracle/" style="font-size: 19px; color: #777">oracle</a> <a href="/blog/tags/spring/" style="font-size: 14px; color: #999">spring</a> <a href="/blog/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 14px; color: #999">多线程</a> <a href="/blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 21.5px; color: #666">数据结构</a> <a href="/blog/tags/%E6%97%A5%E6%9C%9F%E5%B7%A5%E5%85%B7%E7%B1%BB/" style="font-size: 14px; color: #999">日期工具类</a> <a href="/blog/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 14px; color: #999">正则表达式</a> <a href="/blog/tags/%E6%B3%A8%E8%A7%A3/" style="font-size: 14px; color: #999">注解</a> <a href="/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/blog/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 16.5px; color: #888">设计模式</a> <a href="/blog/tags/%E9%94%81/" style="font-size: 14px; color: #999">锁</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 16.5px; color: #888">随笔</a> <a href="/blog/tags/%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">雪花算法</a>
+      <a href="/blog/tags/Base64%E5%B7%A5%E5%85%B7/" style="font-size: 14px; color: #999">Base64工具</a> <a href="/blog/tags/IO%E5%B7%A5%E5%85%B7/" style="font-size: 14px; color: #999">IO工具</a> <a href="/blog/tags/MyBatis/" style="font-size: 16.5px; color: #888">MyBatis</a> <a href="/blog/tags/MySql/" style="font-size: 16.5px; color: #888">MySql</a> <a href="/blog/tags/git/" style="font-size: 16.5px; color: #888">git</a> <a href="/blog/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/blog/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/blog/tags/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java基础面试题</a> <a href="/blog/tags/java%E6%A1%86%E6%9E%B6%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java框架面试题</a> <a href="/blog/tags/linux/" style="font-size: 14px; color: #999">linux</a> <a href="/blog/tags/lombok/" style="font-size: 14px; color: #999">lombok</a> <a href="/blog/tags/oracle/" style="font-size: 19px; color: #777">oracle</a> <a href="/blog/tags/redis/" style="font-size: 16.5px; color: #888">redis</a> <a href="/blog/tags/spring/" style="font-size: 14px; color: #999">spring</a> <a href="/blog/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 14px; color: #999">多线程</a> <a href="/blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 21.5px; color: #666">数据结构</a> <a href="/blog/tags/%E6%97%A5%E6%9C%9F%E5%B7%A5%E5%85%B7%E7%B1%BB/" style="font-size: 14px; color: #999">日期工具类</a> <a href="/blog/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 14px; color: #999">正则表达式</a> <a href="/blog/tags/%E6%B3%A8%E8%A7%A3/" style="font-size: 14px; color: #999">注解</a> <a href="/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/blog/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 16.5px; color: #888">设计模式</a> <a href="/blog/tags/%E9%94%81/" style="font-size: 14px; color: #999">锁</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 16.5px; color: #888">随笔</a> <a href="/blog/tags/%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">雪花算法</a>
     </div>
   </section>
 
@@ -1390,7 +1421,7 @@ MySQL逻辑架构如果能在头脑中构建一幅MySQL各...
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>61 篇</div>
+          <div>63 篇</div>
         </div>
       
 
@@ -1412,7 +1443,7 @@ MySQL逻辑架构如果能在头脑中构建一幅MySQL各...
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>189.9k 字</div>
+          <div>190.9k 字</div>
         </div>
       
 
@@ -1438,8 +1469,8 @@ MySQL逻辑架构如果能在头脑中构建一幅MySQL各...
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Tue Aug 31 2021 16:31:30 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2021-08-31 日</div>
+            <div id="last-update" style="display: none;">Mon Sep 06 2021 22:39:11 GMT+0800 (中国标准时间)</div>
+            <div id="last-update-show">2021-09-06 日</div>
           
         </div>
         
@@ -1489,7 +1520,7 @@ MySQL逻辑架构如果能在头脑中构建一幅MySQL各...
           try {
             document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2021-08-31 日';
+            document.getElementById('last-update-show').innerHTML = '2021-09-06 日';
           }
         </script>
         
