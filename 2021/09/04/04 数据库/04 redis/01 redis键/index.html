@@ -442,10 +442,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-06T22:38:23+08:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-09T20:15:46+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021-09-06 22:38</p>
+    <p>更新于：2021-09-09 20:15</p>
   </a>
 </div>
 
@@ -472,7 +472,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>720 words</p>
+      <p>704 words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -541,14 +541,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p><strong>基本使用</strong></p>
 <p>设置key 10秒之后过期</p>
 <p><img src="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202109062229483.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202109062229483.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210906222941138"></p>
-<h3 id="EXPIREAT-key-timestamp-EXPIREAT-的作用和-EXPIRE-类似，都用于为-key-设置过期时间"><a href="#EXPIREAT-key-timestamp-EXPIREAT-的作用和-EXPIRE-类似，都用于为-key-设置过期时间" class="headerlink" title="EXPIREAT key timestamp EXPIREAT 的作用和 EXPIRE 类似，都用于为 key 设置过期时间"></a>EXPIREAT key timestamp EXPIREAT 的作用和 EXPIRE 类似，都用于为 key 设置过期时间</h3><blockquote>
-<p>用于以 UNIX 时间戳(unix timestamp)格式设置 key 的过期时间。key 过期后将不再可用。</p>
-</blockquote>
-<p><strong>语法</strong></p>
-<pre><code class="redis">Expireat KEY_NAME TIME_IN_UNIX_TIMESTAMP
-</code></pre>
-<p><strong>返回值</strong></p>
-<p>设置成功返回 1 。 当 key 不存在或者不能为 key 设置过期时间时(比如在低于 2.1.3 版本的 Redis 中你尝试更新 key 的过期时间)返回 0 。</p>
 <h3 id="PEXPIRE-key-milliseconds-设置-key-的过期时间以毫秒计。"><a href="#PEXPIRE-key-milliseconds-设置-key-的过期时间以毫秒计。" class="headerlink" title="PEXPIRE key milliseconds 设置 key 的过期时间以毫秒计。"></a>PEXPIRE key milliseconds 设置 key 的过期时间以毫秒计。</h3><blockquote>
 <p>用于设置 key 的过期时间，以毫秒计。key 过期后将不再可用。</p>
 </blockquote>
@@ -559,16 +551,41 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>设置成功返回 1 。 当 key 不存在或者不能为 key 设置过期时间时返回 0 。</p>
 <p><strong>基本使用</strong></p>
 <p><img src="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202109062238040.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202109062238040.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210906223759983"></p>
-<h3 id="PEXPIREAT-key-milliseconds-timestamp设置-key-过期时间的时间戳-unix-timestamp-以毫秒计"><a href="#PEXPIREAT-key-milliseconds-timestamp设置-key-过期时间的时间戳-unix-timestamp-以毫秒计" class="headerlink" title="PEXPIREAT key milliseconds-timestamp设置 key 过期时间的时间戳(unix timestamp) 以毫秒计"></a>PEXPIREAT key milliseconds-timestamp设置 key 过期时间的时间戳(unix timestamp) 以毫秒计</h3><blockquote>
-<p>用于设置 key 的过期时间，以毫秒计。key 过期后将不再可用。</p>
+<h3 id="KEYS-pattern-查找所有符合给定模式-pattern-的-key-。"><a href="#KEYS-pattern-查找所有符合给定模式-pattern-的-key-。" class="headerlink" title="KEYS pattern 查找所有符合给定模式( pattern)的 key 。"></a>KEYS pattern 查找所有符合给定模式( pattern)的 key 。</h3><blockquote>
+<p>用于查找所有符合给定模式 pattern 的 key 。。</p>
 </blockquote>
 <p><strong>语法</strong></p>
-<pre><code class="redis">PEXPIREAT KEY_NAME TIME_IN_MILLISECONDS_IN_UNIX_TIMESTAMP
+<pre><code class="redis">KEYS PATTERN
 </code></pre>
 <p><strong>返回值</strong></p>
-<p>设置成功返回 1 。 当 key 不存在或者不能为 key 设置过期时间时返回 0 。</p>
+<p>符合给定模式的 key 列表 (Array)。</p>
 <p><strong>基本使用</strong></p>
-<h3 id="KEYS-pattern-查找所有符合给定模式-pattern-的-key-。"><a href="#KEYS-pattern-查找所有符合给定模式-pattern-的-key-。" class="headerlink" title="KEYS pattern 查找所有符合给定模式( pattern)的 key 。"></a>KEYS pattern 查找所有符合给定模式( pattern)的 key 。</h3><h3 id="MOVE-key-db-将当前数据库的-key-移动到给定的数据库-db-当中。"><a href="#MOVE-key-db-将当前数据库的-key-移动到给定的数据库-db-当中。" class="headerlink" title="MOVE key db 将当前数据库的 key 移动到给定的数据库 db 当中。"></a>MOVE key db 将当前数据库的 key 移动到给定的数据库 db 当中。</h3><h3 id="PERSIST-key-移除-key-的过期时间，key-将持久保持。"><a href="#PERSIST-key-移除-key-的过期时间，key-将持久保持。" class="headerlink" title="PERSIST key 移除 key 的过期时间，key 将持久保持。"></a>PERSIST key 移除 key 的过期时间，key 将持久保持。</h3><h3 id="PTTL-key-以毫秒为单位返回-key-的剩余的过期时间。"><a href="#PTTL-key-以毫秒为单位返回-key-的剩余的过期时间。" class="headerlink" title="PTTL key 以毫秒为单位返回 key 的剩余的过期时间。"></a>PTTL key 以毫秒为单位返回 key 的剩余的过期时间。</h3><h3 id="TTL-key-以秒为单位，返回给定-key-的剩余生存时间-TTL-time-to-live-。"><a href="#TTL-key-以秒为单位，返回给定-key-的剩余生存时间-TTL-time-to-live-。" class="headerlink" title="TTL key 以秒为单位，返回给定 key 的剩余生存时间(TTL, time to live)。"></a>TTL key 以秒为单位，返回给定 key 的剩余生存时间(TTL, time to live)。</h3><h3 id="RANDOMKEY-从当前数据库中随机返回一个-key-。"><a href="#RANDOMKEY-从当前数据库中随机返回一个-key-。" class="headerlink" title="RANDOMKEY 从当前数据库中随机返回一个 key 。"></a>RANDOMKEY 从当前数据库中随机返回一个 key 。</h3><h3 id="RENAME-key-newkey-修改-key-的名称"><a href="#RENAME-key-newkey-修改-key-的名称" class="headerlink" title="RENAME key newkey 修改 key 的名称"></a>RENAME key newkey 修改 key 的名称</h3><h3 id="RENAMENX-key-newkey仅当-newkey-不存在时，将-key-改名为-newkey-。"><a href="#RENAMENX-key-newkey仅当-newkey-不存在时，将-key-改名为-newkey-。" class="headerlink" title="RENAMENX key newkey仅当 newkey 不存在时，将 key 改名为 newkey 。"></a>RENAMENX key newkey仅当 newkey 不存在时，将 key 改名为 newkey 。</h3><h3 id="SCAN-cursor-MATCH-pattern-COUNT-count-迭代数据库中的数据库键。"><a href="#SCAN-cursor-MATCH-pattern-COUNT-count-迭代数据库中的数据库键。" class="headerlink" title="SCAN cursor [MATCH pattern] [COUNT count] 迭代数据库中的数据库键。"></a>SCAN cursor [MATCH pattern] [COUNT count] 迭代数据库中的数据库键。</h3><h3 id="TYPE-key返回-key-所储存的值的类型。"><a href="#TYPE-key返回-key-所储存的值的类型。" class="headerlink" title="TYPE key返回 key 所储存的值的类型。"></a>TYPE key返回 key 所储存的值的类型。</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202109092005653.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202109092005653.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210909200520270"></p>
+<p><strong>获取redis中所有key</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202109092006035.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202109092006035.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210909200600028"></p>
+<h3 id="MOVE-key-db-将当前数据库的-key-移动到给定的数据库-db-当中。"><a href="#MOVE-key-db-将当前数据库的-key-移动到给定的数据库-db-当中。" class="headerlink" title="MOVE key db 将当前数据库的 key 移动到给定的数据库 db 当中。"></a>MOVE key db 将当前数据库的 key 移动到给定的数据库 db 当中。</h3><blockquote>
+<p>用于将当前数据库的 key 移动到给定的数据库 db 当中。</p>
+</blockquote>
+<p><strong>语法</strong></p>
+<p>redis Move 命令基本语法如下：</p>
+<pre><code class="redis">MOVE KEY_NAME DESTINATION_DATABASE
+</code></pre>
+<p><strong>返回值</strong></p>
+<p>移动成功返回 1 ，失败则返回 0 。</p>
+<p><strong>基本使用</strong></p>
+<p><strong>key存在时候</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202109092010122.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202109092010122.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210909201045868"></p>
+<p><strong>当两个数据库中都存在这个key时候</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202109092013109.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/zabernism/image@main/img/202109092013109.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg" alt="image-20210909201309643"></p>
+<h3 id="PERSIST-key-移除-key-的过期时间，key-将持久保持。"><a href="#PERSIST-key-移除-key-的过期时间，key-将持久保持。" class="headerlink" title="PERSIST key 移除 key 的过期时间，key 将持久保持。"></a>PERSIST key 移除 key 的过期时间，key 将持久保持。</h3><blockquote>
+<p>用于移除给定 key 的过期时间，使得 key 永不过期。</p>
+</blockquote>
+<p><strong>语法</strong></p>
+<pre><code class="redis">PERSIST KEY_NAME
+</code></pre>
+<p><strong>返回值</strong></p>
+<p>当过期时间移除成功时，返回 1 。 如果 key 不存在或 key 没有设置过期时间，返回 0 。</p>
+<h3 id="PTTL-key-以毫秒为单位返回-key-的剩余的过期时间。"><a href="#PTTL-key-以毫秒为单位返回-key-的剩余的过期时间。" class="headerlink" title="PTTL key 以毫秒为单位返回 key 的剩余的过期时间。"></a>PTTL key 以毫秒为单位返回 key 的剩余的过期时间。</h3><h3 id="TTL-key-以秒为单位，返回给定-key-的剩余生存时间-TTL-time-to-live-。"><a href="#TTL-key-以秒为单位，返回给定-key-的剩余生存时间-TTL-time-to-live-。" class="headerlink" title="TTL key 以秒为单位，返回给定 key 的剩余生存时间(TTL, time to live)。"></a>TTL key 以秒为单位，返回给定 key 的剩余生存时间(TTL, time to live)。</h3><h3 id="RANDOMKEY-从当前数据库中随机返回一个-key-。"><a href="#RANDOMKEY-从当前数据库中随机返回一个-key-。" class="headerlink" title="RANDOMKEY 从当前数据库中随机返回一个 key 。"></a>RANDOMKEY 从当前数据库中随机返回一个 key 。</h3><h3 id="RENAME-key-newkey-修改-key-的名称"><a href="#RENAME-key-newkey-修改-key-的名称" class="headerlink" title="RENAME key newkey 修改 key 的名称"></a>RENAME key newkey 修改 key 的名称</h3><h3 id="RENAMENX-key-newkey仅当-newkey-不存在时，将-key-改名为-newkey-。"><a href="#RENAMENX-key-newkey仅当-newkey-不存在时，将-key-改名为-newkey-。" class="headerlink" title="RENAMENX key newkey仅当 newkey 不存在时，将 key 改名为 newkey 。"></a>RENAMENX key newkey仅当 newkey 不存在时，将 key 改名为 newkey 。</h3><h3 id="SCAN-cursor-MATCH-pattern-COUNT-count-迭代数据库中的数据库键。"><a href="#SCAN-cursor-MATCH-pattern-COUNT-count-迭代数据库中的数据库键。" class="headerlink" title="SCAN cursor [MATCH pattern] [COUNT count] 迭代数据库中的数据库键。"></a>SCAN cursor [MATCH pattern] [COUNT count] 迭代数据库中的数据库键。</h3><h3 id="TYPE-key返回-key-所储存的值的类型。"><a href="#TYPE-key返回-key-所储存的值的类型。" class="headerlink" title="TYPE key返回 key 所储存的值的类型。"></a>TYPE key返回 key 所储存的值的类型。</h3>
   
   
     
@@ -612,10 +629,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-06T22:38:23+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-09T20:15:46+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021-09-06 22:38</p>
+    <p>更新于：2021-09-09 20:15</p>
   </a>
 </div>
 
@@ -750,7 +767,7 @@ String（字符串...</p>
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis-keys-%E5%91%BD%E4%BB%A4"><span class="toc-text">Redis keys 命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DEL-key-%E8%AF%A5%E5%91%BD%E4%BB%A4%E7%94%A8%E4%BA%8E%E5%9C%A8key%E5%AD%98%E5%9C%A8%E6%97%B6%E8%BF%94%E5%9B%9E%E5%88%A0%E9%99%A4key"><span class="toc-text">DEL key 该命令用于在key存在时返回删除key</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DUMP-key-%E5%BA%8F%E5%88%97%E5%8C%96%E7%BB%99%E5%AE%9A-key-%EF%BC%8C%E5%B9%B6%E8%BF%94%E5%9B%9E%E8%A2%AB%E5%BA%8F%E5%88%97%E5%8C%96%E7%9A%84%E5%80%BC%E3%80%82"><span class="toc-text">DUMP key 序列化给定 key ，并返回被序列化的值。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EXISTS-key-%E6%A3%80%E6%9F%A5%E7%BB%99%E5%AE%9A-key-%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E3%80%82"><span class="toc-text">EXISTS key 检查给定 key 是否存在。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EXPIRE-key-seconds-%E4%B8%BA%E7%BB%99%E5%AE%9A-key-%E8%AE%BE%E7%BD%AE%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4%EF%BC%8C%E4%BB%A5%E7%A7%92%E8%AE%A1%E3%80%82"><span class="toc-text">EXPIRE key seconds 为给定 key 设置过期时间，以秒计。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EXPIREAT-key-timestamp-EXPIREAT-%E7%9A%84%E4%BD%9C%E7%94%A8%E5%92%8C-EXPIRE-%E7%B1%BB%E4%BC%BC%EF%BC%8C%E9%83%BD%E7%94%A8%E4%BA%8E%E4%B8%BA-key-%E8%AE%BE%E7%BD%AE%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4"><span class="toc-text">EXPIREAT key timestamp EXPIREAT 的作用和 EXPIRE 类似，都用于为 key 设置过期时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PEXPIRE-key-milliseconds-%E8%AE%BE%E7%BD%AE-key-%E7%9A%84%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4%E4%BB%A5%E6%AF%AB%E7%A7%92%E8%AE%A1%E3%80%82"><span class="toc-text">PEXPIRE key milliseconds 设置 key 的过期时间以毫秒计。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PEXPIREAT-key-milliseconds-timestamp%E8%AE%BE%E7%BD%AE-key-%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4%E7%9A%84%E6%97%B6%E9%97%B4%E6%88%B3-unix-timestamp-%E4%BB%A5%E6%AF%AB%E7%A7%92%E8%AE%A1"><span class="toc-text">PEXPIREAT key milliseconds-timestamp设置 key 过期时间的时间戳(unix timestamp) 以毫秒计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#KEYS-pattern-%E6%9F%A5%E6%89%BE%E6%89%80%E6%9C%89%E7%AC%A6%E5%90%88%E7%BB%99%E5%AE%9A%E6%A8%A1%E5%BC%8F-pattern-%E7%9A%84-key-%E3%80%82"><span class="toc-text">KEYS pattern 查找所有符合给定模式( pattern)的 key 。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MOVE-key-db-%E5%B0%86%E5%BD%93%E5%89%8D%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84-key-%E7%A7%BB%E5%8A%A8%E5%88%B0%E7%BB%99%E5%AE%9A%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93-db-%E5%BD%93%E4%B8%AD%E3%80%82"><span class="toc-text">MOVE key db 将当前数据库的 key 移动到给定的数据库 db 当中。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PERSIST-key-%E7%A7%BB%E9%99%A4-key-%E7%9A%84%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4%EF%BC%8Ckey-%E5%B0%86%E6%8C%81%E4%B9%85%E4%BF%9D%E6%8C%81%E3%80%82"><span class="toc-text">PERSIST key 移除 key 的过期时间，key 将持久保持。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PTTL-key-%E4%BB%A5%E6%AF%AB%E7%A7%92%E4%B8%BA%E5%8D%95%E4%BD%8D%E8%BF%94%E5%9B%9E-key-%E7%9A%84%E5%89%A9%E4%BD%99%E7%9A%84%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4%E3%80%82"><span class="toc-text">PTTL key 以毫秒为单位返回 key 的剩余的过期时间。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TTL-key-%E4%BB%A5%E7%A7%92%E4%B8%BA%E5%8D%95%E4%BD%8D%EF%BC%8C%E8%BF%94%E5%9B%9E%E7%BB%99%E5%AE%9A-key-%E7%9A%84%E5%89%A9%E4%BD%99%E7%94%9F%E5%AD%98%E6%97%B6%E9%97%B4-TTL-time-to-live-%E3%80%82"><span class="toc-text">TTL key 以秒为单位，返回给定 key 的剩余生存时间(TTL, time to live)。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RANDOMKEY-%E4%BB%8E%E5%BD%93%E5%89%8D%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E9%9A%8F%E6%9C%BA%E8%BF%94%E5%9B%9E%E4%B8%80%E4%B8%AA-key-%E3%80%82"><span class="toc-text">RANDOMKEY 从当前数据库中随机返回一个 key 。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RENAME-key-newkey-%E4%BF%AE%E6%94%B9-key-%E7%9A%84%E5%90%8D%E7%A7%B0"><span class="toc-text">RENAME key newkey 修改 key 的名称</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RENAMENX-key-newkey%E4%BB%85%E5%BD%93-newkey-%E4%B8%8D%E5%AD%98%E5%9C%A8%E6%97%B6%EF%BC%8C%E5%B0%86-key-%E6%94%B9%E5%90%8D%E4%B8%BA-newkey-%E3%80%82"><span class="toc-text">RENAMENX key newkey仅当 newkey 不存在时，将 key 改名为 newkey 。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SCAN-cursor-MATCH-pattern-COUNT-count-%E8%BF%AD%E4%BB%A3%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E9%94%AE%E3%80%82"><span class="toc-text">SCAN cursor [MATCH pattern] [COUNT count] 迭代数据库中的数据库键。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TYPE-key%E8%BF%94%E5%9B%9E-key-%E6%89%80%E5%82%A8%E5%AD%98%E7%9A%84%E5%80%BC%E7%9A%84%E7%B1%BB%E5%9E%8B%E3%80%82"><span class="toc-text">TYPE key返回 key 所储存的值的类型。</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis-keys-%E5%91%BD%E4%BB%A4"><span class="toc-text">Redis keys 命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DEL-key-%E8%AF%A5%E5%91%BD%E4%BB%A4%E7%94%A8%E4%BA%8E%E5%9C%A8key%E5%AD%98%E5%9C%A8%E6%97%B6%E8%BF%94%E5%9B%9E%E5%88%A0%E9%99%A4key"><span class="toc-text">DEL key 该命令用于在key存在时返回删除key</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DUMP-key-%E5%BA%8F%E5%88%97%E5%8C%96%E7%BB%99%E5%AE%9A-key-%EF%BC%8C%E5%B9%B6%E8%BF%94%E5%9B%9E%E8%A2%AB%E5%BA%8F%E5%88%97%E5%8C%96%E7%9A%84%E5%80%BC%E3%80%82"><span class="toc-text">DUMP key 序列化给定 key ，并返回被序列化的值。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EXISTS-key-%E6%A3%80%E6%9F%A5%E7%BB%99%E5%AE%9A-key-%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E3%80%82"><span class="toc-text">EXISTS key 检查给定 key 是否存在。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EXPIRE-key-seconds-%E4%B8%BA%E7%BB%99%E5%AE%9A-key-%E8%AE%BE%E7%BD%AE%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4%EF%BC%8C%E4%BB%A5%E7%A7%92%E8%AE%A1%E3%80%82"><span class="toc-text">EXPIRE key seconds 为给定 key 设置过期时间，以秒计。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PEXPIRE-key-milliseconds-%E8%AE%BE%E7%BD%AE-key-%E7%9A%84%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4%E4%BB%A5%E6%AF%AB%E7%A7%92%E8%AE%A1%E3%80%82"><span class="toc-text">PEXPIRE key milliseconds 设置 key 的过期时间以毫秒计。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#KEYS-pattern-%E6%9F%A5%E6%89%BE%E6%89%80%E6%9C%89%E7%AC%A6%E5%90%88%E7%BB%99%E5%AE%9A%E6%A8%A1%E5%BC%8F-pattern-%E7%9A%84-key-%E3%80%82"><span class="toc-text">KEYS pattern 查找所有符合给定模式( pattern)的 key 。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MOVE-key-db-%E5%B0%86%E5%BD%93%E5%89%8D%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84-key-%E7%A7%BB%E5%8A%A8%E5%88%B0%E7%BB%99%E5%AE%9A%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93-db-%E5%BD%93%E4%B8%AD%E3%80%82"><span class="toc-text">MOVE key db 将当前数据库的 key 移动到给定的数据库 db 当中。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PERSIST-key-%E7%A7%BB%E9%99%A4-key-%E7%9A%84%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4%EF%BC%8Ckey-%E5%B0%86%E6%8C%81%E4%B9%85%E4%BF%9D%E6%8C%81%E3%80%82"><span class="toc-text">PERSIST key 移除 key 的过期时间，key 将持久保持。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PTTL-key-%E4%BB%A5%E6%AF%AB%E7%A7%92%E4%B8%BA%E5%8D%95%E4%BD%8D%E8%BF%94%E5%9B%9E-key-%E7%9A%84%E5%89%A9%E4%BD%99%E7%9A%84%E8%BF%87%E6%9C%9F%E6%97%B6%E9%97%B4%E3%80%82"><span class="toc-text">PTTL key 以毫秒为单位返回 key 的剩余的过期时间。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TTL-key-%E4%BB%A5%E7%A7%92%E4%B8%BA%E5%8D%95%E4%BD%8D%EF%BC%8C%E8%BF%94%E5%9B%9E%E7%BB%99%E5%AE%9A-key-%E7%9A%84%E5%89%A9%E4%BD%99%E7%94%9F%E5%AD%98%E6%97%B6%E9%97%B4-TTL-time-to-live-%E3%80%82"><span class="toc-text">TTL key 以秒为单位，返回给定 key 的剩余生存时间(TTL, time to live)。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RANDOMKEY-%E4%BB%8E%E5%BD%93%E5%89%8D%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E9%9A%8F%E6%9C%BA%E8%BF%94%E5%9B%9E%E4%B8%80%E4%B8%AA-key-%E3%80%82"><span class="toc-text">RANDOMKEY 从当前数据库中随机返回一个 key 。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RENAME-key-newkey-%E4%BF%AE%E6%94%B9-key-%E7%9A%84%E5%90%8D%E7%A7%B0"><span class="toc-text">RENAME key newkey 修改 key 的名称</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RENAMENX-key-newkey%E4%BB%85%E5%BD%93-newkey-%E4%B8%8D%E5%AD%98%E5%9C%A8%E6%97%B6%EF%BC%8C%E5%B0%86-key-%E6%94%B9%E5%90%8D%E4%B8%BA-newkey-%E3%80%82"><span class="toc-text">RENAMENX key newkey仅当 newkey 不存在时，将 key 改名为 newkey 。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SCAN-cursor-MATCH-pattern-COUNT-count-%E8%BF%AD%E4%BB%A3%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E9%94%AE%E3%80%82"><span class="toc-text">SCAN cursor [MATCH pattern] [COUNT count] 迭代数据库中的数据库键。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TYPE-key%E8%BF%94%E5%9B%9E-key-%E6%89%80%E5%82%A8%E5%AD%98%E7%9A%84%E5%80%BC%E7%9A%84%E7%B1%BB%E5%9E%8B%E3%80%82"><span class="toc-text">TYPE key返回 key 所储存的值的类型。</span></a></li></ol></li></ol>
     </div>
   </section>
 
