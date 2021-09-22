@@ -5,6 +5,8 @@
   <!-- SEO相关 -->
   
     
+      <meta name="robots" content="noindex,follow">
+    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -22,9 +24,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>泛型 - 灵魂有香气a</title>
-  
-    <meta name="keywords" content="java">
+  <title>Category: 05泛型、枚举类与注解 - 灵魂有香气a</title>
   
 
   
@@ -377,7 +377,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper post dock' style="display: ;">
+        <div id="half" class='cover-wrapper  dock' style="display: ;">
           
             <div id='cover-backstretch'></div>
           
@@ -408,387 +408,241 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
+
 <div class='l_main'>
-  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
-
-
-  
-  <div class="article-meta" id="top">
     
-    
-    
-      <h1 class="title">
-        泛型
-      </h1>
-      <div class='new-meta-box'>
-        
-          
-            
-  
-  <div class="new-meta-item meta-tags"><a class="tag" href="/blog/tags/java/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>java</p></a></div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2021-07-27 17:52</p>
-  </a>
-</div>
-
-          
-        
-          
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-31T16:44:00+08:00">
-  <a class='notlink'>
-    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021-07-31 16:44</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-  <div class="new-meta-item browse leancloud">
-    <a class='notlink'>
       
-      <div id="lc-pv" data-title="泛型" data-path="/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/01%20%E6%B3%9B%E5%9E%8B/">
-        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-        次浏览
-      </div>
-    </a>
-  </div>
-
-
+  <section class="post-list">
+    
+      
+        
           
         
           
-            
-  <div class="new-meta-item wordcount">
-    <a class='notlink'>
-      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>1.2k words</p>
-    </a>
-  </div>
-  <div class="new-meta-item readtime">
-    <a class='notlink'>
-      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>5 min</p>
-    </a>
-  </div>
-
-
+        
           
+        
+          
+        
+      
+    
+    
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/2021/09/22/01java/05%20%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E4%B8%8E%E6%B3%A8%E8%A7%A3/04%20%E6%B3%A8%E8%A7%A3/">
+        注解
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        注解注解的理解
+从JDK 5.0 开始, Java 增加了对元数据(MetaData) 的支持, 也就是Annotation(注解)
+Annotation 其实就是代码里的特殊标记, 这些标记可以在编译, 类加载, 运行时被读取, 并执行相应的处理。通过使用Annotation, 程序员可以在不改变原有逻辑的情况下, 在源文件中嵌入一些补充信息。代码分析工具、开发工具和部署工具可以通过这些补...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
+        
+        <time>2021-09-22</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/05%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E4%B8%8E%E6%B3%A8%E8%A7%A3/">05泛型、枚举类与注解</a>
         
       </div>
-    
-  </div>
-
-
-  
-  
-  <h1 id="为什么要使用泛型"><a href="#为什么要使用泛型" class="headerlink" title="为什么要使用泛型"></a>为什么要使用泛型</h1><p>泛型程序设计意味着编写的代码可以被很多不同的类型的的对象所重用。在java中增加泛型之前，泛型的程序设计是用继承实现的。<code>ArrayList</code> 类只维护一个<code>Object</code> 引用的数组。</p>
-<pre><code class="java">public class ArrayList&#123;
-    private Object[] elementData;
-    private Object get(int i)&#123;...&#125;
-    private void add(Object o)&#123;...&#125;
-&#125;
-</code></pre>
-<p>这样做有两个问题：</p>
-<p>1、获取一个值的时候必须经过前置类型转换</p>
-<p>2、由于集合中使用的是Object类型进行接收，所以可以像集合中存入各种类型，容易出现强制类型转换错误</p>
-<h1 id="泛型类"><a href="#泛型类" class="headerlink" title="泛型类"></a>泛型类</h1><p>泛型类可以有多个<strong>类型变量</strong>，用尖括号（&lt; &gt;）括起来，并放在类名的后面。</p>
-<p>通常用E表示集合的元素类型， K 和 V 分别表示表的关键字与值的类型。 T、U、S等表示“任意类型”。</p>
-<p>泛型类可看作普通类的工厂。</p>
-<pre><code class="java">public class Pair&lt;T,U&gt;&#123;&#125;
-public class Pair&lt;T&gt;&#123;
-    private T first;
-    public Pair(T first)&#123; this.first=first;&#125;
-    public T getFirst()&#123; return first;&#125;
-    public void setFirst(T first)&#123; this.first=first;&#125;
-&#125;
-</code></pre>
-<h1 id="泛型方法"><a href="#泛型方法" class="headerlink" title="泛型方法"></a>泛型方法</h1><p>泛型方法可以定义在普通类中，也可以定义在泛型类中。</p>
-<p>只有声明了 <code>&lt;T&gt;</code> 的方法才是泛型方法</p>
-<p>类型变量放在修饰符的后面，返回类型的前面。</p>
-<pre><code class="java">class ArrayAlg&#123;
-    public static &lt;T&gt; T getMiddle(T... a)&#123;
-        return a[a.length/2];
-    &#125;
-&#125;
-</code></pre>
-<h1 id="类型变量的限定"><a href="#类型变量的限定" class="headerlink" title="类型变量的限定"></a>类型变量的限定</h1><p>通过对类型变量 T 设置限定，对类型变量加以约束。</p>
-<p>T 和绑定类型可以是类，也可以是接口。</p>
-<pre><code class="java">&lt;T extends Bounding Type &gt;
-</code></pre>
-<p>一个类型变量或通配符可以有多个限定。</p>
-<p>限定类型用“&amp;”分隔，而逗号用来分隔类型变量。</p>
-<pre><code class="java">&lt;T extends Comparable &amp; Serializable,U&gt;
-</code></pre>
-<p>在 Java 的继承中，可以拥有多个接口超类型，但限定中至多有一个类。如果用一个类作为限定，它必须是限定列表中的第一个。</p>
-<h1 id="泛型代码和虚拟机"><a href="#泛型代码和虚拟机" class="headerlink" title="泛型代码和虚拟机"></a>泛型代码和虚拟机</h1><h2 id="原始类型"><a href="#原始类型" class="headerlink" title="原始类型"></a>原始类型</h2><p>虚拟机中没有泛型，泛型类型都会转换为相应普通类，即原始类型。</p>
-<p>原始类型的名字就是删去类型参数后的泛型类型名。擦除类型变量，并替换为第一个限定类型（无限定的变量用Object）。</p>
-<p><code>Pair&lt;T&gt;</code> 的原始类型：</p>
-<pre><code class="java">public class Pair&#123;
-    private Object first;
-    public Pair(Object first)&#123;this.first=first;&#125;
-    public Object getFirst()&#123; return first; &#125;
-    public void setFirst(Object first)&#123; this.first=first; &#125;
-&#125;
-</code></pre>
-<p>因为<code>T</code> 是一个无限定变量，所以直接用Object替换。</p>
-<p>结果是一个普通类，就如同泛型引入java语言之前就已经实现那样。</p>
-<p>原始类型用第一个限定的类型变量来替换，如果没有，那就用Object类型替换。<strong>例如：</strong></p>
-<pre><code class="java">public class Interval&lt;T extends Comparable &amp; Serializable&gt; implements Serializable &#123;
-    private T lower;
-    private T upper;
-
-    public Interval(T first, T second) &#123;
-        ...
-    &#125;
-&#125;
-</code></pre>
-<p>原始类型Interval如下所示</p>
-<pre><code class="java">public class Interval implements Serializable &#123;
-    private Comparable lower;
-    private Comparable upper;
-
-    public Interval(Comparable first, Comparable second) &#123;
-        ...
-    &#125;
-&#125;
-</code></pre>
-<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><p>当程序调用泛型方法时，如果擦除返回类型，编译器插入强制类型转换。</p>
-<ol>
-<li>调用原始方法</li>
-<li>将返回的 Object 对象进行强制类型转换</li>
-</ol>
-<p>当存取一个泛型域时也要插入强制类型转换。</p>
-<h2 id="桥方法"><a href="#桥方法" class="headerlink" title="桥方法"></a>桥方法</h2><pre><code class="java">//超类  
-class Pair&lt;T&gt;&#123;
-    public void setSecond(T second)&#123;&#125;
-&#125;
-//子类  
-class DateInterval extends Pair&lt;Date&gt;&#123;
-    public void setSecond(Date second)&#123;&#125;
-&#125;
-//子类被擦除后  
-class DateInterval extends Pair&#123;
-    public void setSecond(Date second)&#123; ... &#125;
-&#125;
-//还有从超类继承的方法  
-public void setSecond(Object second)
-//此时调用，多态冲突  
-DateInterval interval=new DateInterval(...);
-Pair&lt;Date&gt; pair=interval;//OK--assignment to superclass
-pair.setSecond(aDate);
-//编译器在DateInterval类中生成桥方法
-public void setSecond(Object second)&#123; setSecond((Date) second); &#125;
-</code></pre>
-<h1 id="约束与局限性"><a href="#约束与局限性" class="headerlink" title="约束与局限性"></a>约束与局限性</h1><ol>
-<li>类型参数不支持基本类型</li>
-<li>运行时类型检查只适用于原始类型<br>instanceof、getClass 判断获取的都是原始类型</li>
-<li>不能抛出或捕获泛型类的实例<br>可在异常声明中</li>
-<li>不能创建参数化类型的数组<br>可以使用 ArrayList</li>
-<li>不能实例化类型变量<br>不能使用 new T(…), new T[…] 或 T.class 这样的表达式</li>
-<li>泛型类的静态上下文中的类型变量无效<br>不能在静态域或方法中引用类型变量，要重新定义</li>
-<li>注意擦除后的冲突</li>
-<li>可以消除对受查异常的检查</li>
-</ol>
-<h1 id="通配符类型"><a href="#通配符类型" class="headerlink" title="通配符类型"></a>通配符类型</h1><h2 id="子类型限定"><a href="#子类型限定" class="headerlink" title="子类型限定"></a>子类型限定</h2><pre><code class="java">&lt;? extends Class&gt;
-? extends Employee getFirst()
-void setFirst(? extends Employee)
-</code></pre>
-<p>可以调用 get，不能调用 set 方法。</p>
-<h2 id="超类型限定"><a href="#超类型限定" class="headerlink" title="超类型限定"></a>超类型限定</h2><pre><code class="java">&lt;? super Manager&gt;
-? super Manager getFirst()
-void setFirst(? super Manager)
-</code></pre>
-<p>可以调用 set，不能调用 get 方法。</p>
-<h2 id="无限定通配符"><a href="#无限定通配符" class="headerlink" title="无限定通配符"></a>无限定通配符</h2><pre><code class="java">&lt;?&gt;
-? getFirst()
-void setFirst(?)
-</code></pre>
-<p>get 的返回值只能赋给一个 Object，set 方法不能被调。</p>
-
-  
-  
-    
-    <div class='footer'>
       
-      
-      
-        <div class='copyright'>
-          <blockquote>
-            
-              
-                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
-
-              
-            
-              
-                <p>本文永久链接是：<a href=https://zabernism.github.io/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/01%20%E6%B3%9B%E5%9E%8B/>https://zabernism.github.io/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/01%20%E6%B3%9B%E5%9E%8B/</a></p>
-              
-            
-          </blockquote>
+        <div>
+          <a class='readmore' href='/blog/2021/09/22/01java/05%20%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E4%B8%8E%E6%B3%A8%E8%A7%A3/04%20%E6%B3%A8%E8%A7%A3/'>
+            Read More
+          </a>
         </div>
-      
       
     </div>
   
-  
-    
 
-
-  <div class='article-meta' id="bottom">
-    <div class='new-meta-box'>
-      
-        
-          <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2021-07-27 17:52</p>
-  </a>
 </div>
 
-        
-      
-        
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-31T16:44:00+08:00">
-  <a class='notlink'>
-    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021-07-31 16:44</p>
-  </a>
-</div>
-
-        
-      
-        
-          
-  <div class="new-meta-item share -mob-share-list">
-  <div class="-mob-share-list share-body">
-    
-      
-        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://zabernism.github.io/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/01%20%E6%B3%9B%E5%9E%8B/&title=泛型 - 灵魂有香气a&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://zabernism.github.io/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/01%20%E6%B3%9B%E5%9E%8B/&title=泛型 - 灵魂有香气a&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
-          
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://zabernism.github.io/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/01%20%E6%B3%9B%E5%9E%8B/&title=泛型 - 灵魂有香气a&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg">
-          
-        </a>
-      
-    
-      
-        
-        <div class='hoverbox'>
-          <a class='share'><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg"></a>
-          <div class='target'>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXgAAAF4CAAAAAB79r16AAAFOElEQVR42u3aQY4bMQwEQP//08kDAmPEZsvrRUq3ReIZqjiXBvn64/zIeSEAD94BD94BD94pwL/C888D3/z76e8fC3743em/v6vv9LlbL/DgwYMHDx48ePDgm/C3AR4LChu3beT0uVsv8ODBgwcPHjx48OBvwE8LOg1G04akQWfa4C382As8ePDgwYMHDx48+C+C3wat9H3TD2H6oUzfBx48ePDgwYMHDx78b4RvNWx7WotP4MGDBw8ePHjw4MH/Bvjxgs4wqKTBKh2wpHWmjfvYJhl48ODBgwcPHjx48IuA8r/+HXuBBw8ePHjw4MGDB1+A356nhqQLROlg4/RD2Q5UYi/w4MGDBw8ePHjw4AvwaWGtQcm0AVuo7eBm7QMePHjw4MGDBw8efAF+u+BzCtcaLEzrTYNdK/gdD0LAgwcPHjx48ODBgw/gW4EmDS5P/286eEkbkN73ODiCBw8ePHjw4MGDB1+ETwcI7QWl1kJUu570QwIPHjx48ODBgwcP/gb8raDQGjxM65oGqe1gZdog8ODBgwcPHjx48OAb8Ntg8KlGTN+TDnS2915vkoEHDx48ePDgwYMHX4BPC9wWvG1k63fbRafjCRR48ODBgwcPHjx48AH8dECRXnz7nvSDmQbG0wHN+B7gwYMHDx48ePDgwV+A3walNGi0AtQ2CG4HPI+NAQ8ePHjw4MGDBw++AB8v5oQNag8+toEqvd/pebvQBB48ePDgwYMHDx78Aj4tPC2otTh0u6HphxZvkoEHDx48ePDgwYMHP4BvLxCdXmgbWFKIad3TOh7vCR48ePDgwYMHDx58AT4dXKRBZ9uo0/elAWkNO02u4MGDBw8ePHjw4MEH8O0BwhS6HeRaA5JbDQUPHjx48ODBgwcPvgmfDjxuwU+fezq4aC1QpfWABw8ePHjw4MGDB9+ATxeGpos/6e+3AW4NFQaot+8HDx48ePDgwYMHD74AfxoYbg0WTi+eLjKlQau1wAUePHjw4MGDBw8e/A34dKGoNThIGxRf/EMDmre/Bw8ePHjw4MGDBw/+Anx6ke3izzR4TaHSwJS+5+19wIMHDx48ePDgwYMvwqcLP1uoFOK0YeOAU3ovePDgwYMHDx48ePA/Ad++UFp4CtAKRtvByOMgBDx48ODBgwcPHjz4BXxa0DaobANV2sBpQ7Z1gwcPHjx48ODBgwffhJ8uJE2DTXtRKK0n/ZDaAyPw4MGDBw8ePHjw4BvwpxdOF3+2QWgarKZA04HN9IMDDx48ePDgwYMHD/6T8NcGAeFAZL1ItBzEtIIUePDgwYMHDx48ePAN+GkAOQ1ErQunz5sOZFp/P74HPHjw4MGDBw8ePPgC/DYgbIPXbYC0nvR+44Um8ODBgwcPHjx48OAL+/GtRaNbA5VtMEobkD7vMUCBBw8ePHjw4MGDBx/Apy8+bVD7+Vvo9ANpfZjgwYMHDx48ePDgwTfgbxXWClbbharpoCIdqBwvSoEHDx48ePDgwYMHX4DfBpbbINOFpmmQmi5sbReqwIMHDx48ePDgwYNvwm8DzrSAdoDZDi7S+qcfJnjw4MGDBw8ePHjwN+C3AWI70Di92BaytUg1/fDAgwcPHjx48ODBg/9G+FZj0kZMA+Ct4Hi80AQePHjw4MGDBw8e/BfAb4NUujiUDmS2AWkcCMGDBw8ePHjw4MGDvwCfBpD0AtsBxjbYbWHHvwMPHjx48ODBgwcPvgjfWtyJF32Wg410AJM2OB7kgAcPHjx48ODBgwdfgHc+e8CDB++AB++AB+8szl/e7KiKHLgg2QAAAABJRU5ErkJggg==">
           </div>
-        </div>
-      
-    
-      
-        <a class="-mob-share-telegram" title="" rel="external nofollow noopener noreferrer noopener"
-          
-            target="_blank" href="https://t.me/share/url?url=https://zabernism.github.io/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/01%20%E6%B3%9B%E5%9E%8B/&text=泛型 - 灵魂有香气a"
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/telegram.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/telegram.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg">
-          
-        </a>
-      
-    
-  </div>
-</div>
-
-
-
         
       
-    </div>
-  </div>
-
-
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
   
   
-
   
-    <div class="prev-next">
-      
-        <a class='prev' href='/blog/2021/07/27/01java/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/03%20%E6%97%A5%E5%BF%97/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>日志</p>
-          <p class='content'>日志
-java.util.logging.Logger
-
-日志记录器全局日志记录器Logger.getGlobal()
-Logger.getGlobal().info(&quot;&quot;)...</p>
-        </a>
-      
-      
-        <a class='next' href='/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/02%20%E6%B3%9B%E5%9E%8B%E4%B8%8E%E5%BA%8F%E5%88%97%E5%8C%96/'>
-          <p class='title'>泛型与序列化<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>java介绍
-
-
-java泛型
-Java泛型方法和泛型类支持程序员使用一个方法指定一组相关方法，或者使用一个类指定一组相关的类型。
-Java泛型（generics）是JDK 5中引入的一个新特性...</p>
-        </a>
-      
-    </div>
   
-</article>
-
-
-  
-
-  <article class="post white-box reveal shadow" id="comments">
-    <p ct><i class='fas fa-comments'></i> 评论</p>
     
-    <div id="valine_container" class="valine_thread">
-  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+    <h2 class="article-title" >
+      <a href="/blog/2021/09/22/01java/05%20%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E4%B8%8E%E6%B3%A8%E8%A7%A3/03%20%E6%9E%9A%E4%B8%BE%E7%B1%BB/">
+        枚举类
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        枚举类枚举类理解
+类的对象只有有限个，确定的。举例如下：
+星期：Monday(星期一)、…、Sunday(星期天)
+性别：Man(男)、Woman(女)
+季节：Spring(春节)…Winter(冬天)
+支付方式：Cash（现金）、WeChatPay（微信）、Alipay(支付宝)、BankCard(银行卡)、CreditCard(信用卡)
+就职状态：Busy、Free、Vocation、D...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
+        
+        <time>2021-09-22</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/05%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E4%B8%8E%E6%B3%A8%E8%A7%A3/">05泛型、枚举类与注解</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/09/22/01java/05%20%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E4%B8%8E%E6%B3%A8%E8%A7%A3/03%20%E6%9E%9A%E4%B8%BE%E7%B1%BB/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
 </div>
 
-  </article>
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E4%B8%8E%E6%B3%A8%E8%A7%A3/01%20%E6%B3%9B%E5%9E%8B/">
+        泛型
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        为什么要使用泛型泛型程序设计意味着编写的代码可以被很多不同的类型的的对象所重用。在java中增加泛型之前，泛型的程序设计是用继承实现的。ArrayList 类只维护一个Object 引用的数组。
+public class ArrayList&#123;
+    private Object[] elementData;
+    private Object get(int i)&#123;....
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/05%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E4%B8%8E%E6%B3%A8%E8%A7%A3/">05泛型、枚举类与注解</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E4%B8%8E%E6%B3%A8%E8%A7%A3/01%20%E6%B3%9B%E5%9E%8B/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E4%B8%8E%E6%B3%A8%E8%A7%A3/02%20%E6%B3%9B%E5%9E%8B%E4%B8%8E%E5%BA%8F%E5%88%97%E5%8C%96/">
+        泛型与序列化
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      <p>java介绍</p>
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+          
+          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
+        
+        <time>2021-07-27</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/05%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E4%B8%8E%E6%B3%A8%E8%A7%A3/">05泛型、枚举类与注解</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E4%B8%8E%E6%B3%A8%E8%A7%A3/02%20%E6%B3%9B%E5%9E%8B%E4%B8%8E%E5%BA%8F%E5%88%97%E5%8C%96/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+    
+  </section>
+  
+    
+  
 
 
-
-
-
-
+    
+  
 </div>
 <aside class='l_side'>
   
@@ -796,28 +650,397 @@ Java泛型（generics）是JDK 5中引入的一个新特性...</p>
     
     
 
+<section class="widget blogger shadow desktop mobile">
+  <div class='content'>
+    
+      
+        <a class='avatar flat-box circle' href='/blog/about/'>
+          <img no-lazy src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'/>
+        </a>
+      
+    
+    
+      <div class='text'>
+        
+        
+        
+          <p><span id="jinrishici-sentence">灵魂有香气a</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/blog/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="mailto:2715852599@qq.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="https://github.com/zabernism/"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="/blog/movies"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
 
+  
 
-  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+  
+    
+    
+  
+
+  <section class="widget category shadow desktop">
     
   <header>
     
-      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
     
   </header>
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8%E6%B3%9B%E5%9E%8B"><span class="toc-text">为什么要使用泛型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E7%B1%BB"><span class="toc-text">泛型类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E6%96%B9%E6%B3%95"><span class="toc-text">泛型方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E5%8F%98%E9%87%8F%E7%9A%84%E9%99%90%E5%AE%9A"><span class="toc-text">类型变量的限定</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E4%BB%A3%E7%A0%81%E5%92%8C%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-text">泛型代码和虚拟机</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E5%A7%8B%E7%B1%BB%E5%9E%8B"><span class="toc-text">原始类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-text">类型转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A1%A5%E6%96%B9%E6%B3%95"><span class="toc-text">桥方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%A6%E6%9D%9F%E4%B8%8E%E5%B1%80%E9%99%90%E6%80%A7"><span class="toc-text">约束与局限性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%9A%E9%85%8D%E7%AC%A6%E7%B1%BB%E5%9E%8B"><span class="toc-text">通配符类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%90%E7%B1%BB%E5%9E%8B%E9%99%90%E5%AE%9A"><span class="toc-text">子类型限定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B6%85%E7%B1%BB%E5%9E%8B%E9%99%90%E5%AE%9A"><span class="toc-text">超类型限定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E9%99%90%E5%AE%9A%E9%80%9A%E9%85%8D%E7%AC%A6"><span class="toc-text">无限定通配符</span></a></li></ol></li></ol>
+      <ul class="entry navigation">
+        
+          <li><a class="flat-box"
+            title="/blog/categories/01java/" href="/blog/categories/01java/"
+            id="blogcategories01java"
+            ><div class='name'>01java</div><div class='badge'>(33)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/blog/categories/01java/01%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/" href="/blog/categories/01java/01%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/"
+            id="blogcategories01java01E59FBAE69CACE8AEBEE8AEA1"
+            ><div class='name'>01基本设计</div><div class='badge'>(6)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/blog/categories/01java/02%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/" href="/blog/categories/01java/02%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/"
+            id="blogcategories01java02E5AFB9E8B1A1E4B88EE7B1BB"
+            ><div class='name'>02对象与类</div><div class='badge'>(5)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/blog/categories/01java/03%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/" href="/blog/categories/01java/03%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/"
+            id="blogcategories01java03E68EA5E58FA3E38081lambdaE38081E58685E983A8E7B1BB"
+            ><div class='name'>03接口、lambda、内部类</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/blog/categories/01java/04%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/" href="/blog/categories/01java/04%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/"
+            id="blogcategories01java04E5BC82E5B8B8E38081E696ADE8A880E38081E697A5E5BF97"
+            ><div class='name'>04异常、断言、日志</div><div class='badge'>(3)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/blog/categories/01java/05%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E4%B8%8E%E6%B3%A8%E8%A7%A3/" href="/blog/categories/01java/05%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E4%B8%8E%E6%B3%A8%E8%A7%A3/"
+            id="blogcategories01java05E6B39BE59E8BE38081E69E9AE4B8BEE7B1BBE4B88EE6B3A8E8A7A3"
+            ><div class='name'>05泛型、枚举类与注解</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/blog/categories/01java/06%E9%9B%86%E5%90%88/" href="/blog/categories/01java/06%E9%9B%86%E5%90%88/"
+            id="blogcategories01java06E99B86E59088"
+            ><div class='name'>06集合</div><div class='badge'>(6)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/blog/categories/01java/07%E6%96%87%E4%BB%B6%E5%AF%B9%E8%B1%A1/" href="/blog/categories/01java/07%E6%96%87%E4%BB%B6%E5%AF%B9%E8%B1%A1/"
+            id="blogcategories01java07E69687E4BBB6E5AFB9E8B1A1"
+            ><div class='name'>07文件对象</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/blog/categories/01java/08%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/" href="/blog/categories/01java/08%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/"
+            id="blogcategories01java08E5A49AE7BABFE7A88BE4B88EE5B9B6E58F91"
+            ><div class='name'>08多线程与并发</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/blog/categories/01java/09Stream/" href="/blog/categories/01java/09Stream/"
+            id="blogcategories01java09Stream"
+            ><div class='name'>09Stream</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" href="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"
+            id="blogcategories02E695B0E68DAEE7BB93E69E84E4B88EE7AE97E6B395"
+            ><div class='name'>02数据结构与算法</div><div class='badge'>(5)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" href="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"
+            id="blogcategories02E695B0E68DAEE7BB93E69E84E4B88EE7AE97E6B39501E695B0E68DAEE7BB93E69E84"
+            ><div class='name'>01数据结构</div><div class='badge'>(5)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/blog/categories/03%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" href="/blog/categories/03%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"
+            id="blogcategories03E8AEBEE8AEA1E6A8A1E5BC8F"
+            ><div class='name'>03设计模式</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/"
+            id="blogcategories04E695B0E68DAEE5BA93"
+            ><div class='name'>04数据库</div><div class='badge'>(9)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/01MySql/" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/01MySql/"
+            id="blogcategories04E695B0E68DAEE5BA9301MySql"
+            ><div class='name'>01MySql</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/02MyBatis/" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/02MyBatis/"
+            id="blogcategories04E695B0E68DAEE5BA9302MyBatis"
+            ><div class='name'>02MyBatis</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/03%E5%85%B6%E4%BB%96/" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/03%E5%85%B6%E4%BB%96/"
+            id="blogcategories04E695B0E68DAEE5BA9303E585B6E4BB96"
+            ><div class='name'>03其他</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/04redis/" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/04redis/"
+            id="blogcategories04E695B0E68DAEE5BA9304redis"
+            ><div class='name'>04redis</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/blog/categories/05Spring/" href="/blog/categories/05Spring/"
+            id="blogcategories05Spring"
+            ><div class='name'>05Spring</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/blog/categories/05Spring/%E5%85%B6%E4%BB%96/" href="/blog/categories/05Spring/%E5%85%B6%E4%BB%96/"
+            id="blogcategories05SpringE585B6E4BB96"
+            ><div class='name'>其他</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/blog/categories/06%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/" href="/blog/categories/06%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/"
+            id="blogcategories06E8BE85E58AA9E5B7A5E585B7E7B1BB"
+            ><div class='name'>06辅助工具类</div><div class='badge'>(6)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/blog/categories/07DevOps/" href="/blog/categories/07DevOps/"
+            id="blogcategories07DevOps"
+            ><div class='name'>07DevOps</div><div class='badge'>(3)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/blog/categories/07DevOps/01git/" href="/blog/categories/07DevOps/01git/"
+            id="blogcategories07DevOps01git"
+            ><div class='name'>01git</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/blog/categories/07DevOps/02linux/" href="/blog/categories/07DevOps/02linux/"
+            id="blogcategories07DevOps02linux"
+            ><div class='name'>02linux</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/blog/categories/08%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" href="/blog/categories/08%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"
+            id="blogcategories08E8AEA1E7AE97E69CBAE7BD91E7BB9C"
+            ><div class='name'>08计算机网络</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/blog/categories/09%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" href="/blog/categories/09%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"
+            id="blogcategories09E6938DE4BD9CE7B3BBE7BB9F"
+            ><div class='name'>09操作系统</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/blog/categories/09%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/01%E9%94%81/" href="/blog/categories/09%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/01%E9%94%81/"
+            id="blogcategories09E6938DE4BD9CE7B3BBE7BB9F01E99481"
+            ><div class='name'>01锁</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/blog/categories/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/" href="/blog/categories/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/"
+            id="blogcategoriesjavaE59FBAE7A180E99DA2E8AF95E9A298"
+            ><div class='name'>java基础面试题</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/blog/categories/java%E6%A1%86%E6%9E%B6%E9%9D%A2%E8%AF%95%E9%A2%98/" href="/blog/categories/java%E6%A1%86%E6%9E%B6%E9%9D%A2%E8%AF%95%E9%A2%98/"
+            id="blogcategoriesjavaE6A186E69EB6E99DA2E8AF95E9A298"
+            ><div class='name'>java框架面试题</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/blog/categories/%E9%9A%8F%E7%AC%94/" href="/blog/categories/%E9%9A%8F%E7%AC%94/"
+            id="blogcategoriesE99A8FE7AC94"
+            ><div class='name'>随笔</div><div class='badge'>(2)</div></a></li>
+        
+      </ul>
     </div>
   </section>
 
 
   
 
+  
+    
+    
+  
+
+  <section class="widget tagcloud shadow desktop mobile">
+    
+  <header>
+    
+      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <a href="/blog/tags/Base64%E5%B7%A5%E5%85%B7/" style="font-size: 14px; color: #999">Base64工具</a> <a href="/blog/tags/IO%E5%B7%A5%E5%85%B7/" style="font-size: 14px; color: #999">IO工具</a> <a href="/blog/tags/MyBatis/" style="font-size: 16.5px; color: #888">MyBatis</a> <a href="/blog/tags/MySql/" style="font-size: 16.5px; color: #888">MySql</a> <a href="/blog/tags/git/" style="font-size: 16.5px; color: #888">git</a> <a href="/blog/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/blog/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/blog/tags/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java基础面试题</a> <a href="/blog/tags/java%E6%A1%86%E6%9E%B6%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java框架面试题</a> <a href="/blog/tags/linux/" style="font-size: 14px; color: #999">linux</a> <a href="/blog/tags/lombok/" style="font-size: 14px; color: #999">lombok</a> <a href="/blog/tags/oracle/" style="font-size: 19px; color: #777">oracle</a> <a href="/blog/tags/redis/" style="font-size: 16.5px; color: #888">redis</a> <a href="/blog/tags/spring/" style="font-size: 14px; color: #999">spring</a> <a href="/blog/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 14px; color: #999">多线程</a> <a href="/blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 21.5px; color: #666">数据结构</a> <a href="/blog/tags/%E6%97%A5%E6%9C%9F%E5%B7%A5%E5%85%B7%E7%B1%BB/" style="font-size: 14px; color: #999">日期工具类</a> <a href="/blog/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 14px; color: #999">正则表达式</a> <a href="/blog/tags/%E6%B3%A8%E8%A7%A3/" style="font-size: 14px; color: #999">注解</a> <a href="/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/blog/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 16.5px; color: #888">设计模式</a> <a href="/blog/tags/%E9%94%81/" style="font-size: 14px; color: #999">锁</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 16.5px; color: #888">随笔</a> <a href="/blog/tags/%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">雪花算法</a>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+
+<section class="widget shadow desktop article runtime wordcount">
+  
+  <header>
+    
+      <i class="fas fa-award fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
+    
+  </header>
+
+
+  <div class='content'>
+    <div class="webinfo">
+      
+        <div class="webinfo-item">
+          <div>文章数目：</div>
+          <div>65 篇</div>
+        </div>
+      
+
+      
+        <div class="webinfo-item">
+          <div>已运行时间：</div>
+          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
+        </div>
+        <script>
+          var BirthDay = new Date(new Date('2021/07/26'));
+          var today = new Date();
+          var timeold = (today.getTime() - BirthDay.getTime());
+          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
+          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
+        </script>
+      
+
+
+      
+        <div class="webinfo-item">
+          <div>本站总字数：</div>
+          <div>192.8k 字</div>
+        </div>
+      
+
+      
+        <div class="webinfo-item">
+          <div>本站访客数：</div>
+          
+          <div><span id="lc-uv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 人</div>
+          
+        </div>
+      
+
+      
+        <div class="webinfo-item">
+          <div>本站总访问量：</div>
+          
+          <div><span id="lc-sv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 次</div>
+          
+        </div>
+      
+
+      
+        <div class="webinfo-item">
+          <div>最后活动时间：</div>
+          
+            <div id="last-update" style="display: none;">Wed Sep 22 2021 20:15:42 GMT+0800 (中国标准时间)</div>
+            <div id="last-update-show">2021-09-22 日</div>
+          
+        </div>
+        
+        <script>
+          function timeago(dateTimeStamp) {
+              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
+              var hour = minute * 60;
+              var day = hour * 24;
+              var week = day * 7;
+              var month = day * 30;
+              var now = new Date().getTime(); //获取当前时间毫秒
+              var diffValue = now - dateTimeStamp; //时间差
+              if (diffValue < 0) {
+                  return;
+              }
+              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
+              var hourC = diffValue / hour;
+              var dayC = diffValue / day;
+              var weekC = diffValue / week;
+              var monthC = diffValue / month;
+              if (monthC >= 1 && monthC <= 3) {
+                  result = " " + parseInt(monthC) + " 月前"
+              } else if (weekC >= 1 && weekC <= 3) {
+                  result = " " + parseInt(weekC) + " 周前"
+              } else if (dayC >= 1 && dayC <= 6) {
+                  result = " " + parseInt(dayC) + " 天前"
+              } else if (hourC >= 1 && hourC <= 23) {
+                  result = " " + parseInt(hourC) + " 小时前"
+              } else if (minC >= 1 && minC <= 59) {
+                  result = " " + parseInt(minC) + " 分钟前"
+              } else if (diffValue >= 0 && diffValue <= minute) {
+                  result = "刚刚"
+              } else {
+                  var datetime = new Date();
+                  datetime.setTime(dateTimeStamp);
+                  var Nyear = datetime.getFullYear();
+                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
+                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
+                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
+                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
+                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
+                  result = Nyear + "-" + Nmonth + "-" + Ndate
+              }
+              return result;
+          }
+          var lastUpDate = document.getElementById('last-update').innerHTML;
+          try {
+            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
+          } catch (error) {
+            document.getElementById('last-update-show').innerHTML = '2021-09-22 日';
+          }
+        </script>
+        
+      
+    </div>
+  </div>
+</section>
+
+  
+
 
 </aside>
-
 
 
 		  
@@ -826,8 +1049,8 @@ Java泛型（generics）是JDK 5中引入的一个新特性...</p>
 
 <script>
   window.pdata={}
-  pdata.ispage=true;
-  pdata.postTitle="泛型";
+  pdata.ispage=false;
+  pdata.postTitle="";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要

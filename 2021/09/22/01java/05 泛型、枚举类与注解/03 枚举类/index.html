@@ -22,13 +22,11 @@
 
   <!-- 页面元数据 -->
   
-  <title>泛型与序列化 - 灵魂有香气a</title>
+  <title>枚举类 - 灵魂有香气a</title>
   
     <meta name="keywords" content="java">
   
 
-  
-    <meta name="description" content="java介绍">
   
 
   <!-- feed -->
@@ -421,7 +419,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title">
-        泛型与序列化
+        枚举类
       </h1>
       <div class='new-meta-box'>
         
@@ -437,17 +435,17 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2021-07-27 17:52</p>
+    <p>发布于：2021-09-22 19:17</p>
   </a>
 </div>
 
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-31T16:44:07+08:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-22T19:57:13+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021-07-31 16:44</p>
+    <p>更新于：2021-09-22 19:57</p>
   </a>
 </div>
 
@@ -458,7 +456,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="泛型与序列化" data-path="/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/02%20%E6%B3%9B%E5%9E%8B%E4%B8%8E%E5%BA%8F%E5%88%97%E5%8C%96/">
+      <div id="lc-pv" data-title="枚举类" data-path="/blog/2021/09/22/01java/05%20%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E4%B8%8E%E6%B3%A8%E8%A7%A3/03%20%E6%9E%9A%E4%B8%BE%E7%B1%BB/">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -474,13 +472,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>1.4k words</p>
+      <p>1.2k words</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>6 min</p>
+      <p>4 min</p>
     </a>
   </div>
 
@@ -494,125 +492,158 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
   
-  <p>java介绍</p>
-<span id="more"></span>
-
-<h1 id="java泛型"><a href="#java泛型" class="headerlink" title="java泛型"></a>java泛型</h1><blockquote>
-<p>Java泛型方法和泛型类支持程序员使用一个方法指定一组相关方法，或者使用一个类指定一组相关的类型。</p>
-<p>Java泛型（generics）是JDK 5中引入的一个新特性,泛型提供了编译时类型安全检测机制，该机制允许程序员在编译时检测到非法的类型。</p>
-<p> 使用Java泛型的概念，我们可以写一个泛型方法来对一个对象数组排序。然后，调用该泛型方法来对整型数组、浮点数数组、字符串数组等进行排序。</p>
-</blockquote>
-<h2 id="泛型方法"><a href="#泛型方法" class="headerlink" title="泛型方法"></a>泛型方法</h2><blockquote>
-<p>可以写一个方法，该方法在调用时可以接收不同类型的参数。根据传递给泛型方法的参数类型，编译器适当地处理每一个方法调用</p>
-</blockquote>
-<ul>
-<li><p>定义泛型方法的规则</p>
-<ul>
-<li>所有泛型方法声明都有一个参数声明部分（由尖括号分隔），该类型参数声明部分在方法返回类型之前</li>
-<li>每一个类型参数声明部分都包含一个或多个类型参数，参数间用逗号隔开。一个泛型参数，也被称为一个类型变量，是用于指定一个泛型类型名称的标识符。</li>
-<li>类型参数能被用来声明返回值类型，并且能作为泛型方法得到的实际参数类型的占位符</li>
-<li>泛型方法方法体的声明和其他方法一样。</li>
+  <h1 id="枚举类"><a href="#枚举类" class="headerlink" title="枚举类"></a>枚举类</h1><h2 id="枚举类理解"><a href="#枚举类理解" class="headerlink" title="枚举类理解"></a>枚举类理解</h2><ul>
+<li>类的对象只有有限个，确定的。举例如下：<ul>
+<li>星期：Monday(星期一)、…、Sunday(星期天)</li>
+<li>性别：Man(男)、Woman(女)</li>
+<li>季节：Spring(春节)…Winter(冬天)</li>
+<li>支付方式：Cash（现金）、WeChatPay（微信）、Alipay(支付宝)、BankCard(银行卡)、CreditCard(信用卡)</li>
+<li>就职状态：Busy、Free、Vocation、Dimission</li>
+<li>订单状态：Nonpayment（未付款）、Paid（已付款）、Delivered（已发货）、Return（退货）、Checked（已确认）Fulfilled（已配货）、</li>
+<li>线程状态：创建、就绪、运行、阻塞、死亡</li>
 </ul>
-<p><strong>注意：</strong> 类型参数只能代表引用类型，不能是原始类型（像int，double，char等）</p>
+</li>
+<li>当需要定义一组常量时，强烈建议使用枚举类</li>
+<li>枚举类的实现<ul>
+<li>JDK1.5之前需要自定义枚举类</li>
+<li>JDK 1.5 新增的enum 关键字用于定义枚举类</li>
+<li>若枚举只有一个对象, 则可以作为一种单例模式的实现方式。</li>
+</ul>
 </li>
 </ul>
-<pre><code class="java">public class Test&#123;
-    //泛型方法
-    public static &lt;E&gt; void printArray(E[] inputArray)&#123;
-        //输出数组元素
-        for(E element:inputArray)&#123;
-            System.out.printf(&quot;%s &quot;,element);
+<h2 id="自定义枚举类"><a href="#自定义枚举类" class="headerlink" title="自定义枚举类"></a>自定义枚举类</h2><ul>
+<li>枚举类对象的属性不应允许被改动, 所以应该使用<code>private final</code>修饰</li>
+<li>枚举类的使用<code>private final</code> 修饰的属性应该在构造器中为其赋值</li>
+<li>若枚举类显式的定义了带参数的构造器, 则在列出枚举值时也必须对应的传入参数</li>
+</ul>
+<pre><code class="java">class Season&#123;
+    //1.声明Season对象的属性:private final修饰
+    private final String seasonName;
+    private final String seasonDesc;
+
+    //2.私有化类的构造器,并给对象属性赋值
+    private Season(String seasonName,String seasonDesc)&#123;
+        this.seasonName = seasonName;
+        this.seasonDesc = seasonDesc;
+    &#125;
+
+    //3.提供当前枚举类的多个对象
+    public static final Season SPRING = new Season(&quot;春天&quot;,&quot;万物复苏&quot;);
+    public static final Season SUMMER = new Season(&quot;夏天&quot;,&quot;烈日炎炎&quot;);
+    public static final Season AUTUMN = new Season(&quot;秋天&quot;,&quot;金秋送爽&quot;);
+    public static final Season WINTER = new Season(&quot;冬天&quot;,&quot;白雪皑皑&quot;);
+
+    //4.其他诉求：获取枚举类对象的属性
+    public String getSeasonName() &#123;
+        return seasonName;
+    &#125;
+
+    public String getSeasonDesc() &#123;
+        return seasonDesc;
+    &#125;
+
+    //4.其他诉求1：提供toString()
+    @Override
+    public String toString() &#123;
+        return &quot;Season&#123;&quot; +
+                &quot;seasonName=&#39;&quot; + seasonName + &#39;\&#39;&#39; +
+                &quot;, seasonDesc=&#39;&quot; + seasonDesc + &#39;\&#39;&#39; +
+                &#39;&#125;&#39;;
+    &#125;
+&#125;
+</code></pre>
+<blockquote>
+<p>上述定义枚举方式不常用，经常使用的是enum修饰一个类</p>
+</blockquote>
+<h2 id="使用enum关键字定义枚举类"><a href="#使用enum关键字定义枚举类" class="headerlink" title="使用enum关键字定义枚举类"></a>使用enum关键字定义枚举类</h2><ul>
+<li>使用enum定义的枚举类默认继承了java.lang.Enum类，因此不能再继承其他类</li>
+<li>枚举类的构造器只能使用private 权限修饰符</li>
+<li>枚举类的所有实例必须在枚举类中显式列出(, 分隔; 结尾)。列出的实例系统会自动添加public static final 修饰</li>
+<li>必须在枚举类的第一行声明枚举类对象</li>
+</ul>
+<pre><code class="java">public enum Season &#123;
+    //1.提供当前枚举类的对象，多个对象之间用&quot;,&quot;隔开，末尾对象&quot;;&quot;结束
+    SPRING(&quot;春天&quot;, &quot;万物复苏&quot;),
+    SUMMER(&quot;夏天&quot;, &quot;烈日炎炎&quot;),
+    AUTUMN(&quot;秋天&quot;, &quot;金秋送爽&quot;),
+    WINTER(&quot;冬天&quot;, &quot;白雪皑皑&quot;);
+
+    //2.声明Season对象的属性:private final修饰
+    private final String seasonName;
+    private final String seasonDesc;
+
+    //3.私有化类的构造器,并给对象属性赋值
+    private Season(String seasonName, String seasonDesc) &#123;
+        this.seasonName = seasonName;
+        this.seasonDesc = seasonDesc;
+    &#125;
+
+    //4.其他诉求：获取枚举类对象的属性
+    public String getSeasonName() &#123;
+        return seasonName;
+    &#125;
+
+    public String getSeasonDesc() &#123;
+        return seasonDesc;
+    &#125;
+&#125;
+</code></pre>
+<h2 id="枚举中常用方法"><a href="#枚举中常用方法" class="headerlink" title="枚举中常用方法"></a>枚举中常用方法</h2><ul>
+<li><code>values()</code>方法：返回枚举类型的对象数组。该方法可以很方便地遍历所有的枚举值。</li>
+<li><code>valueOf(String str)</code>：可以把一个字符串转为对应的枚举类对象。要求字符串必须是枚举类对象的“名字”。如不是，会有运行时异常：IllegalArgumentException。</li>
+<li><code>toString()</code>：返回当前枚举类对象常量的名称</li>
+</ul>
+<h2 id="自定义枚举实现接口"><a href="#自定义枚举实现接口" class="headerlink" title="自定义枚举实现接口"></a>自定义枚举实现接口</h2><pre><code class="java">interface Info &#123;
+    void show();
+&#125;
+
+public enum Season implements Info&#123;
+    //1.提供当前枚举类的对象，多个对象之间用&quot;,&quot;隔开，末尾对象&quot;;&quot;结束
+    SPRING(&quot;春天&quot;, &quot;万物复苏&quot;)&#123;
+        @Override
+        public void show() &#123;
+            System.out.println(&quot;一元复始、万物复苏&quot;);
         &#125;
-        System.out.println();
+    &#125;,
+    SUMMER(&quot;夏天&quot;, &quot;烈日炎炎&quot;)&#123;
+        @Override
+        public void show() &#123;
+            System.out.println(&quot;蝉声阵阵、烈日当空&quot;);
+        &#125;
+    &#125;,
+    AUTUMN(&quot;秋天&quot;, &quot;金秋送爽&quot;)&#123;
+        @Override
+        public void show() &#123;
+            System.out.println(&quot;天高气清、金桂飘香&quot;);
+        &#125;
+    &#125;,
+    WINTER(&quot;冬天&quot;, &quot;白雪皑皑&quot;)&#123;
+        @Override
+        public void show() &#123;
+            System.out.println(&quot;寒冬腊月、滴水成冰&quot;);
+        &#125;
+    &#125;;
+
+    //2.声明Season对象的属性:private final修饰
+    private final String seasonName;
+    private final String seasonDesc;
+
+    //3.私有化类的构造器,并给对象属性赋值
+    private Season(String seasonName, String seasonDesc) &#123;
+        this.seasonName = seasonName;
+        this.seasonDesc = seasonDesc;
     &#125;
-    public static void main(String[] ages)&#123;
-        //创建不同类型数组
-        Integer[] intArray = &#123;1,2,3,4,5&#125;;
-        Double[] doubleArray = &#123;1.1,2.2,3.3,4.4&#125;;
-        Character[] charArray = &#123;&#39;H&#39;,&#39;E&#39;,&#39;L&#39;,&#39;K&#39;&#125;;
-        System.out.println(&quot;Array integerArray contains:&quot;);
-        printArray(intArray);
-        System.out.println(&quot;Array doubleArray contains:&quot;);
-        printArray(doubleArray);
-        System.out.println(&quot;Array characterArray contains:&quot;);
-        printArray(charArray);
+
+    //4.其他诉求：获取枚举类对象的属性
+    public String getSeasonName() &#123;
+        return seasonName;
     &#125;
-&#125;
-运行结果：
-    Array integerArray contains:
-    1 2 3 4 5
-    Array doubleArray contains:
-    1.1 2.2 3.3 4.4
-    Array characterArray contains:
-    H E L K
-</code></pre>
-<h2 id="有界类型参数"><a href="#有界类型参数" class="headerlink" title="有界类型参数"></a>有界类型参数</h2><blockquote>
-<p>可能有时候，你会想限制那些被允许传递到一个类型参数的类型种类范围。例如，一个操作数字的方法可能只希望接受Number或者Number子类的实例。这就是有界类型参数的目的。</p>
-</blockquote>
-<p>要声明一个有界的类型参数，首先列出类型参数的名称，后跟extends关键字，最后紧跟它的上界。</p>
-<p><strong>实例：</strong></p>
-<p>下面的例子演示了”extends”如何使用在一般意义上的意思”extends”（类）或者”implements”（接口）。该例子中的泛型方法返回三个可比较对象的最大值。 </p>
-<pre><code class="java">public class Test&#123;
-   // 比较三个值并返回最大值
-   public static &lt;T extends Comparable&lt;T&gt;&gt; Tmaximum(T x, T y, T z)&#123;                     
-      T max = x; // 假设x是初始最大值
-      if ( y.compareTo( max ) &gt; 0 )&#123;
-         max = y; //y 更大
-      &#125;
-      if ( z.compareTo( max ) &gt; 0 )&#123;
-         max = z; // 现在 z 更大           
-      &#125;
-      return max; // 返回最大对象
-   &#125;
-   public static void main( String args[] )&#123;
-      System.out.printf( &quot;Max of %d, %d and %d is %d\n\n&quot;,3, 4, 5, maximum( 3, 4, 5 ) );
-         System.out.printf( &quot;Maxm of %.1f,%.1f and %.1f is %.1f\n\n&quot;,6.6, 8.8, 7.7, maximum( 6.6, 8.8, 7.7 ) );
-         System.out.printf( &quot;Max of %s, %s and %s is %s\n&quot;,&quot;pear&quot;,&quot;apple&quot;, &quot;orange&quot;, maximum( &quot;pear&quot;, &quot;apple&quot;, &quot;orange&quot; ) );
-   &#125;
-&#125;
 
-运行结果：
-    Maximum of 3, 4 and 5 is 5
-    Maximum of 6.6, 8.8 and 7.7 is 8.8
-    Maximum of pear, apple and orange is pear
-</code></pre>
-<h2 id="泛型类"><a href="#泛型类" class="headerlink" title="泛型类"></a>泛型类</h2><blockquote>
-<p>泛型类的声明和非泛型类的声明类似，除了在类名后面添加了类型参数声明部分。 </p>
-<p>和泛型方法一样，泛型类的类型参数声明部分也包含一个或多个类型参数，参数间用逗号隔开。一个泛型参数，也被称为一个类型变量，是用于指定一个泛型类型名称的标识符。因为他们接受一个或多个参数，这些类被称为参数化的类或参数化的类型。</p>
-</blockquote>
-<pre><code class="java">public class Box&lt;T&gt; &#123;
+    public String getSeasonDesc() &#123;
+        return seasonDesc;
+    &#125;
 
-  private T t;
-  public void add(T t) &#123;
-    this.t = t;
-  &#125;
- 
-  public T get() &#123;
-    return t;
-  &#125;
- 
-  public static void main(String[] args) &#123;
-     Box&lt;Integer&gt; integerBox = new Box&lt;Integer&gt;();
-     Box&lt;String&gt; stringBox = new Box&lt;String&gt;();
-   
-     integerBox.add(new Integer(10));
-     stringBox.add(new String(&quot;Hello World&quot;));
- 
-     System.out.printf(&quot;Integer Value :%d\n\n&quot;, integerBox.get());
-     System.out.printf(&quot;String Value :%s\n&quot;, stringBox.get());
-  &#125;
 &#125;
-
-运行结果：
-    Integer Value :10
-    String Value :Hello World
-</code></pre>
-<h1 id="Java序列化"><a href="#Java序列化" class="headerlink" title="Java序列化"></a>Java序列化</h1><p>Java 提供了一种对象序列化的机制，该机制中，一个对象可以被表示为一个字节序列，该字节序列包括该对象的数据、有关对象的类型的信息和存储在对象中数据的类型。 </p>
-<p>将序列化对象写入文件之后，可以从文件中读取出来，并且对它进行反序列化，也就是说，对象的类型信息、对象的数据，还有对象中的数据类型可以用来在内存中新建对象。 </p>
-<p>整个过程都是Java虚拟机（JVM）独立的，也就是说，在一个平台上序列化的对象可以在另一个完全不同的平台上反序列化该对象。 </p>
-<p>类<code>ObjectInputStream </code>和<code>ObjectOutputStream</code>是高层次的数据流，它们包含序列化和反序列化对象的方法。 </p>
-<p><code>ObjectOutputStream </code>类包含很多写方法来写各种数据类型，但是一个特别的方法例外：</p>
-<pre><code class="java">public final void writeObject(Object x) throws IOException
 </code></pre>
 
   
@@ -631,7 +662,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>本文永久链接是：<a href=https://zabernism.github.io/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/02%20%E6%B3%9B%E5%9E%8B%E4%B8%8E%E5%BA%8F%E5%88%97%E5%8C%96/>https://zabernism.github.io/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/02%20%E6%B3%9B%E5%9E%8B%E4%B8%8E%E5%BA%8F%E5%88%97%E5%8C%96/</a></p>
+                <p>本文永久链接是：<a href=https://zabernism.github.io/blog/2021/09/22/01java/05%20%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E4%B8%8E%E6%B3%A8%E8%A7%A3/03%20%E6%9E%9A%E4%B8%BE%E7%B1%BB/>https://zabernism.github.io/blog/2021/09/22/01java/05%20%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E4%B8%8E%E6%B3%A8%E8%A7%A3/03%20%E6%9E%9A%E4%B8%BE%E7%B1%BB/</a></p>
               
             
           </blockquote>
@@ -651,17 +682,17 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2021-07-27 17:52</p>
+    <p>发布于：2021-09-22 19:17</p>
   </a>
 </div>
 
         
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-31T16:44:07+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-22T19:57:13+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021-07-31 16:44</p>
+    <p>更新于：2021-09-22 19:57</p>
   </a>
 </div>
 
@@ -675,7 +706,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://zabernism.github.io/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/02%20%E6%B3%9B%E5%9E%8B%E4%B8%8E%E5%BA%8F%E5%88%97%E5%8C%96/&title=泛型与序列化 - 灵魂有香气a&summary=java介绍"
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://zabernism.github.io/blog/2021/09/22/01java/05%20%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E4%B8%8E%E6%B3%A8%E8%A7%A3/03%20%E6%9E%9A%E4%B8%BE%E7%B1%BB/&title=枚举类 - 灵魂有香气a&summary="
           
           >
           
@@ -687,7 +718,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://zabernism.github.io/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/02%20%E6%B3%9B%E5%9E%8B%E4%B8%8E%E5%BA%8F%E5%88%97%E5%8C%96/&title=泛型与序列化 - 灵魂有香气a&summary=java介绍"
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://zabernism.github.io/blog/2021/09/22/01java/05%20%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E4%B8%8E%E6%B3%A8%E8%A7%A3/03%20%E6%9E%9A%E4%B8%BE%E7%B1%BB/&title=枚举类 - 灵魂有香气a&summary="
           
           >
           
@@ -699,7 +730,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://zabernism.github.io/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/02%20%E6%B3%9B%E5%9E%8B%E4%B8%8E%E5%BA%8F%E5%88%97%E5%8C%96/&title=泛型与序列化 - 灵魂有香气a&summary=java介绍"
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://zabernism.github.io/blog/2021/09/22/01java/05%20%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E4%B8%8E%E6%B3%A8%E8%A7%A3/03%20%E6%9E%9A%E4%B8%BE%E7%B1%BB/&title=枚举类 - 灵魂有香气a&summary="
           
           >
           
@@ -713,7 +744,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class='hoverbox'>
           <a class='share'><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg"></a>
           <div class='target'>
-            <img src="data:image/png;base64,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">
+            <img src="data:image/png;base64,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">
           </div>
         </div>
       
@@ -721,7 +752,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-telegram" title="" rel="external nofollow noopener noreferrer noopener"
           
-            target="_blank" href="https://t.me/share/url?url=https://zabernism.github.io/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/02%20%E6%B3%9B%E5%9E%8B%E4%B8%8E%E5%BA%8F%E5%88%97%E5%8C%96/&text=泛型与序列化 - 灵魂有香气a"
+            target="_blank" href="https://t.me/share/url?url=https://zabernism.github.io/blog/2021/09/22/01java/05%20%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E4%B8%8E%E6%B3%A8%E8%A7%A3/03%20%E6%9E%9A%E4%B8%BE%E7%B1%BB/&text=枚举类 - 灵魂有香气a"
           
           >
           
@@ -747,20 +778,23 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/01%20%E6%B3%9B%E5%9E%8B/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>泛型</p>
-          <p class='content'>为什么要使用泛型泛型程序设计意味着编写的代码可以被很多不同的类型的的对象所重用。在java中增加泛型之前，泛型的程序设计是用继承实现的。ArrayList 类只维护一个Object 引用的数组。...</p>
+        <a class='prev' href='/blog/2021/09/22/01java/05%20%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E4%B8%8E%E6%B3%A8%E8%A7%A3/04%20%E6%B3%A8%E8%A7%A3/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>注解</p>
+          <p class='content'>注解注解的理解
+从JDK 5.0 开始, Java 增加了对元数据(MetaData) 的支持, 也就是Annotation(注解)
+Annotation 其实就是代码里的特殊标记, 这些标记可...</p>
         </a>
       
       
-        <a class='next' href='/blog/2021/07/27/01java/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/03%20%E7%B1%BB/'>
-          <p class='title'>修饰符<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>类与对象类类是构造对象的模板。
-由类构造对象的过程称为创建类的实例。
-一个源文件中，只能有一个公共类，类名必须与文件名相同。
-类之间的关系最常见的关系有：
+        <a class='next' href='/blog/2021/09/04/04%20%E6%95%B0%E6%8D%AE%E5%BA%93/04%20redis/01%20redis%E9%94%AE/'>
+          <p class='title'>redis键（KEY）<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>Redis keys 命令[TOC]
+DEL key 该命令用于在key存在时返回删除key
+用于删除已存在的键。不存在的 key 会被忽略。
 
-依赖（uses-a）：一个类的方法需...</p>
+语法
+redis DEL 命令基本语法如下：
+D...</p>
         </a>
       
     </div>
@@ -803,7 +837,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#java%E6%B3%9B%E5%9E%8B"><span class="toc-text">java泛型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E6%96%B9%E6%B3%95"><span class="toc-text">泛型方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%89%E7%95%8C%E7%B1%BB%E5%9E%8B%E5%8F%82%E6%95%B0"><span class="toc-text">有界类型参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E7%B1%BB"><span class="toc-text">泛型类</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Java%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-text">Java序列化</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE%E7%B1%BB"><span class="toc-text">枚举类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE%E7%B1%BB%E7%90%86%E8%A7%A3"><span class="toc-text">枚举类理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9E%9A%E4%B8%BE%E7%B1%BB"><span class="toc-text">自定义枚举类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8enum%E5%85%B3%E9%94%AE%E5%AD%97%E5%AE%9A%E4%B9%89%E6%9E%9A%E4%B8%BE%E7%B1%BB"><span class="toc-text">使用enum关键字定义枚举类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%9A%E4%B8%BE%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">枚举中常用方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9E%9A%E4%B8%BE%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3"><span class="toc-text">自定义枚举实现接口</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -822,7 +856,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <script>
   window.pdata={}
   pdata.ispage=true;
-  pdata.postTitle="泛型与序列化";
+  pdata.postTitle="枚举类";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要

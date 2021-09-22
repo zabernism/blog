@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -24,7 +22,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>Category: 05泛型 - 灵魂有香气a</title>
+  <title>注解 - 灵魂有香气a</title>
+  
+    <meta name="keywords" content="java">
   
 
   
@@ -377,7 +377,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper  dock' style="display: ;">
+        <div id="half" class='cover-wrapper post dock' style="display: ;">
           
             <div id='cover-backstretch'></div>
           
@@ -408,131 +408,297 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
-
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
+
+
+  
+  <div class="article-meta" id="top">
     
-      
-  <section class="post-list">
     
-      
+    
+      <h1 class="title">
+        注解
+      </h1>
+      <div class='new-meta-box'>
         
+          
+            
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/blog/tags/java/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>java</p></a></div>
+
+
           
         
           
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2021-09-22 19:56</p>
+  </a>
+</div>
+
+          
         
-      
-    
-    
-      
+          
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-22T20:12:46+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2021-09-22 20:12</p>
+  </a>
+</div>
+
+          
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/01%20%E6%B3%9B%E5%9E%8B/">
-        泛型
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
       
-        为什么要使用泛型泛型程序设计意味着编写的代码可以被很多不同的类型的的对象所重用。在java中增加泛型之前，泛型的程序设计是用继承实现的。ArrayList 类只维护一个Object 引用的数组。
-public class ArrayList&#123;
-    private Object[] elementData;
-    private Object get(int i)&#123;....
-      
-    
+      <div id="lc-pv" data-title="注解" data-path="/blog/2021/09/22/01java/05%20%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E4%B8%8E%E6%B3%A8%E8%A7%A3/04%20%E6%B3%A8%E8%A7%A3/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+
+
+          
         
           
-          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/05%E6%B3%9B%E5%9E%8B/">05泛型</a>
+            
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fas fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>765 words</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fas fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>2 min</p>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  
+  <h1 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h1><h2 id="注解的理解"><a href="#注解的理解" class="headerlink" title="注解的理解"></a>注解的理解</h2><ul>
+<li>从JDK 5.0 开始, Java 增加了对元数据(MetaData) 的支持, 也就是Annotation(注解)</li>
+<li>Annotation 其实就是代码里的特殊标记, 这些标记可以在编译, 类加载, 运行时被读取, 并执行相应的处理。通过使用Annotation, 程序员可以在不改变原有逻辑的情况下, 在源文件中嵌入一些补充信息。代码分析工具、开发工具和部署工具可以通过这些补充信息进行验证或者进行部署。</li>
+<li>Annotation 可以像修饰符一样被使用, 可用于修饰<strong>包,类, 构造器, 方法, 成员变量, 参数, 局部变量的声明</strong>, 这些信息被保存在Annotation 的“name=value” 对中。<br>在JavaSE中，注解的使用目的比较简单，例如标记过时的功能，忽略警告等。在JavaEE/Android中注解占据了更重要的角色，例如用来配置应用程序的任何切面，代替JavaEE旧版中所遗留的繁冗代码和XML配置等。</li>
+<li>未来的开发模式都是基于注解的，JPA是基于注解的，Spring2.5以上都是基于注解的，Hibernate3.x以后也是基于注解的，现在的Struts2有一部分也是基于注解的了，注解是一种趋势，一定程度上可以说：框架= 注解+ 反射+ 设计模式。</li>
+</ul>
+<h2 id="Annotation的使用示例"><a href="#Annotation的使用示例" class="headerlink" title="Annotation的使用示例"></a>Annotation的使用示例</h2><ul>
+<li><p>使用Annotation 时要在其前面增加@ 符号, 并把该Annotation 当成一个修饰符使用。用于修饰它支持的程序元素</p>
+</li>
+<li><p>示例一：生成文档相关的注解</p>
+<ul>
+<li>@author标明开发该类模块的作者，多个作者之间使用,分割</li>
+<li>@version标明该类模块的版本</li>
+<li>@see参考转向，也就是相关主题</li>
+<li>@since从哪个版本开始增加的</li>
+<li>@param对方法中某参数的说明，如果没有参数就不能写</li>
+<li>@return对方法返回值的说明，如果方法的返回值类型是void就不能写</li>
+<li>@exception对方法可能抛出的异常进行说明，如果方法没有用throws显式抛出的异常就不能写其中</li>
+</ul>
+<blockquote>
+<p>@param@return和@exception这三个标记都是只用于方法的。</p>
+<ul>
+<li>@param的格式要求：@param形参名形参类型形参说明</li>
+<li>@return的格式要求：@return返回值类型返回值说明</li>
+<li>@exception的格式要求：@exception异常类型异常说明</li>
+<li>@param和@exception可以并列多个</li>
+</ul>
+</blockquote>
+</li>
+<li><p>示例二：在编译时进行格式检查(JDK内置的三个基本注解)</p>
+<ul>
+<li>@Override: 限定重写父类方法, 该注解只能用于方法</li>
+<li>@Deprecated: 用于表示所修饰的元素(类, 方法等)已过时。通常是因为所修饰的结构危险或存在更好的选择</li>
+<li>@SuppressWarnings: 抑制编译器警告</li>
+</ul>
+</li>
+<li><p>示例三：跟踪代码依赖性，实现替代配置文件功能</p>
+<ul>
+<li>Servlet3.0提供了注解(annotation),使得不再需要在web.xml文件中进行Servlet的部署。</li>
+<li>spring框架中关于“事务”的管理</li>
+</ul>
+</li>
+</ul>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/01%20%E6%B3%9B%E5%9E%8B/'>
-            Read More
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://zabernism.github.io/blog/2021/09/22/01java/05%20%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E4%B8%8E%E6%B3%A8%E8%A7%A3/04%20%E6%B3%A8%E8%A7%A3/>https://zabernism.github.io/blog/2021/09/22/01java/05%20%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E4%B8%8E%E6%B3%A8%E8%A7%A3/04%20%E6%B3%A8%E8%A7%A3/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2021-09-22 19:56</p>
+  </a>
 </div>
 
-          </div>
         
       
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/02%20%E6%B3%9B%E5%9E%8B%E4%B8%8E%E5%BA%8F%E5%88%97%E5%8C%96/">
-        泛型与序列化
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>java介绍</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-22T20:12:46+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2021-09-22 20:12</p>
+  </a>
+</div>
+
+        
+      
         
           
-          <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'></a>
-        
-        <time>2021-07-27</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/blog/categories/01java/">01java</a><span class="sep"></span><a class="category-link" href="/blog/categories/01java/05%E6%B3%9B%E5%9E%8B/">05泛型</a>
-        
-      </div>
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
       
-        <div>
-          <a class='readmore' href='/blog/2021/07/27/01java/05%20%E6%B3%9B%E5%9E%8B/02%20%E6%B3%9B%E5%9E%8B%E4%B8%8E%E5%BA%8F%E5%88%97%E5%8C%96/'>
-            Read More
-          </a>
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://zabernism.github.io/blog/2021/09/22/01java/05%20%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E4%B8%8E%E6%B3%A8%E8%A7%A3/04%20%E6%B3%A8%E8%A7%A3/&title=注解 - 灵魂有香气a&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://zabernism.github.io/blog/2021/09/22/01java/05%20%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E4%B8%8E%E6%B3%A8%E8%A7%A3/04%20%E6%B3%A8%E8%A7%A3/&title=注解 - 灵魂有香气a&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://zabernism.github.io/blog/2021/09/22/01java/05%20%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E4%B8%8E%E6%B3%A8%E8%A7%A3/04%20%E6%B3%A8%E8%A7%A3/&title=注解 - 灵魂有香气a&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg">
+          
+        </a>
+      
+    
+      
+        
+        <div class='hoverbox'>
+          <a class='share'><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg"></a>
+          <div class='target'>
+            <img src="data:image/png;base64,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">
+          </div>
         </div>
+      
+    
+      
+        <a class="-mob-share-telegram" title="" rel="external nofollow noopener noreferrer noopener"
+          
+            target="_blank" href="https://t.me/share/url?url=https://zabernism.github.io/blog/2021/09/22/01java/05%20%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E4%B8%8E%E6%B3%A8%E8%A7%A3/04%20%E6%B3%A8%E8%A7%A3/&text=注解 - 灵魂有香气a"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/telegram.png" class="lazyload placeholder" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/telegram.png" srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/blog/2021/09/22/01java/05%20%E6%B3%9B%E5%9E%8B%E3%80%81%E6%9E%9A%E4%B8%BE%E7%B1%BB%E4%B8%8E%E6%B3%A8%E8%A7%A3/03%20%E6%9E%9A%E4%B8%BE%E7%B1%BB/'>
+          <p class='title'>枚举类<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>枚举类枚举类理解
+类的对象只有有限个，确定的。举例如下：
+星期：Monday(星期一)、…、Sunday(星期天)
+性别：Man(男)、Woman(女)
+季节：Spring(春节)…Winter...</p>
+        </a>
       
     </div>
   
+</article>
 
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-          </div>
-        
-      
-    
-  </section>
-  
-    
-  
+  </article>
 
 
-    
-  
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -540,397 +706,28 @@ public class ArrayList&#123;
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box circle' href='/blog/about/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/code-xiaozhuang/image@main/img/20210731154922.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">灵魂有香气a</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/blog/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:2715852599@qq.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/zabernism/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/blog/movies"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/blog/categories/01java/" href="/blog/categories/01java/"
-            id="blogcategories01java"
-            ><div class='name'>01java</div><div class='badge'>(31)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/01java/01%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/" href="/blog/categories/01java/01%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/"
-            id="blogcategories01java01E59FBAE69CACE8AEBEE8AEA1"
-            ><div class='name'>01基本设计</div><div class='badge'>(6)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/01java/02%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/" href="/blog/categories/01java/02%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/"
-            id="blogcategories01java02E5AFB9E8B1A1E4B88EE7B1BB"
-            ><div class='name'>02对象与类</div><div class='badge'>(5)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/01java/03%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/" href="/blog/categories/01java/03%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB/"
-            id="blogcategories01java03E68EA5E58FA3E38081lambdaE38081E58685E983A8E7B1BB"
-            ><div class='name'>03接口、lambda、内部类</div><div class='badge'>(4)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/01java/04%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/" href="/blog/categories/01java/04%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97/"
-            id="blogcategories01java04E5BC82E5B8B8E38081E696ADE8A880E38081E697A5E5BF97"
-            ><div class='name'>04异常、断言、日志</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/01java/05%E6%B3%9B%E5%9E%8B/" href="/blog/categories/01java/05%E6%B3%9B%E5%9E%8B/"
-            id="blogcategories01java05E6B39BE59E8B"
-            ><div class='name'>05泛型</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/01java/06%E9%9B%86%E5%90%88/" href="/blog/categories/01java/06%E9%9B%86%E5%90%88/"
-            id="blogcategories01java06E99B86E59088"
-            ><div class='name'>06集合</div><div class='badge'>(6)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/01java/07%E6%96%87%E4%BB%B6%E5%AF%B9%E8%B1%A1/" href="/blog/categories/01java/07%E6%96%87%E4%BB%B6%E5%AF%B9%E8%B1%A1/"
-            id="blogcategories01java07E69687E4BBB6E5AFB9E8B1A1"
-            ><div class='name'>07文件对象</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/01java/08%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/" href="/blog/categories/01java/08%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8E%E5%B9%B6%E5%8F%91/"
-            id="blogcategories01java08E5A49AE7BABFE7A88BE4B88EE5B9B6E58F91"
-            ><div class='name'>08多线程与并发</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/01java/09Stream/" href="/blog/categories/01java/09Stream/"
-            id="blogcategories01java09Stream"
-            ><div class='name'>09Stream</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" href="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"
-            id="blogcategories02E695B0E68DAEE7BB93E69E84E4B88EE7AE97E6B395"
-            ><div class='name'>02数据结构与算法</div><div class='badge'>(5)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" href="/blog/categories/02%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"
-            id="blogcategories02E695B0E68DAEE7BB93E69E84E4B88EE7AE97E6B39501E695B0E68DAEE7BB93E69E84"
-            ><div class='name'>01数据结构</div><div class='badge'>(5)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/blog/categories/03%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" href="/blog/categories/03%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"
-            id="blogcategories03E8AEBEE8AEA1E6A8A1E5BC8F"
-            ><div class='name'>03设计模式</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/"
-            id="blogcategories04E695B0E68DAEE5BA93"
-            ><div class='name'>04数据库</div><div class='badge'>(9)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/01MySql/" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/01MySql/"
-            id="blogcategories04E695B0E68DAEE5BA9301MySql"
-            ><div class='name'>01MySql</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/02MyBatis/" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/02MyBatis/"
-            id="blogcategories04E695B0E68DAEE5BA9302MyBatis"
-            ><div class='name'>02MyBatis</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/03%E5%85%B6%E4%BB%96/" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/03%E5%85%B6%E4%BB%96/"
-            id="blogcategories04E695B0E68DAEE5BA9303E585B6E4BB96"
-            ><div class='name'>03其他</div><div class='badge'>(4)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/04redis/" href="/blog/categories/04%E6%95%B0%E6%8D%AE%E5%BA%93/04redis/"
-            id="blogcategories04E695B0E68DAEE5BA9304redis"
-            ><div class='name'>04redis</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/blog/categories/05Spring/" href="/blog/categories/05Spring/"
-            id="blogcategories05Spring"
-            ><div class='name'>05Spring</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/05Spring/%E5%85%B6%E4%BB%96/" href="/blog/categories/05Spring/%E5%85%B6%E4%BB%96/"
-            id="blogcategories05SpringE585B6E4BB96"
-            ><div class='name'>其他</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/blog/categories/06%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/" href="/blog/categories/06%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/"
-            id="blogcategories06E8BE85E58AA9E5B7A5E585B7E7B1BB"
-            ><div class='name'>06辅助工具类</div><div class='badge'>(6)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/blog/categories/07DevOps/" href="/blog/categories/07DevOps/"
-            id="blogcategories07DevOps"
-            ><div class='name'>07DevOps</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/07DevOps/01git/" href="/blog/categories/07DevOps/01git/"
-            id="blogcategories07DevOps01git"
-            ><div class='name'>01git</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/07DevOps/02linux/" href="/blog/categories/07DevOps/02linux/"
-            id="blogcategories07DevOps02linux"
-            ><div class='name'>02linux</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/blog/categories/08%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" href="/blog/categories/08%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"
-            id="blogcategories08E8AEA1E7AE97E69CBAE7BD91E7BB9C"
-            ><div class='name'>08计算机网络</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/blog/categories/09%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" href="/blog/categories/09%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"
-            id="blogcategories09E6938DE4BD9CE7B3BBE7BB9F"
-            ><div class='name'>09操作系统</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/blog/categories/09%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/01%E9%94%81/" href="/blog/categories/09%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/01%E9%94%81/"
-            id="blogcategories09E6938DE4BD9CE7B3BBE7BB9F01E99481"
-            ><div class='name'>01锁</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/blog/categories/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/" href="/blog/categories/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/"
-            id="blogcategoriesjavaE59FBAE7A180E99DA2E8AF95E9A298"
-            ><div class='name'>java基础面试题</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/blog/categories/java%E6%A1%86%E6%9E%B6%E9%9D%A2%E8%AF%95%E9%A2%98/" href="/blog/categories/java%E6%A1%86%E6%9E%B6%E9%9D%A2%E8%AF%95%E9%A2%98/"
-            id="blogcategoriesjavaE6A186E69EB6E99DA2E8AF95E9A298"
-            ><div class='name'>java框架面试题</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/blog/categories/%E9%9A%8F%E7%AC%94/" href="/blog/categories/%E9%9A%8F%E7%AC%94/"
-            id="blogcategoriesE99A8FE7AC94"
-            ><div class='name'>随笔</div><div class='badge'>(2)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%A8%E8%A7%A3"><span class="toc-text">注解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E8%A7%A3%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">注解的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Annotation%E7%9A%84%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"><span class="toc-text">Annotation的使用示例</span></a></li></ol></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/blog/tags/Base64%E5%B7%A5%E5%85%B7/" style="font-size: 14px; color: #999">Base64工具</a> <a href="/blog/tags/IO%E5%B7%A5%E5%85%B7/" style="font-size: 14px; color: #999">IO工具</a> <a href="/blog/tags/MyBatis/" style="font-size: 16.5px; color: #888">MyBatis</a> <a href="/blog/tags/MySql/" style="font-size: 16.5px; color: #888">MySql</a> <a href="/blog/tags/git/" style="font-size: 16.5px; color: #888">git</a> <a href="/blog/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/blog/tags/java/" style="font-size: 24px; color: #555">java</a> <a href="/blog/tags/java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java基础面试题</a> <a href="/blog/tags/java%E6%A1%86%E6%9E%B6%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 14px; color: #999">java框架面试题</a> <a href="/blog/tags/linux/" style="font-size: 14px; color: #999">linux</a> <a href="/blog/tags/lombok/" style="font-size: 14px; color: #999">lombok</a> <a href="/blog/tags/oracle/" style="font-size: 19px; color: #777">oracle</a> <a href="/blog/tags/redis/" style="font-size: 16.5px; color: #888">redis</a> <a href="/blog/tags/spring/" style="font-size: 14px; color: #999">spring</a> <a href="/blog/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 14px; color: #999">多线程</a> <a href="/blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 21.5px; color: #666">数据结构</a> <a href="/blog/tags/%E6%97%A5%E6%9C%9F%E5%B7%A5%E5%85%B7%E7%B1%BB/" style="font-size: 14px; color: #999">日期工具类</a> <a href="/blog/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 14px; color: #999">正则表达式</a> <a href="/blog/tags/%E6%B3%A8%E8%A7%A3/" style="font-size: 14px; color: #999">注解</a> <a href="/blog/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 14px; color: #999">计算机网络</a> <a href="/blog/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 16.5px; color: #888">设计模式</a> <a href="/blog/tags/%E9%94%81/" style="font-size: 14px; color: #999">锁</a> <a href="/blog/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 16.5px; color: #888">随笔</a> <a href="/blog/tags/%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95/" style="font-size: 14px; color: #999">雪花算法</a>
-    </div>
-  </section>
-
-
-  
-
-  
-    
-    
-
-<section class="widget shadow desktop article runtime wordcount">
-  
-  <header>
-    
-      <i class="fas fa-award fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>63 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
-        </div>
-        <script>
-          var BirthDay = new Date(new Date('2021/07/26'));
-          var today = new Date();
-          var timeold = (today.getTime() - BirthDay.getTime());
-          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
-          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
-        </script>
-      
-
-
-      
-        <div class="webinfo-item">
-          <div>本站总字数：</div>
-          <div>190.8k 字</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站访客数：</div>
-          
-          <div><span id="lc-uv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 人</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站总访问量：</div>
-          
-          <div><span id="lc-sv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 次</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>最后活动时间：</div>
-          
-            <div id="last-update" style="display: none;">Fri Sep 10 2021 13:59:06 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2021-09-10 日</div>
-          
-        </div>
-        
-        <script>
-          function timeago(dateTimeStamp) {
-              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
-              var hour = minute * 60;
-              var day = hour * 24;
-              var week = day * 7;
-              var month = day * 30;
-              var now = new Date().getTime(); //获取当前时间毫秒
-              var diffValue = now - dateTimeStamp; //时间差
-              if (diffValue < 0) {
-                  return;
-              }
-              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
-              var hourC = diffValue / hour;
-              var dayC = diffValue / day;
-              var weekC = diffValue / week;
-              var monthC = diffValue / month;
-              if (monthC >= 1 && monthC <= 3) {
-                  result = " " + parseInt(monthC) + " 月前"
-              } else if (weekC >= 1 && weekC <= 3) {
-                  result = " " + parseInt(weekC) + " 周前"
-              } else if (dayC >= 1 && dayC <= 6) {
-                  result = " " + parseInt(dayC) + " 天前"
-              } else if (hourC >= 1 && hourC <= 23) {
-                  result = " " + parseInt(hourC) + " 小时前"
-              } else if (minC >= 1 && minC <= 59) {
-                  result = " " + parseInt(minC) + " 分钟前"
-              } else if (diffValue >= 0 && diffValue <= minute) {
-                  result = "刚刚"
-              } else {
-                  var datetime = new Date();
-                  datetime.setTime(dateTimeStamp);
-                  var Nyear = datetime.getFullYear();
-                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
-                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
-                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-                  result = Nyear + "-" + Nmonth + "-" + Ndate
-              }
-              return result;
-          }
-          var lastUpDate = document.getElementById('last-update').innerHTML;
-          try {
-            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
-          } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2021-09-10 日';
-          }
-        </script>
-        
-      
-    </div>
-  </div>
-</section>
 
   
 
 
 </aside>
+
 
 
 		  
@@ -939,8 +736,8 @@ public class ArrayList&#123;
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="注解";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
