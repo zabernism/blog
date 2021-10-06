@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>灵魂有香气a</title>
+  
+  
+  <link href="https://zabernism.github.io/blog/atom.xml" rel="self"/>
+  
+  <link href="https://zabernism.github.io/blog/"/>
+  <updated>2021-09-30T09:51:52.600Z</updated>
+  <id>https://zabernism.github.io/blog/</id>
+  
+  <author>
+    <name>张帅</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>lombok使用</title>
+    <link href="https://zabernism.github.io/blog/2021/09/06/fu-zhu-gong-ju-lei/lombok-shi-yong/"/>
+    <id>https://zabernism.github.io/blog/2021/09/06/fu-zhu-gong-ju-lei/lombok-shi-yong/</id>
+    <published>2021-09-06T11:52:00.000Z</published>
+    <updated>2021-09-30T09:51:52.600Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Lombok是一个可以通过简单的注解形式来帮助我们简化消除一些必须有但显得很臃肿的Java代码的工具，通过使用对应的注解，可以在编译源码的时候生成对应的方法。&lt;/p&gt;
+&lt;h1 id=&quot;Lombok学习&quot;&gt;&lt;a href=&quot;#Lombok学习&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="辅助工具类" scheme="https://zabernism.github.io/blog/categories/%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/"/>
+    
+    
+    <category term="辅助工具类" scheme="https://zabernism.github.io/blog/tags/%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/"/>
+    
+    <category term="lombok使用" scheme="https://zabernism.github.io/blog/tags/lombok%E4%BD%BF%E7%94%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>IO工具</title>
+    <link href="https://zabernism.github.io/blog/2021/09/04/fu-zhu-gong-ju-lei/io-gong-ju/"/>
+    <id>https://zabernism.github.io/blog/2021/09/04/fu-zhu-gong-ju-lei/io-gong-ju/</id>
+    <published>2021-09-04T11:52:00.000Z</published>
+    <updated>2021-09-30T09:51:52.600Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;pre class=&quot;line-numbers language-java&quot; data-language=&quot;java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="辅助工具类" scheme="https://zabernism.github.io/blog/categories/%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/"/>
+    
+    
+    <category term="辅助工具类" scheme="https://zabernism.github.io/blog/tags/%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/"/>
+    
+    <category term="IO工具" scheme="https://zabernism.github.io/blog/tags/IO%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Base64工具</title>
+    <link href="https://zabernism.github.io/blog/2021/09/03/fu-zhu-gong-ju-lei/base64-gong-ju/"/>
+    <id>https://zabernism.github.io/blog/2021/09/03/fu-zhu-gong-ju-lei/base64-gong-ju/</id>
+    <published>2021-09-03T11:52:00.000Z</published>
+    <updated>2021-09-30T09:51:52.597Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;pre class=&quot;line-numbers language-java&quot; data-language=&quot;java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="辅助工具类" scheme="https://zabernism.github.io/blog/categories/%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/"/>
+    
+    
+    <category term="辅助工具类" scheme="https://zabernism.github.io/blog/tags/%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/"/>
+    
+    <category term="Base64工具" scheme="https://zabernism.github.io/blog/tags/Base64%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>手机号校验</title>
+    <link href="https://zabernism.github.io/blog/2021/08/30/fu-zhu-gong-ju-lei/shou-ji-hao-xiao-yan/"/>
+    <id>https://zabernism.github.io/blog/2021/08/30/fu-zhu-gong-ju-lei/shou-ji-hao-xiao-yan/</id>
+    <published>2021-08-30T11:52:00.000Z</published>
+    <updated>2021-09-30T09:51:52.601Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;pre class=&quot;line-numbers language-java&quot; data-language=&quot;java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="辅助工具类" scheme="https://zabernism.github.io/blog/categories/%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/"/>
+    
+    
+    <category term="辅助工具类" scheme="https://zabernism.github.io/blog/tags/%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/"/>
+    
+    <category term="手机号校验" scheme="https://zabernism.github.io/blog/tags/%E6%89%8B%E6%9C%BA%E5%8F%B7%E6%A0%A1%E9%AA%8C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Elasticsearch前置知识</title>
+    <link href="https://zabernism.github.io/blog/2021/08/30/shu-ju-ku/nosql/elasticsearch-qian-zhi-zhi-shi/"/>
+    <id>https://zabernism.github.io/blog/2021/08/30/shu-ju-ku/nosql/elasticsearch-qian-zhi-zhi-shi/</id>
+    <published>2021-08-30T02:52:00.000Z</published>
+    <updated>2021-09-30T09:51:52.603Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Elasticsearch前置知识&quot;&gt;&lt;a href=&quot;#Elasticsearch前置知识&quot; class=&quot;headerlink&quot; title=&quot;Elasticsearch前置知识&quot;&gt;&lt;/a&gt;Elasticsearch前置知识&lt;/h1&gt;&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://zabernism.github.io/blog/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="数据库" scheme="https://zabernism.github.io/blog/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="NoSql" scheme="https://zabernism.github.io/blog/tags/NoSql/"/>
+    
+    <category term="Elasticsearch前置知识" scheme="https://zabernism.github.io/blog/tags/Elasticsearch%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>分布式主键生成器～雪花算法</title>
+    <link href="https://zabernism.github.io/blog/2021/08/29/fu-zhu-gong-ju-lei/shi-jian-gong-ju-lei/"/>
+    <id>https://zabernism.github.io/blog/2021/08/29/fu-zhu-gong-ju-lei/shi-jian-gong-ju-lei/</id>
+    <published>2021-08-29T11:52:00.000Z</published>
+    <updated>2021-09-30T09:51:52.601Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;pre class=&quot;line-numbers language-java&quot; data-language=&quot;java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="辅助工具类" scheme="https://zabernism.github.io/blog/categories/%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/"/>
+    
+    
+    <category term="辅助工具类" scheme="https://zabernism.github.io/blog/tags/%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/"/>
+    
+    <category term="时间工具类" scheme="https://zabernism.github.io/blog/tags/%E6%97%B6%E9%97%B4%E5%B7%A5%E5%85%B7%E7%B1%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>分布式主键生成器～雪花算法</title>
+    <link href="https://zabernism.github.io/blog/2021/08/29/fu-zhu-gong-ju-lei/fen-bu-shi-zhu-jian-sheng-cheng-qi-xue-hua-suan-fa/"/>
+    <id>https://zabernism.github.io/blog/2021/08/29/fu-zhu-gong-ju-lei/fen-bu-shi-zhu-jian-sheng-cheng-qi-xue-hua-suan-fa/</id>
+    <published>2021-08-29T10:52:00.000Z</published>
+    <updated>2021-09-30T09:51:52.600Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;pre class=&quot;line-numbers language-java&quot; data-language=&quot;java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation</summary>
+        
+      
+    
+    
+    
+    <category term="辅助工具类" scheme="https://zabernism.github.io/blog/categories/%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/"/>
+    
+    
+    <category term="辅助工具类" scheme="https://zabernism.github.io/blog/tags/%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/"/>
+    
+    <category term="分布式主键生成器～雪花算法" scheme="https://zabernism.github.io/blog/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%BB%E9%94%AE%E7%94%9F%E6%88%90%E5%99%A8%EF%BD%9E%E9%9B%AA%E8%8A%B1%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>redis数据类型</title>
+    <link href="https://zabernism.github.io/blog/2021/08/28/shu-ju-ku/nosql/redis-shu-ju-lei-xing/"/>
+    <id>https://zabernism.github.io/blog/2021/08/28/shu-ju-ku/nosql/redis-shu-ju-lei-xing/</id>
+    <published>2021-08-28T10:52:00.000Z</published>
+    <updated>2021-09-30T09:51:52.603Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Redis-数据类型&quot;&gt;&lt;a href=&quot;#Redis-数据类型&quot; class=&quot;headerlink&quot; title=&quot;Redis 数据类型&quot;&gt;&lt;/a&gt;Redis</summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://zabernism.github.io/blog/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="数据库" scheme="https://zabernism.github.io/blog/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="NoSql" scheme="https://zabernism.github.io/blog/tags/NoSql/"/>
+    
+    <category term="redis数据类型" scheme="https://zabernism.github.io/blog/tags/redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>redis键</title>
+    <link href="https://zabernism.github.io/blog/2021/08/28/shu-ju-ku/nosql/redis-jian/"/>
+    <id>https://zabernism.github.io/blog/2021/08/28/shu-ju-ku/nosql/redis-jian/</id>
+    <published>2021-08-28T02:52:00.000Z</published>
+    <updated>2021-09-30T09:51:52.604Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Redis-keys-命令&quot;&gt;&lt;a href=&quot;#Redis-keys-命令&quot; class=&quot;headerlink&quot; title=&quot;Redis keys 命令&quot;&gt;&lt;/a&gt;Redis keys 命令&lt;/h2&gt;&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://zabernism.github.io/blog/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="数据库" scheme="https://zabernism.github.io/blog/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="NoSql" scheme="https://zabernism.github.io/blog/tags/NoSql/"/>
+    
+    <category term="redis键" scheme="https://zabernism.github.io/blog/tags/redis%E9%94%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SQl中where与having的区别</title>
+    <link href="https://zabernism.github.io/blog/2021/08/18/shu-ju-ku/mysql/sql-zhong-where-yu-having-de-qu-bie/"/>
+    <id>https://zabernism.github.io/blog/2021/08/18/shu-ju-ku/mysql/sql-zhong-where-yu-having-de-qu-bie/</id>
+    <published>2021-08-18T02:52:00.000Z</published>
+    <updated>2021-09-30T09:51:52.604Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;where和having的区别&quot;&gt;&lt;a href=&quot;#where和having的区别&quot; class=&quot;headerlink&quot; title=&quot;where和having的区别&quot;&gt;&lt;/a&gt;where和having的区别&lt;/h1&gt;&lt;p&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://zabernism.github.io/blog/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="数据库" scheme="https://zabernism.github.io/blog/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="Mysql" scheme="https://zabernism.github.io/blog/tags/Mysql/"/>
+    
+    <category term="SQl中where与having的区别" scheme="https://zabernism.github.io/blog/tags/SQl%E4%B8%ADwhere%E4%B8%8Ehaving%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>oracle创建用户并指定表空间</title>
+    <link href="https://zabernism.github.io/blog/2021/08/18/shu-ju-ku/oracle/oracle-chuang-jian-yong-hu-bing-zhi-ding-biao-kong-jian/"/>
+    <id>https://zabernism.github.io/blog/2021/08/18/shu-ju-ku/oracle/oracle-chuang-jian-yong-hu-bing-zhi-ding-biao-kong-jian/</id>
+    <published>2021-08-18T02:52:00.000Z</published>
+    <updated>2021-09-30T10:47:21.913Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;创建表空间&quot;&gt;&lt;a href=&quot;#创建表空间&quot; class=&quot;headerlink&quot; title=&quot;创建表空间&quot;&gt;&lt;/a&gt;创建表空间&lt;/h1&gt;&lt;pre class=&quot;line-numbers language-sql&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://zabernism.github.io/blog/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="数据库" scheme="https://zabernism.github.io/blog/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="Oracle" scheme="https://zabernism.github.io/blog/tags/Oracle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>oracle11g在windows10环境下完全卸载</title>
+    <link href="https://zabernism.github.io/blog/2021/08/18/shu-ju-ku/oracle/oracle11g-zai-windows10-huan-jing-xia-wan-quan-xie-zai/"/>
+    <id>https://zabernism.github.io/blog/2021/08/18/shu-ju-ku/oracle/oracle11g-zai-windows10-huan-jing-xia-wan-quan-xie-zai/</id>
+    <published>2021-08-18T02:52:00.000Z</published>
+    <updated>2021-09-30T10:47:17.768Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-停止所有oracle相关的服务&quot;&gt;&lt;a href=&quot;#1-停止所有oracle相关的服务&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://zabernism.github.io/blog/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="数据库" scheme="https://zabernism.github.io/blog/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="Oracle" scheme="https://zabernism.github.io/blog/tags/Oracle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MyBatis学习笔记</title>
+    <link href="https://zabernism.github.io/blog/2021/08/17/shu-ju-ku/mybatis/mybatis-xue-xi-bi-ji/"/>
+    <id>https://zabernism.github.io/blog/2021/08/17/shu-ju-ku/mybatis/mybatis-xue-xi-bi-ji/</id>
+    <published>2021-08-17T02:52:00.000Z</published>
+    <updated>2021-09-30T09:51:52.603Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;MyBatis学习笔记&quot;&gt;&lt;a href=&quot;#MyBatis学习笔记&quot; class=&quot;headerlink&quot; title=&quot;MyBatis学习笔记&quot;&gt;&lt;/a&gt;MyBatis学习笔记&lt;/h1&gt;&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://zabernism.github.io/blog/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="数据库" scheme="https://zabernism.github.io/blog/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="MyBatis" scheme="https://zabernism.github.io/blog/tags/MyBatis/"/>
+    
+    <category term="MyBatis学习笔记" scheme="https://zabernism.github.io/blog/tags/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MyBatis-plus</title>
+    <link href="https://zabernism.github.io/blog/2021/08/16/shu-ju-ku/mybatis/mybatis-plus/"/>
+    <id>https://zabernism.github.io/blog/2021/08/16/shu-ju-ku/mybatis/mybatis-plus/</id>
+    <published>2021-08-16T02:52:00.000Z</published>
+    <updated>2021-09-30T09:51:52.606Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;入门&quot;&gt;&lt;a href=&quot;#入门&quot; class=&quot;headerlink&quot; title=&quot;入门&quot;&gt;&lt;/a&gt;入门&lt;/h1&gt;&lt;h2 id=&quot;特性&quot;&gt;&lt;a href=&quot;#特性&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://zabernism.github.io/blog/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="数据库" scheme="https://zabernism.github.io/blog/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="MyBatis-plus" scheme="https://zabernism.github.io/blog/tags/MyBatis-plus/"/>
+    
+    <category term="MyBatis-plus入门" scheme="https://zabernism.github.io/blog/tags/MyBatis-plus%E5%85%A5%E9%97%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySql优化</title>
+    <link href="https://zabernism.github.io/blog/2021/08/15/shu-ju-ku/mysql/mysql-you-hua/"/>
+    <id>https://zabernism.github.io/blog/2021/08/15/shu-ju-ku/mysql/mysql-you-hua/</id>
+    <published>2021-08-15T02:52:00.000Z</published>
+    <updated>2021-09-30T09:51:52.607Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;说起MySQL的查询优化，相信大家积累一堆技巧：不能使用&lt;code&gt;SELECT *&lt;/code&gt;、不使用NULL字段、合理创建索引、为字段选择合适的数据类型…..</summary>
+        
+      
+    
+    
+    
+    <category term="数据库" scheme="https://zabernism.github.io/blog/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="数据库" scheme="https://zabernism.github.io/blog/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="Mysql" scheme="https://zabernism.github.io/blog/tags/Mysql/"/>
+    
+    <category term="MySql优化" scheme="https://zabernism.github.io/blog/tags/MySql%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring注解</title>
+    <link href="https://zabernism.github.io/blog/2021/08/13/spring/spring-zhu-jie/"/>
+    <id>https://zabernism.github.io/blog/2021/08/13/spring/spring-zhu-jie/</id>
+    <published>2021-08-13T02:52:00.000Z</published>
+    <updated>2021-09-30T09:51:52.572Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;注解&quot;&gt;&lt;a href=&quot;#注解&quot; class=&quot;headerlink&quot; title=&quot;注解&quot;&gt;&lt;/a&gt;注解&lt;/h1&gt;&lt;h2 id=&quot;JsonProperty&quot;&gt;&lt;a href=&quot;#JsonProperty&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Spring" scheme="https://zabernism.github.io/blog/categories/Spring/"/>
+    
+    
+    <category term="java" scheme="https://zabernism.github.io/blog/tags/java/"/>
+    
+    <category term="Spring" scheme="https://zabernism.github.io/blog/tags/Spring/"/>
+    
+    <category term="Spring注解" scheme="https://zabernism.github.io/blog/tags/Spring%E6%B3%A8%E8%A7%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>单例模式</title>
+    <link href="https://zabernism.github.io/blog/2021/08/11/she-ji-mo-shi/dan-li-mo-shi/"/>
+    <id>https://zabernism.github.io/blog/2021/08/11/she-ji-mo-shi/dan-li-mo-shi/</id>
+    <published>2021-08-11T02:52:00.000Z</published>
+    <updated>2021-09-30T09:51:52.602Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;单例设计模式&quot;&gt;&lt;a href=&quot;#单例设计模式&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="设计模式" scheme="https://zabernism.github.io/blog/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+    <category term="java" scheme="https://zabernism.github.io/blog/tags/java/"/>
+    
+    <category term="设计模式" scheme="https://zabernism.github.io/blog/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    <category term="单例模式" scheme="https://zabernism.github.io/blog/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>概述与分类</title>
+    <link href="https://zabernism.github.io/blog/2021/08/10/she-ji-mo-shi/gai-shu-yu-fen-lei/"/>
+    <id>https://zabernism.github.io/blog/2021/08/10/she-ji-mo-shi/gai-shu-yu-fen-lei/</id>
+    <published>2021-08-10T02:52:00.000Z</published>
+    <updated>2021-09-30T09:51:52.602Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;设计模式概述&quot;&gt;&lt;a href=&quot;#设计模式概述&quot; class=&quot;headerlink&quot; title=&quot;设计模式概述&quot;&gt;&lt;/a&gt;设计模式概述&lt;/h1&gt;&lt;h2 id=&quot;概念和意义&quot;&gt;&lt;a href=&quot;#概念和意义&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="设计模式" scheme="https://zabernism.github.io/blog/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+    <category term="java" scheme="https://zabernism.github.io/blog/tags/java/"/>
+    
+    <category term="设计模式" scheme="https://zabernism.github.io/blog/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+    <category term="概述与分类" scheme="https://zabernism.github.io/blog/tags/%E6%A6%82%E8%BF%B0%E4%B8%8E%E5%88%86%E7%B1%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>浅谈各种锁机制</title>
+    <link href="https://zabernism.github.io/blog/2021/08/08/java-jin-jie/qian-tan-ge-chong-suo-ji-zhi/"/>
+    <id>https://zabernism.github.io/blog/2021/08/08/java-jin-jie/qian-tan-ge-chong-suo-ji-zhi/</id>
+    <published>2021-08-08T01:52:00.000Z</published>
+    <updated>2021-09-30T09:51:52.580Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;锁&quot;&gt;&lt;a href=&quot;#锁&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="java进阶" scheme="https://zabernism.github.io/blog/categories/java%E8%BF%9B%E9%98%B6/"/>
+    
+    
+    <category term="java" scheme="https://zabernism.github.io/blog/tags/java/"/>
+    
+    <category term="多线程" scheme="https://zabernism.github.io/blog/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    
+    <category term="浅谈各种锁机制" scheme="https://zabernism.github.io/blog/tags/%E6%B5%85%E8%B0%88%E5%90%84%E7%A7%8D%E9%94%81%E6%9C%BA%E5%88%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>快速排序</title>
+    <link href="https://zabernism.github.io/blog/2021/08/07/shu-ju-jie-gou-yu-suan-fa/kuai-su-pai-xu/"/>
+    <id>https://zabernism.github.io/blog/2021/08/07/shu-ju-jie-gou-yu-suan-fa/kuai-su-pai-xu/</id>
+    <published>2021-08-07T02:52:00.000Z</published>
+    <updated>2021-09-30T09:51:52.574Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;pre class=&quot;line-numbers language-java&quot; data-language=&quot;java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;package&lt;/span&gt; &lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="数据结构与算法" scheme="https://zabernism.github.io/blog/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="java" scheme="https://zabernism.github.io/blog/tags/java/"/>
+    
+    <category term="数据结构与算法" scheme="https://zabernism.github.io/blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="快速排序" scheme="https://zabernism.github.io/blog/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
+  
+</feed>
